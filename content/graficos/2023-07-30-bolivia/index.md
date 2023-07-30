@@ -1,0 +1,10 @@
+---
+title: Bolivia
+author: Bernal Mauricio
+date: '2023-07-30'
+slug: []
+categories: []
+tags: []
+draft: yes
+---
+

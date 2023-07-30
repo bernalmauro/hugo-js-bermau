@@ -15,7 +15,7 @@ enableRobotsTXT = true
   logo = ""
   images = ["/images/site-feature-image.jpg"]
   enable_nested_menu = true
-  mainSections = ["graficos", 'blog']
+  mainSections = ["graficos", "blog"]
 
 
 
@@ -34,7 +34,6 @@ enableRobotsTXT = true
     url = "/graficos/"
     identifier = "graficos"
     weight = 200
-      
 [[menu.main]]
     identifier = "biblioteca"
     name = "Biblioteca"
@@ -46,5 +45,6 @@ enableRobotsTXT = true
 [markup.highlight]
 codeFences = false
 
-[markup.goldmark.renderer]
-unsafe = true
+[markup.goldmark]
+  [markup.goldmark.renderer]
+    unsafe = true
