@@ -1,0 +1,23 @@
+<div class="container-fluid" style="color:#eee;background-color: #282C34;">
+  <h4 class="text-end">Información Económica por Países</h4>
+
+  <div class="dropdown-center d-flex dropend">
+      <a class="btn btn-secondary dropdown-toggle w-50" 
+      href="#" 
+      role="button" 
+      data-bs-toggle="dropdown"
+      aria-expan  ded="false" style="color:#eee;background-color: #282C34;">
+        Buscar...
+      </a>
+      <ul class="dropdown-menu w-50">
+        <li><a class="dropdown-item" href="{{ absURL "/graficos/bolivia" }}">Bolivia</a></li>
+      </ul>
+    </div>
+</div>
+
+
+<select  class="select_0" id="select_1">
+  {{ range .Site.Data.countries.country }}
+  <option value="{{ .abrev }}">{{ .name | humanize }}</option>
+  {{ end }}
+  </select>

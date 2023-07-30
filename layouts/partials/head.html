@@ -1,0 +1,38 @@
+<head>
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <meta charset="utf-8">
+    <meta name="description"  content='{{ .Param "Description" }}' />
+     
+    <meta name="dc.relation" content="{{ .Site.BaseURL }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <!-- Tema  -->
+    <link rel="stylesheet" href="{{ "/css/styles.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
+    
+    <!-- Bootstrap  -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  
+  
+
+    
+
+    <!-- 
+        include a favicon for your site if you have it, else omit the line below 
+        Location of favicon can be in mytheme/static/images/favicon.ico
+    -->
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+
+      <!-- will load json/ld depending on page type-->
+      {{ if and (.IsPage) (eq .Section "blog") }}
+         {{- partial "articleschema.html" .  -}}
+      {{ end }}
+
+      {{ template "_internal/opengraph.html" . }}
+    
+      {{ template "_internal/twitter_cards.html" . }}
+   
+
+</head>

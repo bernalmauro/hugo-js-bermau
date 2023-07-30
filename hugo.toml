@@ -1,0 +1,50 @@
+baseURL = "https://bernalmauricio.netlify.app/"
+languageCode = "en-us"
+title = "Bernal Mauricio"
+name = "Bernal Mauricio"
+googleAnalytics = ""
+disqusShortname = ""
+ignoreFiles = [ "\\.Rmd$", "\\.Rmarkdown$", "_cache$" ]
+footnotereturnlinkcontents = "↩"
+enableRobotsTXT = true
+
+
+[params]
+  author = "Misael Mauricio Bernal Ramos"
+  description = "Sitio dedicado a la difusión de gráficos, tablas y demás elementos interactivos relacionados con la Economía, además de difundir Escuela Austriaca de Economía y Liberalismo"
+  logo = ""
+  images = ["/images/site-feature-image.jpg"]
+  enable_nested_menu = true
+  mainSections = ["graficos", 'blog']
+
+
+
+[frontmatter]
+  date = ["date", "publishDate", "lastmod"]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
+
+[menu]
+[[menu.main]]
+    identifier = "blog"
+    name = "Blog"
+    url = "/blog/"
+    weight = 100
+[[menu.main]]
+    name = "Gráficos"
+    url = "/graficos/"
+    identifier = "graficos"
+    weight = 200
+      
+[[menu.main]]
+    identifier = "biblioteca"
+    name = "Biblioteca"
+    url = "/biblioteca/"
+    weight = 300
+
+
+[markup]
+[markup.highlight]
+codeFences = false
+
+[markup.goldmark.renderer]
+unsafe = true

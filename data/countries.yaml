@@ -1,0 +1,42 @@
+country:
+  - name: Argentina
+    abrev: arg
+  - name: Bolivia
+    abrev: bol
+  - name: Brasil
+    abrev: bra
+  - name: Chile
+    abrev: chi  
+  - name: Colombia
+    abrev: col  
+  - name: Costa Rica
+    abrev: cos
+  - name: Cuba
+    abrev: cub
+  - name: Ecuador
+    abrev: ecu
+  - name: El Salvador
+    abrev: sal
+  - name: Guatemala
+    abrev: gua  
+  - name: Haiti
+    abrev: hai
+  - name: Honduras
+    abrev: hon  
+  - name: México
+    abrev: mex
+  - name: Nicaragua
+    abrev: nic
+  - name: Panamá
+    abrev: pan
+  - name: Paraguay
+    abrev: par
+  - name: Perú
+    abrev: per
+  - name: República Dominicana
+    abrev: rdo
+  - name: Uruguay
+    abrev: uru
+  - name: Venezuela
+    abrev: ven
+  
