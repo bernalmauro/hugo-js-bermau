@@ -8,3 +8,10 @@ tags: []
 draft: yes
 ---
 
+```{r}
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+
+```
+
