@@ -1,6 +1,10 @@
 <div class="container-fluid" style="color:#eee;background-color: #282C34;">
   <h4 class="text-end">Información Económica por Países</h4>
-  <select style="color:#eee;background-color: #282C34;" class="menus form-select form-select-sm" onchange= "location = this.value;">  
+  <select 
+    aria-label="Small select example"
+    style="color:#eee;background-color: #282C34;" 
+    class="menus form-select form-select-sm" 
+    onchange= "location = this.value;">  
     {{ range .Site.Data.countries.country }}
     <option value="{{ .abrev }}">{{ .name | humanize }}</option>
     {{ end }}
