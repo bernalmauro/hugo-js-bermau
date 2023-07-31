@@ -96,7 +96,7 @@ tr:nth-child(even) {
 }
 
 /* dropdown */
-.dropdown-menu{
+.dropdown-menu {
   background-color: #282C34 !important;
   text-align: center !important;
   border-color: #abb2bf !important;
@@ -110,4 +110,9 @@ tr:nth-child(even) {
 .breadcrumb-item+.breadcrumb-item::before {
   color: #abb2bf !important;
 }
+/* Formulario de selección-países */
 
+.form-select {
+  background-color: #282C34 !important;
+  color: #eee !important;
+}
