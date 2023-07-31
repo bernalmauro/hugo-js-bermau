@@ -5,7 +5,8 @@ date: '2023-07-30'
 slug: []
 categories: []
 tags: []
-draft: yes
+draft: false
+url: "graficos/bolivia"
 ---
 
 <script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
