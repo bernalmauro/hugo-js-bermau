@@ -8,13 +8,13 @@ tags: []
 draft: false
 url: "graficos/bolivia"
 ---
-```{r echo=false include=false}
+```{r, echo=FALSE}
 library(dygraphs)
 lungDeaths <- cbind(mdeaths, fdeaths)
 digra<-dygraph(lungDeaths)
 
 ```
 
-```{r, echo=FALSE}
-1 + 1
+```{r}
+digra
 ```

@@ -1,7 +1,7 @@
 ---
 title: Bolivia
 author: Bernal Mauricio
-date: "2023-07-30"
+date: '2023-07-30'
 slug: []
 categories: []
 tags: []
@@ -20,9 +20,7 @@ url: "graficos/bolivia"
 <script src="{{< blogdown/postref >}}index_files/dygraphs-binding/dygraphs.js"></script>
 
 ``` r
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths)
+digra
 ```
 
 <div class="dygraphs html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1" style="width:672px;height:480px;"></div>
