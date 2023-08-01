@@ -1,19 +1,8 @@
 {{ define "main" }}
 
-<div class="container-fluid pb-5" style="color:#eee;background-color: #282C34;">
-  <h4 class="text-center">Información Económica por Países</h4>
-  <select 
-    class="form-select form-select-sm d-flex" aria-label="Small select example" 
-    onchange= "location = this.value;">  
-    {{ range .Site.Data.countries.country }}
-    <option value="{{ .abrev }}">{{ .name | humanize }}</option>
-    {{ end }}
-  </select>
-</div>
 
 <div class="container-fluid pb-5">
   {{ .Content }}
 </div>
 
-{{ partial "flexdashboard" . }}
 {{ end }}
