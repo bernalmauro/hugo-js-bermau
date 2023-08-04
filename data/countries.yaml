@@ -1,5 +1,7 @@
 country:
   - name: Bolivia
-    abrev: graficos?bol
+    abrev: bol
+  - name: Argentina
+    abrev: arg
   
   

@@ -1,23 +1,66 @@
 <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="#">Active</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
-      </ul>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-    </li>
-  </ul>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ .Site.BaseURL }}">Bernal Mauricio</a>
+    <ul class="nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+          aria-expanded="false">Instituto de Estadística</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Banco
+          Central</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+          aria-expanded="false">Ministerio de Economía</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
+      </li>
+    </ul>
+    <select class="d-flex form-select-sm" aria-label="Small select example" id="select_country">
+      <option selected>Seleccione un país</option>
+      {{ range .Site.Data.countries.country }}
+      <option value="{{ .abrev }}">{{ .name }}</option>
+      {{ end }}
+    </select> 
+    <script>
+      $(function(){
+          $('#select_country').on('change', function () {
+              var id = $(this).val(); // get selected value
+              if (id) { 
+                  window.location = "/graficos/"+id+""; 
+              }
+              return false;
+          });
+        });
+    </script>
+  </div>
+  
+  
 </nav>
+
