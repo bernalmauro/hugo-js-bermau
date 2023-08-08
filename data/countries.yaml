@@ -1,7 +1,7 @@
 country:
-  - name: argentina
-    value: arg
-  - name: bolivia
-    value: bol
+  - name: Argentina
+    value: argentina
+  - name: Bolivia
+    value: bolivia
   
   

@@ -44,7 +44,7 @@
     </ul>
     <select class="menu_top d-flex form-select-sm" aria-label="Small select example" id="mySelect">
       {{ range .Site.Data.countries.country }}
-      <option value="{{ .abrev }}" data-url="http://localhost:1313/graficos/{{ .name }}" >{{ .name }}</option>
+      <option value="{{ .value }}" data-url="http://localhost:1313/graficos/{{ .value }}" >{{ .name }}</option>
       {{ end }}
     </select> 
     </div>
