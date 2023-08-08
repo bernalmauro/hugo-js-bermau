@@ -1,8 +1,6 @@
 ---
 title: "Bolivia"
 draft: false
-featuredImage:
-author: "Misael Mauricio Bernal Ramos"
 menu:
   main:
     identifier: "graficos"

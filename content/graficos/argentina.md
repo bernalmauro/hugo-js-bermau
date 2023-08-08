@@ -1,8 +1,6 @@
 ---
 title: "Argentina"
 draft: false
-featuredImage:
-author: "Misael Mauricio Bernal Ramos"
 menu:
   main:
     identifier: "graficos"
@@ -10,4 +8,4 @@ menu:
     parent: ""
 ---
 
-# Blog Contents Argentina
+# Blog Contents Argentina 
