@@ -44,7 +44,7 @@
     </ul>
     <select class="menu_top d-flex form-select-sm" aria-label="Small select example" id="mySelect">
       {{ range .Site.Data.countries.country }}
-      <option value="{{ .value }}" data-url="http://localhost:1313/graficos/{{ .value }}" >{{ .name }}</option>
+      <option value="{{ .value }}" data-url="https://hugo-js-bermau.netlify.app/graficos/{{ .value }}" >{{ .name }}</option>
       {{ end }}
     </select> 
     </div>
@@ -55,8 +55,8 @@
 <script>
 
   $(function() {
-    loadPage("http://localhost:1313/graficos/argentina");
-    loadPage("http://localhost:1313/graficos/bolivia");
+    loadPage("https://hugo-js-bermau.netlify.app/graficos/argentina");
+    loadPage("https://hugo-js-bermau.netlify.app/graficos/bolivia");
   
     $('#mySelect').on('change', function() {
       loadPage($(this).find(':selected').data('url'));
