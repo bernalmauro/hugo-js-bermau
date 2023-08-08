@@ -42,25 +42,30 @@
         </ul>
       </li>
     </ul>
-    <select class="d-flex form-select-sm" aria-label="Small select example" id="select_country">
-      <option selected>Seleccione un país</option>
+    <select class="menu_top d-flex form-select-sm" aria-label="Small select example" id="mySelect">
       {{ range .Site.Data.countries.country }}
-      <option value="{{ .abrev }}">{{ .name }}</option>
+      <option value="{{ .abrev }}" data-url="http://localhost:1313/graficos/{{ .name }}" >{{ .name }}</option>
       {{ end }}
     </select> 
-    <script>
-      $(function(){
-          $('#select_country').on('change', function () {
-              var id = $(this).val(); // get selected value
-              if (id) { 
-                  window.location = "/graficos/"+id+""; 
-              }
-              return false;
-          });
-        });
-    </script>
-  </div>
-  
-  
+    </div>
 </nav>
+<div id="page"></div>
 
+
+<script>
+
+  $(function() {
+    loadPage("http://localhost:1313/graficos/argentina");
+    loadPage("http://localhost:1313/graficos/bolivia");
+  
+    $('#mySelect').on('change', function() {
+      loadPage($(this).find(':selected').data('url'));
+      //OR
+      // $("#page").load( $(this).find(':selected').data('url') );
+    });
+  });
+  
+  function loadPage(url) {
+    $("#page").load(url);
+  }
+</script>
