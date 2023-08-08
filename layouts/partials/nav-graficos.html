@@ -4,7 +4,7 @@
       <select class=custom-select  style="width: 200px" id="select">
       <option value="#" >Selecciona un país</option>  
       {{ range .Site.Data.countries.country }}
-      <option value="{{ .value }}" data-url="http://localhost:1313/graficos/{{ .value }}/" >{{ .name }}</option>
+      <option value="{{ .value }}" data-url="/graficos/{{ .value }}/" >{{ .name }}</option>
       {{ end }}
     </select> 
   </div>

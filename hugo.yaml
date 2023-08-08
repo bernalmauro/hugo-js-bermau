@@ -1,0 +1,53 @@
+baseURL: 'https://hugo-js-bermau.netlify.app/'
+languageCode: en-us
+title: Bernal Mauricio
+googleAnalytics: G-VKZTVP9H01
+disqusShortname: ''
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+footnotereturnlinkcontents: ↩
+enableRobotsTXT: true
+params:
+  author: Misael Mauricio Bernal Ramos
+  description: >-
+    Sitio dedicado a la difusión de gráficos, tablas y demás elementos
+    interactivos relacionados con la Economía, además de difundir Escuela
+    Austriaca de Economía y Liberalismo
+  logo: 'https://hugo-js-bermau.netlify.app/images/logo.png'
+  images:
+    - /images/site-feature-image.jpg
+  enable_nested_menu: true
+  mainSections:
+    - graficos
+    - blog
+    - biblioteca
+frontmatter:
+  date:
+    - date
+    - publishDate
+    - lastmod
+  lastmod:
+    - lastmod
+    - ':fileModTime'
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 100
+    - identifier: biblioteca
+      name: Biblioteca
+      url: /biblioteca/
+      weight: 200
+    - identifier: graficos
+      name: Gráficos
+      url: /graficos/
+      weight: 300
+markup:
+  highlight:
+    codeFences: false
+  goldmark:
+    renderer:
+      unsafe: true

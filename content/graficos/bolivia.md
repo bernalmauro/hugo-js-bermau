@@ -8,4 +8,4 @@ menu:
     parent: ""
 ---
 
-# Blog Contents Bolivia
+# Blog Contents Bolivias
