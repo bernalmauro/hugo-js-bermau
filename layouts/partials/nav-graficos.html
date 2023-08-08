@@ -42,9 +42,9 @@
         </ul>
       </li>
     </ul>
-    <select class="menu_top d-flex form-select-sm" aria-label="Small select example" id="mySelect">
+    <select class="form-control input-sm"  id="mySelect" style="width: 300px">
       {{ range .Site.Data.countries.country }}
-      <option value="{{ .value }}" data-url="https://hugo-js-bermau.netlify.app/graficos/{{ .value }}" >{{ .name }}</option>
+      <option value="{{ .value }}" data-url="http://localhost:1313/graficos/{{ .value }}" >{{ .name }}</option>
       {{ end }}
     </select> 
     </div>
@@ -55,9 +55,10 @@
 <script>
 
   $(function() {
-    loadPage("https://hugo-js-bermau.netlify.app/graficos/argentina");
-    loadPage("https://hugo-js-bermau.netlify.app/graficos/bolivia");
-  
+    {{ range .Site.Data.countries.country }}
+    loadPage("http://localhost:1313/graficos/{{ .value }}");
+    {{ end }}
+
     $('#mySelect').on('change', function() {
       loadPage($(this).find(':selected').data('url'));
       //OR
