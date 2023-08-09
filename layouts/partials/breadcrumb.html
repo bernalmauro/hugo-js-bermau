@@ -3,7 +3,7 @@
     {{ define "breadcrumb" }}
     {{ with .Parent }}
         {{ template "breadcrumb" . }}
-        <li class="breadcrumb-item" > <a href="{{ .Permalink }}">{{ if .IsHome }}Inicio{{ else }}{{ .Title }}{{ end }}</a> </li>
+        <li class="breadcrumb-item" ><a href="{{ .Permalink }}">{{ if .IsHome }} Inicio {{ else }}{{ .Title }}{{ end }}</a></li>
     {{ end }}
     {{ end }}
     {{ if not .IsHome }}

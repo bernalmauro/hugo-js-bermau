@@ -6,8 +6,9 @@ output:
     fig_height: 4
 ---
 ```{r }
-
 library(dygraphs)
 dygraph(nhtemp, main = "New Haven as Temperatures")
 ```
-
+```{r }
+2+2
+```

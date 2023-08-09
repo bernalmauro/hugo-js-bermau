@@ -1,9 +1,10 @@
 {{ define "main" }}
 
-<div class="container pb-5" id="page">
+<div class="container pb-5">
 
   {{ .Content }}
   
 </div>
 
+{{ partial "socialshare" . }}
 {{ end }}
