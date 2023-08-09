@@ -1,93 +1,62 @@
 /* Tema Predeterminado */
-
 body a {
 	color: #eee !important;
 }
-
 body code {
 	color: #eee !important;
 }
-
 /* header and footer areas */
 .menu {
 	padding: 0;
 }
-
 .menu li {
 	display: inline-block;
 	color: #eee !important;
 }
-
 .article-meta,
 .menu a {
 	text-decoration: none;
 	background: #eee;
-
 }
-
 .menu,
 .article-meta,
 footer {
 	text-align: center;
 }
-
 .title {
-
 	color: red;
 }
-
 footer a {
 	text-decoration: none;
 }
-
 hr {
 	border-style: dashed;
 	color: #ddd;
 }
-
 /* code */
 pre {
-
-
 	overflow-x: auto;
 }
-
 code {
-
 	color: #abb2bf;
-
 }
-
 pre code {
 	background: none;
-
 }
-
 main {
 	hyphens: auto;
 }
-
 blockquote {
 	background: #f9f9f9;
-
-
 }
-
 table {
 	margin: auto;
-
-
 }
-
-
-
 thead,
 tfoot,
 tr:nth-child(even) {
 	background: #eee;
 }
-
-
 /* nav.html */
 .navbar,
 .navbar-dark,
@@ -95,110 +64,78 @@ body {
 	background-color: #282C34 !important;
 	color: #abb2bf !important;
 }
-
 /* dropdown */
 .dropdown-menu {
 	background-color: #282C34 !important;
 	text-align: center !important;
 	border-color: #abb2bf !important;
 }
-
 .dropdown-item {
 	background-color: #282C34 !important;
 	text-align: center;
 }
-
 /* breadcrumb.html */
 .breadcrumb-item+.breadcrumb-item::before {
 	color: #abb2bf !important;
 }
-
 /* Formulario de selección-países */
-
 .form-select {
 	background-color: #282C34 !important;
 	color: #eee !important;
 	text-align: center !important;
 }
-
-/* Blog-Artículos */
-.div-col {
-	background-color: #282C34 !important;
-}
-
 /* Biblioteca-List */
 .card {
 	background-color: #212529 !important;
 	color: #abb2bf !important;
-
 }
-
 .card-title {
 	color: #eee !important;
 }
-
 .btn-primary {
 	background-color: #212529 !important;
 	color: #abb2bf !important;
 	border-color: darkgray !important;
 }
-
-
-
-
-
-
-
 /* Socialshare Partial */
-
 .social-share {
 	position: relative;
 	top: -0.5em;
 }
-
 .social-share ul {
 	margin: 0;
 }
-
 .social-share ul li p {
 	display: none;
 }
-
 .social-share .share-icons li {
 	padding: 0 !important;
 	padding-bottom: 10px !important;
 }
-
 .social-share .share-btn {
 	padding: 0.25em;
 	width: 3em;
 }
-
 .social-share-nav .share-btn h3 {
 	color: #ffffff;
 }
-
 ul.share-icons {
 	cursor: default;
 	list-style: none;
 	padding-left: 0;
 	margin-top: 1em;
 }
-
 ul.share-icons li {
 	display: inline-block;
 	padding: 0 1em 0 0;
 }
-
 ul.share-icons li:last-child {
 	padding-right: 0;
 }
-
 ul.share-icons li>* {
 	text-decoration: none;
 	border: 0;
 }
-
 ul.share-icons li>*:before {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -207,11 +144,9 @@ ul.share-icons li>*:before {
 	font-weight: normal;
 	text-transform: none !important;
 }
-
 ul.share-icons li>* .label {
 	display: none;
 }
-
 .share-btn {
 	display: inline-block;
 	color: #ffffff;
@@ -222,11 +157,9 @@ ul.share-icons li>* .label {
 	text-align: center;
 	text-decoration: none;
 }
-
 .share-btn:hover {
 	color: #ffffff !important;
 }
-
 .share-btn:active {
 	position: relative;
 	top: 2px;
@@ -234,76 +167,57 @@ ul.share-icons li>* .label {
 	color: #e2e2e2;
 	outline: none;
 }
-
 .share-btn .widget-social__link-icon {
 	margin: 0;
 }
-
 .share-btn.twitter {
 	background: #55acee;
 }
-
 .share-btn.google-plus {
 	background: #dd4b39;
 }
-
 .share-btn.facebook {
 	background: #3B5998;
 }
-
 .share-btn.linkedin {
 	background: #4875B4;
 }
-
 .share-btn.stumbleupon {
 	background: #EB4823;
 }
-
 .share-btn.pinterest {
 	background: #BD081C;
 }
-
 .share-btn.reddit {
 	background: #ff5700;
 }
-
 .share-btn.email {
 	background: #444444;
 }
-
 .share-btn.whatsapp {
 	background: #25d366;
 }
-
-
 .share-btn.twitter:hover {
 	background: #4c9ad6;
 }
-
 .share-btn.google-plus:hover {
 	background: #c64333;
 }
-
 .share-btn.facebook:hover {
 	background: #2f4779;
 }
-
 .share-btn.linkedin:hover {
 	background: #4069a2;
 }
-
 .share-btn.stumbleupon:hover {
 	background: #d3401f;
 }
-
 .share-btn.pinterest:hover {
 	background: #AD0000;
 }
-
 .share-btn.reddit:hover {
 	background: #e54e00;
 }
-
 .share-btn.email:hover {
 	background: #363636;
 }
