@@ -23,6 +23,9 @@ params:
     - graficos
     - blog
     - biblioteca
+  footer: >-
+    &copy; 2017 -- {Year} | [Facebook](https://www.facebook.com/bernalmauri) |
+    [Twitter](https://twitter.com/_bernalmauricio) |
 frontmatter:
   date:
     - date
@@ -51,3 +54,7 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2

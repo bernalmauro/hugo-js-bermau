@@ -1,0 +1,12 @@
+---
+title: Bolivia
+output:
+  html_document:
+    fig_width: 6
+    fig_height: 4
+---
+```{r }
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+```

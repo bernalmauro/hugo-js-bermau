@@ -15,7 +15,35 @@ logo = "https://hugo-js-bermau.netlify.app/images/logo.png"
 images = ["/images/site-feature-image.jpg"]
 enable_nested_menu = true
 mainSections = ["graficos", "blog", "biblioteca"]
+footer = "&copy; 2017 -- {Year} | Bernal Mauricio."
+twitter = "_bernalmauricio"
+facebook = "bernalmauri"
 
+
+ # Social Icons
+  [[params.social]]
+    name = "twitter"
+    url = "https://twitter.com/"
+  [[params.social]]
+    name = "facebook"
+    url = "https://facebook.com/"
+  [[params.social]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/"
+  [[params.social]]
+    name = "whatsapp"
+    url = "https://www.whatsapp.com/"
+  [[params.social]]
+    name = "email"
+    url = "https://www.gmail.com/"
+
+
+
+[Params.social.share]
+  facebook = true
+  twitter = true
+  whatsapp = true
+  email = true
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
@@ -45,3 +73,8 @@ codeFences = false
 [markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
+
+[markup.tableOfContents]
+ endLevel = 3
+ ordered = false
+ startLevel = 2
