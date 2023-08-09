@@ -4,11 +4,9 @@ output:
   html_document:
     fig_width: 6
     fig_height: 4
+socialshare: true
 ---
 ```{r }
 library(dygraphs)
 dygraph(nhtemp, main = "New Haven as Temperatures")
-```
-```{r }
-2+2
 ```
