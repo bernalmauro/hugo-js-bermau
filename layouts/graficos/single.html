@@ -1,4 +1,5 @@
 {{ define "main" }}
+
   <main>
     <article>
       <header>
@@ -10,5 +11,6 @@
       {{ .TableOfContents }}
     </aside>
   </main>
-  
+...
+{{ partial "socialshare.html" . }}
 {{ end }}
