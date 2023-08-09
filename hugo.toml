@@ -1,6 +1,7 @@
 baseURL = "https://hugo-js-bermau.netlify.app/"
 languageCode = "en-us"
 title = "Bernal Mauricio"
+theme = "bernalmautheme"
 googleAnalytics = "G-VKZTVP9H01"
 disqusShortname = ""
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]

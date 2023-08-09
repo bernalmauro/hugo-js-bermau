@@ -1,9 +1,9 @@
 {{ define "main" }}
 
+<div class="container pb-5">
   <main>
     <article>
       <header>
-        <h1>{{ .Title }}</h1>
       </header>
       {{ .Content }}
     </article>
@@ -11,6 +11,6 @@
       {{ .TableOfContents }}
     </aside>
   </main>
-
+</div>
 {{ partial "socialshare.html" . }}
 {{ end }}
