@@ -1,8 +1,13 @@
 {{ define "main" }}
 
-<div class="container pb-5">
-  {{ .Content }}
-</div>
+<section class= "container pb-5" id="main">
+  <h1 id="title">{{ .Title }}</h1>
+  <div>
+    <article id="content">
+      {{ .Content }}
+    </article>
+  </div>
+</section>
 <div class="container pb-5">
   {{ partial "socialshare.html" . }}  
 </div>
