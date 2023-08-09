@@ -16,6 +16,13 @@ images = ["/images/site-feature-image.jpg"]
 enable_nested_menu = true
 mainSections = ["graficos", "blog", "biblioteca"]
 footer = "&copy; 2017 -- {Year} | Bernal Mauricio."
+[params.social.share]
+  facebook = true
+  linkedin = true
+  twitter = true
+  whatsapp = true
+  email = true
+
 
 [frontmatter]
 date = ["date", "publishDate", "lastmod"]
