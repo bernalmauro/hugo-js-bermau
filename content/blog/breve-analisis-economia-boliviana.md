@@ -1,16 +1,16 @@
 ---
 title: "Breve Analisis de la Economia Boliviana"
 draft: false
-featuredImage:
+featuredImage: /images/breve-analisis-economia-boliviana.jpg
 categories: ["Análisis Económico"]
 tags: ["Bolivia", "Modelo Económico" ]
 keywords: ["", "","", ""]
 author: "Misael Mauricio Bernal Ramos"
 menu:
   main:
-    identifier: ""
+    identifier: "blog"
     weight: 0 
-    parent: "blog"
+    parent: ""
 socialshare: true
 ---
 
