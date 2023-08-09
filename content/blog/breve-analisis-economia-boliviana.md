@@ -1,5 +1,5 @@
 ---
-title: "Breve Analisis Economia Boliviana"
+title: "Breve Analisis de la Economia Boliviana"
 draft: false
 featuredImage:
 categories: ["Análisis Económico"]
@@ -8,9 +8,9 @@ keywords: ["", "","", ""]
 author: "Misael Mauricio Bernal Ramos"
 menu:
   main:
-    identifier: "blog"
+    identifier: ""
     weight: 0 
-    parent: ""
+    parent: "blog"
 socialshare: true
 ---
 

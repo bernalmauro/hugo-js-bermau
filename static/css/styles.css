@@ -118,6 +118,22 @@ tr:nth-child(even) {
   text-align: center !important;
 }
 
+/* Blog-Artículos */
+
+.div-col {
+	background-color: #282C34 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Socialshare Partial */
 
 .social-share {

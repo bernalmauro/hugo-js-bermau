@@ -10,7 +10,7 @@ enableRobotsTXT = true
 
 [params]
 author = "Misael Mauricio Bernal Ramos"
-description = "Sitio dedicado a la difusión de gráficos, tablas y demás elementos interactivos relacionados con la Economía, además de difundir Escuela Austriaca de Economía y Liberalismo"
+description = ""
 logo = "https://hugo-js-bermau.netlify.app/images/logo.png"
 images = ["/images/site-feature-image.jpg"]
 enable_nested_menu = true
