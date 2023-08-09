@@ -119,14 +119,23 @@ tr:nth-child(even) {
 }
 
 /* Blog-Artículos */
-
 .div-col {
 	background-color: #282C34 !important;
 }
-
-
-
-
+/* Biblioteca-List */
+.card {
+ background-color: #212529 !important;
+ color: #abb2bf !important;
+ 
+}
+.card-title {
+	color: #eee !important;
+}
+.btn-primary {
+ background-color: #212529 !important;
+ color: #abb2bf !important;
+ border-color:darkgray !important;
+}
 
 
 
