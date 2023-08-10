@@ -63,6 +63,7 @@ tr:nth-child(even) {
 body {
 	background-color: #282C34 !important;
 	color: #abb2bf !important;
+	min-height: 80px !important;
 }
 /* dropdown */
 .dropdown-menu {
