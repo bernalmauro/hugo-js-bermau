@@ -1,6 +1,14 @@
 {{ define "main" }}
+  
 
-<div class="container pb-5" >
-  {{ .Content }}
+
+<div class= "container-sm">
+  <h1>{{ .Title }}</h1>
+  <div>
+    <article id="content">
+      {{ .Content }}
+    </article>
+  </div>
+</div>
 
 {{ end }}
