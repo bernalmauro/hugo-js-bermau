@@ -15,7 +15,7 @@ logo = "https://hugo-js-bermau.netlify.app/images/logo.png"
 images = ["/images/site-feature-image.jpg"]
 enable_nested_menu = true
 mainSections = ["graficos", "blog", "biblioteca"]
-footer = "&copy; 2017 -- {Year} | Bernal Mauricio."
+footer = "&copy; 2017 -- {Year} | Misael Mauricio Bernal Ramos."
 [params.social.share]
   facebook = true
   linkedin = true
