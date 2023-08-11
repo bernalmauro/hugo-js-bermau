@@ -8,7 +8,6 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 footnotereturnlinkcontents = "↩"
 enableRobotsTXT = true
 
-
 [params]
 author = "Misael Mauricio Bernal Ramos"
 description = ""
@@ -24,10 +23,9 @@ footer = "&copy; 2017 -- {Year} | Bernal Mauricio."
   whatsapp = true
   email = true
 
-
 [frontmatter]
-date = ["date", "publishDate", "lastmod"]
-lastmod = ["lastmod", ":fileModTime"]
+  date = ["date", "publishDate", "lastmod"]
+  lastmod = ["lastmod", ":fileModTime"]
 
 [menu]
 [[menu.main]]

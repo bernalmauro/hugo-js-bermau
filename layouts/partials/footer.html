@@ -4,12 +4,10 @@
     
     <div class="col-12 col-md text-center text-md-left nav-link text-white">
       {{ with .Site.Params.footer }}
-      <p>
         {{ replace . "{Year}" now.Year | markdownify}}
         {{ end }}
         <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons Attribution">Some rights reserved</a>;
         please attribute properly and link back.
-        </p>
       </div>
   </div>
 <!-- Bootstrap JS-->

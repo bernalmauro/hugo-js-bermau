@@ -1,15 +1,11 @@
 {{ define "main" }}
-
-<div class= "container-sm">
-  <h1 id="title">{{ .Title }}</h1>
-  <div>
-    <article id="content">
-      {{ .Content }}
-    </article>
-  </div>
-</body>
-<div class= "container-sm">
-  {{ partial "socialshare.html" . }}
-</div>
-
+  <section id="main">
+    <h1 id="title">{{ .Title }}</h1>
+    <div class="container-sm">
+      <article id="content">
+        {{ .Content }}
+      </article>
+    </div>
+  </section>
+  
 {{ end }}
