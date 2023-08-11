@@ -1,13 +1,79 @@
 ---
-title: Bolivia
+title: "Bolivia"
 output: html_document
-socialshare: true
 ---
-```{r echo=FALSE}
+
+```{r, include=FALSE}
 library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
+library(tidyverse)
+library(zoo)
+library(rio)
+library(tidyverse)
+library(magrittr)
+library(janitor)
+library(anytime)
+
+fun_fecha <-function(from, to, by, each) {
+  rep(seq(anydate(from),
+          anydate(to),
+          by = by), each = each)
+}
+fun_excel <-function(file, range, col_names, from, to, by, each) {
+  
+  data <- 
+    rio::import(
+      file,
+      setclass = "tbl_df",
+      range = range,
+      col_names = col_names,
+      .name_repair = "unique_quiet") %!>%
+    remove_empty(c("rows", "cols")) %!>%
+    replace(is.na(.), 0)
+  data %<>%
+    pivot_longer(!...1) %<>%
+    pivot_wider(names_from = "...1",
+                values_from = "value") %<>%
+    dplyr::select(-name)
+  
+  fecha <- fun_fecha(from,to,by,each)
+  data <- cbind(fecha, data) 
+  data <- as_tibble(data)
+  
+}
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/oferta_final_demanda_final/03.01.02.xlsx"
+
+#IMPORTAR DATOS DE EXCEL
+range <- "B12:AJ19"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "31Dec1989"
+to <- "31Dec2022"
+by <- "year"
+each <- 1
+
+excel <- fun_excel(file, range, col_names, from, to, by, each)
+
+excel %!>%  
+  read.zoo(excel, FUN = as.yearmon) %!>% 
+  as.ts(excel)
+
+
+pib <- excel %!>% 
+  select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PIB
+
+dygraph(pib) %!>% 
+  dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
+  dyOptions(stackedGraph = TRUE) %>%
+  dyRangeSelector()
+
+
 
 ```
-```{r}
-dygraph(lungDeaths)
+```{r, echo=FALSE}
+dygraph(pib) %!>% 
+  dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
+  dyOptions(stackedGraph = TRUE) %>%
+  dyRangeSelector()
+
 ```
