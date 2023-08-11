@@ -1,20 +1,20 @@
-
-<figure class="text-center">
-  <blockquote class="blockquote">
-    <p style="background-color:#212529; color: #eee;">Escuela Austríaca de Economía</p>
-  </blockquote>
-</figure>
 <div>
-<div class="row">
-  {{ range .Site.Data.libros.economia.austriacos }}
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{ .titulo }}</h5>
-        <p class="card-text">{{ .resumen | truncate 300 }}</p>
-        <a href="{{ .link }}" class="btn btn-primary">Click para su descarga</a>
-      </div>  
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <p style="background-color:#212529; color: #eee;">Escuela Austríaca de Economía</p>
+    </blockquote>
+  </figure>
+  <div class="row">
+    {{ range .Site.Data.libros.economia.austriacos }}
+    <div class="col-sm d-flex">
+      <div class="card card-body">
+        <div class="card-body flex-fill">
+          <h5 class="card-title">{{ .titulo }}</h5>
+          <p class="card-text">{{ .resumen | truncate 200 }}</p>
+          <a href="{{ .link }}" class="btn btn-primary">Click para su descarga</a>
+        </div>
+      </div>
     </div>
+    {{ end }}
   </div>
-  {{ end }}
 </div>

@@ -43,3 +43,4 @@ En concreto, no podemos subestimar el contexto actual esperando un repunte soste
 Publicado en: [El Instituto Independiente](https://independent.typepad.com/elindependent/2018/10/breve-an%C3%A1lisis-de-la-situaci%C3%B3n-econ%C3%B3mica-de-bolivia.html)
 
 [^1]: Durante el periodo (2006-2017), 77 de cada 100 personas de la población ocupada trabajaron en un algún tipo de empleo categorizado como informal: que no percibe aguinaldo o fueron ocupadas en un establecimiento sin “número de identificación tributaria (NIT). Medido por el indicador “empleo informal” de la Red de Empleo, Ingresos y Producción (Eminpro). http://www.eminpro-inesad.com/index.php?option=com_content&view=article&id=110&Itemid=301
+

@@ -1,7 +1,7 @@
 {{ define "main" }}
     
 <div class="container-sm">
-
+    {{ partial "breadcrumb.html" . }}
    <div class="row">
        <div class="col-auto">
             Categorías: {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}

@@ -24,14 +24,13 @@
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
       <!-- 
         include a favicon for your site if you have it, else omit the line below 
         Location of favicon can be in mytheme/static/images/favicon.ico
     -->
-    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-
       <!-- will load json/ld depending on page type-->
       {{ if and (.IsPage) (eq .Section "blog") }}
          {{- partial "articleschema.html" .  -}}
