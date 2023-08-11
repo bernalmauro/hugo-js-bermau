@@ -12,11 +12,11 @@
     </div>
 </div>
 <main>
-  
-<div class="container-sm">
+<div class="container-fluid">
 {{ .Content }}
 </div>
 {{ partial "comment.html" . }}
+{{ partial "socialshare.html" . }}
 </main>
 
 {{ end }}

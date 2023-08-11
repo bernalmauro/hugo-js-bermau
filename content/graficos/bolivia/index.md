@@ -1,9 +1,6 @@
 ---
 title: Bolivia
-output:
-  html_document:
-    fig_width: 6
-    fig_height: 4
+output: html_document
 socialshare: true
 ---
 
@@ -18,8 +15,6 @@ socialshare: true
 <script src="{{< blogdown/postref >}}index_files/dygraphs-binding/dygraphs.js"></script>
 
 ``` r
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
 dygraph(lungDeaths)
 ```
 

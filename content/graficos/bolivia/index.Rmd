@@ -1,13 +1,13 @@
 ---
 title: Bolivia
-output:
-  html_document:
-    fig_width: 6
-    fig_height: 4
+output: html_document
 socialshare: true
 ---
-```{r }
+```{r echo=FALSE}
 library(dygraphs)
 lungDeaths <- cbind(mdeaths, fdeaths)
+
+```
+```{r}
 dygraph(lungDeaths)
 ```
