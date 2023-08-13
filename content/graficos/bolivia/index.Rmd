@@ -86,8 +86,9 @@ dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcen
   dyLegend(width = 250) %!>% 
   dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y", pixelsPerLabel = 50, axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}") %!>% 
+  dyAxis("y", pixelsPerLabel = 39, axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}",
+         gridLineColor = "#4a4a4a") %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 20, strokeColor = "") %!>% 
-  dyUnzoom() 
+  dyUnzoom()
 ```
