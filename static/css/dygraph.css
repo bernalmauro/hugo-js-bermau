@@ -67,7 +67,6 @@
   background-color: white;
   text-align: center;
 }
-
 .dygraph-axis-label {
   /* position: absolute; */
   /* font-size: 14px; */
@@ -76,22 +75,13 @@
   overflow: hidden;
   color: #e3e3e3;
 }
-.dygraph-axis-line {
- color: #98918B;
-}
-
 .dygraph-axis-label-x {
   color: #e3e3e3;
   
 }
-
 .dygraph-axis-label-y {
   color: #e3e3e3;
 }
-
-.dygraph-axis-label-y2 {
-}
-
 .dygraph-title {
   font-weight: bold;
   z-index: 10;
@@ -99,12 +89,10 @@
   /* font-size: based on titleHeight option */
   color: #e3e3e3;
 }
-
 .dygraph-xlabel {
   text-align: center;
   /* font-size: based on xLabelHeight option */
 }
-
 /* For y-axis label */
 .dygraph-label-rotate-left {
   text-align: center;

@@ -84,9 +84,9 @@ pib <- excel %!>%
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
   dyLegend(width = 250) %!>% 
-  dyOptions(stackedGraph = TRUE) %>%
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y", pixelsPerLabel = 60, axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}") %!>% 
+  dyAxis("y", pixelsPerLabel = 50, axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}") %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 20, strokeColor = "") %!>% 
   dyUnzoom() 
