@@ -74,14 +74,17 @@
   z-index: 10;
   line-height: normal;
   overflow: hidden;
+  color: #e3e3e3;
+}
+.dygraph-axis-label-line {
+ color: red;
 }
 
 .dygraph-axis-label-x {
-  color: white !important;
+  
 }
 
 .dygraph-axis-label-y {
-  color: red;  
 }
 
 .dygraph-axis-label-y2 {
@@ -92,6 +95,7 @@
   z-index: 10;
   text-align: center;
   /* font-size: based on titleHeight option */
+  color: #e3e3e3;
 }
 
 .dygraph-xlabel {
@@ -120,3 +124,4 @@
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
 }
+
