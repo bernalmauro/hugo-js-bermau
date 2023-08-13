@@ -13,6 +13,23 @@ library(magrittr)
 library(janitor)
 library(anytime)
 
+dyUnzoom <-function(dygraph) {
+dyPlugin(
+  dygraph = dygraph,
+  name = "Unzoom",
+  path = system.file("plugins/unzoom.js", package = "dygraphs")
+)
+}
+dyCrosshair <- function(dygraph, 
+                        direction = c("both", "horizontal", "vertical")) {
+  dyPlugin(
+    dygraph = dygraph,
+    name = "Crosshair",
+    path = system.file("plugins/crosshair.js", 
+                       package = "dygraphs"),
+    options = list(direction = match.arg(direction))
+  )
+}
 fun_fecha <-function(from, to, by, each) {
   rep(seq(anydate(from),
           anydate(to),
@@ -52,28 +69,25 @@ to <- "31Dec2022"
 by <- "year"
 each <- 1
 
-excel <- fun_excel(file, range, col_names, from, to, by, each)
+excel <- 
+  fun_excel(file, range, col_names, from, to, by, each)
 
-excel %!>%  
+excel %!>% 
   read.zoo(excel, FUN = as.yearmon) %!>% 
   as.ts(excel)
-
 
 pib <- excel %!>% 
   select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PIB
 
-dygraph(pib) %!>% 
-  dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
-  dyOptions(stackedGraph = TRUE) %>%
-  dyRangeSelector()
-
-
-
 ```
 ```{r, echo=FALSE}
-dygraph(pib) %!>% 
+dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
+  dyLegend(width = 250) %!>% 
   dyOptions(stackedGraph = TRUE) %>%
-  dyRangeSelector()
-
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y", pixelsPerLabel = 60, axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}") %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 20, strokeColor = "") %!>% 
+  dyUnzoom() 
 ```
