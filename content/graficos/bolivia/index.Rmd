@@ -80,7 +80,7 @@ pib <- excel %!>%
   select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PIB
 
 ```
-```{r, echo=FALSE, out.width="50%", out.height="50%" }
+```{r, echo=FALSE, out.width="50%", out.height="50%"}
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
   dyLegend(width = 250) %!>% 
