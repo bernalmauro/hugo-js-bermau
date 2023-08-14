@@ -19,11 +19,9 @@
   text-align: left;
   overflow: hidden;
 }
-
 .dygraph-legend[dir="rtl"] {
   text-align: right;
 }
-
 /* styles for a solid line in the legend */
 .dygraph-legend-line {
   display: inline-block;
@@ -35,7 +33,6 @@
   border-bottom-style: solid;
   /* border-bottom-color is set based on the series color */
 }
-
 /* styles for a dashed line in the legend, e.g. when strokePattern is set */
 .dygraph-legend-dash {
   display: inline-block;
@@ -48,19 +45,16 @@
   /* margin-right is set based on the stroke pattern */
   /* padding-left is set based on the stroke pattern */
 }
-
 .dygraph-roller {
   position: absolute;
   z-index: 10;
 }
-
 /* This class is shared by all annotations, including those with icons */
 .dygraph-annotation {
   position: absolute;
   z-index: 10;
   overflow: hidden;
 }
-
 /* This class only applies to annotations without icons */
 /* Old class name: .dygraphDefaultAnnotation */
 .dygraph-default-annotation {
@@ -78,7 +72,6 @@
 }
 .dygraph-axis-label-x {
   color: #e3e3e3;
-  
 }
 .dygraph-axis-label-y {
   color: #e3e3e3;
@@ -104,7 +97,6 @@
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
 }
-
 /* For y2-axis label */
 .dygraph-label-rotate-right {
   text-align: center;
