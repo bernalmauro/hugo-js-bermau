@@ -81,7 +81,8 @@ pib <- excel %!>%
 
 ```
 
-```{r, fig.width= 6, fig.height= 4, fig.align= "center", echo=FALSE }
+<div class="row">
+```{r dygraph0,fig.width= 6, fig.height= 4.5, echo=FALSE }
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
   dyLegend() %!>% 
@@ -95,3 +96,29 @@ dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcen
   dyRangeSelector(height = 20, strokeColor = "") %!>% 
   dyUnzoom()
 ```
+</div>
+<div class="row">
+<div class="col-lg-6">
+```{r dygraph1,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths) %>%
+  dySeries("mdeaths", label = "Male") %>%
+  dySeries("fdeaths", label = "Female") %>%
+  dyOptions(stackedGraph = TRUE) %>%
+  dyRangeSelector(height = 20)
+```
+
+</div>
+<div class="col-lg-6">
+```{r dygraph2,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>")%!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+dyRangeSelector(height = 20, strokeColor = "") 
+
+```
+</div>
+</div>
+
