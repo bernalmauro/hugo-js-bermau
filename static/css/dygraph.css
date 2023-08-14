@@ -13,7 +13,8 @@
   top: 0px;
   right: 2px;
   */
-  background-color: #282C34;
+  background-color: #282C34 !important;
+  color: #e3e3e3 !important;
   line-height: normal;
   text-align: left;
   overflow: hidden;
