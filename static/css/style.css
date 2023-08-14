@@ -238,6 +238,7 @@ ul.share-icons li>* .label {
 	margin-top:30px;
 }
 /* dygraph */
+.dygraphs,
 .html-widget {
     margin: auto;
 }
