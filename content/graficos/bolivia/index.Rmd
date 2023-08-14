@@ -80,21 +80,19 @@ pib <- excel %!>%
   select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PIB
 
 ```
-```{r, echo=FALSE, out.width="50%", out.height="50%"}
+<div class = "center">
+```{r, fig.width= 6, fig.height= 4, fig.align= "right", echo=FALSE }
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
-  dyLegend(width = 250) %!>% 
+  dyLegend() %!>% 
   dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B", strokePattern="dotted") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y",  axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}",
-         gridLineColor = "#4a4a4a", 
-         valueRange = c(-9,9),
-         ticker = "function(min, max, pixels, opts, dygraph, vals) {
-          
-          return [{v:-9, label:-9}, {v:-6, label:-6},{v:-3, label:-3},{v:0, label:0},
-                  {v:3, label:3}, {v:6, label:6}, {v:9, label:9}];
-        }") %!>% 
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+      valueFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}",
+    axisLabelFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}") %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 20, strokeColor = "") %!>% 
   dyUnzoom()
 ```
+</div>

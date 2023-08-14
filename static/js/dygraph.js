@@ -115,3 +115,28 @@ Dygraph.numericTicks = function(min, max, pixels, opts, dygraph, vals) {
   
     return ticks;
   };
+
+  
+g = new Dygraph(div, data,{
+    axes: {
+      y: {
+        ticker: function(min, max, pixels, opts, dygraph, vals) {
+          return [{v:0, label:0}, {v:5, label:5}, {v:10, label:10}];
+        }
+      }
+    }
+  });
+
+  var g = new DyGraph(div,data,{
+    axes: {
+      y: {
+        ticker: function(min, max) {
+          ticks = [];
+          for (var i = min; i <= max; i = i + 3) {
+            ticks.push({v: i,label:i});
+          }
+          return ticks;
+        }
+      }
+    }
+  });
