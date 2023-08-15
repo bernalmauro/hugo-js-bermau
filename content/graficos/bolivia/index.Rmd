@@ -77,10 +77,10 @@ excel %!>%
   as.ts(excel)
 
 pib <- excel %!>% 
-  select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PIB
+  select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PBI
 
 ```
-
+<div>
 <div class="row">
 ```{r, fig.width= 6, fig.height= 4.5, echo=FALSE }
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
@@ -99,7 +99,7 @@ dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcen
 </div>
 <div class="row">
 <div class="col-lg-6">
-```{r dygraph1,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
+```{r,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
 library(dygraphs)
 lungDeaths <- cbind(mdeaths, fdeaths)
 dygraph(lungDeaths) %>%
@@ -111,7 +111,7 @@ dygraph(lungDeaths) %>%
 
 </div>
 <div class="col-lg-6">
-```{r dygraph2,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
+```{r,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
 library(dygraphs)
 lungDeaths <- cbind(mdeaths, fdeaths)
 dygraph(lungDeaths, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>")%!>% 
@@ -119,6 +119,7 @@ dygraph(lungDeaths, main = "Crecimiento Real Producto Interno Bruto<br><small>En
 dyRangeSelector(height = 20, strokeColor = "") 
 
 ```
+</div>
 </div>
 </div>
 
