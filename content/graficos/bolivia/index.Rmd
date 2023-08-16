@@ -77,49 +77,166 @@ excel %!>%
   as.ts(excel)
 
 pib <- excel %!>% 
-  select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PBI
+  select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PIB
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/serie_historica_pib/06.01.02.xlsx"
+
+#IMPORTAR DATOS DE EXCEL
+range <- "B12:AS54"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "31Dec1980"
+to <- "31Dec2022"
+by <- "year"
+each <- 1
+
+excel2 <- 
+  fun_excel(file, range, col_names, from, to, by, each)
+
+excel2 %!>% 
+  read.zoo(excel2, FUN = as.yearmon) %!>% 
+  as.ts(excel2)
+
+pib2 <- excel2 %!>% 
+  select(fecha, 
+         `Derechos S/Importaciones, IVA n.d., IT y otros Impuestos Indirectos`,
+         `1. AGRICULTURA, SILVICULTURA, CAZA Y PESCA`,
+         `2. EXTRACCIÓN DE MINAS Y CANTERAS`, 
+         `3. INDUSTRIAS  MANUFACTURERAS`, 
+         `4. ELECTRICIDAD GAS Y AGUA` ,
+         `5. CONSTRUCCIÓN`,
+         `6. COMERCIO`,
+         `7. TRANSPORTE, ALMACENAMIENTO Y COMUNICACIONES`,
+         `8. ESTABLECIMIENTOS FINANCIEROS, SEGUROS, BIENES`,
+         `9. SERVICIOS COMUNALES, SOCIALES Y PERSONALES`,
+         `10. RESTAURANTES Y HOTELES`,
+         `B. SERVICIOS DE LA ADMINISTRACION PÚBLICA`,
+         `C. SERVICIO DOMESTICO`) %!>% 
+  mutate(across(where(is.numeric),  ~ . / 1000))
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/serie_historica_pib/06.01.04.xlsx"
+
+#IMPORTAR DATOS DE EXCEL
+range <- "B12:AS19"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "31Dec1980"
+to <- "31Dec2022"
+by <- "year"
+each <- 1
+
+excel3 <- 
+  fun_excel(file, range, col_names, from, to, by, each)
+
+excel3 %!>% 
+  read.zoo(excel3, FUN = as.yearmon) %!>% 
+  as.ts(excel3)
+names(excel3)
+
+pib3 <- excel3 %!>% 
+  select(fecha, 
+         `GASTO DE CONSUMO FINAL DE LA ADMINISTRACIÓN  PÚBLICA`,
+         `GASTO DE CONSUMO FINAL DE LOS HOGARES  E  ISFLSH`, 
+         `VARIACIÓN  DE  EXISTENCIAS`, 
+         `FORMACIÓN  BRUTA  DE  CAPITAL  FIJO` ,
+         `EXPORTACIONES  NETAS DE BIENES Y SERVICIOS`) %!>% 
+  mutate(across(where(is.numeric),  ~ . / 1000))
 
 ```
-<div>
+
 <div class="row">
-```{r, fig.width= 6, fig.height= 4.5, echo=FALSE }
+```{r dygraph1,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
+
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
-  dyLegend() %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B", strokePattern="dotted") %!>%
+  dyLegend(width = 900, show = "onmouseover") %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-         gridLineColor = "#4a4a4a",
-      valueFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}",
-    axisLabelFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}") %!>% 
+       gridLineColor = "#98918B",
+         valueFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}",
+         axisLabelFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}") %!>% 
   dyCrosshair(direction = "vertical") %!>% 
-  dyRangeSelector(height = 20, strokeColor = "") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 1,
+              highlightSeriesBackgroundAlpha = 0.9) %!>% 
   dyUnzoom()
 ```
 </div>
 <div class="row">
 <div class="col-lg-6">
-```{r,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths) %>%
-  dySeries("mdeaths", label = "Male") %>%
-  dySeries("fdeaths", label = "Female") %>%
-  dyOptions(stackedGraph = TRUE) %>%
-  dyRangeSelector(height = 20)
-```
+```{r dygraph2,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
 
+dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><small>(En Millones de Bs)</small>") %!>% 
+  dySeries("Derechos S/Importaciones, IVA n.d., IT y otros Impuestos Indirectos", 
+           label = "Impuestos Indirectos") %!>% 
+  dySeries("1. AGRICULTURA, SILVICULTURA, CAZA Y PESCA", 
+           label = "Agricultura, Silvicultura, Caza y Pesca") %!>% 
+  dySeries("2. EXTRACCIÓN DE MINAS Y CANTERAS", 
+           label = "Extracción Minas y Canteras") %!>% 
+  dySeries("3. INDUSTRIAS  MANUFACTURERAS", 
+           label = "Industrias Manufactureras") %!>% 
+  dySeries("4. ELECTRICIDAD GAS Y AGUA", 
+           label = "Electricidad Gas y Agua") %!>% 
+  dySeries("5. CONSTRUCCIÓN", 
+           label = "Construcción") %!>% 
+  dySeries("6. COMERCIO", 
+           label = "Comercio") %!>% 
+  dySeries("7. TRANSPORTE, ALMACENAMIENTO Y COMUNICACIONES", 
+           label = "Transporte, Almacenamiento y Comunicaciones") %!>% 
+  dySeries("8. ESTABLECIMIENTOS FINANCIEROS, SEGUROS, BIENES", 
+           label = "Establecimientos Financieros, Seguros, Bienes") %!>% 
+  dySeries("9. SERVICIOS COMUNALES, SOCIALES Y PERSONALES", 
+           label = "Servicios Comunales, Sociales y Personales") %!>% 
+  dySeries("10. RESTAURANTES Y HOTELES", 
+           label = "Restaurantes y Hoteles") %!>% 
+  dySeries("B. SERVICIOS DE LA ADMINISTRACION PÚBLICA", 
+           label = "Servicios de la Administración Pública") %!>% 
+  dySeries("C. SERVICIO DOMESTICO", 
+           label = "Servicio Doméstico") %!>% 
+  dyLegend(width = 900, show = "onmouseover") %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+       gridLineColor = "#98918B",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+         ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 1,
+              highlightSeriesBackgroundAlpha = 0.9) %!>% 
+  dyUnzoom()
+```
 </div>
 <div class="col-lg-6">
-```{r,fig.width= 6, fig.height= 4.5, warning = FALSE, echo=FALSE, out.width="99%"}
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>")%!>% 
-  dyCrosshair(direction = "vertical") %!>% 
-dyRangeSelector(height = 20, strokeColor = "") 
+```{r dygraph3,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
 
+dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En Millones de Bs)</small>") %!>% 
+  dySeries("GASTO DE CONSUMO FINAL DE LA ADMINISTRACIÓN  PÚBLICA", 
+           label = "Gasto Administración Pública") %!>% 
+  dySeries("GASTO DE CONSUMO FINAL DE LOS HOGARES  E  ISFLSH", 
+           label = "Gasto Hogares e ISFLSH") %!>% 
+  dySeries("VARIACIÓN  DE  EXISTENCIAS", 
+           label = "Variación de Existencias") %!>% 
+  dySeries("FORMACIÓN  BRUTA  DE  CAPITAL  FIJO", 
+           label = "Formación Bruta de Capital Fijo") %!>% 
+  dySeries("EXPORTACIONES  NETAS DE BIENES Y SERVICIOS", 
+           label = "Exportaciones Netas de Bienes y Servicios")  %!>% 
+  dyLegend(width = 900, show = "onmouseover") %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#98918B",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 1,
+              highlightSeriesBackgroundAlpha = 0.9) %!>% 
+  dyUnzoom()
 ```
-</div>
 </div>
 </div>
 
