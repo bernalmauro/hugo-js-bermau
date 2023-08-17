@@ -131,7 +131,6 @@ excel3 <-
 excel3 %!>% 
   read.zoo(excel3, FUN = as.yearmon) %!>% 
   as.ts(excel3)
-names(excel3)
 
 pib3 <- excel3 %!>% 
   select(fecha, 
@@ -149,20 +148,21 @@ pib3 <- excel3 %!>%
 
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
-  dyLegend(width = 900, show = "onmouseover") %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
+  dyLegend(show = "onmouseover") %!>% 
+  dyOptions(stackedGraph = TRUE) %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-       gridLineColor = "#98918B",
+       gridLineColor = "#4a4a4a",
          valueFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}",
          axisLabelFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}") %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 0.9) %!>% 
+              highlightSeriesBackgroundAlpha = 1) %!>% 
   dyUnzoom()
 ```
 </div>
+
 <div class="row">
 <div class="col-lg-6">
 ```{r dygraph2,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
@@ -194,20 +194,22 @@ dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><sma
            label = "Servicios de la Administración Pública") %!>% 
   dySeries("C. SERVICIO DOMESTICO", 
            label = "Servicio Doméstico") %!>% 
-  dyLegend(width = 900, show = "onmouseover") %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
+  dyLegend(show = "onmouseover", labelsDiv = "labelspib2", labelsSeparateLines = TRUE) %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-       gridLineColor = "#98918B",
+        valueRange = c(-50000,305000),
+       gridLineColor = "#4a4a4a",
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
          ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 0.9) %!>% 
+              highlightSeriesBackgroundAlpha = 1) %!>% 
   dyUnzoom()
 ```
+<div id="labelspib2"></div>
 </div>
 <div class="col-lg-6">
 ```{r dygraph3,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
@@ -223,20 +225,21 @@ dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En 
            label = "Formación Bruta de Capital Fijo") %!>% 
   dySeries("EXPORTACIONES  NETAS DE BIENES Y SERVICIOS", 
            label = "Exportaciones Netas de Bienes y Servicios")  %!>% 
-  dyLegend(width = 900, show = "onmouseover") %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
+  dyLegend(show = "onmouseover", labelsDiv = "labelspib3", labelsSeparateLines = TRUE) %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-         gridLineColor = "#98918B",
+         valueRange = c(-50000,305000),
+         gridLineColor = "#4a4a4a",
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
   ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 0.9) %!>% 
+              highlightSeriesBackgroundAlpha = 1) %!>% 
   dyUnzoom()
 ```
+<div id="labelspib3"></div>
 </div>
 </div>
-
