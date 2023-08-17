@@ -3,7 +3,7 @@ title: "Bolivia"
 output: html_document
 ---
 
-```{r, include=FALSE}
+```{r  warning = FALSE, include=FALSE}
 library(dygraphs)
 library(tidyverse)
 library(zoo)
@@ -144,7 +144,7 @@ pib3 <- excel3 %!>%
 ```
 
 <div class="row">
-```{r dygraph1,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
+```{r dygraph1,fig.width= 6, fig.height= 4.5, echo=FALSE, warning = FALSE, out.width="99%"}
 
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
@@ -165,7 +165,7 @@ dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcen
 
 <div class="row">
 <div class="col-lg-6">
-```{r dygraph2,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
+```{r dygraph2,fig.width= 6, fig.height= 4.5, echo=FALSE, warning = FALSE, out.width="99%"}
 
 dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><small>(En Millones de Bs)</small>") %!>% 
   dySeries("Derechos S/Importaciones, IVA n.d., IT y otros Impuestos Indirectos", 
@@ -194,7 +194,7 @@ dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><sma
            label = "Servicios de la Administración Pública") %!>% 
   dySeries("C. SERVICIO DOMESTICO", 
            label = "Servicio Doméstico") %!>% 
-  dyLegend(show = "onmouseover", labelsDiv = "labelspib2", labelsSeparateLines = TRUE) %!>% 
+  dyLegend(show = "onmouseover", labelsDiv = "labels2", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
@@ -209,10 +209,10 @@ dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><sma
               highlightSeriesBackgroundAlpha = 1) %!>% 
   dyUnzoom()
 ```
-<div id="labelspib2"></div>
+<div id="labels2"></div>
 </div>
 <div class="col-lg-6">
-```{r dygraph3,fig.width= 6, fig.height= 4.5, echo=FALSE, out.width="99%"}
+```{r dygraph3,fig.width= 6, fig.height= 4.5, echo=FALSE, warning = FALSE, out.width="99%"}
 
 dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En Millones de Bs)</small>") %!>% 
   dySeries("GASTO DE CONSUMO FINAL DE LA ADMINISTRACIÓN  PÚBLICA", 
@@ -225,7 +225,7 @@ dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En 
            label = "Formación Bruta de Capital Fijo") %!>% 
   dySeries("EXPORTACIONES  NETAS DE BIENES Y SERVICIOS", 
            label = "Exportaciones Netas de Bienes y Servicios")  %!>% 
-  dyLegend(show = "onmouseover", labelsDiv = "labelspib3", labelsSeparateLines = TRUE) %!>% 
+  dyLegend(show = "onmouseover", labelsDiv = "labels3", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
@@ -240,6 +240,6 @@ dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En 
               highlightSeriesBackgroundAlpha = 1) %!>% 
   dyUnzoom()
 ```
-<div id="labelspib3"></div>
+<div id="labels3"></div>
 </div>
 </div>
