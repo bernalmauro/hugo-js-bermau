@@ -10,15 +10,15 @@
         {{ end }}
       </ul>
     </div>
+    <main class="container-sm">
+      <div>
+      {{ .Content }}
+      </div>
+      <!-- 
+        {{ partial "comment.html" . }}
+          -->
+      {{ partial "socialshare.html" . }}
+      </main>      
 </div>
-<main>
-<div class="container-fluid">
-{{ .Content }}
-</div>
-<!-- 
-  {{ partial "comment.html" . }}
-    -->
-{{ partial "socialshare.html" . }}
-</main>
 
 {{ end }}

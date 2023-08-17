@@ -1,9 +1,6 @@
 ---
 title: "Gráficos"
-output:
-  html_document:
-    fig_width: 6
-    fig_height: 4
+output: html_document
 ---
 
 ## _Gráficos_  _Blog_ _Biblioteca_ 
@@ -12,8 +9,8 @@ En esta sección encontrará [Dygraphs]() y [Tablas](), además de una barra de 
 para ver que funcione
 
 
-
-```{r, fig.width=6, fig.height=2.5}
+<div class= "container-sm">
+```{r fig.width= 5, fig.height= 3.5}
 library(dygraphs)
 hw <- HoltWinters(ldeaths)
 predicted <- predict(hw, n.ahead = 72, prediction.interval = TRUE)
@@ -23,3 +20,4 @@ dygraph(predicted, main = "Predicted Lung Deaths (UK)") %>%
   dySeries(c("lwr", "fit", "upr"), label = "Deaths") %>%
   dyOptions(colors = RColorBrewer::brewer.pal(3, "Set1"))
 ```
+</div>

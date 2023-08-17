@@ -137,8 +137,8 @@ pib3 <- excel3 %!>%
 
 ```
 
-<div class="row">
-```{r dygraph1,fig.width= 6, fig.height= 4.5, echo=FALSE, warning = FALSE, out.width="99%"}
+<div class="container-sm">
+```{r dygraph1,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
 
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
@@ -155,10 +155,10 @@ dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcen
               highlightSeriesBackgroundAlpha = 1) 
 ```
 </div>
-
+<div class="container-sm">
 <div class="row">
 <div class="col-lg-6">
-```{r dygraph2,fig.width= 6, fig.height= 4.5, echo=FALSE, warning = FALSE, out.width="99%"}
+```{r dygraph2,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
 
 dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><small>(En Millones de Bs)</small>") %!>% 
   dySeries("Derechos S/Importaciones, IVA n.d., IT y otros Impuestos Indirectos", 
@@ -206,7 +206,7 @@ dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><sma
 <div id="labels2" style="color: #e3e3e3;"></div>
 </div>
 <div class="col-lg-6">
-```{r dygraph3,fig.width= 6, fig.height= 4.5, echo=FALSE, warning = FALSE, out.width="99%"}
+```{r dygraph3,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
 
 dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En Millones de Bs)</small>") %!>% 
   dySeries("GASTO DE CONSUMO FINAL DE LA ADMINISTRACIÓN  PÚBLICA", 
@@ -234,5 +234,6 @@ dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En 
               highlightSeriesBackgroundAlpha = 1) 
 ```
 <div id="labels3" style="color: #e3e3e3;"></div>
+</div>
 </div>
 </div>
