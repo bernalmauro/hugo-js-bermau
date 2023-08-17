@@ -13,13 +13,6 @@ library(magrittr)
 library(janitor)
 library(anytime)
 
-dyUnzoom <-function(dygraph) {
-dyPlugin(
-  dygraph = dygraph,
-  name = "Unzoom",
-  path = system.file("plugins/unzoom.js", package = "dygraphs")
-)
-}
 dyCrosshair <- function(dygraph, 
                         direction = c("both", "horizontal", "vertical")) {
   dyPlugin(
@@ -149,7 +142,7 @@ pib3 <- excel3 %!>%
 dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
   dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
   dyLegend(show = "onmouseover") %!>% 
-  dyOptions(stackedGraph = TRUE) %!>%
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
        gridLineColor = "#4a4a4a",
@@ -158,8 +151,7 @@ dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcen
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 1) %!>% 
-  dyUnzoom()
+              highlightSeriesBackgroundAlpha = 1) 
 ```
 </div>
 
@@ -206,10 +198,9 @@ dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><sma
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 1) %!>% 
-  dyUnzoom()
+              highlightSeriesBackgroundAlpha = 1) 
 ```
-<div id="labels2"></div>
+<div id="labels2" style="color: #e3e3e3;"></div>
 </div>
 <div class="col-lg-6">
 ```{r dygraph3,fig.width= 6, fig.height= 4.5, echo=FALSE, warning = FALSE, out.width="99%"}
@@ -237,9 +228,8 @@ dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 1) %!>% 
-  dyUnzoom()
+              highlightSeriesBackgroundAlpha = 1) 
 ```
-<div id="labels3"></div>
+<div id="labels3" style="color: #e3e3e3;"></div>
 </div>
 </div>

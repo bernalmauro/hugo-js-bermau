@@ -16,11 +16,11 @@
   background-color: #282C34 !important;
   color: #e3e3e3 !important;
   line-height: normal;
-  text-align: left;
+  text-align: right !important;
   overflow: hidden;
 }
 .dygraph-legend[dir="rtl"] {
-  text-align: right;
+  text-align: right !important;
 }
 /* styles for a solid line in the legend */
 .dygraph-legend-line {
