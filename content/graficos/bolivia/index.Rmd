@@ -100,9 +100,10 @@ pib2 <- excel2 %!>%
          `5. CONSTRUCCIÓN`,
          `6. COMERCIO`,
          `7. TRANSPORTE, ALMACENAMIENTO Y COMUNICACIONES`,
-         `8. ESTABLECIMIENTOS FINANCIEROS, SEGUROS, BIENES`,
+         `INMUEBLES Y SERVICIOS PRESTADOS A LAS EMPRESAS`,
          `9. SERVICIOS COMUNALES, SOCIALES Y PERSONALES`,
          `10. RESTAURANTES Y HOTELES`,
+         `SERVICIOS BANCARIOS IMPUTADOS`,
          `B. SERVICIOS DE LA ADMINISTRACION PÚBLICA`,
          `C. SERVICIO DOMESTICO`) %!>% 
   mutate(across(where(is.numeric),  ~ . / 1000))
@@ -176,12 +177,14 @@ dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><sma
            label = "Comercio") %!>% 
   dySeries("7. TRANSPORTE, ALMACENAMIENTO Y COMUNICACIONES", 
            label = "Transporte, Almacenamiento y Comunicaciones") %!>% 
-  dySeries("8. ESTABLECIMIENTOS FINANCIEROS, SEGUROS, BIENES", 
-           label = "Establecimientos Financieros, Seguros, Bienes") %!>% 
+  dySeries("INMUEBLES Y SERVICIOS PRESTADOS A LAS EMPRESAS", 
+           label = "Establecimientos Financieros, Seguros, Bienes Inmuebles y Servicios Prestados a las Empresas") %!>% 
   dySeries("9. SERVICIOS COMUNALES, SOCIALES Y PERSONALES", 
            label = "Servicios Comunales, Sociales y Personales") %!>% 
   dySeries("10. RESTAURANTES Y HOTELES", 
            label = "Restaurantes y Hoteles") %!>% 
+  dySeries("SERVICIOS BANCARIOS IMPUTADOS", 
+           label = "Servicios Bancarios Imputados") %!>% 
   dySeries("B. SERVICIOS DE LA ADMINISTRACION PÚBLICA", 
            label = "Servicios de la Administración Pública") %!>% 
   dySeries("C. SERVICIO DOMESTICO", 
