@@ -1,9 +1,11 @@
 ---
 title: "Bolivia"
-output: html_document
+output: html_document:
+    toc: true
+    number_sections: true
 ---
 
-```{r  warning = FALSE, include=FALSE}
+```{r warning = FALSE, include=FALSE}
 library(dygraphs)
 library(tidyverse)
 library(zoo)
@@ -137,6 +139,8 @@ pib3 <- excel3 %!>%
 
 ```
 
+##Instituto Nacional de Estadística (INE)
+
 <div class="container-sm">
 ```{r dygraph1,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
 
@@ -237,3 +241,4 @@ dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En 
 </div>
 </div>
 </div>
+##Banco Central de Bolivia (BCB)

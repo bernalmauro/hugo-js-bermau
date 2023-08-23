@@ -34,6 +34,8 @@ output: html_document
 <script src="{{< blogdown/postref >}}index_files/dygraphs-binding/dygraphs.js"></script>
 <script src="{{< blogdown/postref >}}index_files/Dygraph.Plugins.Crosshair/crosshair.js"></script>
 
+\##Instituto Nacional de Estadística (INE)
+
 <div class="container-sm">
 
 <div class="dygraphs html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1" style="width:480px;height:336px;"></div>
@@ -70,3 +72,5 @@ output: html_document
 </div>
 
 </div>
+
+\##Banco Central de Bolivia (BCB)
