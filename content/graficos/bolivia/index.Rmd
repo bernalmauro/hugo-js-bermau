@@ -1,8 +1,12 @@
 ---
 title: "Bolivia"
-output: html_document:
+output: 
+  html_document:
     toc: true
-    number_sections: true
+    toc_float: true
+    toc_collapsed: true
+    toc_depth: 6
+    theme: darkly
 ---
 
 ```{r warning = FALSE, include=FALSE}
@@ -139,7 +143,70 @@ pib3 <- excel3 %!>%
 
 ```
 
-##Instituto Nacional de Estadística (INE)
+# Autoridad de Supervisión del Sistema Financiero (ASFI)
+
+## Indicadores Financieros {.tabset .tabset-pills}
+
+### Estructura de Activos
+
+```{r knitr-activos, out.width='100%', echo=FALSE}
+knitr::include_graphics("/images/asfi/activos/Cartera Neta_Activo.png", error = FALSE)
+knitr::include_graphics("/images/asfi/activos/Disponibilidades_Activos.png", error = FALSE)
+```
+
+### Estructura Financiera
+
+```{r knitr-esfinanciera, out.width='100%', echo=FALSE}
+knitr::include_graphics("/images/asfi/esfinanciera/Activo improductivo_Patrimonio.png", error = FALSE)
+knitr::include_graphics("/images/asfi/esfinanciera/Activo Productivo_Activo+Contingente.png", error = FALSE)
+knitr::include_graphics("/images/asfi/esfinanciera/Activo Productivo-Pasivo con Costo_Pasivo con Costo.png", error = FALSE)
+knitr::include_graphics("/images/asfi/esfinanciera/Pasivo con Costo_Pasivo+Contingente.png", error = FALSE )
+```
+
+### Estructura de Gastos de Administración
+
+```{r knitr-gastos, out.width='100%', echo=FALSE}
+knitr::include_graphics("/images/asfi/gastos/Deprec.y Amortizaciones_Gastos de Administración.png", error = FALSE)
+knitr::include_graphics("/images/asfi/gastos/Gastos de Administración_Total Egresos.png", error = FALSE)
+knitr::include_graphics("/images/asfi/gastos/Gastos de Personal_Gastos de Administración.png", error = FALSE)
+knitr::include_graphics("/images/asfi/gastos/Otros Gastos Administración_Gastos de Administración.png", error = FALSE)
+```
+
+
+### Including Plots2
+```{r }
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+```
+
+#### Including Plots3 {.tabset .tabset-pills}
+```{r }
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+```
+
+##### By Product
+
+(tab content)
+
+##### By Region
+
+2
+
+# Banco Central de Bolivia (BCB)
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars2}
+summary(cars)
+```
+
+
+# Instituto Nacional de Estadística (INE)
 
 <div class="container-sm">
 ```{r dygraph1,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
@@ -241,4 +308,77 @@ dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En 
 </div>
 </div>
 </div>
-##Banco Central de Bolivia (BCB)
+
+## Including Plots1
+
+You can also embed plots, for example:
+
+```{r pressure3, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+### Including Plots2
+
+```{r }
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+```
+
+# Ministerio de Economía y Finanzas públicas (MEFP)
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars4}
+summary(cars)
+```
+
+## Including Plots1
+
+You can also embed plots, for example:
+
+```{r pressure4, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+### Including Plots2
+
+```{r }
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+```
+
+# Unidad de Análisis de Políticas Sociales y Económicas (UDAPE)
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars5}
+summary(cars)
+```
+
+## Including Plots1
+
+You can also embed plots, for example:
+
+```{r pressure5, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+### Including Plots2
+
+```{r }
+library(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
+```
