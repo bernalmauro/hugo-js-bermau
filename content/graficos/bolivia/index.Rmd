@@ -18,6 +18,8 @@ library(tidyverse)
 library(magrittr)
 library(janitor)
 library(anytime)
+library(knitr)
+library(details)
 
 dyCrosshair <- function(dygraph, 
                         direction = c("both", "horizontal", "vertical")) {
@@ -141,9 +143,10 @@ pib3 <- excel3 %!>%
          `EXPORTACIONES  NETAS DE BIENES Y SERVICIOS`) %!>% 
   mutate(across(where(is.numeric),  ~ . / 1000))
 
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 ```
 
-# Autoridad de Supervisión del Sistema Financiero (ASFI)
+# Autoridad de Supervisión del Sistema Financiero (ASFI) 
 
 ## Indicadores Financieros {.tabset .tabset-pills}
 
@@ -382,3 +385,40 @@ library(dygraphs)
 lungDeaths <- cbind(mdeaths, fdeaths)
 dygraph(lungDeaths)
 ```
+
+
+```{css, echo=FALSE}
+.container-fluid.main-container{
+max-width: 85%
+}
+.tabset{
+    display: flex;
+
+}
+
+.nav.nav-pills {
+    flex: 15%;
+    width: 100%;
+}
+.nav.nav-pills li{
+    width: 100%;
+}
+.tab-content{
+    flex: 85%;
+    width: 100%
+}
+
+```
+
+
+## {.tabset .tabset-pills .tabcontent}
+
+
+### Section 1
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+
+### Section 2
+
+Ut porttitor leo a diam. Auctor neque vitae tempus quam pellentesque nec nam.
