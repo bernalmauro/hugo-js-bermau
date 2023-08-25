@@ -1,12 +1,8 @@
 ---
 title: "Bolivia"
 output: 
-  html_document:
+  blogdown::html_page:
     toc: true
-    toc_float: true
-    toc_collapsed: true
-    toc_depth: 6
-    theme: darkly
 ---
 
 ```{r warning = FALSE, include=FALSE}
@@ -145,19 +141,21 @@ pib3 <- excel3 %!>%
 
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 ```
+### Autoridad de Supervisión del Sistema Financiero (ASFI)
 
-# Autoridad de Supervisión del Sistema Financiero (ASFI) 
+{{< tabs tabTotal="3">}}
+{{< tab tabName="Estructura de Activos" >}}
 
-## Indicadores Financieros {.tabset .tabset-pills}
-
-### Estructura de Activos
 
 ```{r knitr-activos, out.width='100%', echo=FALSE}
 knitr::include_graphics("/images/asfi/activos/Cartera Neta_Activo.png", error = FALSE)
 knitr::include_graphics("/images/asfi/activos/Disponibilidades_Activos.png", error = FALSE)
 ```
 
-### Estructura Financiera
+
+{{< /tab >}}
+{{< tab tabName="Estructura Financiera" >}}
+
 
 ```{r knitr-esfinanciera, out.width='100%', echo=FALSE}
 knitr::include_graphics("/images/asfi/esfinanciera/Activo improductivo_Patrimonio.png", error = FALSE)
@@ -166,7 +164,9 @@ knitr::include_graphics("/images/asfi/esfinanciera/Activo Productivo-Pasivo con 
 knitr::include_graphics("/images/asfi/esfinanciera/Pasivo con Costo_Pasivo+Contingente.png", error = FALSE )
 ```
 
-### Estructura de Gastos de Administración
+
+{{< /tab >}}
+{{< tab tabName="Estructura de Gastos de Administración">}}
 
 ```{r knitr-gastos, out.width='100%', echo=FALSE}
 knitr::include_graphics("/images/asfi/gastos/Deprec.y Amortizaciones_Gastos de Administración.png", error = FALSE)
@@ -176,249 +176,92 @@ knitr::include_graphics("/images/asfi/gastos/Otros Gastos Administración_Gastos
 ```
 
 
-### Including Plots2
-```{r }
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths)
-```
-
-#### Including Plots3 {.tabset .tabset-pills}
-```{r }
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths)
-```
-
-##### By Product
-
-(tab content)
-
-##### By Region
-
-2
-
-# Banco Central de Bolivia (BCB)
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars2}
-summary(cars)
-```
+{{< /tab >}}
+{{< /tabs >}}
 
 
-# Instituto Nacional de Estadística (INE)
+### Banco Central de Bolivia (BCB)
 
-<div class="container-sm">
-```{r dygraph1,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
+{{< tabs tabTotal="3">}}
+{{< tab tabName="Tab 1" >}}
 
-dygraph(pib, main = "Crecimiento Real Producto Interno Bruto<br><small>En Porcentaje (%)</small>") %!>% 
-  dySeries("PRODUCTO  INTERNO  BRUTO", label = "Producto Interno Bruto") %!>% 
-  dyLegend(show = "onmouseover") %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
-  dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y",
-       gridLineColor = "#4a4a4a",
-         valueFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}",
-         axisLabelFormatter = "function(d){return Math.round(d*100)/1e2 + '%'}") %!>% 
-  dyCrosshair(direction = "vertical") %!>% 
-  dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 1) 
-```
-</div>
-<div class="container-sm">
-<div class="row">
-<div class="col-lg-6">
-```{r dygraph2,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
+**Tab 1 Content**
 
-dygraph(pib2, main = "Producto Interno Bruto según Actividad Económica<br><small>(En Millones de Bs)</small>") %!>% 
-  dySeries("Derechos S/Importaciones, IVA n.d., IT y otros Impuestos Indirectos", 
-           label = "Impuestos Indirectos") %!>% 
-  dySeries("1. AGRICULTURA, SILVICULTURA, CAZA Y PESCA", 
-           label = "Agricultura, Silvicultura, Caza y Pesca") %!>% 
-  dySeries("2. EXTRACCIÓN DE MINAS Y CANTERAS", 
-           label = "Extracción Minas y Canteras") %!>% 
-  dySeries("3. INDUSTRIAS  MANUFACTURERAS", 
-           label = "Industrias Manufactureras") %!>% 
-  dySeries("4. ELECTRICIDAD GAS Y AGUA", 
-           label = "Electricidad Gas y Agua") %!>% 
-  dySeries("5. CONSTRUCCIÓN", 
-           label = "Construcción") %!>% 
-  dySeries("6. COMERCIO", 
-           label = "Comercio") %!>% 
-  dySeries("7. TRANSPORTE, ALMACENAMIENTO Y COMUNICACIONES", 
-           label = "Transporte, Almacenamiento y Comunicaciones") %!>% 
-  dySeries("INMUEBLES Y SERVICIOS PRESTADOS A LAS EMPRESAS", 
-           label = "Establecimientos Financieros, Seguros, Bienes Inmuebles y Servicios Prestados a las Empresas") %!>% 
-  dySeries("9. SERVICIOS COMUNALES, SOCIALES Y PERSONALES", 
-           label = "Servicios Comunales, Sociales y Personales") %!>% 
-  dySeries("10. RESTAURANTES Y HOTELES", 
-           label = "Restaurantes y Hoteles") %!>% 
-  dySeries("SERVICIOS BANCARIOS IMPUTADOS", 
-           label = "Servicios Bancarios Imputados") %!>% 
-  dySeries("B. SERVICIOS DE LA ADMINISTRACION PÚBLICA", 
-           label = "Servicios de la Administración Pública") %!>% 
-  dySeries("C. SERVICIO DOMESTICO", 
-           label = "Servicio Doméstico") %!>% 
-  dyLegend(show = "onmouseover", labelsDiv = "labels2", labelsSeparateLines = TRUE) %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
-  dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y",
-        valueRange = c(-50000,305000),
-       gridLineColor = "#4a4a4a",
-         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
-         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
-         ) %!>% 
-  dyCrosshair(direction = "vertical") %!>% 
-  dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 1) 
-```
-<div id="labels2" style="color: #e3e3e3;"></div>
-</div>
-<div class="col-lg-6">
-```{r dygraph3,fig.width= 5, fig.height= 3.5, echo=FALSE, warning = FALSE}
+{{< /tab >}}
+{{< tab tabName="Tab 2" >}}
 
-dygraph(pib3, main = "Producto Interno Bruto según Tipo de Gasto<br><small>(En Millones de Bs)</small>") %!>% 
-  dySeries("GASTO DE CONSUMO FINAL DE LA ADMINISTRACIÓN  PÚBLICA", 
-           label = "Gasto Administración Pública") %!>% 
-  dySeries("GASTO DE CONSUMO FINAL DE LOS HOGARES  E  ISFLSH", 
-           label = "Gasto Hogares e ISFLSH") %!>% 
-  dySeries("VARIACIÓN  DE  EXISTENCIAS", 
-           label = "Variación de Existencias") %!>% 
-  dySeries("FORMACIÓN  BRUTA  DE  CAPITAL  FIJO", 
-           label = "Formación Bruta de Capital Fijo") %!>% 
-  dySeries("EXPORTACIONES  NETAS DE BIENES Y SERVICIOS", 
-           label = "Exportaciones Netas de Bienes y Servicios")  %!>% 
-  dyLegend(show = "onmouseover", labelsDiv = "labels3", labelsSeparateLines = TRUE) %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
-  dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y",
-         valueRange = c(-50000,305000),
-         gridLineColor = "#4a4a4a",
-         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
-         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
-  ) %!>% 
-  dyCrosshair(direction = "vertical") %!>% 
-  dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 1,
-              highlightSeriesBackgroundAlpha = 1) 
-```
-<div id="labels3" style="color: #e3e3e3;"></div>
-</div>
-</div>
-</div>
+**Tab 2 Content**
 
-## Including Plots1
+{{< /tab >}}
+{{< tab tabName="Tab 3">}}
 
-You can also embed plots, for example:
+**Tab 3 Content**
 
-```{r pressure3, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-### Including Plots2
-
-```{r }
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths)
-```
-
-# Ministerio de Economía y Finanzas públicas (MEFP)
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars4}
-summary(cars)
-```
-
-## Including Plots1
-
-You can also embed plots, for example:
-
-```{r pressure4, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-### Including Plots2
-
-```{r }
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths)
-```
-
-# Unidad de Análisis de Políticas Sociales y Económicas (UDAPE)
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars5}
-summary(cars)
-```
-
-## Including Plots1
-
-You can also embed plots, for example:
-
-```{r pressure5, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-### Including Plots2
-
-```{r }
-library(dygraphs)
-lungDeaths <- cbind(mdeaths, fdeaths)
-dygraph(lungDeaths)
-```
+{{< /tab >}}
+{{< /tabs >}}
 
 
-```{css, echo=FALSE}
-.container-fluid.main-container{
-max-width: 85%
-}
-.tabset{
-    display: flex;
 
-}
+### Instituto Nacional de Estadística (INE)
 
-.nav.nav-pills {
-    flex: 15%;
-    width: 100%;
-}
-.nav.nav-pills li{
-    width: 100%;
-}
-.tab-content{
-    flex: 85%;
-    width: 100%
-}
+{{< tabs tabTotal="3">}}
+{{< tab tabName="Tab 1" >}}
 
-```
+**Tab 1 Content**
+
+{{< /tab >}}
+{{< tab tabName="Tab 2" >}}
+
+**Tab 2 Content**
+
+{{< /tab >}}
+{{< tab tabName="Tab 3">}}
+
+**Tab 3 Content**
+
+{{< /tab >}}
+{{< /tabs >}}
 
 
-## {.tabset .tabset-pills .tabcontent}
+
+### Ministerio de Economía y Finanzas públicas (MEFP)
+
+{{< tabs tabTotal="3">}}
+{{< tab tabName="Tab 1" >}}
+
+**Tab 1 Content**
+
+{{< /tab >}}
+{{< tab tabName="Tab 2" >}}
+
+**Tab 2 Content**
+
+{{< /tab >}}
+{{< tab tabName="Tab 3">}}
+
+**Tab 3 Content**
+
+{{< /tab >}}
+{{< /tabs >}}
 
 
-### Section 1
+### Unidad de Análisis de Políticas Sociales y Económicas (UDAPE)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+{{< tabs tabTotal="3">}}
+{{< tab tabName="Tab 1" >}}
 
+**Tab 1 Content**
 
-### Section 2
+{{< /tab >}}
+{{< tab tabName="Tab 2" >}}
 
-Ut porttitor leo a diam. Auctor neque vitae tempus quam pellentesque nec nam.
+**Tab 2 Content**
+
+{{< /tab >}}
+{{< tab tabName="Tab 3">}}
+
+**Tab 3 Content**
+
+{{< /tab >}}
+{{< /tabs >}}
+

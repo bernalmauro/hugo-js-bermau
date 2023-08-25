@@ -1,5 +1,5 @@
 /* Tema Predeterminado */
-h1 {
+h3 {
 	text-align: center !important;
 }
 body {
@@ -27,7 +27,7 @@ body code {
 .menu,
 .article-meta,
 footer {
-	text-align: center;
+	text-align: center !important;
 }
 .title {
 	color: red;
@@ -38,6 +38,9 @@ footer a {
 hr {
 	border-style: dashed;
 	color: #ddd;
+}
+ul {
+	list-style-type: none;
 }
 /* code */
 pre {
@@ -128,7 +131,7 @@ body {
 }
 ul.share-icons {
 	cursor: default;
-	list-style: none;
+	list-style: none !important; /* ver que no perjudiquen luego a socialshare.html */
 	margin-top: 1em;
 }
 ul.share-icons li {
@@ -242,14 +245,17 @@ ul.share-icons li>* .label {
 .html-widget {
     margin: auto;
 }
-
-.btn {
-    border-width: 0 0px 0px 0px;
-    font-weight: normal;
-    text-transform: ;
+/* tabs */
+.nav-tabs {
+	margin-top: 1rem;
+	border-color: gray !important;
 }
-.btn-default {
-    color: #2ecc71;
-    background-color: #ffffff;
-    border-color: #ffffff;
+.nav-link.active,
+.nav-item.show .nav-link {
+	background-color:  #212529 !important;
+	border-color: gray !important;
+}
+
+.tab-content {
+	margin: 2rem 0 2rem 1rem;
 }

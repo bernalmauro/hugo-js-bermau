@@ -6,16 +6,9 @@
       <div class="col-12 col-lg-9 article-style">
         {{ .Content }}
       </div>
-      <div class="col-12 col-lg-3 docs-toc">
-        <ul class="nav toc-top">
-          <li>
-            <a href="#" id="back_to_top" class="docs-toc-title">
-              {{ i18n "on_this_page" }}
-            </a>
-          </li>
-        </ul>
-        {{ .TableOfContents }}
-      </div>
+      <nav class="position-sticky col-12 col-lg-3">
+          {{ .TableOfContents }}
+      </nav>
     </div>
     <!-- 
       {{ partial "comment.html" . }}
@@ -23,4 +16,5 @@
     {{ partial "socialshare.html" . }}
   </div>
 </article>
+
 {{- end -}}

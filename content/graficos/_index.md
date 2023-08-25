@@ -1,9 +1,6 @@
 ---
 title: "Gráficos"
-output:
-  html_document:
-    fig_width: 6
-    fig_height: 4
+output: html_document
 ---
 
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>

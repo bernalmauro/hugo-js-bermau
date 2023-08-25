@@ -21,3 +21,4 @@ dygraph(predicted, main = "Predicted Lung Deaths (UK)") %>%
   dyOptions(colors = RColorBrewer::brewer.pal(3, "Set1"))
 ```
 </div>
+

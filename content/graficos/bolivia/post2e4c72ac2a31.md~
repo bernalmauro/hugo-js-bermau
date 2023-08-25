@@ -1,9 +1,9 @@
 ---
 title: "Bolivia"
-output: html_document
+output: 
+  blogdown::html_page:
+    toc: true
 ---
-
-
 
 
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
@@ -30,9 +30,6 @@ output: html_document
 
 {{< /tab >}}
 {{< /tabs >}}
-
-
-
 
 
 ### Banco Central de Bolivia (BCB)
