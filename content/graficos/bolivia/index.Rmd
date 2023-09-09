@@ -55,95 +55,78 @@ fun_excel <-function(file, range, col_names, from, to, by, each) {
   
 }
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/oferta_final_demanda_final/03.01.02.xlsx"
+
+#BANCO CENTRAL DE BOLIVIA
+
+base_mon <- file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "B12:AJ19"
+range <- "D24:S312"
 col_names <- FALSE
 #FORMATO FECHA
-from <- "31Dec1989"
+from <- "31Dec1998"
 to <- "31Dec2022"
-by <- "year"
+by <- "month"
 each <- 1
 
-excel <- 
-  fun_excel(file, range, col_names, from, to, by, each)
+fecha <- fun_fecha(from,to,by,each)
 
-excel %!>% 
-  read.zoo(excel, FUN = as.yearmon) %!>% 
-  as.ts(excel)
+base_mon <- 
+  rio::import(
+    base_mon,
+    setclass = "tbl_df",
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
 
-pib <- excel %!>% 
-  select(fecha, `PRODUCTO  INTERNO  BRUTO`) #PIB
+colnames(base_mon) <- c(
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/serie_historica_pib/06.01.02.xlsx"
+  "Reservas Internacionales Netas",
+  "Reservas Internacionales Brutas",
+  "Obligaciones Externas a Corto Plazo",
+  "Crédito Neto al Sector Público",
+  "Total Crédito a Bancos",
+  "BCL",
+  "BE Y OEF",
+  "Títulos Regulación Monetaria",
+  "SRD",
+  "Otras Cuentas Netas",
+  "Base Monetaria",
+  "Billetes y Monedas en poder del Público",
+  "Reservas Bancarias en Moneda Nacional",
+  "Reservas Bancarias en UFV",
+  "Reservas Bancarias en Moneda Extranjera",
+  "Total Reservas Bancarias"
+  )
 
-#IMPORTAR DATOS DE EXCEL
-range <- "B12:AS54"
-col_names <- FALSE
-#FORMATO FECHA
-from <- "31Dec1980"
-to <- "31Dec2022"
-by <- "year"
-each <- 1
+base_mon <- cbind(fecha, base_mon) 
+base_mon <- as_tibble(base_mon)
 
-excel2 <- 
-  fun_excel(file, range, col_names, from, to, by, each)
+base_mon <- base_mon %>%
+  mutate(across(where(is.numeric),  ~ . / 1000)) #EN MILLONES
 
-excel2 %!>% 
-  read.zoo(excel2, FUN = as.yearmon) %!>% 
-  as.ts(excel2)
-
-pib2 <- excel2 %!>% 
+origen <- base_mon %!>% 
   select(fecha, 
-         `Derechos S/Importaciones, IVA n.d., IT y otros Impuestos Indirectos`,
-         `1. AGRICULTURA, SILVICULTURA, CAZA Y PESCA`,
-         `2. EXTRACCIÓN DE MINAS Y CANTERAS`, 
-         `3. INDUSTRIAS  MANUFACTURERAS`, 
-         `4. ELECTRICIDAD GAS Y AGUA` ,
-         `5. CONSTRUCCIÓN`,
-         `6. COMERCIO`,
-         `7. TRANSPORTE, ALMACENAMIENTO Y COMUNICACIONES`,
-         `INMUEBLES Y SERVICIOS PRESTADOS A LAS EMPRESAS`,
-         `9. SERVICIOS COMUNALES, SOCIALES Y PERSONALES`,
-         `10. RESTAURANTES Y HOTELES`,
-         `SERVICIOS BANCARIOS IMPUTADOS`,
-         `B. SERVICIOS DE LA ADMINISTRACION PÚBLICA`,
-         `C. SERVICIO DOMESTICO`) %!>% 
-  mutate(across(where(is.numeric),  ~ . / 1000))
+         `Reservas Internacionales Netas`,
+         `Crédito Neto al Sector Público`,
+         `Total Crédito a Bancos`,
+         `Títulos Regulación Monetaria`,
+         `Otras Cuentas Netas`)
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/serie_historica_pib/06.01.04.xlsx"
-
-#IMPORTAR DATOS DE EXCEL
-range <- "B12:AS19"
-col_names <- FALSE
-#FORMATO FECHA
-from <- "31Dec1980"
-to <- "31Dec2022"
-by <- "year"
-each <- 1
-
-excel3 <- 
-  fun_excel(file, range, col_names, from, to, by, each)
-
-excel3 %!>% 
-  read.zoo(excel3, FUN = as.yearmon) %!>% 
-  as.ts(excel3)
-
-pib3 <- excel3 %!>% 
+destino <- base_mon %!>% 
   select(fecha, 
-         `GASTO DE CONSUMO FINAL DE LA ADMINISTRACIÓN  PÚBLICA`,
-         `GASTO DE CONSUMO FINAL DE LOS HOGARES  E  ISFLSH`, 
-         `VARIACIÓN  DE  EXISTENCIAS`, 
-         `FORMACIÓN  BRUTA  DE  CAPITAL  FIJO` ,
-         `EXPORTACIONES  NETAS DE BIENES Y SERVICIOS`) %!>% 
-  mutate(across(where(is.numeric),  ~ . / 1000))
+         `Billetes y Monedas en poder del Público`,
+         `Total Reservas Bancarias`) 
+
+
 
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 ```
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
-{{< tabs tabTotal="13">}}
-{{< tab tabName="Estructura de Activos" >}}
+
+
 ```{r knitr-activos, out.width='100%', echo=FALSE}
 knitr::include_graphics("/images/asfi/activos/Cartera Neta_Activo.png", error = FALSE)
 knitr::include_graphics("/images/asfi/activos/Disponibilidades_Activos.png", error = FALSE)
@@ -287,3 +270,50 @@ knitr::include_graphics("/images/asfi/spread-efectivo/UTILIDAD NETA.png", error 
 ```
 {{< /tab >}} 
 {{< /tabs >}} 
+
+### Banco Central de Bolivia (BCB)
+
+```{r origen_bm, out.width='50%', echo=FALSE}
+dygraph(origen, main = "Origen de la Base Monetaria<br><small>(En Millones de Bs)</small>") %!>%
+  dySeries("Reservas Internacionales Netas") %!>%
+  dySeries("Crédito Neto al Sector Público") %!>%
+  dySeries("Total Crédito a Bancos") %!>%
+  dySeries("Títulos Regulación Monetaria") %!>%
+  dySeries("Otras Cuentas Netas")  %!>%
+  dyLegend(width = 900, show = "onmouseover") %!>%
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#98918B",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>%
+  dyCrosshair(direction = "vertical") %!>%
+  dyRangeSelector(height = 30) %!>%
+  dyHighlight(highlightCircleSize = 1,
+              highlightSeriesBackgroundAlpha = 0.1) %!>%
+  dyUnzoom()
+```
+```{r destino_bm, out.width='50%', echo=FALSE}
+dygraph(destino, main = "Destino de la Base Monetaria<br><small>(En Millones de Bs)</small>") %!>%
+  dySeries("Billetes y Monedas en poder del Público") %!>%
+  dySeries("Total Reservas Bancarias") %!>%
+  dyLegend(width = 900, show = "onmouseover") %!>%
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#4a4a4a") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#98918B",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>%
+  dyCrosshair(direction = "vertical") %!>%
+  dyRangeSelector(height = 30) %!>%
+  dyHighlight(highlightCircleSize = 1,
+              highlightSeriesBackgroundAlpha = 0.1) %!>%
+  dyUnzoom()
+```
+
+{{< /tab >}}
+
+{{< /tabs >}} 
+
