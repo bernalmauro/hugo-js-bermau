@@ -83,7 +83,7 @@ theme_annotations <- function() {
     complete=TRUE)
 }
 
-#BANCO CENTRAL
+#BANCO CENTRAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
 #IMPORTAR DATOS DE EXCEL
 range <- "D24:T312"
@@ -231,7 +231,7 @@ p2 <-
 p2
 title <-"ORIGEN Y DESTINO DE LA BASE MONETARIA, 1998 - 2022"
 subtitle <-"(En millones de bolivianos)"
-caption = "Fuente: Elaboración propia en base al INE\nBernal Mauricio / bernalmauricio.com"
+caption = "Fuente: Elaboración propia en base al BCB\nBernal Mauricio / bernalmauricio.com"
 anotattion <- plot_annotation(title = title,subtitle = subtitle,
                               caption = caption,theme = theme_annotations())
 
@@ -390,7 +390,7 @@ knitr::include_graphics("/images/asfi/spread-efectivo/UTILIDAD NETA.png", error 
 ### Banco Central de Bolivia (BCB)
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Base Monetaria">}}
-```{r base_monetaria,warning = FALSE, fig.width = 12,fig.height = 8,echo=FALSE,dpi = 500}
+```{r base_monetaria,warning = FALSE, fig.width = 12,fig.height = 7,echo=FALSE}
 grafico
 ```
 

@@ -54,7 +54,7 @@ output: html_document
 ### Banco Central de Bolivia (BCB)
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Base Monetaria">}}
-<img src="{{< blogdown/postref >}}index_files/figure-html/base_monetaria-1.png" width="6000" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/base_monetaria-1.png" width="1152" />
 
 {{< /tab>}}
 
