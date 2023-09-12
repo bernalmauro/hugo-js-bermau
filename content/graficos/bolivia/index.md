@@ -2,6 +2,10 @@
 title: "Bolivia"
 output: html_document
 ---
+<script src="{{< blogdown/postref >}}index_files/kePrint/kePrint.js"></script>
+<link href="{{< blogdown/postref >}}index_files/lightable/lightable.css" rel="stylesheet" />
+<script src="{{< blogdown/postref >}}index_files/kePrint/kePrint.js"></script>
+<link href="{{< blogdown/postref >}}index_files/lightable/lightable.css" rel="stylesheet" />
 
 
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
@@ -53,49 +57,658 @@ output: html_document
 
 ### Banco Central de Bolivia (BCB)
 {{< tabs tabTotal="14">}}
-{{< tab tabName="Base Monetaria">}}
-<img src="{{< blogdown/postref >}}index_files/figure-html/base_monetaria-1.png" width="1152" />
+{{< tab tabName="Balance BCB">}}
+<img src="{{< blogdown/postref >}}index_files/figure-html/balance_bcb-1.png" width="1056" /><table class="table lightable-paper" style='margin-left: auto; margin-right: auto; font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+ <thead>
+  <tr>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Año </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Reservas Internacionales Brutas </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Aportes a Organismos Internacionales </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Otros Activos Externos de Mediano y Largo Plazo </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Crédito al Sector Público </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Crédito al Sector Financiero </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Otras Cuentas de Activo </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Total Activo </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1998 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,727 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 684 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,567 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,090 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,693 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,760 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1999 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,312 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 733 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,057 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,375 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 720 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 16,196 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2000 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,399 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 789 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,661 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,707 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 998 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 16,554 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2001 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,690 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 850 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,436 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,618 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,048 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,642 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2002 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,709 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 946 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,492 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,501 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 934 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,582 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2003 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,572 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,082 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 44 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,253 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,497 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,029 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,476 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2004 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,225 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,134 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 121 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,866 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,182 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 905 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,432 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2005 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 14,387 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,151 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 142 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,025 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,071 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 876 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 26,653 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2006 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 25,328 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,164 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,395 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,220 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,016 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,014 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 37,137 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2007 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 40,261 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,133 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,469 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,511 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,119 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 998 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 52,491 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2008 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 53,824 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,059 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,417 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,910 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,681 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 981 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 67,872 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2009 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 59,806 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,078 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,466 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 9,530 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,364 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 968 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 74,210 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2010 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 67,528 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,321 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,621 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,215 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,293 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 983 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 82,961 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2011 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 82,450 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,345 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,467 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 13,475 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,073 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 930 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 100,740 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2012 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 95,537 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,166 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,479 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 18,151 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,230 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 925 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 119,488 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2013 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 98,991 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,683 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,733 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,555 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,304 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 832 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 131,098 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2014 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 103,745 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,755 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,689 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 26,354 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,371 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 839 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 139,754 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2015 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 89,565 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,733 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,696 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 31,516 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,215 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,581 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 131,305 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2016 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 69,158 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,631 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,717 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 38,696 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,281 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,194 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 118,677 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2017 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 70,388 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,546 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,746 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 46,408 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,507 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,166 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 124,760 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2018 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 61,372 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,541 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,753 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 52,830 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 447 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,134 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 120,077 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2019 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 44,367 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,529 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,803 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 60,469 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,384 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,138 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 120,691 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2020 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 36,193 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,520 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,868 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 84,888 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 16,778 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,183 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 143,429 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2021 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 32,609 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,520 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,970 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 98,666 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 18,587 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,128 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 155,480 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2022 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 26,042 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,520 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,971 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 102,607 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,506 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,160 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 154,806 </td>
+  </tr>
+</tbody>
+</table>
 
+<table class="table lightable-paper" style='margin-left: auto; margin-right: auto; font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+ <thead>
+  <tr>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Año </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Emisión Monetaria </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Depósitos Bancarios </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Obligaciones Externas de Corto Plazo </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Depósito de Organismos Internacionales </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Obligaciones Externas a Mediano y Largo Plazo </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Otras Cuentas Pasivo </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Certificado de Devolución de Depósito </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Patrimonio Neto </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Depósitos del Sector Público </th>
+   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Total Pasivo </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1998 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,419 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,150 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 730 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 118 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,455 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,507 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 154 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,221 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,007 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,606 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1999 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,419 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,870 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 652 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 140 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,407 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 206 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 258 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,877 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,368 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 15,939 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2000 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,424 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,078 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 478 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 161 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,212 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 193 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 168 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,508 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,332 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 16,386 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2001 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,700 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,128 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 353 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 189 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,788 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 200 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 105 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,396 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,783 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,537 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2002 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,037 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,750 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 322 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 215 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 876 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 171 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,905 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,302 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,578 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2003 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,525 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,879 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 941 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 228 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 918 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 82 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,914 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,990 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,476 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2004 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,283 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,021 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,193 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 270 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 50 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 85 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,568 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,961 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,432 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2005 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,180 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,413 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 674 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 298 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 41 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 87 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 9,624 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,337 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 26,653 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2006 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,774 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,377 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 119 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 323 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 31 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 98 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 11,050 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 12,367 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 37,137 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2007 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 14,103 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,936 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> -5 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 336 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 92 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 235 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 12,221 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 14,573 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 52,490 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2008 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,043 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,546 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 333 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 80 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 283 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,744 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,842 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 67,872 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2009 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 18,892 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 21,548 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 358 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,862 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 159 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 9,821 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 21,567 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 74,210 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2010 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24,586 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 15,997 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 386 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,824 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 147 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,768 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 29,249 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 82,961 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2011 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 28,585 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,774 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 400 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,787 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 378 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,165 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 36,648 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 100,740 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2012 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 32,665 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24,849 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> -1 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 278 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,789 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 269 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 12,171 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 47,467 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 119,488 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2013 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 37,001 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 27,295 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 228 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,787 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,237 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,182 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 56,368 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 131,098 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2014 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 41,372 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 31,373 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 177 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,631 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,250 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,265 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 55,683 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 139,754 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2015 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 42,923 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 37,448 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 124 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,562 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> -858 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,727 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 47,378 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 131,305 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2016 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 43,145 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 25,495 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 71 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,509 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 49 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,388 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 44,017 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 118,677 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2017 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 46,335 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 25,092 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 83 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,602 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,706 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,558 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 43,384 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 124,760 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2018 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 48,953 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24,317 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,569 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,903 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,569 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 36,745 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 120,077 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2019 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 49,177 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 25,990 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,559 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,762 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,047 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 33,148 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 120,691 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2020 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 53,616 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 40,064 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 16 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,622 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,213 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 9,649 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 32,249 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 143,429 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2021 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 56,119 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 46,008 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,786 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,230 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,151 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 34,156 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 155,480 </td>
+  </tr>
+  <tr>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2022 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 56,714 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 48,150 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,616 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,064 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 11,460 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 29,794 </td>
+   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 154,806 </td>
+  </tr>
+</tbody>
+</table>
 {{< /tab>}}
 
-{{< tab tabName="Calidad de Cartera" >}}
-
-
+{{< tab tabName="Base Monetaria">}}
+<img src="{{< blogdown/postref >}}index_files/figure-html/base_monetaria-1.png" width="1056" />
 {{< /tab >}}
-{{< tab tabName="Estructura Financiera" >}} 
 
+{{< tab tabName="Agregados Monetarios" >}} 
+<img src="{{< blogdown/postref >}}index_files/figure-html/destino_monetaria-1.png" width="1056" />
 {{< /tab >}}
-{{< tab tabName="Estructura de Gastos de Administración">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Ingresos y Gastos Financieros">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Liquidez">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Estructura de Obligaciones">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Estructura de Pasivos">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Ratios de Eficiencia (anualizado)">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Ratios de Eficiencia (anualizado)">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Resultados (anualizado)">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Solvencia">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Cálculo Spread Efectivo (anualizado)">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
-{{< tab tabName="Utillización Spread Efectivo">}}
+{{< tab tabName="">}}
 
 {{< /tab >}} 
 {{< /tabs >}} 
