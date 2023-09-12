@@ -1,4 +1,5 @@
 /* Tema Predeterminado */
+
 h3 {
 	text-align: center !important;
 }
@@ -6,6 +7,7 @@ body {
 	margin:0 !important; 
 }
 body a {
+	text-decoration: none !important;
 	color: #eee !important;
 }
 body code {
@@ -14,10 +16,18 @@ body code {
 /* header and footer areas */
 .menu {
 	padding: 0px;
+
 }
 .menu li {
 	display: inline-block;
 	color: #eee !important;
+
+}
+
+.menu a {
+	display: inline-block;
+	color: #eee !important;
+	
 }
 .article-meta,
 .menu a {
@@ -249,6 +259,7 @@ ul.share-icons li>* .label {
 .nav-tabs {
 	margin-top: 1rem;
 	border-color: gray !important;
+	
 }
 .nav-link.active,
 .nav-item.show .nav-link {
@@ -259,6 +270,4 @@ ul.share-icons li>* .label {
 .tab-content {
 	margin: 2rem 0 2rem 1rem;
 }
-.nav-TableOfContents{
-	position:fixed !important;
-}
+
