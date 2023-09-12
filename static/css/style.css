@@ -259,3 +259,6 @@ ul.share-icons li>* .label {
 .tab-content {
 	margin: 2rem 0 2rem 1rem;
 }
+.nav-TableOfContents{
+	position:fixed !important;
+}
