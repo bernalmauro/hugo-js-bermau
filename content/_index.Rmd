@@ -482,7 +482,7 @@ dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (en millones de USD
 
 
 ### DATOS INSTITUTO NACIONAL DE ESTADISTICA BOLIVIA 
-```{r crecimiento-pib, warning = FALSE, out.width=500,echo=FALSE, fig.align='left'}
+```{r crecimiento-pib, warning = FALSE, out.width=600,echo=FALSE, fig.align='center'}
 dygraph_1 
 ```
 ### DATOS MINISTERIO DE ECONOMIA Y FINANZAS PUBLICAS BOLIVIA
@@ -511,7 +511,7 @@ dygraph_5%>%
   kable_styling(fixed_thead = T)%>%
   kable_paper(bootstrap_options = "striped", full_width = F)%>%
   row_spec(1:25, color = "#eee", background = "#212529") %!>% 
-  scroll_box(width ="550px",height = "480px")
+  scroll_box(width ="520px",height = "480px")
 ```
 
 ### DATOS SECTOR EXTERNO 
@@ -531,14 +531,12 @@ dygraph_7 %>%
   pack_rows("", 7,7) %!>% 
   pack_rows("", 8,7) %!>% 
   add_indent(c(2,3,4,5,9,10,11,12,13)) %!>% 
-  scroll_box(width ="550px",height = "480px") %!>% 
+  scroll_box(width ="520px",height = "480px") %!>% 
   footnote(general = "Banco Central de Bolivia (BCB)",
            general_title = "Fuente: ")
 ```
 
-
-
-```{r externo_3, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
+```{r externo_3, warning = FALSE, out.width=500, echo=FALSE,fig.align='center'}
 dygraph_8
 ```
 
