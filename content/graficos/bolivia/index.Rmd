@@ -11,7 +11,7 @@ library(rio)
 library(tidyverse)
 library(magrittr)
 library(janitor)
-library(anytime)
+library(anytime) 
 library(knitr)
 library(details)
 library(DT)
@@ -32,6 +32,29 @@ library(formattable)
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 
 #LABURO GGPLOT WRAP####
+fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
+  
+  data <- 
+    rio::import(
+      file, 
+      setclass = "tbl_df",
+      sheet=sheet,
+      range = range,
+      col_names = col_names,
+      .name_repair = "unique_quiet") %!>% 
+    remove_empty(c("rows", "cols")) %!>%
+    replace(is.na(.), 0)
+  data %<>%
+    pivot_longer(!...1) %<>%
+    pivot_wider(names_from = "...1",
+                values_from = "value") %<>%
+    dplyr::select(-name)
+  
+  fecha <- fun_fecha(from,to,by,each)
+  data <- cbind(fecha, data) 
+  data <- as_tibble(data)
+  
+}
 fun_fecha <-function(from, to, by, each) {
   rep(seq(anydate(from),
           anydate(to),
@@ -102,7 +125,6 @@ data <-
     .name_repair = "unique_quiet") %!>%
   remove_empty(c("rows", "cols")) %!>%
   replace(is.na(.), 0)
-data
 colnames(data) <- c(
 
   "Reservas Internacionales Netas",
@@ -123,7 +145,6 @@ colnames(data) <- c(
   "Total Reservas Bancarias",
   "Destino Base Monetaria"
   )
-names_data <- names(data)
 
 from <- "31Jan1998"
 to <- "31Dec2022"
@@ -1034,7 +1055,6 @@ pasivo_1%>%
   kable_styling(fixed_thead = T)%>%
   kable_paper(bootstrap_options = "striped", full_width = F)%>%
   row_spec(1:25, color = "#eee", background = "#212529")
-
 
 ```
 {{< /tab>}}

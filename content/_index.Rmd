@@ -3,3 +3,555 @@ title: "Bernal Mauricio"
 output: html_document
 ---
 
+#### Mi sitio web tiene por objetivo informar sobre los acontecimientos económicos, proveer información económica mediante gráficos y tablas y compartir libros sobre Economía y Filosofía Política.
+
+#### Por tanto, este sitio tiene las siguientes páginas: 
+
+##### * [Blog](https://hugo-js-bermau.netlify.app/blog/)
+##### * [Gráficos y Tablas Económicas](https://hugo-js-bermau.netlify.app/graficos/)
+##### * [Biblioteca](https://hugo-js-bermau.netlify.app/biblioteca/) 
+
+```{r warning = FALSE, include=FALSE}
+library(dygraphs) 
+library(tidyverse)
+library(zoo)
+library(rio)
+library(tidyverse)
+library(magrittr)
+library(janitor)
+library(anytime)
+library(knitr)
+library(details)
+library(DT)
+library(shiny)
+library(plotly)
+library(bookdown)
+library(rmarkdown)
+library(htmltools)
+library(xaringanExtra)
+library(tibbletime)
+library(unikn)
+library(scales)
+library(ggnewscale)
+library(patchwork)
+library(kableExtra)
+library(formattable)
+
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+
+#LABURO GGPLOT WRAP####
+fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
+  
+  data <- 
+    rio::import(
+      file, 
+      setclass = "tbl_df",
+      range = range,
+      sheet = sheet,
+      col_names = col_names,
+      .name_repair = "unique_quiet") %!>% 
+    remove_empty(c("rows", "cols")) %!>%
+    replace(is.na(.), 0)
+  data %<>%
+    pivot_longer(!...1) %<>%
+    pivot_wider(names_from = "...1",
+                values_from = "value") %<>%
+    dplyr::select(-name)
+  
+  fecha <- fun_fecha(from,to,by,each)
+  data <- cbind(fecha, data) 
+  data <- as_tibble(data)
+  
+}
+fun_fecha <-function(from, to, by, each) {
+  rep(seq(anydate(from),
+          anydate(to),
+          by = by), each = each)
+}
+pal <- function(num) {
+  usecol(c("#065a25", "#f2f419", "#f41919"),
+         n = num)
+}
+theme_wrap <- function() {
+  theme(
+    axis.line.x = element_line("#98918B"),
+    axis.line.y = element_line("#98918B"),
+    axis.ticks = element_line(color = "#98918B"),
+    
+    panel.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
+    panel.grid.major = element_line(color = "#1d1d1d"),
+    panel.grid.minor = element_line(color = "#1d1d1d"),
+    panel.grid.major.y = element_line(color = "#e3e3e3", linetype = "dotted"),
+    panel.grid.major.x = element_line(color = "#4a4a4a", linetype = "dotted"),
+    
+    strip.background = element_rect(fill = "#98918B", color = "#98918B"),
+    strip.text = element_text(color = "black"),
+    strip.placement = 'outside',
+    strip.switch.pad.wrap = unit(10, "mm"),
+    
+    plot.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
+    legend.box.background = element_blank(),
+    legend.background = element_blank(),
+    legend.key = element_blank(),
+    legend.title=element_blank(),
+    
+    axis.text = element_text(color = "#e3e3e3",size = rel(1)),
+    axis.title = element_blank(),
+    text = element_text(color = "#e3e3e3",family = "Constantia"),
+    
+    plot.subtitle = element_text(margin = margin(0, 0, 0.5, 0, "cm")),
+    plot.caption = element_text(margin = margin(0.5, 0, 0, 0, "cm"))
+  )
+}
+theme_annotations <- function() {
+  theme(
+    title = element_text(
+      family = "Constantia",
+      face = "plain",
+      colour = "#e3e3e3",
+      size = rel(1),
+      inherit.blank = FALSE),
+    plot.title = element_text(hjust = 1, vjust = 0),
+    plot.subtitle = element_text(hjust = 1,vjust = 0),
+    plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
+    complete=TRUE)
+}
+#CRECIMIENTO PBI OFERTA Y DEMANDA FINAL DYGRAPHS####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/oferta_final_demanda_final/03.01.02.xlsx"
+
+#IMPORTAR DATOS DE EXCEL
+range <- "B12:AJ19"
+sheet <- "03.01.02"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "1989.12.31"
+to <- "2022.12.31"
+by <- "year"
+each <- 1
+
+excel <- 
+  fun_excel(file, range, sheet,col_names, from, to, by, each)
+
+excel %!>%  
+  read.zoo(excel, FUN = as.Date) %!>% 
+  as.ts()
+str(excel)
+pib <- excel %!>% 
+  select(fecha, 
+         `PRODUCTO  INTERNO  BRUTO`) 
+
+dygraph_1 <- dygraph(pib, main = "Crecimiento del PIB /Anual") %!>% 
+  dySeries("PRODUCTO  INTERNO  BRUTO", 
+           label = "Producto Interno Bruto", color="green") %!>% 
+  dyLegend(width = 300, show = "onmouseover", ) %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = "function(v){return (v*1).toFixed(1) + '%'}",
+         axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}"
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 5,
+              highlightSeriesBackgroundAlpha = 1) 
+#OPERACIONES CONSOLIDADAS DEL SECTOR PUBLICO DYGRAPHS####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/13-01.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "A5:AH30"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "1990.12.31"
+to <- "2022.12.31"
+by <- "year"
+each <- 1
+
+excel <- 
+  fun_excel(file, range, sheet, col_names, from, to, by, each)
+
+excel %!>%  
+  read.zoo(excel, FUN = as.Date) %!>% 
+  as.ts()
+
+consolidado <- excel %!>% 
+  select(fecha, 
+         `INGRESOS TOTALES`,
+         `EGRESOS TOTALES`) 
+
+dygraph_2 <- dygraph(consolidado, main = "Ingresos y Egresos Estatales /Anual (en millones de Bs)") %!>% 
+  dySeries(fillGraph = FALSE, "EGRESOS TOTALES", 
+           label = "Egresos Totales", color="red") %!>% 
+  dySeries(fillGraph = TRUE, "INGRESOS TOTALES", 
+           label = "Ingresos Totales", color="green") %!>% 
+  dyLegend(width = 500, show = "onmouseover", ) %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 5,
+              highlightSeriesBackgroundAlpha = 1) 
+#RESULTADO FISCAL DEL SECTOR PUBLICO####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/13-01.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "A5:AH30"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "1990.12.31"
+to <- "2022.12.31"
+by <- "year"
+each <- 1
+
+excel <- 
+  fun_excel(file, range, sheet, col_names, from, to, by, each)
+
+excel %!>%  
+  read.zoo(excel, FUN = as.Date) %!>% 
+  as.ts()
+
+resultado <- excel %!>% 
+  select(fecha, 
+         `SUPERÁVIT O DÉFICIT CORRIENTE`,
+         `SUPERÁVIT O DÉFICIT GLOBAL`) 
+
+dygraph_3 <- dygraph(resultado, main = "Resultado Fiscal Estatal /Anual (en millones de Bs)") %!>% 
+  dySeries("SUPERÁVIT O DÉFICIT CORRIENTE", 
+           label = "Superávit o Déficit Corriente", color="green") %!>% 
+  dySeries("SUPERÁVIT O DÉFICIT GLOBAL", 
+           label = "Superávit o Déficit Total", color="red") %!>% 
+  dyMultiColumn() %!>% 
+  dyLegend(width = 500, show = "onmouseover", ) %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 3,
+              highlightSeriesBackgroundAlpha = 1) 
+
+#RESERVAS INTERNACIONALES DE BOLIVIA DYGRAPHS####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "B14:G302"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "1999.2.28"
+to <- "2023.2.28"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet =sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Reservas Internacionales",
+  "Reservas Internacionales Netas",
+  "Oro",
+  "Divisas",
+  "Derecho Especial de Giro (DEG)",
+  "Tramo de Reservas FMI"
+)
+
+Año <- fun_fecha(from,to,by,each)
+data <- cbind(Año, data) 
+data <- as_tibble(data)
+
+excel <- data %>%
+  select(`Año`, 
+         `Oro`,
+         `Divisas`,
+         `Derecho Especial de Giro (DEG)`) 
+
+hoja_excel <- as_tbl_time(excel, index = Año) #FORMATO DATE FLEXIBLE
+hoja_excel_ <- as_period(hoja_excel, period = "year", side = "end", include_endpoints = FALSE)
+
+hoja_excel_ %!>% 
+  read.zoo(hoja_excel_, FUN = as.Date) %!>% 
+  as.ts()
+
+dygraph_4 <- dygraph(hoja_excel_, main = "Reservas Internacionales Netas /Mensual-Feb (en millones de USD)") %!>% 
+  dySeries(fillGraph = TRUE, "Oro", 
+           label = "Oro", color="yellow") %!>% 
+  dySeries(fillGraph = TRUE, "Divisas", 
+           label = "Divisas", color="red") %!>% 
+  dySeries(fillGraph = TRUE, "Derecho Especial de Giro (DEG)", 
+           label = "Derecho Especial de Giro (DEG)", color="green") %!>% 
+  dyLegend(width = 500, show = "onmouseover", ) %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 5,
+              highlightSeriesBackgroundAlpha = 1) 
+
+excel <- data %>%
+  select(`Año`, 
+         `Reservas Internacionales Netas`,
+         `Oro`,
+         `Divisas`,
+         `Derecho Especial de Giro (DEG)`) 
+
+excel_ <- as_tbl_time(excel, index = Año) #FORMATO DATE FLEXIBLE
+dygraph_5 <- as_period(excel_, period = "year", side = "end", include_endpoints = FALSE)
+
+Año <- formattable(dygraph_5$Año, format = "%Y")
+
+dygraph_5 <- dygraph_5[,-1]
+dygraph_5 <- cbind(Año, dygraph_5) 
+
+dygraph_2
+
+#SALDO COMERCIAL ANUAL DYGRAPHS####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Año, 1992 - 2022.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "C6:E36"
+sheet <- "COMEX Anual 92-22"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "1992.12.31"
+to <- "2022.12.31"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet =sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Exportaciones",
+  "Importaciones",
+  "Saldo Comercial"
+)
+
+Año <- fun_fecha(from,to,by,each)
+data <- cbind(Año, data) 
+data <- as_tibble(data)
+
+excel <- data %>%
+  select(`Año`, 
+         `Exportaciones`,
+         `Importaciones`,
+         `Saldo Comercial`) 
+
+hoja_excel <- as_tbl_time(excel, index = Año) #FORMATO DATE FLEXIBLE
+hoja_excel_ <- as_period(hoja_excel, period = "year", side = "end", include_endpoints = FALSE)
+
+hoja_excel_ %!>% 
+  read.zoo(hoja_excel_, FUN = as.Date) %!>% 
+  as.ts()
+
+dygraph_6 <- dygraph(hoja_excel_, main = "Saldo Comercial /Anual (en millones de USD)") %!>% 
+  dySeries(fillGraph = FALSE, "Exportaciones", 
+           label = "Exportaciones", color="green") %!>% 
+  dySeries(fillGraph = FALSE, "Importaciones", 
+           label = "Importaciones", color="yellow") %!>% 
+  dyBarSeries("Saldo Comercial", 
+           label = "Saldo Comercial", color="red") %!>% 
+  dyLegend(width = 500, show = "onmouseover", ) %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 5,
+              highlightSeriesBackgroundAlpha = 1) 
+
+
+
+
+#BALANZA COMERCIAL ANUAL KABLE####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/5.trimestral/2.externo/9.comercio/9.balanza_pagos.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "A4:H18"
+sheet <- "Hoja2"
+col_names <- TRUE
+
+dygraph_7 <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet = sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+
+
+#BALANZA CAMBIARIA ANUAL DYGRAPHS####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/6.externo/5.balanza_cambiaria/35.balanza_cambiaria_resumen.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "D9:F41"
+sheet <- "Hoja2"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "1990.12.31"
+to <- "2022.12.31"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet =sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Ingreso de Divisas",
+  "Egreso de Divisas",
+  "Saldo Divisas"
+)
+
+Año <- fun_fecha(from,to,by,each)
+data <- cbind(Año, data) 
+data <- as_tibble(data)
+
+excel <- data %>%
+  select(`Año`, 
+         `Ingreso de Divisas`,
+         `Egreso de Divisas`,
+         `Saldo Divisas`) 
+
+excel %!>% 
+  read.zoo(excel, FUN = as.Date) %!>% 
+  as.ts()
+
+dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (en millones de USD)") %!>% 
+  dySeries(fillGraph = FALSE, "Ingreso de Divisas", 
+           label = "Ingreso de Divisas", color="green") %!>% 
+  dySeries(fillGraph = FALSE, "Egreso de Divisas", 
+           label = "Egreso de Divisas", color="yellow")  %!>%
+  dyBarSeries("Saldo Divisas", 
+              label = "Saldo Divisas", color="red") %!>% 
+  dyLegend(width = 500, show = "onmouseover", ) %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 5,
+              highlightSeriesBackgroundAlpha = 1) 
+
+```
+### DATOS INSTITUTO NACIONAL DE ESTADISTICA BOLIVIA
+```{r crecimiento-pib, warning = FALSE, out.width=700,echo=FALSE}
+dygraph_1
+```
+### DATOS MINISTERIO DE ECONOMIA Y FINANZAS PUBLICAS BOLIVIA
+<div class="row">
+  <div class="col-6">  
+```{r consolidadas_1, warning = FALSE, out.width=450, echo=FALSE}
+dygraph_2 
+```
+</div>
+  <div class="col-6">  
+```{r consolidadas_2, warning = FALSE, out.width=450, echo=FALSE}
+dygraph_3
+
+```
+</div>
+</div>
+
+### DATOS BANCO CENTRAL DE BOLIVIA 
+<div class="row">
+  <div class="col-6">  
+```{r reservas_1, warning = FALSE, out.width=450, echo=FALSE}
+dygraph_4 
+```
+</div>
+  <div class="col-6">  
+```{r reservas_2, warning = FALSE, out.width=450, echo=FALSE}
+
+dygraph_5%>%
+  kbl( escape = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  kable_styling(fixed_thead = T)%>%
+  kable_paper(bootstrap_options = "striped", full_width = F)%>%
+  row_spec(1:25, color = "#eee", background = "#212529") %!>% 
+  scroll_box(width ="550px",height = "480px")
+
+```
+</div>
+</div>
+
+### DATOS SECTOR EXTERNO 
+
+<div class="row">
+<div>
+```{r externo_1, warning = FALSE, out.width=900, echo=FALSE}
+dygraph_6
+```
+</div>
+  <div class="col-6">  
+```{r externo_2, warning = FALSE, out.width=450, echo=FALSE}
+
+dygraph_7 %>%
+  kbl(align = "l",  digits=0,format.args = list(big.mark = ",")) %!>% 
+  kable_styling(bootstrap_options ="striped", fixed_thead = T) %!>% 
+  kable_paper(full_width = F)%>%
+  row_spec(1:14, color = "#eee", background = "#212529") %!>% 
+  add_header_above(c("Balanza de Pagos/Anual (en millones de USD)" = 8)) %!>% 
+  pack_rows("", 7,7) %!>% 
+  pack_rows("", 8,7) %!>% 
+  add_indent(c(2,3,4,5,9,10,11,12,13)) %!>% 
+  scroll_box(width ="550px",height = "480px") %!>% 
+  footnote(general = "Banco Central de Bolivia (BCB)",
+           general_title = "Fuente: ")
+```
+</div>
+
+  <div class="col-6">  
+```{r externo_3, warning = FALSE, out.width=450, echo=FALSE}
+dygraph_8
+```
+</div>
+
+</div>
+
