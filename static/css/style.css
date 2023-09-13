@@ -250,11 +250,7 @@ ul.share-icons li>* .label {
 	padding:20px;
 	margin-top:30px;
 }
-/* dygraph */
-.dygraphs,
-.html-widget {
-    margin: auto;
-}
+
 /* tabs */
 .nav-tabs {
 	margin-top: 1rem;

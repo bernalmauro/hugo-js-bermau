@@ -3,13 +3,13 @@ title: "Bernal Mauricio"
 output: html_document
 ---
 
-#### Mi sitio web tiene por objetivo informar sobre los acontecimientos económicos, proveer información económica mediante gráficos y tablas y compartir libros sobre Economía y Filosofía Política.
+Mi sitio web tiene por objetivo informar sobre los acontecimientos económicos, proveer información económica mediante gráficos y tablas y compartir libros sobre Economía y Filosofía Política.
 
-#### Por tanto, este sitio tiene las siguientes páginas: 
+Por tanto, este sitio tiene las siguientes páginas:
 
-##### * [Blog](https://hugo-js-bermau.netlify.app/blog/)
-##### * [Gráficos y Tablas Económicas](https://hugo-js-bermau.netlify.app/graficos/)
-##### * [Biblioteca](https://hugo-js-bermau.netlify.app/biblioteca/) 
+* [Blog](https://hugo-js-bermau.netlify.app/blog/)
+* [Gráficos y Tablas Económicas](https://hugo-js-bermau.netlify.app/graficos/)
+* [Biblioteca](https://hugo-js-bermau.netlify.app/biblioteca/) 
 
 ```{r warning = FALSE, include=FALSE}
 library(dygraphs) 
@@ -481,33 +481,31 @@ dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (en millones de USD
               highlightSeriesBackgroundAlpha = 1) 
 
 ```
-### DATOS INSTITUTO NACIONAL DE ESTADISTICA BOLIVIA
-```{r crecimiento-pib, warning = FALSE, out.width=700,echo=FALSE}
+
+
+### DATOS INSTITUTO NACIONAL DE ESTADISTICA BOLIVIA 
+```{r crecimiento-pib, warning = FALSE, out.width=700,echo=FALSE, fig.align='left'}
 dygraph_1
 ```
 ### DATOS MINISTERIO DE ECONOMIA Y FINANZAS PUBLICAS BOLIVIA
-<div class="row">
-  <div class="col-6">  
+
 ```{r consolidadas_1, warning = FALSE, out.width=450, echo=FALSE}
 dygraph_2 
 ```
-</div>
-  <div class="col-6">  
+
+
 ```{r consolidadas_2, warning = FALSE, out.width=450, echo=FALSE}
 dygraph_3
-
 ```
-</div>
-</div>
+
 
 ### DATOS BANCO CENTRAL DE BOLIVIA 
-<div class="row">
-  <div class="col-6">  
+
 ```{r reservas_1, warning = FALSE, out.width=450, echo=FALSE}
 dygraph_4 
 ```
-</div>
-  <div class="col-6">  
+
+
 ```{r reservas_2, warning = FALSE, out.width=450, echo=FALSE}
 
 dygraph_5%>%
@@ -516,22 +514,16 @@ dygraph_5%>%
   kable_paper(bootstrap_options = "striped", full_width = F)%>%
   row_spec(1:25, color = "#eee", background = "#212529") %!>% 
   scroll_box(width ="550px",height = "480px")
-
 ```
-</div>
-</div>
 
 ### DATOS SECTOR EXTERNO 
 
-<div class="row">
-<div>
+
 ```{r externo_1, warning = FALSE, out.width=900, echo=FALSE}
 dygraph_6
 ```
-</div>
-  <div class="col-6">  
-```{r externo_2, warning = FALSE, out.width=450, echo=FALSE}
 
+```{r externo_2, warning = FALSE, out.width=450, echo=FALSE}
 dygraph_7 %>%
   kbl(align = "l",  digits=0,format.args = list(big.mark = ",")) %!>% 
   kable_styling(bootstrap_options ="striped", fixed_thead = T) %!>% 
@@ -545,13 +537,12 @@ dygraph_7 %>%
   footnote(general = "Banco Central de Bolivia (BCB)",
            general_title = "Fuente: ")
 ```
-</div>
 
-  <div class="col-6">  
+
+
 ```{r externo_3, warning = FALSE, out.width=450, echo=FALSE}
 dygraph_8
 ```
-</div>
 
-</div>
+
 
