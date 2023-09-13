@@ -484,29 +484,29 @@ dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (en millones de USD
 
 
 ### DATOS INSTITUTO NACIONAL DE ESTADISTICA BOLIVIA 
-```{r crecimiento-pib, warning = FALSE, out.width=700,echo=FALSE, fig.align='left'}
-dygraph_1
+```{r crecimiento-pib, warning = FALSE, out.width=500,echo=FALSE, fig.align='left'}
+dygraph_1 
 ```
 ### DATOS MINISTERIO DE ECONOMIA Y FINANZAS PUBLICAS BOLIVIA
 
-```{r consolidadas_1, warning = FALSE, out.width=450, echo=FALSE}
+```{r consolidadas_1, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 dygraph_2 
 ```
 
 
-```{r consolidadas_2, warning = FALSE, out.width=450, echo=FALSE}
+```{r consolidadas_2, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 dygraph_3
 ```
 
 
 ### DATOS BANCO CENTRAL DE BOLIVIA 
 
-```{r reservas_1, warning = FALSE, out.width=450, echo=FALSE}
+```{r reservas_1, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 dygraph_4 
 ```
 
 
-```{r reservas_2, warning = FALSE, out.width=450, echo=FALSE}
+```{r reservas_2, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 
 dygraph_5%>%
   kbl( escape = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
@@ -519,11 +519,11 @@ dygraph_5%>%
 ### DATOS SECTOR EXTERNO 
 
 
-```{r externo_1, warning = FALSE, out.width=900, echo=FALSE}
+```{r externo_1, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 dygraph_6
 ```
 
-```{r externo_2, warning = FALSE, out.width=450, echo=FALSE}
+```{r externo_2, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 dygraph_7 %>%
   kbl(align = "l",  digits=0,format.args = list(big.mark = ",")) %!>% 
   kable_styling(bootstrap_options ="striped", fixed_thead = T) %!>% 
@@ -540,7 +540,7 @@ dygraph_7 %>%
 
 
 
-```{r externo_3, warning = FALSE, out.width=450, echo=FALSE}
+```{r externo_3, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 dygraph_8
 ```
 
