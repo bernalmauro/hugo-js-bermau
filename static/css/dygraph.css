@@ -1,13 +1,7 @@
 /**
  * Default styles for the dygraphs charting library.
  */
-.dygraph {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  margin-bottom: 0px !important;
-}
+
  .dygraph-legend {
   position: absolute;
   font-size: 14px;
