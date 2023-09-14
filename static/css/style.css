@@ -247,6 +247,7 @@ ul.share-icons li>* .label {
 .div {
 	padding:20px;
 	margin-top:30px;
+	background-color: transparent !important;
 }
 .container-sm {
 	padding:20px;
@@ -287,6 +288,7 @@ ul.share-icons li>* .label {
   padding-left: 0px !important;
   padding-right: 0px !important;
   margin-bottom: 0px !important;
+  
 }
  .dygraph-legend {
   position: left !important;
@@ -301,4 +303,5 @@ ul.share-icons li>* .label {
 }
 .dygraph-legend[dir="rtl"] {
   text-align: left !important;
+  background-color: none !important;
 }

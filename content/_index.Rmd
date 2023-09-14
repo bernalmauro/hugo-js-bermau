@@ -123,7 +123,7 @@ dygraph_1 <- dygraph(pib, main = "Crecimiento del PIB /Anual") %!>%
   ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
+  dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1) 
 
 #OPERACIONES CONSOLIDADAS DEL SECTOR PUBLICO DYGRAPHS####
@@ -168,7 +168,7 @@ dygraph_2 <- dygraph(consolidado, main = "Ingresos y Egresos Estatales /Anual (m
   ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
+  dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1)
 
 #RESULTADO FISCAL DEL SECTOR PUBLICO####
@@ -193,7 +193,7 @@ dygraph_3 <- dygraph(resultado, main = "Resultado Fiscal Estatal /Anual (millone
   ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
+  dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1)
 
 #RESERVAS INTERNACIONALES DE BOLIVIA DYGRAPHS####
@@ -267,7 +267,7 @@ dygraph_4 <- dygraph(hoja_excel_, main = "RIN /Mensual-Feb (millones de USD)") %
   ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
+  dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1) 
 
 excel <- data %>%
@@ -357,7 +357,7 @@ dygraph_6 <- dygraph(hoja_excel_, main = "Saldo Comercial /Anual (millones de US
   ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
+  dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1) 
 
 #BALANZA COMERCIAL ANUAL KABLE####
@@ -446,7 +446,7 @@ dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (millones de USD)")
   ) %!>% 
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
+  dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1) 
 
 ```
