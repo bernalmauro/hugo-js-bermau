@@ -3,24 +3,18 @@
  */
 
  .dygraph-legend {
-  position: absolute;
+  position: left !important;
   font-size: 14px;
   z-index: 10;
   width: 250px;  /* labelsDivWidth */
-  /*
-  dygraphs determines these based on the presence of chart labels.
-  It might make more sense to create a wrapper div around the chart proper.
-  top: 0px;
-  right: 2px;
-  */
-  background-color: #282C34 !important;
+  background-color: transparent !important;
   color: #e3e3e3 !important;
   line-height: normal;
   text-align: right !important;
   overflow: hidden;
 }
 .dygraph-legend[dir="rtl"] {
-  text-align: right !important;
+  text-align: center !important;
 }
 /* styles for a solid line in the legend */
 .dygraph-legend-line {

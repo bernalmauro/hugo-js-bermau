@@ -36,6 +36,7 @@ library(patchwork)
 library(kableExtra)
 library(formattable)
 
+
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 
 #LABURO GGPLOT WRAP####
@@ -81,13 +82,6 @@ theme_annotations <- function() {
     plot.subtitle = element_text(hjust = 1,vjust = 0),
     plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
     complete=TRUE)
-}
-
-dyMultiColumn <- function(dygraph) {
-  dyPlotter(dygraph = dygraph,
-            name = "MultiColumn",
-            path = system.file("plotters/multicolumn.js",
-                               package = "dygraphs"))
 }
 
 #CRECIMIENTO PBI OFERTA Y DEMANDA FINAL DYGRAPHS####
@@ -164,7 +158,7 @@ dygraph_2 <- dygraph(consolidado, main = "Ingresos y Egresos Estatales /Anual (m
            label = "Egresos Totales", color="red") %!>% 
   dySeries(fillGraph = TRUE, "INGRESOS TOTALES", 
            label = "Ingresos Totales", color="green") %!>% 
-  dyLegend(width = 500, show = "onmouseover") %!>% 
+  dyLegend(width = 500, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
@@ -189,7 +183,7 @@ dygraph_3 <- dygraph(resultado, main = "Resultado Fiscal Estatal /Anual (millone
            label = "Superávit / Déficit Corriente", color="green") %!>% 
   dyBarSeries("SUPERÁVIT O DÉFICIT GLOBAL", 
            label = "Superávit / Déficit Total", color="red") %!>% 
-  dyLegend(width = 500, show = "onmouseover") %!>% 
+  dyLegend(width = 500, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
@@ -263,7 +257,7 @@ dygraph_4 <- dygraph(hoja_excel_, main = "RIN /Mensual-Feb (millones de USD)") %
            label = "Divisas", color="red") %!>% 
   dySeries(fillGraph = TRUE, "Derecho Especial de Giro (DEG)", 
            label = "Derecho Especial de Giro (DEG)", color="green") %!>% 
-  dyLegend(width = 500, show = "onmouseover") %!>% 
+  dyLegend(width = 500, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
@@ -353,7 +347,7 @@ dygraph_6 <- dygraph(hoja_excel_, main = "Saldo Comercial /Anual (millones de US
            label = "Importaciones", color="yellow") %!>% 
   dyBarSeries("Saldo Comercial", 
            label = "Saldo Comercial", color="red") %!>% 
-  dyLegend(width = 500, show = "onmouseover", ) %!>% 
+  dyLegend(width = 500, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
@@ -442,7 +436,7 @@ dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (millones de USD)")
            label = "Egreso de Divisas", color="yellow")  %!>%
   dyBarSeries("Saldo Divisas", 
               label = "Saldo Divisas", color="red") %!>% 
-  dyLegend(width = 500, show = "onmouseover") %!>% 
+  dyLegend(width = 500, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
