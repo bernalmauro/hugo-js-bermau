@@ -269,7 +269,11 @@ ul.share-icons li>* .label {
 .tab-content {
 	margin: 2rem 0 2rem 1rem;
 }
-
+.col {
+	margin: auto;
+	padding:20px !important;
+	margin-top:30px !important;
+  }
 .row {
   justify-content: space-around !important;
   padding:20px !important;

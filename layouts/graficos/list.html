@@ -1,24 +1,20 @@
 {{ define "main" }}
 <div class="container-sm">
   {{partial "breadcrumb.html" . }}
-    <div class="btn-group dropend">
-      <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Seleccione un país
-      </button>
-      <ul class="dropdown-menu dropdown-menu-dark">
-        {{ range .Pages }}
-        <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }}
-      </ul>
-    </div>
-    <main>
-      <div class="row">
-      {{ .Content }}
-      </div>
-      <!-- 
+  <div class="btn-group dropend">
+    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Seleccione un país
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      {{ range .Pages }}
+      <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
+  <div>
+    {{ .Content }}
+  </div>
+  <!-- 
         {{ partial "comment.html" . }}
           -->
-      {{ partial "socialshare.html" . }}
-      </main>      
 </div>
-
 {{ end }}

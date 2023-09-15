@@ -3,8 +3,6 @@ title: "Gráficos"
 output: html_document
 ---
 
-
-
 ```{r warning = FALSE, include=FALSE}
 
 library(dygraphs) 
@@ -199,7 +197,7 @@ dygraph_3 <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</small>
 ```
 
 ## EL MUNDO EN GRÁFICOS
-### DATOS PRODUCCION MUNDIAL 
+### DATOS PRODUCCION MUNDIAL
 
 ```{r pib-mundial, warning = FALSE, out.width=600,echo=FALSE, fig.align='center'}
 
@@ -223,4 +221,4 @@ Fuente: World Bank Poverty and Inequality Platform (2022)
 dygraph_3 
 
 ```
-Fuente: UN WPP (2022); Zijdeman et al. (2015); Riley (2005)
+Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005)  
