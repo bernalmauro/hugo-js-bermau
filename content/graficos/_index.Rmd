@@ -3,22 +3,224 @@ title: "Gráficos"
 output: html_document
 ---
 
-## _Gráficos_  _Blog_ _Biblioteca_ 
-
-En esta sección encontrará [Dygraphs]() y [Tablas](), además de una barra de búsqueda personalizada. (agradecer a R) En esta sección encontrará [Dygraphs]() y [Tablas](), además de una barra de búsqueda personalizada. (agradecer a R) I can certainly further reduce the code, for example, by eliminating the CSS, but I believe a tiny bit of CSS can greatly improve readability. You cannot really find many CSS frameworks that only contain 50 lines of code. Although it is a minimal theme, it is actually fully functional. It supports pages (including the home page), blog posts, a navigation menu, categories, tags, and RSS. With [a little bit customization](https://github.com/yihui/hugo-xmin/blob/master/exampleSite/layouts/partials/foot_custom.html), it can easily support LaTeX math expressions, e.g.,
-para ver que funcione
 
 
-<div class= "container-sm">
-```{r fig.width= 5, fig.height= 3.5}
-library(dygraphs)
-hw <- HoltWinters(ldeaths)
-predicted <- predict(hw, n.ahead = 72, prediction.interval = TRUE)
+```{r warning = FALSE, include=FALSE}
 
-dygraph(predicted, main = "Predicted Lung Deaths (UK)") %>%
+library(dygraphs) 
+library(tidyverse)
+library(zoo)
+library(rio)
+library(tidyverse)
+library(magrittr)
+library(janitor)
+library(anytime)
+library(knitr)
+library(details)
+library(DT)
+library(shiny)
+library(plotly)
+library(bookdown)
+library(rmarkdown)
+library(htmltools)
+library(xaringanExtra)
+library(tibbletime)
+library(unikn)
+library(scales)
+library(ggnewscale)
+library(patchwork)
+library(kableExtra)
+library(formattable)
+
+
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+
+#LABURO GGPLOT WRAP####
+
+fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
+  
+  data <- 
+    rio::import(
+      file, 
+      setclass = "tbl_df",
+      range = range,
+      sheet = sheet,
+      col_names = col_names,
+      .name_repair = "unique_quiet") %!>% 
+    remove_empty(c("rows", "cols")) %!>%
+    replace(is.na(.), 0)
+  data %<>%
+    pivot_longer(!...1) %<>%
+    pivot_wider(names_from = "...1",
+                values_from = "value") %<>%
+    dplyr::select(-name)
+  
+  fecha <- fun_fecha(from,to,by,each)
+  data <- cbind(fecha, data) 
+  data <- as_tibble(data)
+}
+
+fun_fecha <-function(from, to, by, each) {
+  rep(seq(anydate(from),
+          anydate(to),
+          by = by), each = each)
+}
+
+theme_annotations <- function() {
+  theme(
+    title = element_text(
+      family = "Constantia",
+      face = "plain",
+      colour = "#e3e3e3",
+      size = rel(1),
+      inherit.blank = FALSE),
+    plot.title = element_text(hjust = 1, vjust = 0),
+    plot.subtitle = element_text(hjust = 1,vjust = 0),
+    plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
+    complete=TRUE)
+}
+
+#PBI MUNDIAL DYGRAPHS####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/world-gdp-over-the-last-two-millennia.csv"
+
+excel <- import(file)
+gdp <- excel$`World GDP in 2011 Int.$ (OWID based on World Bank & Maddison (2017))`/1000000000000
+excel <-excel[c(-1,-2,-4)]
+excel <- cbind(excel, gdp)
+
+
+dygraph_1 <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios <br><small>Producción total de la economía mundial. Estos datos están ajustados por inflación y diferencias en el costo de vida entre países.</small>") %!>% 
+  dySeries("gdp", 
+           label = "Producto Interno Bruto Mundial", color="green") %!>% 
+  dyLegend(width = 300, show = "onmouseover") %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dySeries(c("lwr", "fit", "upr"), label = "Deaths") %>%
-  dyOptions(colors = RColorBrewer::brewer.pal(3, "Set1"))
-```
-</div>
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return "$" + d + "\ billones"}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 4,
+              highlightSeriesBackgroundAlpha = 1)
 
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/total-population-living-in-extreme-poverty-by-world-region.csv"
+
+excel <- import(file)
+
+gdp <- excel$`Number of people living in extreme poverty - by world region`/1000000
+excel <-excel[c(-2,-4)]
+excel <- cbind(excel, gdp)
+excel <-
+  excel %>%
+  relocate(Year)%>%
+  pivot_wider(names_from = Entity, values_from = gdp)%>%
+  select(`Year`, 
+         `East Asia and Pacific`,
+         `Europe and Central Asia`,
+         `High income countries`,
+         `Latin America and the Caribbean`,
+         `Middle East and North Africa`,
+         `South Asia`,
+         `Sub-Saharan Africa`) 
+
+dygraph_2 <- dygraph(excel, main = "Población total que vive en pobreza extrema por región del mundo (millones de habitantes)<br><small>La pobreza extrema se define como vivir por debajo del umbral internacional de pobreza de 2,15 dólares al día.</small>") %!>% 
+  dySeries("High income countries", 
+           label = "Paises de Altos Ingresos", color = "#6D3E91") %!>% 
+  dySeries("Latin America and the Caribbean", 
+           label = "América Latina y el Caribe",color = "#C05917") %!>% 
+  dySeries("East Asia and Pacific", 
+           label = "Asia Oriental y el Pacífico",color = "#58AC8C") %!>% 
+  dySeries("South Asia", 
+           label = "Asia del Sur",color = "#286BBB") %!>% 
+  dySeries("Middle East and North Africa", 
+           label = "Oriente Medio y África del Norte",color = "#883039") %!>% 
+  dySeries("Europe and Central Asia", 
+           label = "Europa y Asia Central",color = "#BC8E5A") %!>% 
+  dySeries("Sub-Saharan Africa", 
+           label = "Africa Sub-Sahariana",color = "#00295B") %!>% 
+  dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE, labelsDiv = FALSE) %!>% 
+  dyOptions(axisLineWidth = 1.5,stackedGraph = TRUE, fillGraph = TRUE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 3,
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE) 
+
+#ESPERANZA DE VIDA DYGRAPHS####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/excel2.xlsx"
+range <- "A1:G83"
+col_names <- TRUE
+
+data<- 
+  rio::import(
+    file, 
+    setclass = "tbl_df",
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>% 
+  remove_empty(c("rows", "cols")) 
+
+
+dygraph_3 <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</small>") %!>% 
+  dySeries("Oceania", 
+           label = "Oceania", color = "#18470f") %!>% 
+  dySeries("Europe", 
+           label = "Europa",color = "#6d3e91") %!>% 
+  dySeries("Americas", 
+           label = "America",color = "#2c8465") %!>% 
+  dySeries("Asia", 
+           label = "Asia",color = "#be5915") %!>% 
+  dySeries("World", 
+           label = "Mundo",color = "#cf0a66") %!>% 
+  dySeries("Africa", 
+           label = "Africa",color = "#c15065") %!>% 
+  dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE, labelsDiv = FALSE, showZeroValues = FALSE) %!>% 
+  dyOptions(axisLineWidth = 1.5,stackedGraph = FALSE, fillGraph = FALSE, axisLineColor = "#98918B") %!>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+         axisLabelFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 3,
+              highlightSeriesBackgroundAlpha = 0.7,
+              hideOnMouseOut = TRUE) 
+```
+
+## EL MUNDO EN GRÁFICOS
+### DATOS PRODUCCION MUNDIAL 
+
+```{r pib-mundial, warning = FALSE, out.width=600,echo=FALSE, fig.align='center'}
+
+dygraph_1 
+
+```
+Fuente: Our World In Data based on World Bank & Maddison (2017)
+
+### DATOS POBREZA MUNDIAL
+
+```{r pobreza_1, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
+
+dygraph_2
+
+```
+Fuente: World Bank Poverty and Inequality Platform (2022)
+
+
+```{r pobreza_2, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
+
+dygraph_3 
+
+```
+Fuente: UN WPP (2022); Zijdeman et al. (2015); Riley (2005)

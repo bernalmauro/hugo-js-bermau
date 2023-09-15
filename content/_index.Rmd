@@ -9,6 +9,7 @@ Por tanto, este sitio tiene las siguientes páginas:
 * [Gráficos y Tablas Económicas](https://hugo-js-bermau.netlify.app/graficos/)
 * [Biblioteca](https://hugo-js-bermau.netlify.app/biblioteca/) 
 
+
 ```{r warning = FALSE, include=FALSE}
 
 library(dygraphs) 
