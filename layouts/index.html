@@ -1,16 +1,14 @@
 {{ define "main" }}
-<div class="container-fluid" style="margin-left:0px; margin-right:0px;">
-  <div class="row">
-    <div class="col-1" style="padding-right: 0px;padding-left: 0px;">
 
-      {{ partial "redes" . }}
-      
-    </div>
-    <div class="col-11" style="padding-right: 0px;padding-left: 0px;">
+  <div class="row">
+    <div style="padding-right: 0px;padding-left: 0px;">
       <div class="row">
+        
         {{ .Content }}
       </div>
     </div>
+    {{ partial "redes" . }}
+    {{ partial "comment" . }}
   </div>
-</div>
+
 {{ end }}

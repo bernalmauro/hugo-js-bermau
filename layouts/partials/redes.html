@@ -3,35 +3,34 @@
 {{ $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n" $url "\n" }}
 
 
-<nav class="nav">
-  <section class="social-share">
-  <li>
+
+  <section class="social-share sticky-top">
+  
     <a href="https://twitter.com/intent/tweet?hashtags=bernalmauricio&amp;url={{ .Permalink }}&amp;text={{ .Title }}"
       target="_blank" rel="noopener" aria-label="Share on Twitter" aria-current="page" class="share-btn twitter">
       {{ partial "svg/twitter.svg" (dict "class" "widget-social__link-icon") }}
-      <p>Twitter</p>
+      <p></p>
     </a>
-  </li>
-    <li>
+  
+    
       <a href="https://www.facebook.com/sharer.php?u={{ $url }}" target="_blank" rel="noopener"
         aria-label="Share on Facebook" aria-current="page" class="share-btn facebook">
         {{ partial "svg/facebook.svg" (dict "class" "widget-social__link-icon") }}
-        <p>Facebook</p>
+        <p></p>
       </a>
-    </li>
-    <li>
+    
+    
         <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ $url }}&amp;source={{ $url }}&amp;title={{ $title }}&amp;summary={{ $title }}"
           target="_blank" rel="noopener" aria-label="Share on LinkedIn" aria-current="page" class="share-btn linkedin">
           {{ partial "svg/linkedin.svg" (dict "class" "widget-social__link-icon") }}
-          <p>LinkedIn</p>
+          <p></p>
         </a>
-      </li>
     
-    <li>
+    
+    
         <a href="whatsapp://send?text={{ $body }}" target="_blank" aria-current="page" class="share-btn whatsapp">
           {{ partial "svg/whatsapp.svg" (dict "class" "widget-social__link-icon") }}
-          <p>WhatsApp</p>
+          <p></p>
         </a>
-      </li>
+      
 </section>
-</nav>

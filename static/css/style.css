@@ -121,7 +121,7 @@ body {
 }
 /* Socialshare Partial */
 .social-share {
-	position: fixed !important;
+	position:relative !important;
 	top: 10em !important;
 }
 .social-share ul {
@@ -135,8 +135,8 @@ body {
 	padding-bottom: 10px !important;
 }
 .social-share .share-btn {
-	padding: 0.25em;
-	width: 5em !important;
+	padding: 0em !important;
+	width: 2em !important;
 }
 .social-share-nav .share-btn h3 {
 	color: #ffffff;
@@ -172,7 +172,7 @@ ul.share-icons li>* .label {
 	display: inline-block;
 	color: #ffffff;
 	border: none;
-	border-radius: 19px !important;
+	border-radius: 10px !important;
 	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
 	outline: none;
 	text-align: center;
@@ -277,7 +277,6 @@ ul.share-icons li>* .label {
 .row {
   justify-content: space-around !important;
   padding:20px !important;
-	margin-top:30px !important;
 }
 /* dygraph align */
 .html-widget {
@@ -308,4 +307,7 @@ ul.share-icons li>* .label {
 .dygraph-legend[dir="rtl"] {
   text-align: left !important;
   background-color: none !important;
+}
+.sticky-top{
+	bottom: 30px !important;
 }
