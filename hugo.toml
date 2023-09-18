@@ -1,4 +1,4 @@
-baseURL = "https://hugo-js-bermau.netlify.app/"
+baseURL = "https://bernalmauricio.com/"
 languageCode = "en-us"
 title = "Bernal Mauricio"
 theme = "bernalmautheme"
@@ -11,7 +11,7 @@ enableRobotsTXT = true
 [params]
 author = "Misael Mauricio Bernal Ramos"
 description = ""
-logo = "https://hugo-js-bermau.netlify.app/images/logo.png"
+logo = "https://bernalmauricio.com/images/logo.png"
 images = ["/images/site-feature-image.jpg"]
 enable_nested_menu = true
 mainSections = ["graficos", "blog", "biblioteca"]

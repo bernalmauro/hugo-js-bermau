@@ -1,4 +1,4 @@
-baseURL: 'https://hugo-js-bermau.netlify.app/'
+baseURL: 'https://bernalmauricio.com/'
 languageCode: en-us
 title: Bernal Mauricio
 googleAnalytics: G-VKZTVP9H01
@@ -15,7 +15,7 @@ params:
     Sitio dedicado a la difusión de gráficos, tablas y demás elementos
     interactivos relacionados con la Economía, además de difundir Escuela
     Austriaca de Economía y Liberalismo
-  logo: 'https://hugo-js-bermau.netlify.app/images/logo.png'
+  logo: 'https://bernalmauricio.com/images/logo.png'
   images:
     - /images/site-feature-image.jpg
   enable_nested_menu: true

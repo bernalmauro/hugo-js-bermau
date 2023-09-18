@@ -5,9 +5,9 @@ output: html_document
 
 Mi sitio web tiene por objetivo informar sobre los acontecimientos económicos, proveer información económica mediante gráficos y tablas y compartir libros sobre Economía y Filosofía Política.
 Por tanto, este sitio tiene las siguientes páginas:
-* [Blog](https://hugo-js-bermau.netlify.app/blog/)
-* [Gráficos y Tablas Económicas](https://hugo-js-bermau.netlify.app/graficos/)
-* [Biblioteca](https://hugo-js-bermau.netlify.app/biblioteca/) 
+* [Blog](https://bernalmauricio.com/blog/)
+* [Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
+* [Biblioteca](https://bernalmauricio.com/biblioteca/) 
 
 
 ```{r warning = FALSE, include=FALSE}
