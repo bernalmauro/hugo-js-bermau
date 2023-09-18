@@ -2,7 +2,12 @@
 
 <div class="container-sm">
   {{ partial "breadcrumb.html" . }}
+  <section id="main">
   {{ .Content }}
+
+  {{ partial "socialshare.html" . }}
+
+</section>
 </div>
 
 {{ end }}

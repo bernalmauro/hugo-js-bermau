@@ -1,6 +1,7 @@
 baseURL: 'https://bernalmauricio.com/'
 languageCode: en-us
 title: Bernal Mauricio
+theme: bernalmautheme
 googleAnalytics: G-VKZTVP9H01
 disqusShortname: ''
 ignoreFiles:
@@ -11,10 +12,7 @@ footnotereturnlinkcontents: ↩
 enableRobotsTXT: true
 params:
   author: Misael Mauricio Bernal Ramos
-  description: >-
-    Sitio dedicado a la difusión de gráficos, tablas y demás elementos
-    interactivos relacionados con la Economía, además de difundir Escuela
-    Austriaca de Economía y Liberalismo
+  description: ''
   logo: 'https://bernalmauricio.com/images/logo.png'
   images:
     - /images/site-feature-image.jpg
@@ -23,9 +21,14 @@ params:
     - graficos
     - blog
     - biblioteca
-  footer: >-
-    &copy; 2017 -- {Year} | [Facebook](https://www.facebook.com/bernalmauri) |
-    [Twitter](https://twitter.com/_bernalmauricio) |
+  footer: '&copy; 2017 -- {Year} | Misael Mauricio Bernal Ramos.'
+  social:
+    share:
+      facebook: true
+      linkedin: true
+      twitter: true
+      whatsapp: true
+      email: true
 frontmatter:
   date:
     - date
@@ -57,4 +60,4 @@ markup:
   tableOfContents:
     endLevel: 3
     ordered: false
-    startLevel: 2
+    startLevel: 3

@@ -1,0 +1,11 @@
+sociales:
+  - titulo: Facebook
+    link: https://www.facebook.com/sharer.php?u={{ $url }}
+    image: economiaenunaleccionHazlitt.jpg
+  - titulo: Twitter
+    link: https://twitter.com/intent/tweet?hashtags=bernalmauricio&amp;url={{ .Permalink }}&amp;text={{ .Title }}
+    image: economiaenunaleccionHazlitt.jpg
+  - titulo: Whatsapp
+    link: whatsapp://send?text={{ $body }}
+    image: economiaenunaleccionHazlitt.jpg
+  

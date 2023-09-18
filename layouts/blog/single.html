@@ -1,17 +1,17 @@
 {{ define "main" }}
 <div class="container-sm">
-  <section id="main">
+  
     {{ partial "breadcrumb.html" . }}
     <h1>{{ .Title }}</h1>
     <div class="container-sm">
       <article id="content">
         {{ .Content }}
       </article>
-      <!-- 
-       {{ partial "comment.html" . }}
-      -->
+      
+      {{ partial "comment.html" . }}
+      
       {{ partial "socialshare.html" . }}
-  </section>
+  
 </div>
 
 {{ end }}

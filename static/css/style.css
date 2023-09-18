@@ -121,8 +121,8 @@ body {
 }
 /* Socialshare Partial */
 .social-share {
-	position: relative;
-	top: -0.5em;
+	position: fixed !important;
+	top: 10em !important;
 }
 .social-share ul {
 	margin: 0;
@@ -136,7 +136,7 @@ body {
 }
 .social-share .share-btn {
 	padding: 0.25em;
-	width: 3em;
+	width: 5em !important;
 }
 .social-share-nav .share-btn h3 {
 	color: #ffffff;
@@ -172,7 +172,7 @@ ul.share-icons li>* .label {
 	display: inline-block;
 	color: #ffffff;
 	border: none;
-	border-radius: 4px;
+	border-radius: 19px !important;
 	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
 	outline: none;
 	text-align: center;
