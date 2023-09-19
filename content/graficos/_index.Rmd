@@ -88,7 +88,7 @@ excel <-excel[c(-1,-2,-4)]
 excel <- cbind(excel, gdp)
 
 
-dygraph_1 <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios <br><small>Producción total de la economía mundial. Estos datos están ajustados por inflación y diferencias en el costo de vida entre países.</small>") %!>% 
+dygraph_1 <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios") %!>% 
   dySeries("gdp", 
            label = "Producto Interno Bruto Mundial", color="green") %!>% 
   dyLegend(width = 300, show = "onmouseover") %!>% 
@@ -124,7 +124,7 @@ excel <-
          `South Asia`,
          `Sub-Saharan Africa`) 
 
-dygraph_2 <- dygraph(excel, main = "Población total que vive en pobreza extrema por región del mundo (millones de habitantes)<br><small>La pobreza extrema se define como vivir por debajo del umbral internacional de pobreza de 2,15 dólares al día.</small>") %!>% 
+dygraph_2 <- dygraph(excel, main = "Población total que vive en pobreza extrema por región del mundo (millones de habitantes)") %!>% 
   dySeries("High income countries", 
            label = "Paises de Altos Ingresos", color = "#6D3E91") %!>% 
   dySeries("Latin America and the Caribbean", 
