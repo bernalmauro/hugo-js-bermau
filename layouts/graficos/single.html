@@ -13,11 +13,11 @@
         </div>
       </nav>
     </div>
-    <!-- 
-      {{ partial "comment.html" . }}
-      -->
-    {{ partial "socialshare.html" . }}
   </div>
 </article>
+<div class="row container-text-center">
+  {{ partial "redes" . }}
+  {{ partial "comment" . }}
+</div>
 
 {{- end -}}

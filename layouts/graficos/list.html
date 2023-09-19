@@ -13,8 +13,9 @@
   <div>
     {{ .Content }}
   </div>
-  <!-- 
-        {{ partial "comment.html" . }}
-          -->
+  <div class="row container-text-center">
+    {{ partial "redes" . }}
+    {{ partial "comment" . }}
+  </div>
 </div>
 {{ end }}

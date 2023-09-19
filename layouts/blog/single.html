@@ -1,18 +1,14 @@
 {{ define "main" }}
 <div class="container-sm">
-  
-    {{ partial "breadcrumb.html" . }}
-    <h1>{{ .Title }}</h1>
-    <div class="container-sm">
-      <article id="content">
-        {{ .Content }}
-      </article>
-      
-      {{ partial "comment.html" . }}
-      
-      {{ partial "socialshare.html" . }}
-  
-</div>
-
-{{ end }}
-
+  {{ partial "breadcrumb.html" . }}
+  <h1>{{ .Title }}</h1>
+  <div class="container-sm">
+    <article id="content">
+      {{ .Content }}
+    </article>
+    <div class="row container-text-center">
+      {{ partial "redes" . }}
+      {{ partial "comment" . }}
+    </div>
+  </div>
+  {{ end }}
