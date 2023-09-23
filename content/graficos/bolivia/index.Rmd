@@ -891,16 +891,36 @@ anotattion <- plot_annotation(title = title,subtitle = subtitle,
 grafico_3 <- p1+plot_layout(guides = "collect")&anotattion
 
 ```
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
+    // onClick function for all plots (img's)
+    $('img:not(.zoomImg)').click(function() {
+      $('.zoomImg').attr('src', $(this).attr('src')).css({width: '100%'});
+      $('.zoomDiv').css({opacity: '1', width: 'auto', border: '1px solid white', borderRadius: '5px', position: 'fixed', top: '52%', left: '50%', marginRight: '-50%', transform: 'translate(-50%, -50%)', boxShadow: '0px 0px 50px #888888', zIndex: '50', overflow: 'auto', maxHeight: '100%'});
+    });
+    // onClick function for zoomImg
+    $('img.zoomImg').click(function() {
+      $('.zoomDiv').css({opacity: '0', width: '0%'}); 
+    });
+  });
+</script>
+
+
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Estructura de Activos" >}}
-```{r knitr-activos, out.width='100%', echo=FALSE}
+```{r knitr-activos, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/activos/Cartera Neta_Activo.png", error = FALSE)
 knitr::include_graphics("/images/asfi/activos/Disponibilidades_Activos.png", error = FALSE)
 ```
 {{< /tab >}}
 {{< tab tabName="Calidad de Cartera" >}}
-```{r knitr-calidad, out.width='100%', echo=FALSE}
+```{r knitr-calidad, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/calidad/A Cartera con requerimiento de previsión.png", error = FALSE)
 knitr::include_graphics("/images/asfi/calidad/B Cartera con requerimiento de previsión.png", error = FALSE)
 knitr::include_graphics("/images/asfi/calidad/C Cartera con requerimiento de previsión del 20_.png", error = FALSE)
@@ -917,7 +937,7 @@ knitr::include_graphics("/images/asfi/calidad/Prod. Financieros Devengados por C
 ```
 {{< /tab >}}
 {{< tab tabName="Estructura Financiera" >}} 
-```{r knitr-esfinanciera, out.width='100%', echo=FALSE}
+```{r knitr-esfinanciera, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/esfinanciera/Activo improductivo_Patrimonio.png", error = FALSE)
 knitr::include_graphics("/images/asfi/esfinanciera/Activo Productivo_Activo+Contingente.png", error = FALSE)
 knitr::include_graphics("/images/asfi/esfinanciera/Activo Productivo-Pasivo con Costo_Pasivo con Costo.png", error = FALSE)
@@ -925,7 +945,7 @@ knitr::include_graphics("/images/asfi/esfinanciera/Pasivo con Costo_Pasivo+Conti
 ```
 {{< /tab >}}
 {{< tab tabName="Estructura de Gastos de Administración">}}
-```{r knitr-gastos, out.width='100%', echo=FALSE}
+```{r knitr-gastos, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/gastos/Deprec.y Amortizaciones_Gastos de Administración.png", error = FALSE)
 knitr::include_graphics("/images/asfi/gastos/Gastos de Administración_Total Egresos.png", error = FALSE)
 knitr::include_graphics("/images/asfi/gastos/Gastos de Personal_Gastos de Administración.png", error = FALSE)
@@ -933,7 +953,7 @@ knitr::include_graphics("/images/asfi/gastos/Otros Gastos Administración_Gastos
 ```
 {{< /tab >}} 
 {{< tab tabName="Ingresos y Gastos Financieros">}}
-```{r knitr-ingresos, out.width='100%', echo=FALSE}
+```{r knitr-ingresos, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/ingresos/cargosbcb.png", error = FALSE)
 knitr::include_graphics("/images/asfi/ingresos/Int. Depósitos Caja de Ahorro_Oblig. Púb. Ctas. Ahorro.png", error = FALSE)
 knitr::include_graphics("/images/asfi/ingresos/Int. Depósitos Púb. a Plazo_Depósitos Púb. a Plazo.png", error = FALSE)
@@ -949,7 +969,7 @@ knitr::include_graphics("/images/asfi/ingresos/Productos por Cartera Vigente_Car
 ```
 {{< /tab >}} 
 {{< tab tabName="Liquidez">}}
-```{r knitr-liquidez, out.width='100%', echo=FALSE}
+```{r knitr-liquidez, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/liquidez/Activos líquidos_Pasivos de corto plazo.png", error = FALSE)
 knitr::include_graphics("/images/asfi/liquidez/Disponib.+Inv.Temp._Oblig.a Corto Plazo.png", error = FALSE)
 knitr::include_graphics("/images/asfi/liquidez/Disponib.+Inv.Temp._Pasivo.png", error = FALSE)
@@ -958,14 +978,14 @@ knitr::include_graphics("/images/asfi/liquidez/Disponibilidades+Inv.Temporarias_
 ```
 {{< /tab >}} 
 {{< tab tabName="Estructura de Obligaciones">}}
-```{r knitr-obligaciones, out.width='100%', echo=FALSE}
+```{r knitr-obligaciones, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/obligaciones/Días de permanencia de los depósitos a plazo fijo.png", error = FALSE)
 knitr::include_graphics("/images/asfi/obligaciones/Oblig. Personas Jurídicas e Institucionales_Total Oblig. Público.png", error = FALSE)
 knitr::include_graphics("/images/asfi/obligaciones/Oblig. Personas Naturales_Total Oblig. Público.png", error = FALSE)
 ```
 {{< /tab >}} 
 {{< tab tabName="Estructura de Pasivos">}}
-```{r knitr-pasivos, out.width='100%', echo=FALSE}
+```{r knitr-pasivos, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/pasivos/Oblig. con Bancos y Ent. Fin._Pasivo+Patrimonio.png", error = FALSE)
 knitr::include_graphics("/images/asfi/pasivos/Oblig. con el Público y con Empresas Públicas_Pasivo+Patrimonio.png", error = FALSE)
 knitr::include_graphics("/images/asfi/pasivos/Oblig. con el_ PúblicoPasivo+Patrimonio.png", error = FALSE)
@@ -973,7 +993,7 @@ knitr::include_graphics("/images/asfi/pasivos/Oblig. Subordinadas_Pasivo+Patrimo
 ```
 {{< /tab >}} 
 {{< tab tabName="Ratios de Eficiencia (anualizado)">}}
-```{r knitr-ratios, out.width='100%', echo=FALSE}
+```{r knitr-ratios, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_(Activo+Contingente).png", error = FALSE)
 knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_(Cartera+Contingente).png", error = FALSE)
 knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_Activo Productivo Promedio neto de Contingente.png", error = FALSE)
@@ -981,7 +1001,7 @@ knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_Depósito
 ```
 {{< /tab >}} 
 {{< tab tabName="Ratios de Eficiencia (anualizado)">}}
-```{r knitr-rentabilidad, out.width='100%', echo=FALSE}
+```{r knitr-rentabilidad, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/rentabilidad/Resultado de Operación Bruto_(Activo+Contingente).png", error = FALSE)
 knitr::include_graphics("/images/asfi/rentabilidad/Resultado de operación después de Incobrables_(Activo + Contingente).png", error = FALSE)
 knitr::include_graphics("/images/asfi/rentabilidad/Resultado de Operación Neto Antes de Impuestos_(Activo+Contingente).png", error = FALSE)
@@ -992,7 +1012,7 @@ knitr::include_graphics("/images/asfi/rentabilidad/Resultado Neto de la Gestión
 ```
 {{< /tab >}} 
 {{< tab tabName="Resultados (anualizado)">}}
-```{r knitr-resultados, out.width='100%', echo=FALSE}
+```{r knitr-resultados, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/resultados/Ajustes netos por inflación y por diferencias de cambio_Activo+Conting.png", error = FALSE)
 knitr::include_graphics("/images/asfi/resultados/Cargos por Incob. Netos de Recuper._Activo+Conting..png", error = FALSE)
 knitr::include_graphics("/images/asfi/resultados/Deprec. y Desval. Bienes de Uso_Bienes de Uso-Terrenos.png", error = FALSE)
@@ -1005,7 +1025,7 @@ knitr::include_graphics("/images/asfi/resultados/Otros Ingresos Operativos Netos
 ```
 {{< /tab >}} 
 {{< tab tabName="Solvencia">}}
-```{r knitr-solvencia, out.width='100%', echo=FALSE}
+```{r knitr-solvencia, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/solvencia/Cartera Vencida + Ejec. reprog. o reestruct._Patrimonio.png", error = FALSE)
 knitr::include_graphics("/images/asfi/solvencia/Cartera Vencida Total + Eje.Total - Prev_Patrimonio.png", error = FALSE)
 knitr::include_graphics("/images/asfi/solvencia/Cartera Vencida Total + Ejecución Total_Patrimonio.png", error = FALSE)
@@ -1015,7 +1035,7 @@ knitr::include_graphics("/images/asfi/solvencia/Patrimonio_Activo+Contingte..png
 ```
 {{< /tab >}} 
 {{< tab tabName="Cálculo Spread Efectivo (anualizado)">}}
-```{r knitr-spread, out.width='100%', echo=FALSE}
+```{r knitr-spread, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/spread/1.png", error = FALSE)
 knitr::include_graphics("/images/asfi/spread/2.png", error = FALSE)
 knitr::include_graphics("/images/asfi/spread/3.png", error = FALSE)
@@ -1026,7 +1046,7 @@ knitr::include_graphics("/images/asfi/spread/7.png", error = FALSE)
 ```
 {{< /tab >}} 
 {{< tab tabName="Utillización Spread Efectivo">}}
-```{r knitr-spread-efectivo, out.width='100%', echo=FALSE}
+```{r knitr-spread-efectivo, out.width='50%', echo=FALSE}
 knitr::include_graphics("/images/asfi/spread-efectivo/Ajustes netos por inflación y por diferencia de cambio.png", error = FALSE)
 knitr::include_graphics("/images/asfi/spread-efectivo/Gastos administrativos.png", error = FALSE)
 knitr::include_graphics("/images/asfi/spread-efectivo/Incobrabilidad.png", error = FALSE)
@@ -1042,7 +1062,7 @@ knitr::include_graphics("/images/asfi/spread-efectivo/UTILIDAD NETA.png", error 
 ### Banco Central de Bolivia (BCB)
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Balance BCB">}}
-```{r balance_bcb,warning = FALSE, fig.width = 11,fig.height = 6,echo=FALSE}
+```{r balance_bcb,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
 grafico_2
 
 activo_1%>%
@@ -1060,13 +1080,13 @@ pasivo_1%>%
 {{< /tab>}}
 
 {{< tab tabName="Base Monetaria">}}
-```{r base_monetaria,warning = FALSE, fig.width = 11,fig.height = 6,echo=FALSE}
+```{r base_monetaria,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
 grafico
 ```
 {{< /tab >}}
 
 {{< tab tabName="Agregados Monetarios" >}} 
-```{r destino_monetaria,warning = FALSE, fig.width = 11,fig.height = 6,echo=FALSE}
+```{r destino_monetaria,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
 grafico_3
 ```
 {{< /tab >}}

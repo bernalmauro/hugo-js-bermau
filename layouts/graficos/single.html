@@ -1,12 +1,18 @@
 {{- define "main" -}}
+
+<div class="container-sm" style="
+    margin-right: 0px;
+    margin-left: 0px;">
+  
+
 <article class="article">
   {{ partial "breadcrumb.html" . }}
   <div class="article-container">
     <div class="row">
-      <div class="col-12 col-lg-9 article-style">
+      <div class="col-12 col-lg-11 article-style">
         {{ .Content }}
       </div >
-      <nav class="col-12 col-lg-3">
+      <nav class="col-12 col-lg-1">
         <div class="position-fixed">
           <strong class="d-block my-2 pb-2 border-bottom" style="color: #ffffff !important;">MENU</strong>
           {{ .TableOfContents }}
@@ -20,4 +26,5 @@
   {{ partial "comment" . }}
 </div>
 
+</div>
 {{- end -}}
