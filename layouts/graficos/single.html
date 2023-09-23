@@ -15,11 +15,8 @@
       <div class="col-sm-10 article-style">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
-img {
-    
-  margin-top: 50px !important;
-  margin-bottom: 50px !important;
-}
+
+
 </style>
 
         {{ .Content }}
@@ -33,10 +30,12 @@ img {
     </div>
   </div>
 </article>
-<div class="row container-text-center">
+
+<div class="d-flex">
+<div class="col w-auto">
   {{ partial "redes" . }}
   {{ partial "comment" . }}
 </div>
-
+</div>
 
 {{- end -}}

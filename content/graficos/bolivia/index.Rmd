@@ -110,6 +110,10 @@ theme_annotations <- function() {
     plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
     complete=TRUE)
 }
+html_table_width <- function(kable_output, width){
+  width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
+  sub("<table>", paste0("<table>\n", width_html), kable_output)
+}
 
 #BASE MONETARIA####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
@@ -650,11 +654,11 @@ pasivo <- data %>%
   select(`Año`,
          `Emisión Monetaria`,
          `Depósitos Bancarios`,
-         `Obligaciones Externas de Corto Plazo`,
-         `Depósito de Organismos Internacionales`,
+         
+         
          `Obligaciones Externas a Mediano y Largo Plazo`,
          `Otras Cuentas Pasivo`,
-         `Certificado de Devolución de Depósito`,
+         
          `Patrimonio Neto`,
          `Depósitos del Sector Público`,
          `Total Pasivo`) 
@@ -1056,24 +1060,36 @@ knitr::include_graphics("/images/asfi/spread-efectivo/UTILIDAD NETA.png", error 
 {{< /tabs >}}
 
 
+
 ### Banco Central de Bolivia (BCB)
+
+
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Balance BCB">}}
+
+
+
 ```{r balance_bcb,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
+
 grafico_2
 
 activo_1%>%
-  kbl( escape = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  kable_paper(full_width = FALSE)%>%
   kable_styling(fixed_thead = T)%>%
-  kable_paper(bootstrap_options = "striped", full_width = F)%>%
-  row_spec(1:25, color = "#eee", background = "#212529")
+  row_spec(1:25, color = "#eee", background = "#212529")%>%
+  html_table_width(c(50,10))
+
 pasivo_1%>%
-  kbl( escape = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  kable_paper(full_width = FALSE)%>%
   kable_styling(fixed_thead = T)%>%
-  kable_paper(bootstrap_options = "striped", full_width = F)%>%
-  row_spec(1:25, color = "#eee", background = "#212529")
+  row_spec(1:25, color = "#eee", background = "#212529") %>%
+  html_table_width(c(50,10))
+
 
 ```
+
 {{< /tab>}}
 
 {{< tab tabName="Base Monetaria">}}

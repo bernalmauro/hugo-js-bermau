@@ -60,10 +60,16 @@ output: html_document
 {{< /tabs >}}
 
 
+
 ### Banco Central de Bolivia (BCB)
+
+
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Balance BCB">}}
-<img src="{{< blogdown/postref >}}index_files/figure-html/balance_bcb-1.png" width="1056" /><table class="table lightable-paper" style='margin-left: auto; margin-right: auto; font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+
+
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/balance_bcb-1.png" width="1056" /><table class=" lightable-paper table" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
  <thead>
   <tr>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Año </th>
@@ -330,17 +336,14 @@ output: html_document
 </tbody>
 </table>
 
-<table class="table lightable-paper" style='margin-left: auto; margin-right: auto; font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-paper table" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
  <thead>
   <tr>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Año </th>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Emisión Monetaria </th>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Depósitos Bancarios </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Obligaciones Externas de Corto Plazo </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Depósito de Organismos Internacionales </th>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Obligaciones Externas a Mediano y Largo Plazo </th>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Otras Cuentas Pasivo </th>
-   <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Certificado de Devolución de Depósito </th>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Patrimonio Neto </th>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Depósitos del Sector Público </th>
    <th style="text-align:center;position: sticky; top:0; background-color: #FFFFFF;"> Total Pasivo </th>
@@ -351,11 +354,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1998 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,419 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,150 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 730 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 118 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,455 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,507 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 154 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,221 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,007 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,606 </td>
@@ -364,11 +364,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1999 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,419 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,870 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 652 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 140 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,407 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 206 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 258 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,877 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,368 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 15,939 </td>
@@ -377,11 +374,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2000 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,424 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,078 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 478 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 161 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,212 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 193 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 168 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,508 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,332 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 16,386 </td>
@@ -390,11 +384,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2001 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,700 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,128 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 353 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 189 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,788 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 200 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 105 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,396 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,783 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,537 </td>
@@ -403,11 +394,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2002 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,037 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,750 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 322 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 215 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 876 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 171 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,905 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,302 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,578 </td>
@@ -416,11 +404,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2003 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,525 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,879 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 941 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 228 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 918 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 82 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,914 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,990 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,476 </td>
@@ -429,11 +414,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2004 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,283 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,021 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,193 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 270 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 50 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 85 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,568 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,961 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,432 </td>
@@ -442,11 +424,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2005 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,180 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,413 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 674 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 298 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 41 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 87 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 9,624 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,337 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 26,653 </td>
@@ -455,11 +434,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2006 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,774 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,377 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 119 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 323 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 31 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 98 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 11,050 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 12,367 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 37,137 </td>
@@ -468,11 +444,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2007 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 14,103 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,936 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> -5 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 336 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 92 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 235 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 12,221 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 14,573 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 52,490 </td>
@@ -481,11 +454,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2008 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 17,043 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,546 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 333 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 80 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 283 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,744 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20,842 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 67,872 </td>
@@ -494,11 +464,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2009 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 18,892 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 21,548 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 358 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,862 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 159 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 9,821 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 21,567 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 74,210 </td>
@@ -507,11 +474,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2010 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24,586 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 15,997 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 386 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,824 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 147 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,768 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 29,249 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 82,961 </td>
@@ -520,11 +484,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2011 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 28,585 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 22,774 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 400 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,787 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 378 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,165 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 36,648 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 100,740 </td>
@@ -533,11 +494,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2012 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 32,665 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24,849 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> -1 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 278 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,789 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 269 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 12,171 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 47,467 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 119,488 </td>
@@ -546,11 +504,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2013 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 37,001 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 27,295 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 228 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,787 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,237 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,182 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 56,368 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 131,098 </td>
@@ -559,11 +514,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2014 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 41,372 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 31,373 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 177 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,631 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7,250 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,265 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 55,683 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 139,754 </td>
@@ -572,11 +524,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2015 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 42,923 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 37,448 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 124 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,562 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> -858 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,727 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 47,378 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 131,305 </td>
@@ -585,11 +534,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2016 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 43,145 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 25,495 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 71 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,509 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 49 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 4,388 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 44,017 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 118,677 </td>
@@ -598,11 +544,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2017 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 46,335 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 25,092 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 83 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,602 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,706 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,558 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 43,384 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 124,760 </td>
@@ -611,11 +554,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2018 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 48,953 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24,317 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 20 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,569 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,903 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,569 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 36,745 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 120,077 </td>
@@ -624,11 +564,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2019 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 49,177 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 25,990 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,559 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2,762 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8,047 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 33,148 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 120,691 </td>
@@ -637,11 +574,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2020 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 53,616 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 40,064 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 16 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 1,622 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 6,213 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 9,649 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 32,249 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 143,429 </td>
@@ -650,11 +584,8 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2021 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 56,119 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 46,008 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 7 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 24 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,786 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,230 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 10,151 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 34,156 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 155,480 </td>
@@ -663,17 +594,15 @@ output: html_document
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 2022 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 56,714 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 48,150 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 8 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 3,616 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 5,064 </td>
-   <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 0 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 11,460 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 29,794 </td>
    <td style="text-align:center;color: #eee !important;background-color: #212529 !important;"> 154,806 </td>
   </tr>
 </tbody>
 </table>
+
 {{< /tab>}}
 
 {{< tab tabName="Base Monetaria">}}
