@@ -29,7 +29,9 @@ library(patchwork)
 library(kableExtra)
 library(formattable)
 
-knitr::opts_chunk$set(echo = TRUE, error = TRUE)
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, fig.width=11, fig.height=5)
+
+
 
 #LABURO GGPLOT WRAP####
 fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
@@ -85,7 +87,7 @@ theme_wrap <- function() {
     legend.box.background = element_blank(),
     legend.background = element_blank(),
     legend.key = element_blank(),
-    legend.title=element_blank(),
+    
     
     axis.text = element_text(color = "#e3e3e3",size = rel(1)),
     axis.title = element_blank(),
@@ -234,10 +236,12 @@ p1 <-
            color="#1d1d1d")+ 
   scale_fill_manual(values = pal_col)+
   scale_y_continuous(labels = comma_format()) +
+  labs(fill = "Origen Base Monetaria")+
   new_scale_fill()+
   geom_col(origen_g,mapping=aes(fill = var_col),
            color="#1d1d1d") +
   scale_fill_manual(values = pal_fill)+
+  labs(fill = "Destino Base Monetaria")+
   facet_wrap(vars(var_line))+theme_wrap()
 p2 <-    
   ggplot(destino_g,aes(Fecha,value_col))+
@@ -481,11 +485,16 @@ p1 <-
            color="#1d1d1d")+ 
   scale_fill_manual(values = pal_col)+
   scale_y_continuous(labels = comma_format()) +
-  new_scale_fill()+
+  labs(fill = "Pasivos Totales")+
+  new_scale_fill()+ 
   geom_col(origen_g_2,mapping=aes(fill = var_col),
            color="#1d1d1d") +
   scale_fill_manual(values = pal_fill)+
+  labs(fill = "Activos Totales")+
   facet_wrap(vars(var_line))+theme_wrap()
+
+
+
 p2 <-    
   ggplot(destino_g_2,aes(Fecha,value_col))+
   geom_line(destino_g_2,mapping=aes(color = var_col),
@@ -876,10 +885,13 @@ p1 <-
             linewidth=1)+ 
   scale_color_manual(values = pal_col)+
   scale_y_continuous(labels = comma_format()) +
+  labs(col = "Agregados Monetarios")+
   new_scale_fill()+
+  
   geom_col(origen_g_3,mapping=aes(fill = var_col),
            color="#1d1d1d") +
   scale_fill_manual(values = pal_fill)+
+  labs(fill = "Destino Medio Circulante")+
   facet_wrap(vars(var_line))+theme_wrap()
 
 title <-"DESTINO DEL MEDIO CIRCULANTE/AGREGADOS MONETARIOS DEL SISTEMA FINANCIERO, 2005 - Jul/2023"
@@ -893,22 +905,7 @@ grafico_3 <- p1+plot_layout(guides = "collect")&anotattion
 ```
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
-    // onClick function for all plots (img's)
-    $('img:not(.zoomImg)').click(function() {
-      $('.zoomImg').attr('src', $(this).attr('src')).css({width: '100%'});
-      $('.zoomDiv').css({opacity: '1', width: 'auto', border: '1px solid white', borderRadius: '5px', position: 'fixed', top: '52%', left: '50%', marginRight: '-50%', transform: 'translate(-50%, -50%)', boxShadow: '0px 0px 50px #888888', zIndex: '50', overflow: 'auto', maxHeight: '100%'});
-    });
-    // onClick function for zoomImg
-    $('img.zoomImg').click(function() {
-      $('.zoomDiv').css({opacity: '0', width: '0%'}); 
-    });
-  });
-</script>
 
 
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
@@ -1124,3 +1121,19 @@ grafico_3
 
 {{< /tab >}} 
 {{< /tabs >}} 
+
+
+ <script type="text/javascript">
+  $(document).ready(function() {
+    $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
+    // onClick function for all plots (img's)
+    $('img:not(.zoomImg)').click(function() {
+      $('.zoomImg').attr('src', $(this).attr('src')).css({width: '100%'});
+      $('.zoomDiv').css({opacity: '1', width: 'auto', border: '1px solid white', borderRadius: '5px', position: 'fixed', top: '52%', left: '50%', marginRight: '-50%', transform: 'translate(-50%, -50%)', boxShadow: '0px 0px 50px #888888', zIndex: '50', overflow: 'auto', maxHeight: '100%'});
+    });
+    // onClick function for zoomImg
+    $('img.zoomImg').click(function() {
+      $('.zoomDiv').css({opacity: '0', width: '0%'}); 
+    });
+  });
+</script>

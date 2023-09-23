@@ -270,6 +270,7 @@ ul.share-icons li>* .label {
 }
 .col {
 	margin: auto;
+	justify-content: space-around !important;
 	padding:20px !important;
   }
 .row {
@@ -309,3 +310,4 @@ ul.share-icons li>* .label {
 .sticky-top{
 	bottom: 30px !important;
 }
+
