@@ -269,6 +269,15 @@ ul.share-icons li>* .label {
 .tab-content {
 	margin: 2rem 0 2rem 1rem;
 }
+
+.tab-content>.active {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-around !important;
+    flex-wrap: wrap !important;
+}
+
+
 .col {
 	margin: auto;
 	justify-content: space-around !important;
