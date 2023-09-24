@@ -10,7 +10,7 @@ enableRobotsTXT = true
 
 [params]
 author = "Misael Mauricio Bernal Ramos"
-description = ""
+description = "Economía, Programación y Filosofía Política."
 logo = "https://bernalmauricio.com/images/logo.png"
 images = ["/images/site-feature-image.jpg"]
 enable_nested_menu = true
