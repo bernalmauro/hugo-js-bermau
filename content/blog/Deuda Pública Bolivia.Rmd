@@ -466,7 +466,7 @@ data <- cbind(Año, data)
 data <- as_tibble(data)
 
 deuda_latinoamerica <-
-  dygraph(data, main = "Economías mas y menos endeudadas Latinoamérica (% del PIB)") %!>% 
+  dygraph(data, main = "Economías mas y menos endeudadas de Latinoamérica (% del PIB)") %!>% 
   
   dyLegend(width = 700, show = "onmouseover", labelsSeparateLines = FALSE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
@@ -479,7 +479,7 @@ deuda_latinoamerica <-
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 3,
-              highlightSeriesBackgroundAlpha = 0.3) 
+              highlightSeriesBackgroundAlpha = 1) 
 #CRECIMIENTO DEUDA PUBLICA Y CRECIMIENTO PIB####
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/udape/3.sector_fiscal/3.9.stock_deuda_publica/c030901.xls"
@@ -530,7 +530,7 @@ creci_deuda_pib <-
   dyCrosshair(direction = "vertical") %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 3,
-              highlightSeriesBackgroundAlpha = 0.9) 
+              highlightSeriesBackgroundAlpha = 1) 
 ```
 
 ```{r deuda_externa, warning = FALSE, echo=FALSE}
