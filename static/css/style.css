@@ -407,3 +407,8 @@ ul.share-icons li>* .label {
 .d-flex {
 	width: 1000px !important;
 }
+
+#article {
+    width: 1000px !important;
+    padding-left: 0px !important;
+}
