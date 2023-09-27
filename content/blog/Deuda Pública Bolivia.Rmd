@@ -1,0 +1,635 @@
+---
+title: "La Deuda Pública de Bolivia"
+draft: false
+featuredImage: /images/deudapublica.jpg
+categories: ["Coyuntura Económica"]
+tags: ["Deuda Pública Bolivia", "Países más endeudados y Menos endeudados de Latinoamérica" ]
+keywords: ["", "","", ""]
+author: "Misael Mauricio Bernal Ramos"
+menu:
+  main:
+    identifier: "blog"
+    weight: 0 
+    parent: ""
+socialshare: true
+---
+
+
+"Todo lo que obtenemos, aparte de los dones gratuitos con que nos obsequia la naturaleza, ha de ser pagado de una u otra manera. Sin embargo, el mundo está lleno de pseudoeconomistas cargados de proyectos para conseguir algo por nada. Aseguran que el Gobierno puede gastar y gastar sin acudir a la imposición fiscal, que puede acumular deudas que jamás saldará puesto que «nos las debemos a nosotros mismos»."
+
+--- Henry Hazlitt, Economía en una Lección
+
+
+Independientemente en que se vaya a financiar, la deuda pública es la suma de la deuda externa, es decir, la deuda que el Estado contrae (*a nombre de toda la sociedad*) de prestamistas internacionales (Banco Mundial, FMI, CAF, acreedores privados, etc.) y la suma de la deuda interna, es decir, aquellos agentes economicos o entidades que le prestan al Estado (*nombre de toda la sociedad*) como el BCB y las aseguradoras (*gestora pública de la Seguridad Social a Largo Plazo*) principalmente.
+
+
+```{r warning = FALSE, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, fig.width=11, fig.height=5)
+#LIBRARY####
+
+library(dygraphs) 
+library(tidyverse)
+library(zoo)
+library(rio)
+library(tidyverse)
+library(magrittr)
+library(janitor)
+library(anytime) 
+library(knitr)
+library(details)
+library(DT)
+library(shiny)
+library(plotly)
+library(bookdown)
+library(rmarkdown)
+library(htmltools)
+library(xaringanExtra)
+library(tibbletime)
+library(unikn)
+library(scales)
+library(ggnewscale)
+library(patchwork)
+library(kableExtra)
+library(formattable)
+
+
+
+#LABURO GGPLOT WRAP####
+fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
+  
+  data <- 
+    rio::import(
+      file, 
+      setclass = "tbl_df",
+      sheet=sheet,
+      range = range,
+      col_names = col_names,
+      .name_repair = "unique_quiet") %!>% 
+    remove_empty(c("rows", "cols")) %!>%
+    replace(is.na(.), 0)
+  data %<>%
+    pivot_longer(!...1) %<>%
+    pivot_wider(names_from = "...1",
+                values_from = "value") %<>%
+    dplyr::select(-name)
+  
+  Año <- fun_fecha(from,to,by,each)
+  data <- cbind(Año, data) 
+  data <- as_tibble(data)
+  
+}
+fun_fecha <-function(from, to, by, each) {
+  rep(seq(anydate(from),
+          anydate(to),
+          by = by), each = each)
+}
+pal <- function(num) {
+  usecol(c("#065a25", "#f2f419", "#f41919"),
+         n = num)
+}
+theme_wrap <- function() {
+  theme(
+    axis.line.x = element_line("#98918B"),
+    axis.line.y = element_line("#98918B"),
+    axis.ticks = element_line(color = "#98918B"),
+    
+    panel.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
+    panel.grid.major = element_line(color = "#1d1d1d"),
+    panel.grid.minor = element_line(color = "#1d1d1d"),
+    panel.grid.major.y = element_line(color = "#e3e3e3", linetype = "dotted"),
+    panel.grid.major.x = element_line(color = "#4a4a4a", linetype = "dotted"),
+    
+    strip.background = element_rect(fill = "#98918B", color = "#98918B"),
+    strip.text = element_text(color = "black"),
+    strip.placement = 'outside',
+    strip.switch.pad.wrap = unit(10, "mm"),
+    
+    plot.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
+    legend.box.background = element_blank(),
+    legend.background = element_blank(),
+    legend.key = element_blank(),
+    
+    
+    axis.text = element_text(color = "#e3e3e3",size = rel(1)),
+    axis.title = element_blank(),
+    text = element_text(color = "#e3e3e3",family = "Constantia"),
+    
+    plot.subtitle = element_text(margin = margin(0, 0, 0.5, 0, "cm")),
+    plot.caption = element_text(margin = margin(0.5, 0, 0, 0, "cm"))
+  )
+}
+theme_annotations <- function() {
+  theme(
+    title = element_text(
+      family = "Constantia",
+      face = "plain",
+      colour = "#e3e3e3",
+      size = rel(1),
+      inherit.blank = FALSE),
+    plot.title = element_text(hjust = 1, vjust = 0),
+    plot.subtitle = element_text(hjust = 1,vjust = 0),
+    plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
+    complete=TRUE)
+}
+html_table_width <- function(kable_output, width){
+  width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
+  sub("<table>", paste0("<table>\n", width_html), kable_output)
+}
+
+#DEUDA EXTERNA PUBLICA####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/5.trimestral/2.externo/10.deuda/10-01.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "B9:S37"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Jan1995"
+to <- "01Jan2023"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet = sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+Año <- fun_fecha(from,to,by,each)
+
+data <- cbind(Año, data) 
+data <- as_tibble(data)
+
+
+colnames(data) <- c(
+  
+  "Año",
+  
+  
+  "BID",
+  "BM",
+  "CAF",
+  "Otros Multilateral",
+  "Subtotal Multilateral",
+  
+  "Alemania",
+  "Bélgica",
+  "Brasil",
+  "España",
+  "Estados Unidos",
+  "Japón",
+  "Otros Bilateral",
+  "Subtotal Bilateral",
+  
+  "FMI",
+  
+  "Privados",
+  
+  "Títulos de Deuda",
+  
+  "Total",
+  
+  "Deuda Externa"
+)
+
+
+externo <- data %>%
+  select(  
+    `Año`,
+    `BID`,
+    `BM`,
+    `CAF`,
+    `Otros Multilateral`,
+    `Subtotal Multilateral`,
+    
+    `Alemania`,
+    `Bélgica`,
+    `Brasil`,
+    `España`,
+    `Estados Unidos`,
+    `Japón`,
+    `Otros Bilateral`,
+    `Subtotal Bilateral`,
+    
+    `FMI`,
+    
+    `Privados`,
+    
+    `Títulos de Deuda`,
+    
+    `Total`) 
+
+
+externo <- as_tbl_time(externo, index = Año) #FORMATO DATE FLEXIBLE
+externo <- as_period(externo, period = "year", side = "end", include_endpoints = FALSE)
+
+Año <- formattable(externo$Año, format = "%Y")
+
+externo <- externo[,-1]
+externo <- cbind(Año, externo) 
+
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/5.trimestral/2.externo/10.deuda/10-01.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "B9:S36"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Jan1995"
+to <- "01Jan2022"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet = sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+Año <- fun_fecha(from,to,by,each)
+
+data <- cbind(Año, data) 
+data <- as_tibble(data)
+
+
+colnames(data) <- c(
+  
+  "Año",
+  
+  
+  "BID",
+  "BM",
+  "CAF",
+  "Otros Multilateral",
+  "Subtotal Multilateral",
+  
+  "Alemania",
+  "Bélgica",
+  "Brasil",
+  "España",
+  "Estados Unidos",
+  "Japón",
+  "Otros Bilateral",
+  "Subtotal Bilateral",
+  
+  "FMI",
+  
+  "Privados",
+  
+  "Títulos de Deuda",
+  
+  "Total",
+  
+  "Deuda Externa"
+)
+
+porcentaje_externo <- data %>%
+  select(  
+    `Año`,
+    `Deuda Externa`)
+
+
+#DEUDA INTERNA PUBLICA####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/udape/3.sector_fiscal/3.9.stock_deuda_publica/c030901.xls"
+#IMPORTAR DATOS DE EXCEL
+range <- "A10:AF35"
+sheet <- "c030901"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Jan1993"
+to <- "01Jan2023"
+by <- "year"
+each <- 1
+
+data <- fun_excel(file, range, sheet, col_names, from, to, by, each)
+
+
+excel <- data %>%
+  select(`Año`, 
+         
+         
+         `Letras y Pagarés`,
+         `Créditos de Liquidez`,
+         `Bonos Banco Central`, 
+         `Créditos de Emergencia`,
+         `Otros`,
+         
+         
+         `Deuda Total BCB`,
+         `Sector Privado`,
+         `Deuda Garantizada del TGN`, 
+         
+         `Total`) 
+
+excel <- as_tbl_time(excel, index = Año) #FORMATO DATE FLEXIBLE
+excel <- as_period(excel, period = "year", side = "end", include_endpoints = FALSE)
+
+Año <- formattable(excel$Año, format = "%Y")
+
+excel <- excel[,-1]
+interna <- cbind(Año, excel) 
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/udape/3.sector_fiscal/3.9.stock_deuda_publica/c030901.xls"
+#IMPORTAR DATOS DE EXCEL
+range <- "A10:AC38"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Jan1995"
+to <- "01Jan2022"
+by <- "year"
+each <- 1
+
+data <- fun_excel(file, range, sheet, col_names, from, to, by, each)
+
+porcentaje_interno <- data %>%
+  select(
+         `Deuda Interna`,
+         `Deuda Empresas Públicas`,
+         `Deuda FINPRO, FNDR, EBIH`) 
+
+
+
+
+total_porcentaje <-  cbind(porcentaje_externo, porcentaje_interno)
+total_porcentaje_pib <-
+ dygraph(total_porcentaje, main = "Deuda Pública Bolivia (en % del PIB)")%!>%  
+  dySeries(fillGraph = TRUE, "Deuda Externa", 
+           label = "Deuda Externa", color="green") %!>% 
+  dySeries(fillGraph = TRUE, "Deuda Interna", 
+           label = "Deuda Interna", color="red") %!>% 
+  dySeries(fillGraph = TRUE, "Deuda Empresas Públicas", 
+           label = "Deuda Empresas Públicas", color="yellow") %!>% 
+  dySeries(fillGraph = TRUE, "Deuda FINPRO, FNDR, EBIH", 
+           label = "Deuda FINPRO, FNDR, EBIH", color="orange") %!>% 
+  dyLegend(width = 500, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>% 
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = "function(v){return (v*100).toFixed(1) + '%'}",
+         axisLabelFormatter = "function(v){return (v*100).toFixed(0) + '%'}"
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 4,
+              highlightSeriesBackgroundAlpha = 1) 
+
+#DEUDA INTERNA EMPRESAS PUBLICAS####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/memoria_institucional/deuda_empresas_bcb.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "A63:N92"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Jan2010"
+to <- "01Jan2022"
+by <- "year"
+each <- 1
+
+data <- fun_excel(file, range, sheet, col_names, from, to, by, each)
+colnames(data)
+
+excel <- data %>%
+  select(`Año`, 
+         
+         
+         `Deuda ENDE`,
+         `Deuda YLB`,
+         `Deuda YPFB`, 
+         `Deuda EASBA`,
+         `Deuda Empresas Públicas`,
+         
+         
+         `Deuda del FINPRO`,
+         `Deuda del FNDR`, 
+         `Deuda de la EBIH`,
+         `Deuda FINPRO, FNDR, EBIH`,
+         `Deuda Total al BCB`) 
+
+excel <- as_tbl_time(excel, index = Año) #FORMATO DATE FLEXIBLE
+excel <- as_period(excel, period = "year", side = "end", include_endpoints = FALSE)
+
+Año <- formattable(excel$Año, format = "%Y")
+
+excel <- excel[,-1]
+deuda_empresas <- cbind(Año, excel) 
+
+#DEUDA PUBLICA LATINOAMERICA %PIB####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/cepal/cepalstat/2.economicos/3.sector_publico/3.deuda_publica/data_1695708340.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "B1:M29"
+sheet <- "Hoja1"
+col_names <- TRUE
+#FORMATO FECHA
+from <- "01Jan1995"
+to <- "01Jan2022"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file, 
+    setclass = "tbl_df",
+    sheet=sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>% 
+  remove_empty(c("rows", "cols")) 
+
+data <- data %>%
+  select(
+         `Argentina`,
+         `Bolivia`,
+         `Brasil`, 
+         `Chile`,
+         `Paraguay`,
+         `Perú`
+         ) 
+
+
+Año <- fun_fecha(from,to,by,each)
+data <- cbind(Año, data) 
+data <- as_tibble(data)
+
+deuda_latinoamerica <-
+  dygraph(data, main = "Economías mas y menos endeudadas Latinoamérica (% del PIB)") %!>% 
+  
+  dyLegend(width = 700, show = "onmouseover", labelsSeparateLines = FALSE) %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = "function(v){return (v*1).toFixed(1) + '%'}",
+         axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}"
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 3,
+              highlightSeriesBackgroundAlpha = 0.3) 
+#CRECIMIENTO DEUDA PUBLICA Y CRECIMIENTO PIB####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/udape/3.sector_fiscal/3.9.stock_deuda_publica/c030901.xls"
+#IMPORTAR DATOS DE EXCEL
+range <- "B2:H29"
+sheet <- "deuda_publi"
+col_names <- TRUE
+#FORMATO FECHA
+from <- "01Jan1996"
+to <- "01Jan2022"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file, 
+    setclass = "tbl_df",
+    sheet=sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>% 
+  remove_empty(c("rows", "cols")) 
+
+data <- data %>%
+  select(
+    `Crecimiento Deuda Pública`,
+    `Crecimiento PIB real`
+    ) 
+
+Año <- fun_fecha(from,to,by,each)
+data <- cbind(Año, data) 
+data <- as_tibble(data)
+
+creci_deuda_pib <-
+  dygraph(data, main = "Crecimiento Deuda Pública, Crecimiento PIB real") %!>% 
+    dySeries(fillGraph = TRUE, "Crecimiento Deuda Pública",  
+             label = "Crecimiento Deuda Pública", color="red") %!>% 
+    dySeries(fillGraph = FALSE, "Crecimiento PIB real", 
+             label = "Crecimiento PIB real", color="green") %!>% 
+  dyLegend(width = 700, show = "onmouseover", labelsSeparateLines = FALSE) %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y",
+         gridLineColor = "#4a4a4a",
+         valueFormatter = "function(v){return (v*100).toFixed(1) + '%'}",
+         axisLabelFormatter = "function(v){return (v*100).toFixed(0) + '%'}"
+  ) %!>% 
+  dyCrosshair(direction = "vertical") %!>% 
+  dyRangeSelector(height = 30) %!>% 
+  dyHighlight(highlightCircleSize = 3,
+              highlightSeriesBackgroundAlpha = 0.9) 
+```
+
+```{r deuda_externa, warning = FALSE, echo=FALSE}
+
+externo%>%
+  knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  kable_paper(full_width = FALSE)%>%
+  kable_styling(fixed_thead = T)%>%
+  row_spec(1:29, color = "#eee", background = "#212529") %!>% 
+  add_header_above(c(" ", "MULTILATERAL" = 5, "BILATERAL" = 8, "", "", "", "")) %>%
+  add_header_above(c("DEUDA EXTERNA PÚBLICA \n(millones USD) a Jul-2023" = 18)) %!>% 
+
+  footnote(general = "Banco Central de Bolivia (BCB)",
+           general_title = "Fuente: ")
+
+
+```
+
+
+```{r deuda_interna, warning = FALSE, echo=FALSE}
+interna%>%
+  knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  kable_paper(full_width = FALSE)%>%
+  kable_styling(fixed_thead = T)%>%
+  row_spec(1:31, color = "#eee", background = "#212529") %!>% 
+  add_header_above(c("", "BANCO CENTRAL DE BOLIVIA" = 6, "","", "")) %>%
+  add_header_above(c("DEUDA INTERNA PÚBLICA \n(millones USD) a Jul-2023" = 10)) %!>% 
+  
+  footnote(general = "Ministerio de Economía y Finanzas Públicas.",
+           general_title = "Fuente: ")
+
+
+```
+
+Tomando en cuenta la deuda de las "Empresas Públicas", FINPRO, FNDR y EBIH que tiene el BCB en su balance y no está contemplado sobre el total de la Deuda Interna del, la deuda pública crece mucho mas: 
+
+
+```{r deuda_empresas, warning = FALSE, echo=FALSE}
+
+deuda_empresas%>%
+  knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
+  kable_paper(full_width = FALSE)%>%
+  kable_styling(fixed_thead = T)%>%
+  row_spec(1:13, color = "#eee", background = "#212529") %!>% 
+  add_header_above(c("DEUDA EMPRESAS PÚBLICAS + FINPRO, FNDR Y EBIH (millones USD)" = 11)) %!>% 
+  
+  footnote(general = "Banco Central de Bolivia (BCB)",
+           general_title = "Fuente: ")
+
+
+```
+
+
+Evaluando de esta manera, mucho más sincera de la deuda pública, se nota que la deuda pública total a finalces de 2022, representó nada menos que el 79.2% del Producto Interno Bruto (PIB).
+
+
+```{r deuda_sobre_pib, warning = FALSE, echo=FALSE}
+total_porcentaje_pib
+```
+
+Ahora bien, comparado la deuda que tomó el Estado con los Estados más y menos deudores de Latinoamérica, Bolivia viene a ser el segundo país más endeudado de la región, tan sólo por debajo de la deuda de Argentina.
+
+```{r deuda_sobre_pib_latinoamerica, warning = FALSE, echo=FALSE}
+deuda_latinoamerica
+```
+
+
+Otro aspecto importante y ya en términos locales, es el crecimiento de la deuda pública en comparación al crecimiento del PIB real:
+
+```{r deuda_sobre_pib_crecimiento, warning = FALSE, echo=FALSE}
+creci_deuda_pib
+```
+
+
+Si nos preguntamos por las variables que pueden desencadenar una insostenibilidad fiscal de la deuda pública, notamos lo siguiente: 
+
+- El stock de deuda pública aumenta sostenidamente desde el año 2007.
+
+- El crecimiento económico nominal promedio a partir de ese año, se encuentra por debajo del crecimiento promedio de la deuda pública. 
+
+- El superávit primario en términos del PIB se reduce sostenidamente a partir del año 2013 con un tímido repunte desde el año 2021. 
+
+-La tasa de interés que se paga por la deuda externa se habia mantenido en niveles relativamente bajos hasta el año 2012, cuando el Estado comienza a emitir titulos de deuda ("bonos soberanos") cuya tasa se ha encontrado entre el 4.5%-7.5%, lo que incrementa el gasto en intereses que pagamos los bolivianos; por otro lado, el BCB sobre todo (como una de las entidades que financia el Estado) ha concedido créditos a las empresas públicas con favorables condiciones como intereses sumamente bajos, periodos de gracia a capital que no se ven en el mercado de créditos, etc. lo que no influye demasiado si tenemos en cuenta la tasa promedio de interés de la deuda pública.
+
+
+En resumen, la deuda pública del 79.2% sobre el PIB del 2022 y su crecimiento sostenido lo explican: 
+
+- Un superátiv primario completamente deteriorado. 
+- Un stock de deuda pública que aumenta sostenidamente desde el año 2007.
+- Un crecimiento real de la economía que parece no responder a toda la deuda que inyectada.
+- Y una deuda contraida por el Estado en forma de "bono soberano" que aumentó la tasa promedio de interés de deuda pública.
+
+Por tanto, dar estabilidad a la deuda pública requiere una solución por parte del ejecutivo para generar superávit primario, reducir el stock de deuda, crecer produciendo bienes y no mediante deuda que no funciona y dejar de exponerse financieramente si no se consigue deuda de baja tasa de interés.
+
+Al margen de estas variables y estadísticas presentadas, hace falta un análisis mas completo sobre la composición de la deuda pública, sus plazos de vencimiento, el destino que tuvieron, etc. que analizaremos en un artículo siguiente.
+
+
+
+
+
+
+
