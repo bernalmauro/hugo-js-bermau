@@ -2,9 +2,9 @@
 title: "La Deuda Pública de Bolivia"
 draft: false
 featuredImage: /images/deudapublica.jpg
-categories: ["Coyuntura Económica"]
-tags: ["Deuda Pública Bolivia", "Países más endeudados y Menos endeudados de Latinoamérica" ]
-keywords: ["", "","", ""]
+categories: ["Análisis Económico"]
+tags: ["Deuda Pública Bolivia", "Países más y menos endeudados de Latinoamérica" ]
+keywords: ["", "", "", ""]
 author: "Misael Mauricio Bernal Ramos"
 menu:
   main:
@@ -13,16 +13,6 @@ menu:
     parent: ""
 socialshare: true
 ---
-
-
-"Todo lo que obtenemos, aparte de los dones gratuitos con que nos obsequia la naturaleza, ha de ser pagado de una u otra manera. Sin embargo, el mundo está lleno de pseudoeconomistas cargados de proyectos para conseguir algo por nada. Aseguran que el Gobierno puede gastar y gastar sin acudir a la imposición fiscal, que puede acumular deudas que jamás saldará puesto que «nos las debemos a nosotros mismos»."
-
---- Henry Hazlitt, Economía en una Lección
-
-
-Independientemente en que se vaya a financiar, la deuda pública es la suma de la deuda externa, es decir, la deuda que el Estado contrae (*a nombre de toda la sociedad*) de prestamistas internacionales (Banco Mundial, FMI, CAF, acreedores privados, etc.) y la suma de la deuda interna, es decir, aquellos agentes economicos o entidades que le prestan al Estado (*nombre de toda la sociedad*) como el BCB y las aseguradoras (*gestora pública de la Seguridad Social a Largo Plazo*) principalmente.
-
-
 ```{r warning = FALSE, include=FALSE}
 
 knitr::opts_chunk$set(echo = TRUE, error = TRUE, fig.width=11, fig.height=5)
@@ -365,7 +355,7 @@ porcentaje_interno <- data %>%
 
 total_porcentaje <-  cbind(porcentaje_externo, porcentaje_interno)
 total_porcentaje_pib <-
- dygraph(total_porcentaje, main = "Deuda Pública Bolivia (en % del PIB)")%!>%  
+ dygraph(total_porcentaje, main = "Deuda Pública de Bolivia (en % del PIB)")%!>%  
   dySeries(fillGraph = TRUE, "Deuda Externa", 
            label = "Deuda Externa", color="green") %!>% 
   dySeries(fillGraph = TRUE, "Deuda Interna", 
@@ -466,7 +456,7 @@ data <- cbind(Año, data)
 data <- as_tibble(data)
 
 deuda_latinoamerica <-
-  dygraph(data, main = "Economías mas y menos endeudadas de Latinoamérica (% del PIB)") %!>% 
+  dygraph(data, main = "Economías mas y menos endeudadas de Latinoamérica (en % del PIB)") %!>% 
   
   dyLegend(width = 700, show = "onmouseover", labelsSeparateLines = FALSE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
@@ -514,7 +504,7 @@ data <- cbind(Año, data)
 data <- as_tibble(data)
 
 creci_deuda_pib <-
-  dygraph(data, main = "Crecimiento Deuda Pública, Crecimiento PIB real") %!>% 
+  dygraph(data, main = "Crecimiento Deuda Pública y Crecimiento real del PIB") %!>% 
     dySeries(fillGraph = TRUE, "Crecimiento Deuda Pública",  
              label = "Crecimiento Deuda Pública", color="red") %!>% 
     dySeries(fillGraph = FALSE, "Crecimiento PIB real", 
@@ -532,6 +522,47 @@ creci_deuda_pib <-
   dyHighlight(highlightCircleSize = 3,
               highlightSeriesBackgroundAlpha = 1) 
 ```
+
+
+"Todo lo que obtenemos, aparte de los dones gratuitos con que nos obsequia la naturaleza, ha de ser pagado de una u otra manera. Sin embargo, el mundo está lleno de pseudoeconomistas cargados de proyectos para conseguir algo por nada. Aseguran que el Gobierno puede gastar y gastar sin acudir a la imposición fiscal, que puede acumular deudas que jamás saldará puesto que «nos las debemos a nosotros mismos»."
+
+--- Henry Hazlitt, Economía en una Lección.
+
+
+Independientemente en que se vaya a financiar, la deuda pública es la suma de la deuda externa, es decir, la deuda que el Estado contrae (*a nombre de la sociedad*) de prestamistas internacionales (Banco Mundial, FMI, CAF, acreedores privados, etc.) y la suma de la deuda interna, es decir, aquellos agentes económicos o entidades que le prestan al Estado como el BCB y el sector privado.
+
+Si nos referimos a la deuda externa, nuestros mayores acreedores son bancos de desarrollo (BID, CAF, BM) cuya tasa de interés es relavimente baja comparada con los títulos de deuda o "bonos soberanos". Actualmente representan cerca del 70% de la deuda externa.
+
+Si nos referimos a la deuda interna, vemos que el BCB es su principal acreedor con el 70% de la deuda interna. Antes de continuar, es necesario aclarar que la deuda que tiene el BCB con el Estado estaría incompleta si no tomamos en cuenta la deuda de las empresas públicas como YPFB, YLB o ENDE asi como la deuda del Fondo para la Revolución Industrial Productiva (FINPRO), del Fondo Nacional de Desarrollo Regional (FNDR), etc. 
+
+Así las cosas, la deuda pública en términos del Producto Interno Bruto (PIB) en 2022 fue del 79.2%, dicho de otro modo, que el 79% de todo el valor de producción de la economía en un año es igual a la deuda que tiene el Estado boliviano. 
+
+Comparado con economías como la Argentina, Brasil, Chile, Paraguay y Perú, nos situamos como segunda economía más endeudada sólo por detrás de Argentina. Frente a un contexto asi, la política económica del presidente Arce Catacora debiera estar concentrada en reducir el gasto público ahora que no está enfrentando dificultades como la alta inflación en Argentina, o peor aún, problemas para estabilizar la deuda y que esta no se vuelva insostenible con el paso del tiempo. 
+
+Si nos preguntamos por las variables que pueden desencadenar una insostenibilidad fiscal de la deuda pública, notamos lo siguiente: 
+
+- El stock de deuda pública aumenta sostenidamente desde el año 2007.
+
+- El crecimiento económico nominal promedio a partir de ese año, se encuentra por debajo del crecimiento promedio de la deuda pública. 
+
+- El superávit primario en términos del PIB se reduce sostenidamente a partir del año 2013 con un tímido repunte desde el año 2021. 
+
+-La tasa de interés que se paga por la deuda externa se había mantenido en niveles relativamente bajos hasta el año 2012, cuando el Estado comienza a emitir titulos de deuda ("bonos soberanos") cuya tasa se ha encontrado entre el 4.5% y el 7.5%, lo que incrementa el servicio de la deuda; por otro lado, el BCB sobre todo (como una de las entidades que financia el Estado) ha concedido créditos a las empresas públicas con favorables condiciones como intereses sumamente bajos, periodos de gracia a capital que no se ven en el mercado de créditos, etc. lo que no influye demasiado si tenemos en cuenta la tasa promedio de interés de la deuda pública.
+
+
+En resumen, la deuda pública del 79.2% sobre el PIB del 2022 y su crecimiento sostenido lo explican: 
+
+- Un superátiv primario completamente deteriorado. 
+- Un stock de deuda pública que aumenta sostenidamente desde el año 2007.
+- Un crecimiento real de la economía que parece no responder a toda la deuda inyectada sobre la economía.
+- Y una deuda contraida por el Estado en forma de "bono soberano" que aumentó la tasa promedio de interés de deuda pública.
+
+Por tanto, el problema de la deuda pública requiere de una solución por parte del gobierno para generar superávit primario, reducir el stock de deuda, crecer produciendo bienes y no mediante altas dósis endeudamiento público.
+
+Al márgen de estas variables y estadísticas presentadas, hace falta un análisis mas completo sobre la composición de la deuda pública, sus plazos de vencimiento, el destino que tuvieron, etc. que analizaremos en un artículo siguiente.
+ 
+
+
 
 ```{r deuda_externa, warning = FALSE, echo=FALSE}
 
@@ -559,14 +590,11 @@ interna%>%
   add_header_above(c("", "BANCO CENTRAL DE BOLIVIA" = 6, "","", "")) %>%
   add_header_above(c("DEUDA INTERNA PÚBLICA \n(millones USD) a Jul-2023" = 10)) %!>% 
   
-  footnote(general = "Ministerio de Economía y Finanzas Públicas.",
+  footnote(general = "UDAPE",
            general_title = "Fuente: ")
 
 
 ```
-
-Tomando en cuenta la deuda de las "Empresas Públicas", FINPRO, FNDR y EBIH que tiene el BCB en su balance y no está contemplado sobre el total de la Deuda Interna del, la deuda pública crece mucho mas: 
-
 
 ```{r deuda_empresas, warning = FALSE, echo=FALSE}
 
@@ -583,49 +611,20 @@ deuda_empresas%>%
 
 ```
 
-
-Evaluando de esta manera, mucho más sincera de la deuda pública, se nota que la deuda pública total a finalces de 2022, representó nada menos que el 79.2% del Producto Interno Bruto (PIB).
-
-
 ```{r deuda_sobre_pib, warning = FALSE, echo=FALSE}
 total_porcentaje_pib
 ```
-
-Ahora bien, comparado la deuda que tomó el Estado con los Estados más y menos deudores de Latinoamérica, Bolivia viene a ser el segundo país más endeudado de la región, tan sólo por debajo de la deuda de Argentina.
 
 ```{r deuda_sobre_pib_latinoamerica, warning = FALSE, echo=FALSE}
 deuda_latinoamerica
 ```
 
 
-Otro aspecto importante y ya en términos locales, es el crecimiento de la deuda pública en comparación al crecimiento del PIB real:
-
 ```{r deuda_sobre_pib_crecimiento, warning = FALSE, echo=FALSE}
 creci_deuda_pib
 ```
 
 
-Si nos preguntamos por las variables que pueden desencadenar una insostenibilidad fiscal de la deuda pública, notamos lo siguiente: 
-
-- El stock de deuda pública aumenta sostenidamente desde el año 2007.
-
-- El crecimiento económico nominal promedio a partir de ese año, se encuentra por debajo del crecimiento promedio de la deuda pública. 
-
-- El superávit primario en términos del PIB se reduce sostenidamente a partir del año 2013 con un tímido repunte desde el año 2021. 
-
--La tasa de interés que se paga por la deuda externa se habia mantenido en niveles relativamente bajos hasta el año 2012, cuando el Estado comienza a emitir titulos de deuda ("bonos soberanos") cuya tasa se ha encontrado entre el 4.5%-7.5%, lo que incrementa el gasto en intereses que pagamos los bolivianos; por otro lado, el BCB sobre todo (como una de las entidades que financia el Estado) ha concedido créditos a las empresas públicas con favorables condiciones como intereses sumamente bajos, periodos de gracia a capital que no se ven en el mercado de créditos, etc. lo que no influye demasiado si tenemos en cuenta la tasa promedio de interés de la deuda pública.
-
-
-En resumen, la deuda pública del 79.2% sobre el PIB del 2022 y su crecimiento sostenido lo explican: 
-
-- Un superátiv primario completamente deteriorado. 
-- Un stock de deuda pública que aumenta sostenidamente desde el año 2007.
-- Un crecimiento real de la economía que parece no responder a toda la deuda que inyectada.
-- Y una deuda contraida por el Estado en forma de "bono soberano" que aumentó la tasa promedio de interés de deuda pública.
-
-Por tanto, dar estabilidad a la deuda pública requiere una solución por parte del ejecutivo para generar superávit primario, reducir el stock de deuda, crecer produciendo bienes y no mediante deuda que no funciona y dejar de exponerse financieramente si no se consigue deuda de baja tasa de interés.
-
-Al margen de estas variables y estadísticas presentadas, hace falta un análisis mas completo sobre la composición de la deuda pública, sus plazos de vencimiento, el destino que tuvieron, etc. que analizaremos en un artículo siguiente.
 
 
 

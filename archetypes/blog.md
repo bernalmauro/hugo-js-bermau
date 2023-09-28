@@ -2,9 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 draft: false
 featuredImage:
-categories: ["Teoría Económica", "Análisis Económico", "Coyuntura Económica" ]
+categories: ["Teoría Económica", "Análisis Económico", "Filosofía Política", "Programación con R" ]
 tags: ["", "", "" ]
-keywords: ["", "","", ""]
+keywords: ["", "", "", ""]
 author: "{{ .Site.Params.Author }}"
 menu:
   main:
