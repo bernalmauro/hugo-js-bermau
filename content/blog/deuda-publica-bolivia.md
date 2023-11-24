@@ -5,7 +5,7 @@ featuredImage: /images/deudapublica.jpg
 categories: ["Análisis Económico"]
 tags: ["Deuda Pública Bolivia", "Países más y menos endeudados de Latinoamérica" ]
 keywords: ["", "", "", ""]
-author: "Misael Mauricio Bernal Ramos"
+author: "Mauricio Bernal"
 menu:
   main:
     identifier: "blog"

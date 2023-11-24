@@ -5,7 +5,7 @@ featuredImage: /images/pge.jpg
 categories: ["Análisis Económico"]
 tags: ["PGE Bolivia" ]
 keywords: ["", "", "", ""]
-author: "Misael Mauricio Bernal Ramos"
+author: "Mauricio Bernal"
 menu:
   main:
     identifier: "blog"
