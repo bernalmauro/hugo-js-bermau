@@ -1,5 +1,6 @@
 ---
 title: "Breve Analisis de la Economia Boliviana"
+date: 2023-11-06
 draft: false
 featuredImage: /images/breve-analisis-economia-boliviana.jpg
 categories: ["Análisis Económico"]

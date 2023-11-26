@@ -1,5 +1,6 @@
 ---
 title: "Banca Múltiple en Bolivia"
+date: 2023-11-20
 draft: false
 featuredImage: /images/banca-multiple.jpg
 categories: ["Análisis Económico"]

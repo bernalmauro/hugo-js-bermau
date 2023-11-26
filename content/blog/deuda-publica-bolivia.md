@@ -1,5 +1,6 @@
 ---
 title: "La Deuda Pública de Bolivia"
+date: 2023-11-15
 draft: false
 featuredImage: /images/deudapublica.jpg
 categories: ["Análisis Económico"]

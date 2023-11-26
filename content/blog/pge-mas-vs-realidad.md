@@ -1,5 +1,6 @@
 ---
 title: "El PGE del MAS vs la Realidad"
+date: 2023-11-10
 draft: false
 featuredImage: /images/pge.jpg
 categories: ["Análisis Económico"]
