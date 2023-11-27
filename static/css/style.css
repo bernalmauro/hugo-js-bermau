@@ -117,7 +117,9 @@ body {
 
 /* breadcrumb.html */
 .breadcrumb-item+.breadcrumb-item::before {
-	color: #abb2bf !important;
+	color: #abb2bf !important;	
+    padding-left: 10px !important;
+
 }
 
 /* Formulario de selección-países */
@@ -309,8 +311,14 @@ ul.share-icons li>* .label {
 }
 
 .container-sm {
-	padding: 20px;
-	margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+
+.btn-group.dropend {
+    display: flex;
+    margin-left: auto; /* Esto debería alinear el botón a la derecha */
 }
 
 /* tabs */
@@ -412,3 +420,31 @@ ul.share-icons li>* .label {
     width: 1000px !important;
     padding-left: 0px !important;
 }
+
+.custom-flex {
+  /* Tus estilos específicos para el nav.html */
+  justify-content: flex-end !important;
+}
+
+.container-fluid.custom-flex {
+  background-color: #282C34;
+}
+.navbar-nav {
+	font-size: 18px;
+  }
+
+  
+  .offcanvas {
+	margin-left: 10px;
+	margin-right: 10px;
+  }
+  
+  .offcanvas-header {
+	margin-right: 10px;
+  }
+  
+
+  .custom-share{
+
+	justify-content: center;
+  }

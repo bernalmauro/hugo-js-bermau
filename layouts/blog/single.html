@@ -1,8 +1,6 @@
 {{ define "main" }}
 
-<div class="container-sm" style="margin-left: 20px;">
-  {{ partial "breadcrumb.html" . }}
-</div>
+
   <h1>{{ .Title }}</h1>
   <div class="container-sm" style="
   margin-right: 0px;
@@ -19,14 +17,5 @@
     <article id="content" style="width: 1200px !important;">
       {{ .Content }}
     </article>
-    
-<div class="d-flex">
-  <div class="col">
-    {{ partial "redes" . }}
-    {{ partial "comment" . }}
-  </div>
-  </div>
-  </div>
   
-
   {{ end }}

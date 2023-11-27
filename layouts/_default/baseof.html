@@ -2,11 +2,16 @@
 <html>
 {{- partial "head.html" . -}}
 {{- partial "nav.html" . -}}
+{{ partial "breadcrumb.html" . }}
 
 <body>
     
     {{- block "main" . }}{{- end }}
-
+    
+    <div class="row container-text-center">
+        {{ partial "redes" . }}
+        {{ partial "comment" . }}
+      </div>
     {{- partial "footer.html" . -}}
 
 </body>

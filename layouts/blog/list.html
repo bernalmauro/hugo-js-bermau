@@ -1,8 +1,6 @@
 {{ define "main" }}
     
-<div class="container-sm" style="margin-left: 20px;">
-    {{ partial "breadcrumb.html" . }}
-</div> 
+
    <div class="row">
        <div class="col-auto">
             Categorías: {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
@@ -54,10 +52,5 @@
         {{ end }}
 
     {{ end }}
-    <div class="row container-text-center">
-        
-        {{ partial "redes" . }}
-        {{ partial "comment" . }}
-      </div>
-      
+    
 {{ end }}

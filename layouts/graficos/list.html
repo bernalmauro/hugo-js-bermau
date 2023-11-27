@@ -1,21 +1,41 @@
 {{ define "main" }}
-<div class="container-sm">
-  {{partial "breadcrumb.html" . }}
-  <div class="btn-group dropend">
-    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Seleccione un país
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid custom-flex">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCountrySelect"
+      aria-controls="offcanvasCountrySelect" aria-label="Toggle navigation">VER ESTADÍSTICAS SEGÚN PAÍS
+      
     </button>
-    <ul class="dropdown-menu dropdown-menu-dark">
-      {{ range .Pages }}
-      <li><a class="dropdown-item" href="{{ .Permalink }}">{{ .Title }}</a></li>
-      {{ end }}
-    </ul>
+    <div class="offcanvas offcanvas-end text-bg-dark ms-auto" tabindex="-1" id="offcanvasCountrySelect"
+      aria-labelledby="offcanvasCountrySelectLabel">
+      <div class="offcanvas-header">
+        <h3>
+          <a class="offcanvas-title nav-link" href="#"></a>
+        </h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          {{ range .Pages }}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
+          </li>
+
+
+
+          {{ end }}
+        </ul>
+      </div>
+    </div>
   </div>
-  <div>
-    {{ .Content }}
-  </div>
-  <div class="row container-text-center">
-    {{ partial "redes" . }}
-    {{ partial "comment" . }}
+</nav>
+
+
+<div class="row container mb-3">
+  <div style="padding-right: 0px; padding-left: 0px;">
+    <div class="row">
+      {{ .Content }}
+    </div>
   </div>
 </div>
+
 {{ end }}
