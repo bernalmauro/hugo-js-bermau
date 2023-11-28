@@ -448,3 +448,20 @@ ul.share-icons li>* .label {
 
 	justify-content: center;
   }
+
+
+  .timeline-container {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 1200px; /* Ajusta el ancho máximo del contenedor según tus preferencias */
+	margin: 0 auto; /* Centra el contenedor en la página */
+  }
+  
+  .facebook-timeline,
+  .twitter-timeline {
+	flex: 1; /* Hace que ambos ocupen el mismo espacio en el contenedor */
+	max-width: 100%; /* Ajusta según tus preferencias */
+  }
+  
