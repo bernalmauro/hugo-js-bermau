@@ -43,11 +43,16 @@
   {{ end }}
 
   {{ with .Description }}
-    <meta property="og:description" content="{{ . }}" />
-  {{ else }}
-    <meta property="og:description" content="{{ .Content | plainify | truncate 400 }}" />
-  {{ end }}
-  
+  <meta property="og:description" content="{{ . }}" />
+{{ else }}
+  {{ $truncateLength := 400 }}
+  {{ $content := .Content | plainify }}
+  {{ $truncatedContent := cond (ge (len $content) $truncateLength) (slice $content 0 $truncateLength | safeHTML) $content }}
+  {{ $escapedContent := htmlEscape $truncatedContent }}
+  <meta property="og:description" content="{{ $escapedContent }}" />
+{{ end }}
+
+
 
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
