@@ -1,5 +1,6 @@
 <head>
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <title>{{ if .IsHome }}Inicio{{ else }}{{ .Title }} I {{ end }} Bernal Mauricio</title>
+
     <html lang="en-us">
     </html>
     <meta name="description" content='{{ .Param "Description" }}' />

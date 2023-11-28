@@ -1,5 +1,7 @@
 ---
-title: "Bernal Mauricio"
+title: |
+  | Inicio
+  | Bernal Mauricio
 output: html_document
 ---
 
@@ -8,7 +10,6 @@ Por tanto, este sitio tiene las siguientes páginas:
 * [Blog](https://bernalmauricio.com/blog/)
 * [Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
 * [Biblioteca](https://bernalmauricio.com/biblioteca/) 
-
 
 ```{r warning = FALSE, include=FALSE}
 
@@ -127,9 +128,10 @@ dygraph_1 <- dygraph(pib, main = "Crecimiento del PIB /Anual") %!>%
   dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1) 
 
+
 #OPERACIONES CONSOLIDADAS DEL SECTOR PUBLICO DYGRAPHS####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/13-01.xlsx"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
 range <- "A5:AH30"
@@ -142,8 +144,26 @@ to <- "2022.12.31"
 by <- "year"
 each <- 1
 
-excel <- 
-  fun_excel(file, range, sheet, col_names, from, to, by, each)
+  data <- 
+  rio::import(
+    file, 
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>% 
+  remove_empty(c("rows", "cols")) 
+
+data %<>%
+  pivot_longer(!...1) %<>%
+  pivot_wider(names_from = "...1",
+              values_from = "value") %<>%
+  dplyr::select(-name)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+excel <- data
 
 excel %!>%  
   read.zoo(excel, FUN = as.Date) %!>% 
@@ -171,6 +191,7 @@ dygraph_2 <- dygraph(consolidado, main = "Ingresos y Egresos Estatales /Anual (m
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 4,
               highlightSeriesBackgroundAlpha = 1)
+
 
 #RESULTADO FISCAL DEL SECTOR PUBLICO####
 
