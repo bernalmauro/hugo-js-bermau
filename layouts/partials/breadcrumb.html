@@ -1,4 +1,4 @@
-<nav class="breadcrumb container" aria-label="breadcrumb" style="margin-bottom: 0px; margin-top: 50px;">
+<nav class="breadcrumb container" aria-label="breadcrumb" style="margin-bottom: 0px; margin-top: 70px; margin-left: 40px;;">
     <ol class="breadcrumb" style="margin-bottom: 0px;">
     {{ define "breadcrumb" }}
     {{ with .Parent }}
@@ -9,7 +9,7 @@
     {{ if not .IsHome }}
     
         {{ template "breadcrumb" . }}
-    <li class="breadcrumb-item active" style="color:#abb2bf;" aria-current="page">{{ .Title }}</li>
+    <li class="breadcrumb-item active" aria-current="page">{{ .Title }}</li>
     
     {{ end }}
     

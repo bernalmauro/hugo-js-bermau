@@ -47,6 +47,9 @@
     <meta property="og:description" content="{{ .Content | plainify | truncate 400 }}" />
   {{ end }}
   
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Google Fonts Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
       <!-- 
@@ -57,6 +60,29 @@
       {{ if and (.IsPage) (eq .Section "blog") }}
          {{- partial "articleschema.html" .  -}}
       {{ end }}
-    
+  
+
+ <!-- El script de JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const botonModo = document.getElementById('modo-oscuro');
+    let modoOscuro = false;
+
+    function cambiarModo() {
+      modoOscuro = !modoOscuro;
+      document.body.classList.toggle('modo-oscuro', modoOscuro);
+
+      // Cambiar el color de fondo del botón permanentemente al hacer clic
+      if (modoOscuro) {
+        botonModo.style.backgroundColor = '#343541';
+      } else {
+        botonModo.style.backgroundColor = '#212529';
+      }
+    }
+
+    botonModo.addEventListener('click', cambiarModo);
+  });
+</script>
+
 </head>
 <link rel="icon" type="image/png" href="{{ "imgPath" | relURL }}"> 

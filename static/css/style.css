@@ -1,41 +1,88 @@
 /* Tema Predeterminado */
 
+/* Estilos para el modo oscuro */
+.modo-oscuro {
+    background-color: #343541  !important;
+	color: #D1D5DB !important;
+	padding: 0px !important;
+}
+
+.modo-oscuro h3 {
+    color: #e3e3e3; /* Cambia el color del título en modo oscuro */
+}
+
+/* Estilos adicionales para dygraph.css en modo oscuro */
+.modo-oscuro .dygraph-legend,
+.modo-oscuro .dygraph-axis-label,
+.modo-oscuro .dygraph-title {
+    color: #e3e3e3 !important;
+}
+
+/* Agrega el botón modo-oscuro aquí */
+#modo-oscuro {
+	top: 10px; /* Ajusta según sea necesario */
+	right: 10px; /* Ajusta según sea necesario */
+	display: flex; 
+    flex-wrap: inherit;
+	background-color: #343541 !important;
+	transition: background-color 0.3s ease; /* Agrega transición para un cambio suave */
+}
+
+#modo-oscuro:active {
+    background-color: #212529 !important; /* Cambia el color de fondo al hacer clic */
+}
+
+/* Estilos generales */
 h3 {
 	text-align: center !important;
-	margin-top: 20px !important;
-	margin-bottom: 20px !important;
+	margin-top: 40px !important;
+	margin-bottom: 40px !important;	
 }
 
 body {
+	background-color: #abb2bf !important;
+    padding: 0px !important;
 	margin: 0 !important;
-
-}
-
-body a {
-	text-decoration: none !important;
-	color: #eee !important;
 }
 
 body code {
 	color: #eee !important;
 }
 
+body a {
+	text-decoration: none !important;
+	color: #333333;
+}
+
+/* En modo oscuro */
+.modo-oscuro a {
+    color: #f5f5f5 !important;
+}
+
+.offcanvas-title-1 .nav-link-1{
+	text-decoration: none !important;
+	color: #eee !important;
+}
+
+.nav-link-1{
+	text-decoration: none !important;
+	color: #eee !important;
+}
+
+
 /* header and footer areas */
 .menu {
 	padding: 0px;
-
 }
 
 .menu li {
 	display: inline-block;
 	color: #eee !important;
-
 }
 
 .menu a {
 	display: inline-block;
 	color: #eee !important;
-
 }
 
 .article-meta,
@@ -51,7 +98,7 @@ footer {
 }
 
 .title {
-	color: red;
+	color: #D1D5DB !important;
 }
 
 footer a {
@@ -84,9 +131,7 @@ main {
 	hyphens: auto;
 }
 
-blockquote {
-	background: #f9f9f9;
-}
+
 
 thead,
 tfoot,
@@ -94,32 +139,24 @@ tr:nth-child(even) {
 	background: #eee;
 }
 
-/* nav.html */
-.navbar,
-.navbar-dark,
-body {
-	background-color: #282C34 !important;
-	color: #abb2bf !important;
-	padding: 0px !important;
-}
-
 /* dropdown */
-.dropdown-menu {
-	background-color: #282C34 !important;
+.modo-oscuro .dropdown-menu {
+	background-color: #212519;
 	text-align: center !important;
 	border-color: #abb2bf !important;
 }
 
+
+.dropdown-menu {
+	background-color: #abb2bf !important;
+	text-align: center !important;
+	border-color: #abb2bf !important;
+}
+
+
 .dropdown-item {
 	background-color: #282C34 !important;
 	text-align: center;
-}
-
-/* breadcrumb.html */
-.breadcrumb-item+.breadcrumb-item::before {
-	color: #abb2bf !important;	
-    padding-left: 10px !important;
-
 }
 
 /* Formulario de selección-países */
@@ -315,23 +352,58 @@ ul.share-icons li>* .label {
     margin-bottom: 0px;
 }
 
-
 .btn-group.dropend {
     display: flex;
     margin-left: auto; /* Esto debería alinear el botón a la derecha */
 }
 
 /* tabs */
+
 .nav-tabs {
 	margin-top: 1rem;
-	border-color: gray !important;
-
+	border-color: #343541 !important;
 }
 
-.nav-link.active,
-.nav-item.show .nav-link {
-	background-color: #212529 !important;
-	border-color: gray !important;
+.modo-oscuro .nav-tabs {
+	margin-top: 1rem;
+	border-color: #abb2bf !important;
+}
+
+/* Modo claro que tienen active */
+.nav-link.active {
+	background-color:#abb2bf !important; /* Cambia el color de fondo en modo claro */
+    color: #000000 !important; /* Cambia el color del texto en modo claro */
+    border-color: #212529 !important; /* Cambia el color del borde en modo claro */
+}
+/* Modo oscuro que tienen active */
+.modo-oscuro .nav-link.active{
+	background-color: #212529 !important; /* Cambia el color de fondo en modo oscuro */
+    color: #ffffff !important; /* Cambia el color del texto en modo oscuro */
+    border-color: #abb2bf !important; /* Cambia el color del borde en modo oscuro */
+}
+
+/* Modo claro que no tienen active */
+.nav-link{
+	background-color: #212529 !important; /* Cambia el color de fondo en modo claro */
+    color: #abb2bf !important; /* Cambia el color del texto en modo claro */
+    border-color: #abb2bf !important; /* Cambia el color del borde en modo claro */
+}
+/* Modo oscuro que no tienen active */
+.modo-oscuro .nav-link{
+	background-color: #abb2bf !important; /* Cambia el color de fondo en modo oscuro */
+    color: #212529 !important; /* Cambia el color del texto en modo oscuro */
+    border-color: #000000 !important; /* Cambia el color del borde en modo oscuro */
+}
+
+
+/* Estilo predeterminado para el borde inferior en modo claro */
+.d-block.my-2.pb-2.border-bottom {
+    border-bottom: 1px solid #343541 !important; /* Color del borde en modo claro */
+}
+
+/* Estilo para el borde inferior en modo oscuro */
+.modo-oscuro .d-block.my-2.pb-2.border-bottom {
+    border-bottom: 1px solid #abb2bf !important; /* Color del borde en modo oscuro */
 }
 
 .tab-content {
@@ -344,7 +416,6 @@ ul.share-icons li>* .label {
 	justify-content: space-around !important;
 	flex-wrap: wrap !important;
 }
-
 
 .col {
 	margin: auto;
@@ -359,10 +430,7 @@ ul.share-icons li>* .label {
 
 /* dygraph align */
 .html-widget {
-
-
 	max-width: 100% !important;
-
 }
 
 .dygraphs {
@@ -371,7 +439,6 @@ ul.share-icons li>* .label {
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 	margin-bottom: 0px !important;
-
 }
 
 .dygraph-legend {
@@ -408,7 +475,6 @@ ul.share-icons li>* .label {
 }
 
 .graphcomment {
-
 	justify-content: center !important;
 }
 
@@ -422,46 +488,188 @@ ul.share-icons li>* .label {
 }
 
 .custom-flex {
-  /* Tus estilos específicos para el nav.html */
-  justify-content: flex-end !important;
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido hacia la derecha */
+    align-items: center; /* Centra verticalmente el contenido */
 }
 
-.container-fluid.custom-flex {
-  background-color: #282C34;
+.container-fluid-list {
+    margin-left: auto; /* Establece el margen izquierdo automático */
+    margin-right: 150px; /* Ajusta según sea necesario */
 }
+
+.modo-oscuro .container-fluid.custom-flex {
+	background-color: #343541;
+}
+
 .navbar-nav {
 	font-size: 18px;
-  }
+}
 
-  
-  .offcanvas {
+.offcanvas {
 	margin-left: 10px;
 	margin-right: 10px;
-  }
+}
   
-  .offcanvas-header {
+.offcanvas-header {
 	margin-right: 10px;
-  }
+}
   
-
-  .custom-share{
-
+.custom-share{
 	justify-content: center;
-  }
+}
 
-
-  .timeline-container {
+.timeline-container {
 	display: flex;
 	align-items: flex-start;
 	flex-wrap: wrap;
 	justify-content: center;
 	max-width: 1200px; /* Ajusta el ancho máximo del contenedor según tus preferencias */
 	margin: 0 auto; /* Centra el contenedor en la página */
-  }
+}
   
-  .facebook-timeline,
+.facebook-timeline,
   .twitter-timeline {
 	flex: 1; /* Hace que ambos ocupen el mismo espacio en el contenedor */
 	max-width: 100%; /* Ajusta según tus preferencias */
-  }
-  
+}
+
+/* nav modo oscuro */
+.modo-oscuro .navbar.navbar-dark.bg-dark.fixed-top {
+	background-color: #212529 !important; /* Reemplaza con el color hexadecimal que desees */
+}
+
+/* nav modo claro */
+.navbar.navbar-dark.bg-dark.fixed-top {
+	background-color: #343541 !important; /* Reemplaza con el color hexadecimal que desees */
+}
+
+/* En modo claro */
+.navbar.navbar-dark.bg-dark {
+    background-color: #abb2bf !important; /* Color de fondo predeterminado en modo claro */
+}
+
+/* En modo oscuro */
+.modo-oscuro .navbar.navbar-dark.bg-dark {
+    background-color: #343541 !important; /* Cambia el color de fondo al modo oscuro */
+}
+
+/* Estilo predeterminado del botón */
+.navbar-toggler-list {
+    background-color: #343541 !important; /* Color de fondo predeterminado en modo claro */
+    border: 2px groove #343541 !important; /* Borde del botón */
+    border-radius: 8px; /* Bordes redondeados para un aspecto más elegante */
+    padding: 8px 8px; /* Espaciado interno para que el botón sea más grande */
+	color: #D1D5DB !important; /* Color del texto */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transiciones suaves */
+}
+
+/* Estilo al pasar al modo oscuro */
+.modo-oscuro .navbar-toggler-list {
+    background-color: #abb2bf !important; /* Cambia el color de fondo al modo oscuro */
+	border: 2px groove #abb2bf !important; /* Borde del botón */
+	border-radius: 8px; /* Bordes redondeados para un aspecto más elegante */
+    padding: 8px 8px; /* Espaciado interno para que el botón sea más grande */
+	color: #000000 !important; /* Color del texto */
+}
+
+/* En modo claro */
+.breadcrumb-item.active {
+    color: #343541 !important; /* Color de fondo predeterminado en modo claro */
+	padding: 0px 4px 0px 4px !important;
+}
+
+/* En modo oscuro */
+.modo-oscuro .breadcrumb-item.active {
+    color: #abb2bf !important; /* Cambia el color de fondo al modo oscuro */
+	padding: 0px 4px 0px 4px !important;
+}
+
+/* En modo claro */
+.breadcrumb-item.active::before {
+    color: #343541 !important; /* Color de fondo predeterminado en modo claro */
+	padding: 0px 4px 0px 4px !important;
+}
+
+/* En modo oscuro */
+.modo-oscuro .breadcrumb-item.active::before {
+    color: #f5f5f5 !important; /* Cambia el color de fondo al modo oscuro */
+	padding: 0px 4px 0px 4px !important;
+}
+
+/* En modo claro */
+.breadcrumb-item::before {
+    color: #343541 !important; /* Color de fondo predeterminado en modo claro */
+	padding: 0px 4px 0px 4px !important;
+}
+
+/* En modo oscuro */
+.modo-oscuro .breadcrumb-item::before {
+    color: #f5f5f5 !important; /* Cambia el color de fondo al modo oscuro */
+	padding: 0px 4px 0px 4px !important;
+}
+
+
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .custom-flex {
+        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
+    }
+
+    .container-fluid-list {
+        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
+    }
+}
+
+/* Estilo predeterminado para el enlace en modo claro */
+.text-decoration-none.link-secondary.nav-link {
+    color: #343541 !important; /* Color del texto en modo claro */
+	background-color: #abb2bf !important;
+}
+
+/* Estilo para el enlace en modo oscuro */
+.modo-oscuro .text-decoration-none.link-secondary.nav-link {
+    color: #abb2bf !important; /* Color del texto en modo oscuro */
+	background-color: #343541 !important;
+}
+
+/* Bordes generales */
+.p-3 {
+    border: 1px solid #343541; /* Color del borde general */
+    border-radius: 8px; /* Bordes redondeados para un aspecto más elegante */
+}
+
+/* En modo oscuro */
+.modo-oscuro .p-3 {
+    border-color: #abb2bf; /* Cambia el color del borde en modo oscuro */
+}
+
+
+/* Tema claro biblioteca */
+.biblioteca {
+	background-color: #abb2bf; /* Color de fondo claro */
+	color: #343541; /* Color del texto claro */
+}
+        /* Enlace en modo claro biblioteca */
+.biblioteca a {
+	color: #343541; /* Color del enlace en modo claro */
+}
+
+/* Tema oscuro biblioteca */
+  .modo-oscuro .biblioteca {
+	background-color: #343541; /* Color de fondo oscuro */
+	color: #abb2bf; /* Color del texto oscuro */
+}
+/* Enlace en modo oscuro biblioteca*/
+.modo-oscuro .biblioteca a {
+	color: #abb2bf; /* Color del enlace en modo oscuro */
+}
+
+.modo-oscuro blockquote {
+	background: #343541;
+}
+
+.blockquote{
+	background: #abb2bf;
+}

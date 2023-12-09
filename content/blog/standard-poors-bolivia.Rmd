@@ -133,7 +133,7 @@ html_table_width <- function(kable_output, width){
 }
 
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/standard_poors.xlsx"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/otros_bernalmauricio/standard_poors.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
 range <- "A1:B11"
@@ -156,7 +156,7 @@ kable_standard <-
   pack_rows("Grado Especulativo", 5, 10) %>% 
   add_header_above(c("Calificaciones Crediticias de Emisor de Largo Plazo*" = 2)) %>% 
   footnote(general = "",
-           general_title = "Fuente: [Standard & Poor`s](https://www.spglobal.com/ratings/es/about/understanding-ratings)",
+           general_title = "Fuente: Standard & Poor`s",
     symbol = c("Las calificaciones de ‘AA’ a ‘CCC’ pueden modificarse agregándoles un signo de más (+) o menos (-) para mostrar su posición relativa dentro de las categorías de calificación.")
   ) %!>%  kable_styling(
    

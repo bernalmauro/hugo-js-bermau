@@ -1,55 +1,54 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href= "{{ .Site.BaseURL }}" >Bernal Mauricio</a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
-        aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation" >
-        
-        <span class="navbar-toggler-icon"></span>
-        
-      </button>
-      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-        aria-labelledby="offcanvasDarkNavbarLabel">
-        <div class="offcanvas-header">
-          <h3>
-            <a class="offcanvas-title nav-link {{ if .IsHome }} active {{ end }}" href="{{ .Site.Home.Permalink }}" 
-            >Inicio</a>
-          </h3 >
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: 18px;">
-            {{ $current := . }}
-            {{ range .Site.Menus.main }}
-            {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
-            {{ $active = or $active (eq .Name $current.Title) }}
-            {{if .HasChildren }}
-            <li class="nav-item dropdown" >
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {{.Name}}
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark" >
-                {{ range .Children }}
-                <li  class="{{ if $active }}active{{ end }}"><a  class="dropdown-item" href="{{ .URL | absURL }}">{{ .Name
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ .Site.BaseURL }}">Bernal Mauricio</a>
+    <!-- Agrega el botón modo-oscuro aquí -->
+    <button id="modo-oscuro" class="btn btn-primary">
+      <span class="material-icons">dark_mode</span>
+    </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+      aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+      aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h3>
+          <a class="offcanvas-title-1 nav-link-1 {{ if .IsHome }} active {{ end }}"
+            href="{{ .Site.Home.Permalink }}">Inicio</a>
+        </h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: 18px;">
+          {{ $current := . }}
+          {{ range .Site.Menus.main }}
+          {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+          {{ $active = or $active (eq .Name $current.Title) }}
+          {{if .HasChildren }}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{.Name}}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              {{ range .Children }}
+              <li class="{{ if $active }}active{{ end }}"><a class="dropdown-item" href="{{ .URL | absURL }}">{{ .Name
                     }}</a>
-                </li>
-                {{ end }}
-              </ul>
-            </li>
-            {{ else }}
-            <li class="nav-item {{ if $active }}active{{ end }}">
-              <a class="nav-link" href="{{ .URL | absURL }}">{{.Name}}</a>
-            </li>
-            {{ end }}
-            {{ end }}
-          </ul>
-          <div class="row container-text-center">
-            {{ partial "redes" . }}
-          </div>
+              </li>
+              {{ end }}
+            </ul>
+          </li>
+          {{ else }}
+          <li class="nav-item {{ if $active }}active{{ end }}">
+            <a class="nav-link-1" href="{{ .URL | absURL }}">{{.Name}}</a>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ul>
+        <div class="row container-text-center">
+          {{ partial "redes" . }}
         </div>
-        
       </div>
     </div>
   </div>
+  </div>
 </nav>
-

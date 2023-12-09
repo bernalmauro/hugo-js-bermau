@@ -15,7 +15,7 @@ menu:
 socialshare: true
 ---
 
-' '
+
 
 --- 
 ```{r warning = FALSE, include=FALSE}

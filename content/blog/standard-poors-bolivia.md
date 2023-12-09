@@ -78,7 +78,7 @@ A raíz de [la última calificación de crédito](https://disclosure.spglobal.co
   </tr>
 </tbody>
 <tfoot>
-<tr><td style="padding: 0; " colspan="100%"><span style="font-style: italic;">Fuente: [Standard &amp; Poor`s](https://www.spglobal.com/ratings/es/about/understanding-ratings)</span></td></tr>
+<tr><td style="padding: 0; " colspan="100%"><span style="font-style: italic;">Fuente: Standard &amp; Poor`s</span></td></tr>
 <tr><td style="padding: 0; " colspan="100%">
 <sup></sup> </td></tr>
 <tr><td style="padding: 0; " colspan="100%">
