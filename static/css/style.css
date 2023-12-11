@@ -398,7 +398,7 @@ ul.share-icons li>* .label {
 
 /* Estilo predeterminado para el borde inferior en modo claro */
 .d-block.my-2.pb-2.border-bottom {
-    border-bottom: 1px solid #343541 !important; /* Color del borde en modo claro */
+    border-bottom: 1px dashed #343541 !important; /* Color del borde en modo claro */
 }
 
 /* Estilo para el borde inferior en modo oscuro */
@@ -504,6 +504,7 @@ ul.share-icons li>* .label {
 
 .navbar-nav {
 	font-size: 18px;
+	background-color: #212529;
 }
 
 .offcanvas {
@@ -682,4 +683,34 @@ a:hover {
   /* En modo oscuro */
 .modo-oscuro a:hover {
 	text-decoration: underline !important; /* O cualquier otro estilo de subrayado, si lo prefieres */
+}
+
+.nav-link-footer{
+	background-color: #343541 !important; /* Color de fondo oscuro */
+	color: #ffffff !important; /* Color del texto oscuro */
+}
+
+.modo-oscuro .nav-link-footer{
+	background-color: #212529 !important; /* Color de fondo oscuro */
+	color: #f5f5f5 !important; /* Color del texto oscuro */
+}
+/* Color de fondo claro titulo biblioteca */
+.text-center-biblioteca{
+	background-color: #343541;
+	color: #f5f5f5 !important; /* Color del texto oscuro */
+	text-align: center !important;
+}
+
+.modo-oscuro .text-center-biblioteca{
+	background-color: red;
+	color: #212529 !important; /* Color del texto oscuro */
+	text-align: center !important;
+}
+/* Modo Claro Blockquote */
+.blockquote-biblioteca{
+	background-color: #343541;
+}
+/* Modo Oscuro Blockquote */
+.modo-oscuro .blockquote-biblioteca{
+	background-color: #abb2bf;
 }

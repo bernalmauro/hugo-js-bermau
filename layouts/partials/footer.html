@@ -1,7 +1,7 @@
 <footer class="footer fixed-bottom bg-dark">
   
   <div class="footer-text">
-    <div class="col-12 col-md text-center text-md-left nav-link text-white">
+    <div class="col-12 col-md text-center text-md-left nav-link-footer">
       {{ with .Site.Params.footer }}
         {{ replace . "{Year}" now.Year | markdownify}}
         {{ end }}
