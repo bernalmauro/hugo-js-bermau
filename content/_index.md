@@ -70,7 +70,7 @@ output: html_document
 <script src="/rmarkdown-libs/dygraphs-binding/dygraphs.js"></script>
 <script src="/rmarkdown-libs/Dygraph.Plugins.Crosshair/crosshair.js"></script>
 
-# Bienvenido a [Bernal Mauricio](https://bernalmauricio.com/)
+# Bienvenido!
 
 Este es un espacio dedicado a explorar la economía, donde la información y el análisis detallados, gráficos esclarecedores y una biblioteca llena de conocimientos lograrán su cometido.
 
@@ -78,11 +78,11 @@ Este es un espacio dedicado a explorar la economía, donde la información y el 
 
 Sumérgete en artículos informativos y análisis profundos sobre los últimos acontecimientos económicos. Exploraremos juntos los entresijos del panorama financiero y sus impactos en nuestro día a día.
 
-## [Los Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
+## [Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
 
 Las cifras hablan por sí solas. Descubre visualmente las tendencias económicas a través de gráficos y tablas que desglosan datos complejos de manera comprensible.
 
-## [La Biblioteca](https://bernalmauricio.com/biblioteca/)
+## [Biblioteca](https://bernalmauricio.com/biblioteca/)
 
 Explora nuestra colección de libros cuidadosamente seleccionados sobre Economía y Filosofía Política. Desde clásicos atemporales hasta las últimas publicaciones, aquí encontrarás material para nutrir tu mente.
 
