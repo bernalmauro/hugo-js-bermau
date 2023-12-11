@@ -214,7 +214,7 @@ knitr::include_graphics("/images/asfi2/spread-efectivo/UTILIDAD NETA.png", error
 {{< /tabs >}}
 
 
-```{r knitr-balance_bmu, out.width = '50%', echo = FALSE, classs = "center-image"}
+```{r knitr-balance_bmu, out.width = '100%', echo = FALSE, classs = "center-image"}
 knitr::include_graphics("/images/asfi/balance_bmu.png", error = FALSE)
 ```
 
@@ -231,12 +231,12 @@ Cartera: es el principal activo que tienen los BMU representando el 68% de sus a
 
 Inversiones permanentes: se destacan las cuotas de participación del Fondo Destinado al Sector Productivo y a Vivienda de Interés Social (CPVIS) constituidos con fondos liberados por las modificaciones del Encaje Legal y que al mismo tiempo se utilizan como garantía de los préstamos de liquidez en moneda nacional que soliciten al BCB, con una tasa de interés del 0%
 
-```{r knitr-activos_bmu, out.width='50%', echo=FALSE}
+```{r knitr-activos_bmu, out.width='100%', echo=FALSE}
 knitr::include_graphics("/images/asfi/activos_bmu.png", error = FALSE)
 ```
 
 
-```{r knitr-seprec, out.width='50%', echo=FALSE}
+```{r knitr-seprec, out.width='100%', echo=FALSE}
 knitr::include_graphics("/images/asfi/seprec.png", error = FALSE)
 ```
 
@@ -261,7 +261,7 @@ Obligaciones con bancos y entidades de financiamiento (14%): a diferencia de los
 
 
 
-```{r knitr-pasivos, out.width='50%', echo=FALSE}
+```{r knitr-pasivos, out.width='100%', echo=FALSE}
 knitr::include_graphics("/images/asfi/pasivos.png", error = FALSE)
 ```
 

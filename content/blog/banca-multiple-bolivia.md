@@ -75,7 +75,7 @@ Y por último, la caída sostenida de la utilidad neta por debajo del promedio d
 {{< /tabs >}}
 
 
-<img src="../../../../../../../images/asfi/balance_bmu.png" width="50%" />
+<img src="../../../../../../../images/asfi/balance_bmu.png" width="100%" />
 
 
 **Activos de la Banca Múltiple**
@@ -90,10 +90,10 @@ Cartera: es el principal activo que tienen los BMU representando el 68% de sus a
 
 Inversiones permanentes: se destacan las cuotas de participación del Fondo Destinado al Sector Productivo y a Vivienda de Interés Social (CPVIS) constituidos con fondos liberados por las modificaciones del Encaje Legal y que al mismo tiempo se utilizan como garantía de los préstamos de liquidez en moneda nacional que soliciten al BCB, con una tasa de interés del 0%
 
-<img src="../../../../../../../images/asfi/activos_bmu.png" width="50%" />
+<img src="../../../../../../../images/asfi/activos_bmu.png" width="100%" />
 
 
-<img src="../../../../../../../images/asfi/seprec.png" width="50%" />
+<img src="../../../../../../../images/asfi/seprec.png" width="100%" />
 
 
 
@@ -116,7 +116,7 @@ Obligaciones con bancos y entidades de financiamiento (14%): a diferencia de los
 
 
 
-<img src="../../../../../../../images/asfi/pasivos.png" width="50%" />
+<img src="../../../../../../../images/asfi/pasivos.png" width="100%" />
 
 
 **Patrimonio de la Banca Múltiple**

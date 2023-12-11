@@ -87,7 +87,9 @@ Por tanto, el problema de la deuda pública requiere de una solución por parte 
 
 Al márgen de estas variables y estadísticas presentadas, hace falta un análisis mas completo sobre la composición de la deuda pública, sus plazos de vencimiento, el destino que tuvieron, etc. que analizaremos en un artículo siguiente.
 
-<table class=" lightable-paper table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; border-bottom: 0;">
+
+<table class=" lightable-paper table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="18">
@@ -1813,6 +1815,7 @@ Total
 </td>
 </tr>
 </tbody>
+</table>
 <tfoot>
 <tr>
 <td style="padding: 0; " colspan="100%">
@@ -1825,8 +1828,12 @@ Total
 </td>
 </tr>
 </tfoot>
-</table>
-<table class=" lightable-paper table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;border-bottom: 0;">
+
+</div>
+
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; border-bottom: 0;">
+
+<table class=" lightable-paper table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="10">
@@ -2885,6 +2892,7 @@ Total
 </td>
 </tr>
 </tbody>
+</table>
 <tfoot>
 <tr>
 <td style="padding: 0; " colspan="100%">
@@ -2897,8 +2905,12 @@ Total
 </td>
 </tr>
 </tfoot>
-</table>
-<table class=" lightable-paper table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;border-bottom: 0;">
+
+</div>
+
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; border-bottom: 0;">
+
+<table class=" lightable-paper table" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="11">
@@ -3404,6 +3416,7 @@ Deuda Total al BCB
 </td>
 </tr>
 </tbody>
+</table>
 <tfoot>
 <tr>
 <td style="padding: 0; " colspan="100%">
@@ -3416,7 +3429,9 @@ Deuda Total al BCB
 </td>
 </tr>
 </tfoot>
-</table>
+
+</div>
+
 <div class="dygraphs html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1" style="width:1056px;height:480px;"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawAxis":true,"drawGrid":false},"y":{"drawAxis":true,"axisLabelFormatter":"function(v){return (v*100).toFixed(0) + '%'}","valueFormatter":"function(v){return (v*100).toFixed(1) + '%'}","gridLineColor":"#4a4a4a"}},"series":{"Deuda Externa":{"axis":"y","fillGraph":true},"Deuda Interna":{"axis":"y","fillGraph":true},"Deuda Empresas Públicas":{"axis":"y","fillGraph":true},"Deuda FINPRO, FNDR, EBIH":{"axis":"y","fillGraph":true}},"title":"Deuda Pública de Bolivia (en % del PIB)","labels":["year","Deuda Externa","Deuda Interna","Deuda Empresas Públicas","Deuda FINPRO, FNDR, EBIH"],"retainDateWindow":false,"colors":["green","red","yellow","orange"],"legend":"onmouseover","labelsDivWidth":500,"labelsShowZeroValues":true,"labelsSeparateLines":true,"stackedGraph":true,"fillGraph":false,"fillAlpha":0.15,"stepPlot":false,"drawPoints":false,"pointSize":1,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"#98918B","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false,"showRangeSelector":true,"rangeSelectorHeight":30,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel","highlightCircleSize":4,"highlightSeriesBackgroundAlpha":1,"highlightSeriesOpts":[],"hideOverlayOnMouseOut":true},"scale":"yearly","annotations":[],"shadings":[],"events":[],"format":"date","data":[["1995-01-01T00:00:00.000Z","1996-01-01T00:00:00.000Z","1997-01-01T00:00:00.000Z","1998-01-01T00:00:00.000Z","1999-01-01T00:00:00.000Z","2000-01-01T00:00:00.000Z","2001-01-01T00:00:00.000Z","2002-01-01T00:00:00.000Z","2003-01-01T00:00:00.000Z","2004-01-01T00:00:00.000Z","2005-01-01T00:00:00.000Z","2006-01-01T00:00:00.000Z","2007-01-01T00:00:00.000Z","2008-01-01T00:00:00.000Z","2009-01-01T00:00:00.000Z","2010-01-01T00:00:00.000Z","2011-01-01T00:00:00.000Z","2012-01-01T00:00:00.000Z","2013-01-01T00:00:00.000Z","2014-01-01T00:00:00.000Z","2015-01-01T00:00:00.000Z","2016-01-01T00:00:00.000Z","2017-01-01T00:00:00.000Z","2018-01-01T00:00:00.000Z","2019-01-01T00:00:00.000Z","2020-01-01T00:00:00.000Z","2021-01-01T00:00:00.000Z","2022-01-01T00:00:00.000Z"],[0.731435612347137,0.640754777127728,0.583256456156626,0.561239771128887,0.567921252370331,0.546301119056018,0.569329523170142,0.580612254190003,0.649584263638188,0.582682993230493,0.513265427649677,0.280756306318946,0.162298391155035,0.141067745226213,0.148911319763606,0.145504148838206,0.144101670494073,0.153793222415111,0.170379072565134,0.172587259436063,0.190464056818937,0.204793742027142,0.242097829037789,0.244243550979046,0.267213632159678,0.322548539289026,0.311961367516012,0.300131781191726],[0.142982727981013,0.141012293215982,0.135874236661912,0.137572382485099,0.166809066692475,0.194458141549317,0.25976870256722,0.286211344181196,0.30680009597976,0.315269642440196,0.308306880833337,0.263001216840153,0.238061528843855,0.226779089855758,0.243585696434794,0.231223536811653,0.18995409235554,0.176409473275572,0.15451515370748,0.157564765459939,0.123707235132798,0.126401312481469,0.120156675655865,0.13442501639034,0.156686252214937,0.28066165268555,0.341139489451958,0.353490813513318],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.00188516938637146,0.0194640832777081,0.0426676440643082,0.0588066709036519,0.0716034422020277,0.09158052919936,0.116743025999826,0.126222041457204,0.125575218762981,0.130497129217148,0.142821050149487,0.129977198823838,0.118983516552452],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.0194282880108602,0.0180555009952211,0.0187543695149365,0.0212669789688773,0.0225445583924153,0.0227782658777733,0.0240772215573678,0.0259356256724168,0.0226971739665346,0.0199522313658973]],"fixedtz":false,"tzone":"UTC","plugins":{"Crosshair":{"direction":"vertical"}}},"evals":["attrs.axes.y.axisLabelFormatter","attrs.axes.y.valueFormatter","attrs.interactionModel"],"jsHooks":[]}</script>
 <div class="dygraphs html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2" style="width:1056px;height:480px;"></div>

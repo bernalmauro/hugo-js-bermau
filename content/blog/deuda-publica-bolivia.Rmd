@@ -565,7 +565,7 @@ Al márgen de estas variables y estadísticas presentadas, hace falta un anális
 
 
 
-```{r deuda_externa, warning = FALSE, echo=FALSE}
+```{r deuda_externa, out.width='100%', echo=FALSE,  warning=FALSE,  message=FALSE}
 
 externo%>%
   knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
@@ -574,7 +574,7 @@ externo%>%
   row_spec(1:29, color = "#eee", background = "#212529") %!>% 
   add_header_above(c(" ", "MULTILATERAL" = 5, "BILATERAL" = 8, "", "", "", "")) %>%
   add_header_above(c("DEUDA EXTERNA PÚBLICA \n(millones USD) a Jul-2023" = 18)) %!>% 
-
+  scroll_box(width = "100%") %!>%
   footnote(general = "Banco Central de Bolivia (BCB)",
            general_title = "Fuente: ")
 
@@ -590,7 +590,7 @@ interna%>%
   row_spec(1:31, color = "#eee", background = "#212529") %!>% 
   add_header_above(c("", "BANCO CENTRAL DE BOLIVIA" = 6, "","", "")) %>%
   add_header_above(c("DEUDA INTERNA PÚBLICA \n(millones USD) a Jul-2023" = 10)) %!>% 
-  
+  scroll_box(width = "100%") %!>%
   footnote(general = "UDAPE",
            general_title = "Fuente: ")
 
@@ -605,7 +605,7 @@ deuda_empresas%>%
   kable_styling(fixed_thead = T)%>%
   row_spec(1:13, color = "#eee", background = "#212529") %!>% 
   add_header_above(c("DEUDA EMPRESAS PÚBLICAS + FINPRO, FNDR Y EBIH (millones USD)" = 11)) %!>% 
-  
+  scroll_box(width = "100%") %!>%
   footnote(general = "Banco Central de Bolivia (BCB)",
            general_title = "Fuente: ")
 
