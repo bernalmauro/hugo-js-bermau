@@ -32,7 +32,14 @@
     background-color: #212529 !important; /* Cambia el color de fondo al hacer clic */
 }
 
-/* Estilos generales */
+/* Estilos H */
+
+h1 {
+	text-align: center !important;
+	margin-top: 20px !important;
+	margin-bottom: 20px !important;	
+}
+
 h3 {
 	text-align: center !important;
 	margin-top: 40px !important;
@@ -610,19 +617,6 @@ ul.share-icons li>* .label {
 	padding: 0px 4px 0px 4px !important;
 }
 
-
-
-/* Estilos para dispositivos móviles */
-@media (max-width: 768px) {
-    .custom-flex {
-        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
-    }
-
-    .container-fluid-list {
-        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
-    }
-}
-
 /* Estilo predeterminado para el enlace en modo claro */
 .text-decoration-none.link-secondary.nav-link {
     color: #343541 !important; /* Color del texto en modo claro */
@@ -714,3 +708,37 @@ a:hover {
 .modo-oscuro .blockquote-biblioteca{
 	background-color: #abb2bf;
 }
+
+
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* RESPONSIVES */
+
+/* Responsive para nav.html SELECCIONAR PAISES */
+@media (max-width: 768px) {
+    .custom-flex {
+        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
+    }
+
+    .container-fluid-list {
+        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
+    }
+}
+
+/* Responsive para blog-single.html ARTICULOS  */
+@media (max-width: 768px) {
+    #content {
+        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
+		margin-left: 0; /* Elimina el margen derecho en dispositivos móviles */
+
+    }
+}
+
+
+
+
+

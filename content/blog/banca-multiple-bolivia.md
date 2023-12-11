@@ -44,9 +44,9 @@ Y por último, la caída sostenida de la utilidad neta por debajo del promedio d
 
 
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
-{{< tabs tabTotal="14">}}
+{{< tabs tabTotal="9">}}
 {{< tab tabName="Estructura de Activos" >}}
-<img src="../../../../../../../images/asf2i/activos/Disponibilidades_Activos.png" width="50%" />
+<img src="../../../../../../../images/asfi2/activos/Disponibilidades_Activos.png" width="50%" />
 {{< /tab >}}
 {{< tab tabName="Calidad de Cartera" >}}
 <img src="../../../../../../../images/asfi2/calidad/Cartera reprogramada o reestructurada vigente_Cartera vigente total.png" width="50%" />
