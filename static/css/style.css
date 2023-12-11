@@ -18,6 +18,24 @@
     color: #e3e3e3 !important;
 }
 
+
+/* Agrega el ID article aqui */
+#article {
+	margin-top: 20px !important;
+	margin-bottom: 0px !important;
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+
+/* Agrega el ID content aqui */
+#content {
+	margin-top: 20px !important;
+	margin-bottom: 0px !important;
+	margin-left: 20px !important;
+	margin-right: 20px !important;
+}
+
+
 /* Agrega el botón modo-oscuro aquí */
 #modo-oscuro {
 	top: 10px; /* Ajusta según sea necesario */
@@ -36,8 +54,8 @@
 
 h1 {
 	text-align: center !important;
-	margin-top: 20px !important;
-	margin-bottom: 20px !important;	
+	margin-top: 15px !important;
+	margin-bottom: 15px !important;	
 }
 
 h3 {
@@ -709,12 +727,12 @@ a:hover {
 	background-color: #abb2bf;
 }
 
-
 .center-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 /* RESPONSIVES */
 
@@ -732,12 +750,33 @@ a:hover {
 /* Responsive para blog-single.html ARTICULOS  */
 @media (max-width: 768px) {
     #content {
-        margin-right: 0; /* Elimina el margen derecho en dispositivos móviles */
-		margin-left: 0; /* Elimina el margen derecho en dispositivos móviles */
-
+		margin-top: 20px !important;
+		margin-bottom: 0px !important;
+		margin-left: 20px !important;
+		margin-right: 20px !important;
     }
 }
 
+@media (max-width: 768px) {
+    .breadcrumb-container {
+        margin-top: 20px !important;
+		margin-bottom: 0px;
+		margin-left: 20px !important;
+		margin-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #article {
+		margin-top: 20px !important;
+		margin-bottom: 0px !important;
+		margin-left: 20px !important;
+		margin-right: 20px !important;
+    }
+}
+
+
+  
 
 
 
