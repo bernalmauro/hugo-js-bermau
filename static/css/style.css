@@ -1,5 +1,39 @@
 /* Tema Predeterminado */
 
+.dygraphs {
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.dygraph-legend {
+	position: left !important;
+	font-size: 14px;
+	z-index: 10;
+	width: 250px;
+	/* labelsDivWidth */
+	background-color: transparent !important;
+	color: #e3e3e3 !important;
+	line-height: normal;
+	text-align: left !important;
+	overflow: hidden;
+}
+
+.dygraph-legend[dir="rtl"] {
+	text-align: left !important;
+	background-color: none !important;
+}
+
+
+/* Estilos adicionales para dygraph.css en modo oscuro */
+.modo-oscuro .dygraph-legend,
+.modo-oscuro .dygraph-axis-label,
+.modo-oscuro .dygraph-title {
+    color: #D1D5DB !important;
+}
+
 /* Estilos para el modo oscuro */
 .modo-oscuro {
     background-color: #343541  !important;
@@ -10,14 +44,6 @@
 .modo-oscuro h3 {
     color: #e3e3e3; /* Cambia el color del título en modo oscuro */
 }
-
-/* Estilos adicionales para dygraph.css en modo oscuro */
-.modo-oscuro .dygraph-legend,
-.modo-oscuro .dygraph-axis-label,
-.modo-oscuro .dygraph-title {
-    color: #e3e3e3 !important;
-}
-
 
 /* Agrega el ID article aqui */
 #article {
@@ -458,31 +484,6 @@ ul.share-icons li>* .label {
 	max-width: 100% !important;
 }
 
-.dygraphs {
-	margin-right: 0px !important;
-	margin-left: 0px !important;
-	padding-left: 0px !important;
-	padding-right: 0px !important;
-	margin-bottom: 0px !important;
-}
-
-.dygraph-legend {
-	position: left !important;
-	font-size: 14px;
-	z-index: 10;
-	width: 250px;
-	/* labelsDivWidth */
-	background-color: transparent !important;
-	color: #e3e3e3 !important;
-	line-height: normal;
-	text-align: left !important;
-	overflow: hidden;
-}
-
-.dygraph-legend[dir="rtl"] {
-	text-align: left !important;
-	background-color: none !important;
-}
 
 .sticky-top {
 	bottom: 30px !important;

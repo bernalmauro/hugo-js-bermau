@@ -62,7 +62,7 @@
   z-index: 10;
   line-height: normal;
   overflow: hidden;
-  color: #e3e3e3;
+  color: red;
 }
 .dygraph-axis-label-x {
   color: #343541;
@@ -70,6 +70,7 @@
 .dygraph-axis-label-y {
   color: #343541;
 }
+
 .dygraph-title {
   font-weight: bold;
   z-index: 10;
