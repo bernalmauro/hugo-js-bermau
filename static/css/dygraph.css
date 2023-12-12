@@ -1,18 +1,28 @@
 /**
  * Default styles for the dygraphs charting library.
  */
-
- .dygraph-legend {
-  position: left !important;
-  font-size: 14px;
+.dygraph-legend {
+  position: right !important;
+  font-size: 12px !important;
   z-index: 10;
-  width: 250px;  /* labelsDivWidth */
-  background-color: transparent !important;
-  color: #e3e3e3 !important;
+  background: transparent !important;
+  color: #343541 !important;
   line-height: normal;
   text-align: right !important;
   overflow: hidden;
 }
+.modo-oscuro .dygraph-legend {
+	position: left !important;
+	font-size: 12px !important;
+	z-index: 10;
+	/* labelsDivWidth */
+	background-color: transparent !important;
+	color: #D1D5DB !important;
+	line-height: normal;
+	text-align: right !important;
+	overflow: hidden;
+}
+
 .dygraph-legend[dir="rtl"] {
   text-align: center !important;
 }
@@ -62,20 +72,21 @@
   z-index: 10;
   line-height: normal;
   overflow: hidden;
-  color: red;
 }
 .dygraph-axis-label-x {
   color: #343541;
+  font-size: 12px !important; 
 }
 .dygraph-axis-label-y {
   color: #343541;
+  font-size: 12px !important; 
 }
 
 .dygraph-title {
   font-weight: bold;
   z-index: 10;
   text-align: center;
-  /* font-size: based on titleHeight option */
+  font-size: 14px;
   color: #343541;
 }
 .dygraph-xlabel {

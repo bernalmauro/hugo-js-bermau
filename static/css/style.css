@@ -8,31 +8,14 @@
 	margin-bottom: 0px !important;
 }
 
-.dygraph-legend {
-	position: left !important;
-	font-size: 14px;
-	z-index: 10;
-	width: 250px;
-	/* labelsDivWidth */
-	background-color: transparent !important;
-	color: #e3e3e3 !important;
-	line-height: normal;
-	text-align: left !important;
-	overflow: hidden;
-}
-
-.dygraph-legend[dir="rtl"] {
-	text-align: left !important;
-	background-color: none !important;
-}
-
 
 /* Estilos adicionales para dygraph.css en modo oscuro */
-.modo-oscuro .dygraph-legend,
 .modo-oscuro .dygraph-axis-label,
 .modo-oscuro .dygraph-title {
-    color: #D1D5DB !important;
+    color: #D1D5DB;
 }
+
+
 
 /* Estilos para el modo oscuro */
 .modo-oscuro {
