@@ -2,7 +2,7 @@
 title: "La Deuda Pública de Bolivia"
 date: 2023-11-15
 draft: false
-featuredImage: /images/deudapublica.jpg
+featuredImage: /images/deuda-publica-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
 tags: ["Deuda Pública Bolivia", "Países más y menos endeudados de Latinoamérica" ]
 keywords: ["", "", "", ""]

@@ -2,9 +2,9 @@
 title: "El Informe de Standard & Poor's para Bolivia"
 date: 2023-11-24
 draft: false
-featuredImage: /images/standard_poors.jpg
+featuredImage: /images/informe-standard-poors-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
-tags: ["Bolivia", "Calificación Riesgo Bolivia"]
+tags: ["Bolivia", "Calificación Riesgo Bolivia", "Informe Standard & Poors Bolivia"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"
 menu:

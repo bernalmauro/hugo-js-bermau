@@ -2,9 +2,9 @@
 title: "Breve Analisis de la Economia Boliviana"
 date: 2023-11-06
 draft: false
-featuredImage: /images/breve-analisis-economia-boliviana.jpg
+featuredImage: /images/breve-analisis-economia-boliviana-bernalmauricio.jpg
 categories: ["Análisis Económico"]
-tags: ["Bolivia", "Modelo Económico" ]
+tags: ["Bolivia", "Modelo Económico", "Análisis Economía Boliviana"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"
 menu:

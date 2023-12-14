@@ -2,9 +2,9 @@
 title: "Banca Múltiple en Bolivia"
 date: 2023-11-20
 draft: false
-featuredImage: /images/banca-multiple.jpg
+featuredImage: /images/banca-multiple-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
-tags: ["Bolivia", "Sistema Bancario Bolivia"]
+tags: ["Bolivia", "Sistema Bancario Bolivia", "Banca Múltiple en Bolivia"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"
 menu:

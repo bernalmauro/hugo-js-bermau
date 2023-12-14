@@ -2,9 +2,9 @@
 title: "El PGE del MAS vs la Realidad"
 date: 2023-11-10
 draft: false
-featuredImage: /images/pge.jpg
+featuredImage: /images/presupuesto-general-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
-tags: ["PGE Bolivia" ]
+tags: ["PGE Bolivia", "Estatismo en Bolivia"]
 keywords: ["", "", "", ""]
 author: "Mauricio Bernal"
 menu:
@@ -134,8 +134,8 @@ html_table_width <- function(kable_output, width){
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "A96:W97"
-sheet <- "Hoja4"
+range <- "A42:W49"
+sheet <- "Hoja2"
 col_names <- FALSE
 #FORMATO FECHA
 from <- "01Jan2001"
@@ -144,6 +144,8 @@ by <- "year"
 each <- 1
 corriente <- fun_excel(file, range, sheet, col_names, from, to, by, each)
 
+corriente <- select(corriente, `Año`, `SUPERÁVIT O DÉFICIT CORRIENTE (REALIDAD)`, `SUPERÁVIT O DÉFICIT CORRIENTE (PRESUPUESTO)`)
+
 corriente_dy <- 
   dygraph(corriente, main = "Superávit/Déficit Corriente (millones BOB)")%!>%  
   dySeries(fillGraph = FALSE, "SUPERÁVIT O DÉFICIT CORRIENTE (REALIDAD)", 
@@ -151,10 +153,10 @@ corriente_dy <-
   dySeries(fillGraph = FALSE, "SUPERÁVIT O DÉFICIT CORRIENTE (PRESUPUESTO)", 
            label = "Presupuesto", color="green") %!>% 
   dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
-  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#6b7785") %!>% 
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-         gridLineColor = "#4a4a4a",
+         drawGrid = FALSE,
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
   ) %!>% 
@@ -167,8 +169,8 @@ corriente_dy <-
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "A98:W99"
-sheet <- "Hoja4"
+range <- "A42:W49"
+sheet <- "Hoja2"
 col_names <- FALSE
 #FORMATO FECHA
 from <- "01Jan2001"
@@ -177,6 +179,7 @@ by <- "year"
 each <- 1
 global <- fun_excel(file, range, sheet, col_names, from, to, by, each)
 
+global <- select(global, `Año`, `SUPERÁVIT O DÉFICIT GLOBAL (REALIDAD)`, `SUPERÁVIT O DÉFICIT GLOBAL (PRESUPUESTO)`)
 
 global_dy <- 
   dygraph(global, main = "Superávit/Déficit Global (millones BOB)")%!>%  
@@ -185,10 +188,10 @@ global_dy <-
   dySeries(fillGraph = FALSE, "SUPERÁVIT O DÉFICIT GLOBAL (PRESUPUESTO)", 
            label = "Presupuesto", color="green") %!>% 
   dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
-  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#6b7785") %!>% 
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-         gridLineColor = "#4a4a4a",
+         drawGrid = FALSE,
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
   ) %!>% 
@@ -201,8 +204,8 @@ global_dy <-
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "A100:W101"
-sheet <- "Hoja4"
+range <- "A81:W82"
+sheet <- "Hoja2"
 col_names <- FALSE
 #FORMATO FECHA
 from <- "01Jan2001"
@@ -211,18 +214,19 @@ by <- "year"
 each <- 1
 capital_corriente <- fun_excel(file, range, sheet, col_names, from, to, by, each)
 
+capital_corriente <- select(capital_corriente, `Año`, `EGRESOS CORRIENTES`, `EGRESOS DE CAPITAL`)
 
 capital_corriente_dy <- 
   dygraph(capital_corriente, main = "Gasto Corriente y Gasto de Capital (millones BOB)")%!>%  
-  dySeries(fillGraph = FALSE, "GASTOS CORRIENTES (REALIDAD)", 
+  dySeries(fillGraph = FALSE, "EGRESOS CORRIENTES", 
            label = "Gasto Corriente (Realidad)", color="red") %!>% 
-  dySeries(fillGraph = FALSE, "GASTOS DE CAPITAL (REALIDAD)", 
+  dySeries(fillGraph = FALSE, "EGRESOS DE CAPITAL", 
            label = "Gasto de Capital (Realidad)", color="green") %!>% 
   dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
-  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#6b7785") %!>% 
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-         gridLineColor = "#4a4a4a",
+         drawGrid = FALSE,
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
   ) %!>% 
@@ -236,8 +240,8 @@ capital_corriente_dy <-
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "A101:W102"
-sheet <- "Hoja4"
+range <- "A73:W74"
+sheet <- "Hoja2"
 col_names <- FALSE
 #FORMATO FECHA
 from <- "01Jan2001"
@@ -246,18 +250,19 @@ by <- "year"
 each <- 1
 capital <- fun_excel(file, range, sheet, col_names, from, to, by, each)
 
+capital <- select(capital, `Año`, `Egresos de Capital (REALIDAD)`, `Egresos de Capital (PRESUPUESTO)`)
 
 capital_dy <- 
   dygraph(capital, main = "Gastos de Capital (millones BOB)")%!>%  
-  dySeries(fillGraph = FALSE, "GASTOS DE CAPITAL (REALIDAD)", 
+  dySeries(fillGraph = FALSE, "Egresos de Capital (REALIDAD)", 
            label = "Realidad", color="red") %!>% 
-  dySeries(fillGraph = FALSE, "GASTOS DE CAPITAL (PRESUPUESTO)", 
+  dySeries(fillGraph = FALSE, "Egresos de Capital (PRESUPUESTO)", 
            label = "Presupuesto", color="green") %!>% 
   dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
-  dyOptions(stackedGraph = FALSE, axisLineColor = "#98918B") %!>% 
+  dyOptions(stackedGraph = FALSE, axisLineColor = "#6b7785") %!>% 
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
-         gridLineColor = "#4a4a4a",
+         drawGrid = FALSE,
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
   ) %!>% 
@@ -267,9 +272,11 @@ capital_dy <-
               highlightSeriesBackgroundAlpha = 1) 
 ```
 
-"El gobierno es incapaz de darnos algo sin despojarnos de algo más."
+*"El gobierno es incapaz de darnos algo sin despojarnos de algo más."*
 
---- Henry Hazlitt, La economía en una Lección (1946).
+- Henry Hazlitt, *La economía en una Lección*
+
+--- 
 
 Todos los Estados calculan su presupuesto por lo general un año antes, lo que tiene sus complicaciones por un lado, y al mismo tiempo resulta ser muy discrecional para aquellos gobiernos que adoran gastar. 
 
@@ -307,6 +314,6 @@ La responsabilidad del gobierno boliviano es mantener las cuentas fiscales en eq
 
 Pero no contentos con que se tuvo un superávit global hasta el año 2014 y un superávit corriente hasta el año 2019, el gobierno del MAS comenzó a endeudarse desde el año 2008.
 
-Entramos en una situación donde ya no existe ahorro público y además el endeudamiento público es elevado (80% del PIB), y el único "ajuste" que hubo fue el de la inversión pública; el ajuste del gasto corriente parece que no le importa al oficialismom, porque su visión equivocada de crecimiento lo lleva a pensar que es el gasto "demanda interna" el generador de crecimiento. Sobre cómo hacer el ajuste de las cuentas públicas, vamos a tratarlo en un siguiente artículo.  
+Entramos en una situación donde ya no existe ahorro público y además el endeudamiento público es elevado (80% del PIB), y el único "ajuste" que hubo fue el de la inversión pública; el ajuste del gasto corriente parece que no le importa al oficialismo, porque su visión equivocada de crecimiento lo lleva a pensar que es el gasto "demanda interna" el generador de crecimiento. Sobre cómo hacer el ajuste de las cuentas públicas, vamos a tratarlo en un siguiente artículo.  
 
-[^1]: Es conveniente aclarar que los ingresos de hidrocarburos del PGE se calula según el precio del barril de petróleo, no así del gas, que fue usado para fines más didácticos.
+[^1]: Es conveniente aclarar que los ingresos de hidrocarburos del PGE se calula según el precio del barril de petróleo, no así del gas, que fue usado para fines más didácticos.                    
