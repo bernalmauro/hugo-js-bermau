@@ -31,7 +31,7 @@
                     <h2 class="h4 ">{{ .Title }}</h2>
                 </a>
 
-                <time datetime="{{ .Lastmod.Format `006-01-02T15:04:05Z07:00` | safeHTML }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
+                <time datetime="{{ .PublishDate.Format `006-01-02T15:04:05Z07:00` | safeHTML }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
                  <br />
                  Categorías: {{ range .Params.categories }}
                  <a class="text-decoration-none nav-item px-1" href="/categories/{{ . | urlize}}">{{ . }}</a>

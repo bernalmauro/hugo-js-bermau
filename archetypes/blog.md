@@ -1,6 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
+datePublished: {{ .Date }}
 draft: false
 featuredImage:
 categories: ["Teoría Económica", "Análisis Económico", "Filosofía Política", "Programación con R" ]
