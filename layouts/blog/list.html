@@ -1,56 +1,60 @@
-{{ define "main" }}
-    
-
-   <div class="row">
-       <div class="col-auto">
-            Categorías: {{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
-            <a class="badge rounded-pill bg-primary nav-link" href="{{.Permalink}}">{{.Title}}</a>&nbsp;
-            {{end}}
-        
-       </div>
-      <div class="col-auto">
-            Tags: {{range ($.Site.GetPage "taxonomyTerm" "tags").Pages }}
-            <a class="badge rounded-pill bg-success nav-link" href="{{.Permalink}}">{{.Title}}</a>&nbsp;
-            {{end}}
-      </div>
-   </div>
-
-    {{ if ne .Kind "taxonomy" }}
-
-        {{ range .Pages }}
-
-        <div class="row g-4 mt-2 ">
-
-            <div class="col-lg-3 col-sm-12">
-                <img class="img-fluid rounded" src="{{ .Params.featuredImage }}" alt="featured image {{ .Title }}">
-
-            </div>
-            <div class="col-lg-9 col-sm-12 p-3">
-
-                <a class="text-decoration-none" href="{{ .RelPermalink }}">
-                    <h2 class="h4 ">{{ .Title }}</h2>
-                </a>
-
-                <time datetime="{{ .PublishDate.Format `006-01-02T15:04:05Z07:00` | safeHTML }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
-                 <br />
-                 Categorías: {{ range .Params.categories }}
-                 <a class="text-decoration-none nav-item px-1" href="/categories/{{ . | urlize}}">{{ . }}</a>
-
-                {{end}}
-                Tags:{{ range .Params.tags }}
-                 <a class="text-decoration-none nav-item px-1" href="/tags/{{ . | urlize}}">{{ . }}</a>
-
-                {{end}}
-
-                {{ .Content | truncate 400 }}
-                <a class="text-decoration-none link-secondary nav-link" href="{{.Permalink}}">...Leer Artículo</a>
-
-
-            </div>
-
+{{ define "navbar" }}
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {{ range sort ($.Site.GetPage "taxonomyTerm" "categories").Pages "Title" }}
+                <li class="nav-item">
+                    <a class="nav-link text-decoration-none" href="/blog/{{ .Title | urlize }}"
+                        onclick="showCategory('{{ .Title | urlize }}')">{{ .Title }}</a>
+                </li>
+                {{ end }}
+            </ul>
         </div>
+    </div>
+</nav>
+{{ end }}
+{{ define "main" }}
+{{ block "navbar" . }}
+{{ end }}
+{{ if ne .Kind "taxonomy" }}
+{{ range .Pages }}
+<div class="row g-4 mt-2">
+    <div class="col-lg-3 col-sm-12">
+        <img class="img-fluid rounded" src="{{ .Params.featuredImage }}" alt="featured image {{ .Title }}">
+    </div>
+    <div class="col-lg-9 col-sm-12 p-3">
+        <a class="text-decoration-none" href="{{.Permalink}}">
+            <h2 class="h4">{{ .Title }}</h2>
+        </a>
+        <time
+            datetime="{{ .PublishDate.Format `006-01-02T15:04:05Z07:00` | safeHTML }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+        <br /> Categorías: {{ with .Params.categories }}
+        {{ $category := index . 0 }}
+        <a class="text-decoration-none nav-item px-1" href="/blog/{{ $category | urlize }}">{{ $category }}</a>
+        {{ end }} Tags:{{ range .Params.tags }} <a class="text-decoration-none nav-item px-1"
+            href="/tags/{{ . | urlize}}">{{ . }}</a>
         {{ end }}
+        {{ .Content | truncate 400 }}
+        <a class="text-decoration-none link-secondary nav-link" href="{{.Permalink}}">...Leer Artículo</a>
+    </div>
+</div>
+{{ end }}
+{{ end }}
+<div id="content">
+    <!-- Aquí se mostrará dinádamicamente el contenido de la categoría -->
+</div>
+<script>
+    function showCategories(categories) {
+        // Aquí puedes cargar dinámicamente el contenido de la categoría seleccionada
+        // Puedes usar AJAX o simplemente mostrar/ocultar secciones según la categoría
 
-    {{ end }}
-    
+        // Ejemplo simple: Mostrar un mensaje
+        document.getElementById('content').innerHTML = 'Mostrando contenido de la categoría: ' + categories;
+    }
+</script>
 {{ end }}

@@ -26,6 +26,13 @@ footer = "&copy; 2017 -- {Year} | Misael Mauricio Bernal Ramos."
 [frontmatter]
   date = ["date", "publishDate", "lastmod"]
   lastmod = ["lastmod", ":fileModTime"]
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[permalinks]
+  blog = "/blog/:slug/"
+
 
 [menu]
 [[menu.main]]
@@ -33,11 +40,13 @@ identifier = "blog"
 name = "Blog"
 url = "/blog/"
 weight = 100
+
 [[menu.main]]
 identifier = "biblioteca"
 name = "Biblioteca"
 url = "/biblioteca/"
 weight = 200
+
 [[menu.main]]
 identifier = "graficos"
 name = "Gráficos"
@@ -52,7 +61,9 @@ codeFences = false
 [markup.goldmark.renderer]
 unsafe = true
 
+
 [markup.tableOfContents]
  endLevel = 3
  ordered = false
  startLevel = 3
+

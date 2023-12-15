@@ -515,6 +515,23 @@ ul.share-icons li>* .label {
 	font-size: 18px;
 	background-color: #212529;
 }
+/* Asegura que los elementos de la lista se muestren en línea */
+.navbar-nav-blog {
+	display: flex;
+	flex-direction: row;
+  }
+
+/* Estilo básico para los elementos de la lista */
+.navbar-nav-blog .nav-item-blog {
+	margin-right: 10px; /* Espacio entre elementos */
+  }
+  
+  /* Estilo para el enlace activo */
+  .navbar-nav-blog .nav-item-blog a.active {
+	font-weight: bold;
+	color: #007bff; /* Puedes ajustar el color según tu preferencia */
+  }
+
 
 .offcanvas {
 	margin-left: 10px;

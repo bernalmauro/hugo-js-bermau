@@ -1,0 +1,11 @@
+<nav>
+    <ul>
+      <li><a href="{{ .Site.BaseURL }}">Inicio</a></li>
+      <li><a href="{{ .Site.BaseURL }}/blog/">Blog</a></li>
+      {{ range .Site.Taxonomies.categories.Alphabetical }}
+        {{ $category := .Page }}
+        <li><a href="{{ $category.Permalink }}">{{ $category.Title }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+  

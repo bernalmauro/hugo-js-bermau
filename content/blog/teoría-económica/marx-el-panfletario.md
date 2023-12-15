@@ -1,6 +1,6 @@
 ---
 title: "Marx El Panfletario"
-datePublished: 2023-08-09
+date: 2023-08-09
 draft: false
 featuredImage: /images/Marx El Panfletario.jpg
 categories: ["Teoría Económica"]
