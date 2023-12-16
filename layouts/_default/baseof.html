@@ -5,15 +5,40 @@
 {{ partial "breadcrumb.html" . }}
 
 <body>
-    
     {{- block "main" . }}{{- end }}
-    
+  <!-- HTML para el botón con icono de flecha hacia arriba -->
+<button id="scrollTopBtn" onclick="scrollToTop()">
+  <i class="fas fa-arrow-up"></i>
+</button>
+ <!-- JavaScript para desplazarse hacia arriba -->
+ <script>
+  window.onscroll = function() { scrollFunction() };
+
+  function scrollFunction() {
+    var scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      scrollTopBtn.style.display = "block";
+      scrollTopBtn.style.opacity = "1";
+    } else {
+      scrollTopBtn.style.opacity = "0";
+      setTimeout(function() {
+        scrollTopBtn.style.display = "none";
+      }, 300); // Esperamos a que termine la transición antes de ocultar completamente el botón
+    }
+  }
+
+  function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
     <div class="row container-text-center">
         {{ partial "redes" . }}
         {{ partial "comment" . }}
       </div>
     {{- partial "footer.html" . -}}
-
+    
 </body>
 
 </html> 
