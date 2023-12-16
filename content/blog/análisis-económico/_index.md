@@ -13,4 +13,3 @@ menu:
     parent: ""
 socialshare: true
 ---
-

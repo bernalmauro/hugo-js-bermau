@@ -4,7 +4,6 @@ date: 2017-01-01
 draft: false
 featuredImage: /images/filosofia-politica-blog-bernalmauricio.jpg
 categories: ["Filosofía Política"]
-tags: ["", "", "" ]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"
 menu:
@@ -14,4 +13,3 @@ menu:
     parent: ""
 socialshare: true
 ---
-

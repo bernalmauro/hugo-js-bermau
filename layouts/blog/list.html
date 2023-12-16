@@ -1,23 +1,4 @@
-{{ define "navbar" }}
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                {{ range sort ($.Site.GetPage "taxonomyTerm" "categories").Pages "Title" }}
-                <li class="nav-item">
-                    <a class="nav-link text-decoration-none" href="/blog/{{ .Title | urlize }}"
-                        onclick="showCategory('{{ .Title | urlize }}')">{{ .Title }}</a>
-                </li>
-                {{ end }}
-            </ul>
-        </div>
-    </div>
-</nav>
-{{ end }}
+
 {{ define "main" }}
 {{ block "navbar" . }}
 {{ end }}
@@ -40,7 +21,7 @@
             href="/tags/{{ . | urlize}}">{{ . }}</a>
         {{ end }}
         {{ .Content | truncate 400 }}
-        <a class="text-decoration-none link-secondary nav-link" href="{{.Permalink}}">...Leer Artículo</a>
+        <a class="text-decoration-none link-secondary nav-link" href="{{.Permalink}}">...Explorar contenido</a>
     </div>
 </div>
 {{ end }}

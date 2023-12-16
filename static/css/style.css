@@ -519,18 +519,39 @@ ul.share-icons li>* .label {
 .navbar-nav-blog {
 	display: flex;
 	flex-direction: row;
-  }
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-evenly;
+	background-color: #343541;
+	transition: background-color 0.3s ease; /* Agregamos una transición suave al color de fondo */
+}
+.modo-oscuro .navbar-nav-blog {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-evenly;
+	background-color: #abb2bf;
+	transition: background-color 0.3s ease; /* Agregamos una transición suave al color de fondo */
+}
 
 /* Estilo básico para los elementos de la lista */
 .navbar-nav-blog .nav-item-blog {
 	margin-right: 10px; /* Espacio entre elementos */
-  }
-  
-  /* Estilo para el enlace activo */
-  .navbar-nav-blog .nav-item-blog a.active {
-	font-weight: bold;
-	color: #007bff; /* Puedes ajustar el color según tu preferencia */
-  }
+	transition: margin-right 0.3s ease; /* Agregamos una transición suave al margen derecho */
+}
+
+.modo-oscuro .navbar-nav-blog .nav-item-blog {
+	margin-right: 10px; /* Espacio entre elementos */
+	transition: margin-right 0.3s ease; /* Agregamos una transición suave al margen derecho */
+}
+
+.nav-link-blog {
+	color: #fff;
+}
+
+.modo-oscuro .nav-link-blog {
+	color: #000000 !important;
+}
 
 
 .offcanvas {
@@ -582,6 +603,34 @@ ul.share-icons li>* .label {
 }
 
 /* Estilo predeterminado del botón */
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.8); /* Cambiar el color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agregar sombra */
+    padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+    font-size: var(--bs-navbar-toggler-font-size);
+    line-height: 1;
+    border-radius: var(--bs-navbar-toggler-border-radius);
+    transition: var(--bs-navbar-toggler-transition);
+}
+
+.modo-oscuro .navbar-toggler {
+    background-color: transparent; /* Cambiar el color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agregar sombra */
+    padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+    font-size: var(--bs-navbar-toggler-font-size);
+    line-height: 1;
+    border-radius: var(--bs-navbar-toggler-border-radius);
+    transition: var(--bs-navbar-toggler-transition);
+}
+
+/* Estilo para el botón en estado activo o expandido */
+.navbar-toggler:active,
+.navbar-toggler[aria-expanded="true"] {
+    border-width: 1px; /* Puedes ajustar el ancho del borde en estado activo o expandido según tus preferencias */
+}
+
+
+
 .navbar-toggler-list {
     background-color: #343541 !important; /* Color de fondo predeterminado en modo claro */
     border: 2px groove #343541 !important; /* Borde del botón */

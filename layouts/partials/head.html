@@ -62,27 +62,28 @@
       {{ end }}
   
 
- <!-- El script de JavaScript -->
+<!-- El script de JavaScript -->
 <script>
+  function cambiarModo() {
+    const botonModo = document.getElementById('modo-oscuro');
+    document.body.classList.toggle('modo-oscuro');
+
+    // Cambiar el color de fondo del botón permanentemente al hacer clic
+    const modoOscuro = document.body.classList.contains('modo-oscuro');
+    if (modoOscuro) {
+      botonModo.style.backgroundColor = '#343541';
+    } else {
+      botonModo.style.backgroundColor = '#212529';
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     const botonModo = document.getElementById('modo-oscuro');
-    let modoOscuro = false;
-
-    function cambiarModo() {
-      modoOscuro = !modoOscuro;
-      document.body.classList.toggle('modo-oscuro', modoOscuro);
-
-      // Cambiar el color de fondo del botón permanentemente al hacer clic
-      if (modoOscuro) {
-        botonModo.style.backgroundColor = '#343541';
-      } else {
-        botonModo.style.backgroundColor = '#212529';
-      }
-    }
-
     botonModo.addEventListener('click', cambiarModo);
   });
 </script>
+
+
 
 </head>
 <link rel="icon" type="image/png" href="{{ "imgPath" | relURL }}"> 
