@@ -103,7 +103,34 @@ body a {
 	color: #eee !important;
 }
 
-
+/* Estilos para el botón de cerrar */
+.btn-close {
+	border-radius: 25% !important;
+	width: 30px !important;
+	height: 30px !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
+	opacity: 0.9 !important;
+  }
+  
+/* Estilos específicos para el botón de cerrar blanco */
+.btn-close-white {
+	color: white !important;
+	background-color: transparent !important;
+	border: none !important; /* Anula completamente el borde */
+	border-color: rgb(0, 0, 0) !important; /* Color del borde general */
+	border-top-color: white !important; /* Color del borde superior */
+	border-right-color: white !important; /* Color del borde derecho */
+	border-bottom-color: white !important; /* Color del borde inferior */
+	border-left-color: white !important; /* Color del borde izquierdo */
+	border-radius: 25% !important; /* Hace que el borde sea circular */
+	box-shadow: 0 0 5px rgba(15, 15, 15, 0.5) !important; /* Agrega una sombra */
+	outline: none !important;
+	opacity: 0.9 !important;
+}
+  
+  
 /* header and footer areas */
 .menu {
 	padding: 0px;
@@ -239,6 +266,7 @@ tr:nth-child(even) {
 .social-share .share-btn {
 	padding: 0em !important;
 	width: 2em !important;
+	height: 2em !important;
 }
 
 .social-share-nav .share-btn h3 {
@@ -283,7 +311,7 @@ ul.share-icons li>* .label {
 	display: inline-block;
 	color: #ffffff;
 	border: none;
-	border-radius: 10px !important;
+	border-radius: 7px !important;
 	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
 	outline: none;
 	text-align: center;
@@ -514,6 +542,7 @@ ul.share-icons li>* .label {
 .navbar-nav {
 	font-size: 18px;
 	background-color: #212529;
+	padding-left: 10px !important;
 }
 /* Asegura que los elementos de la lista se muestren en línea */
 .navbar-nav-blog {
@@ -561,6 +590,7 @@ ul.share-icons li>* .label {
   
 .offcanvas-header {
 	margin-right: 10px;
+	margin-left: 10px;
 }
   
 .custom-share{
