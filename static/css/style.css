@@ -539,11 +539,24 @@ ul.share-icons li>* .label {
 	background-color: #343541;
 }
 
+.navbar-nav-menu {
+	font-size: 18px;
+	background-color: #212529;
+	padding-left: 10px !important;
+}
+
 .navbar-nav {
 	font-size: 18px;
 	background-color: #212529;
 	padding-left: 10px !important;
 }
+
+.modo-oscuro .navbar-nav {
+	font-size: 18px;
+	background-color: #abb2bf;
+	padding-left: 10px !important;
+}
+
 /* Asegura que los elementos de la lista se muestren en línea */
 .navbar-nav-blog {
 	display: flex;
