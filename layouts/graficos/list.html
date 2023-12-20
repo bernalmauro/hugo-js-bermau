@@ -1,4 +1,6 @@
 {{ define "main" }}
+
+
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid-list custom-flex">
       <button class="navbar-toggler-list" type="button" data-bs-toggle="offcanvas"
@@ -28,10 +30,11 @@
       </div>
     </div>
   </nav>
-  <div class="row-list-graficos">
-    
-    {{ .Content }}
-    </div>
+<div>
+  <div class="row row-list-graficos">
   
+    {{ .Content }}
+  </div>
+</div>
 
 {{ end }}

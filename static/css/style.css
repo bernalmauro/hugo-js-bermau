@@ -492,11 +492,12 @@ ul.share-icons li>* .label {
 
 .row-list-graficos {
     justify-content: space-around !important;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
 }
+
 
 .fuente-bajo-grafico {
     text-align: center !important; /* Alinea el texto al centro */
@@ -848,6 +849,37 @@ a:hover {
   margin-right: auto;
 }
 
+/* CSS para el estilo del botón */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    background-color: #343541;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Configura el radio del borde para hacerlo circular */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.modo-oscuro #scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    color: #343541;
+    border: none;
+    border-radius: 50%; /* Configura el radio del borde para hacerlo circular */
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
 
 /* RESPONSIVES */
 
@@ -889,33 +921,11 @@ a:hover {
 		margin-right: 20px !important;
     }
 }
-/* CSS para el estilo del botón */
-#scrollTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 40px;
-    right: 20px;
-    width: 35px;
-    height: 35px;
-    background-color: #343541;
-    color: #fff;
-    border: none;
-    border-radius: 50%; /* Configura el radio del borde para hacerlo circular */
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
 
-.modo-oscuro #scrollTopBtn {
-    display: none;
-    position: fixed;
-    bottom: 40px;
-    right: 20px;
-    width: 35px;
-    height: 35px;
-    background-color: #fff;
-    color: #343541;
-    border: none;
-    border-radius: 50%; /* Configura el radio del borde para hacerlo circular */
-    cursor: pointer;
-    transition: opacity 0.3s ease;
+/* Para dispositivos móviles */
+@media (max-width: 767px) {
+    .row-list-graficos {
+        flex-direction: column;
+        text-align: center;
+    }
 }
