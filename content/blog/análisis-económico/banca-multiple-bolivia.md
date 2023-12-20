@@ -1,6 +1,6 @@
 ---
 title: "Banca Múltiple en Bolivia"
-date: 2023-11-20
+datePublished: 2023-11-20
 draft: false
 featuredImage: /images/banca-multiple-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/banca-multiple-en-bolivia/"
 ---
 
 
@@ -46,36 +47,36 @@ Y por último, la caída sostenida de la utilidad neta por debajo del promedio d
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
 {{< tabs tabTotal="9">}}
 {{< tab tabName="Estructura de Activos" >}}
-<img src="../../../../../../../images/asfi2/activos/Disponibilidades_Activos.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/activos/Disponibilidades_Activos.png" width="50%" />
 {{< /tab >}}
 {{< tab tabName="Calidad de Cartera" >}}
-<img src="../../../../../../../images/asfi2/calidad/Cartera reprogramada o reestructurada vigente_Cartera vigente total.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/calidad/Cartera reprogramada o reestructurada vigente_Cartera vigente total.png" width="50%" />
 {{< /tab >}}
 {{< tab tabName="Estructura Financiera" >}} 
-<img src="../../../../../../../images/asfi2/esfinanciera/Activo improductivo_Patrimonio.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/esfinanciera/Activo improductivo_Patrimonio.png" width="50%" />
 {{< /tab >}}
 {{< tab tabName="Estructura de Gastos de Administración">}}
-<img src="../../../../../../../images/asfi2/gastos/Otros Gastos Administración_Gastos de Administración.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/gastos/Otros Gastos Administración_Gastos de Administración.png" width="50%" />
 {{< /tab >}} 
 {{< tab tabName="Liquidez">}}
-<img src="../../../../../../../images/asfi2/liquidez/Disponib.+Inv.Temp._Oblig.a Corto Plazo.png" width="50%" /><img src="../../../../../../../images/asfi2/liquidez/Disponib.+Inv.Temp._Pasivo.png" width="50%" /><img src="../../../../../../../images/asfi2/liquidez/Disponibilidades_Oblig.a Corto Plazo.png" width="50%" /><img src="../../../../../../../images/asfi2/liquidez/Disponibilidades+Inv.Temporarias_Activo.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/liquidez/Disponib.+Inv.Temp._Oblig.a Corto Plazo.png" width="50%" /><img src="../../../../../../../../images/asfi2/liquidez/Disponib.+Inv.Temp._Pasivo.png" width="50%" /><img src="../../../../../../../../images/asfi2/liquidez/Disponibilidades_Oblig.a Corto Plazo.png" width="50%" /><img src="../../../../../../../../images/asfi2/liquidez/Disponibilidades+Inv.Temporarias_Activo.png" width="50%" />
 {{< /tab >}} 
 {{< tab tabName="Ratios de Eficiencia (anualizado)">}}
-<img src="../../../../../../../images/asfi2/rentabilidad/Resultado Neto de la Gestión_(Activo+Contingente) (ROA).png" width="50%" /><img src="../../../../../../../images/asfi2/rentabilidad/Resultado Neto de la Gestión_Patrimonio (ROE.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/rentabilidad/Resultado Neto de la Gestión_(Activo+Contingente) (ROA).png" width="50%" /><img src="../../../../../../../../images/asfi2/rentabilidad/Resultado Neto de la Gestión_Patrimonio (ROE.png" width="50%" />
 {{< /tab >}} 
 {{< tab tabName="Solvencia">}}
-<img src="../../../../../../../images/asfi2/solvencia/Coeficiente de Adecuación Patrimonial.png" width="50%" /><img src="../../../../../../../images/asfi2/solvencia/Patrimonio_Activo.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/solvencia/Coeficiente de Adecuación Patrimonial.png" width="50%" /><img src="../../../../../../../../images/asfi2/solvencia/Patrimonio_Activo.png" width="50%" />
 {{< /tab >}} 
 {{< tab tabName="Cálculo Spread Efectivo (anualizado)">}}
-<img src="../../../../../../../images/asfi2/spread/margen_financiero.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/spread/margen_financiero.png" width="50%" />
 {{< /tab >}} 
 {{< tab tabName="Utillización Spread Efectivo">}}
-<img src="../../../../../../../images/asfi2/spread-efectivo/UTILIDAD NETA.png" width="50%" />
+<img src="../../../../../../../../images/asfi2/spread-efectivo/UTILIDAD NETA.png" width="50%" />
 {{< /tab >}} 
 {{< /tabs >}}
 
 
-<img src="../../../../../../../images/asfi/balance_bmu.png" width="100%" />
+<img src="../../../../../../../../images/asfi/balance_bmu.png" width="100%" />
 
 
 **Activos de la Banca Múltiple**
@@ -90,10 +91,10 @@ Cartera: es el principal activo que tienen los BMU representando el 68% de sus a
 
 Inversiones permanentes: se destacan las cuotas de participación del Fondo Destinado al Sector Productivo y a Vivienda de Interés Social (CPVIS) constituidos con fondos liberados por las modificaciones del Encaje Legal y que al mismo tiempo se utilizan como garantía de los préstamos de liquidez en moneda nacional que soliciten al BCB, con una tasa de interés del 0%
 
-<img src="../../../../../../../images/asfi/activos_bmu.png" width="100%" />
+<img src="../../../../../../../../images/asfi/activos_bmu.png" width="100%" />
 
 
-<img src="../../../../../../../images/asfi/seprec.png" width="100%" />
+<img src="../../../../../../../../images/asfi/seprec.png" width="100%" />
 
 
 
@@ -116,7 +117,7 @@ Obligaciones con bancos y entidades de financiamiento (14%): a diferencia de los
 
 
 
-<img src="../../../../../../../images/asfi/pasivos.png" width="100%" />
+<img src="../../../../../../../../images/asfi/pasivos.png" width="100%" />
 
 
 **Patrimonio de la Banca Múltiple**

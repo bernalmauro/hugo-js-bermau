@@ -3,8 +3,10 @@ title: "Gráficos"
 output: html_document
 ---
 
+
 ```{r warning = FALSE, include=FALSE}
 
+#LIBRARY####
 library(dygraphs) 
 library(tidyverse)
 library(zoo)
@@ -78,7 +80,7 @@ theme_annotations <- function() {
     complete=TRUE)
 }
 
-#PBI MUNDIAL DYGRAPHS####
+#PBI Y POBLACION MUNDIAL DYGRAPHS####
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/world-gdp-over-the-last-two-millennia.csv"
 
@@ -88,20 +90,19 @@ excel <-excel[c(-1,-2,-4)]
 excel <- cbind(excel, gdp)
 
 
-dygraph_1 <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios") %!>% 
+dygraph_grafico_1 <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios") %!>% 
   dySeries("gdp", 
            label = "Producto Interno Bruto Mundial", color="green") %!>% 
   dyLegend(width = 300, show = "onmouseover") %!>% 
-  dyOptions(stackedGraph = TRUE, axisLineColor = "#98918B") %!>%
+  dyOptions(stackedGraph = TRUE, axisLineColor = "#6b7785") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y",
-         gridLineColor = "#4a4a4a",
+  dyAxis("y", drawGrid = FALSE,
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return "$" + d + "\ billones"}'
   ) %!>% 
-  dyCrosshair(direction = "vertical") %!>% 
+  dyCrosshair(direction = NULL) %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 4,
+  dyHighlight(highlightCircleSize = 2,
               highlightSeriesBackgroundAlpha = 1)
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/total-population-living-in-extreme-poverty-by-world-region.csv"
@@ -124,7 +125,7 @@ excel <-
          `South Asia`,
          `Sub-Saharan Africa`) 
 
-dygraph_2 <- dygraph(excel, main = "Población total que vive en pobreza extrema por región del mundo (millones de habitantes)") %!>% 
+dygraph_grafico_2 <- dygraph(excel, main = "Población total que vive en pobreza extrema por región del mundo (millones de habitantes)") %!>% 
   dySeries("High income countries", 
            label = "Paises de Altos Ingresos", color = "#6D3E91") %!>% 
   dySeries("Latin America and the Caribbean", 
@@ -140,17 +141,16 @@ dygraph_2 <- dygraph(excel, main = "Población total que vive en pobreza extrema
   dySeries("Sub-Saharan Africa", 
            label = "Africa Sub-Sahariana",color = "#00295B") %!>% 
   dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE, labelsDiv = FALSE) %!>% 
-  dyOptions(axisLineWidth = 1.5,stackedGraph = TRUE, fillGraph = TRUE, axisLineColor = "#98918B") %!>%
+  dyOptions(axisLineWidth = 1.5,stackedGraph = TRUE, fillGraph = TRUE, axisLineColor = "#6b7785") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y",
-         gridLineColor = "#4a4a4a",
+  dyAxis("y", drawGrid = FALSE,
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
   ) %!>% 
-  dyCrosshair(direction = "vertical") %!>% 
+  dyCrosshair(direction = NULL) %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
-              highlightSeriesBackgroundAlpha = 0.7,
+  dyHighlight(highlightCircleSize = 2,
+              highlightSeriesBackgroundAlpha = 1,
               hideOnMouseOut = TRUE) 
 
 #ESPERANZA DE VIDA DYGRAPHS####
@@ -168,7 +168,7 @@ data<-
   remove_empty(c("rows", "cols")) 
 
 
-dygraph_3 <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</small>") %!>% 
+dygraph_grafico_3 <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</small>") %!>% 
   dySeries("Oceania", 
            label = "Oceania", color = "#18470f") %!>% 
   dySeries("Europe", 
@@ -182,43 +182,46 @@ dygraph_3 <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</small>
   dySeries("Africa", 
            label = "Africa",color = "#c15065") %!>% 
   dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE, labelsDiv = FALSE, showZeroValues = FALSE) %!>% 
-  dyOptions(axisLineWidth = 1.5,stackedGraph = FALSE, fillGraph = FALSE, axisLineColor = "#98918B") %!>%
+  dyOptions(axisLineWidth = 1.5,stackedGraph = FALSE, fillGraph = FALSE, axisLineColor = "#6b7785") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
-  dyAxis("y",
-         gridLineColor = "#4a4a4a",
+  dyAxis("y", drawGrid = FALSE,
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
   ) %!>% 
-  dyCrosshair(direction = "vertical") %!>% 
+  dyCrosshair(direction = NULL) %!>% 
   dyRangeSelector(height = 30) %!>% 
-  dyHighlight(highlightCircleSize = 3,
-              highlightSeriesBackgroundAlpha = 0.7,
+  dyHighlight(highlightCircleSize = 2,
+              highlightSeriesBackgroundAlpha = 1,
               hideOnMouseOut = TRUE) 
 ```
 
-## EL MUNDO EN GRÁFICOS
-### DATOS PRODUCCION MUNDIAL
 
+### DATOS PRODUCCION MUNDIAL
+::: {.grafico .fuente-bajo-grafico}
 ```{r pib-mundial, warning = FALSE, out.width=600,echo=FALSE, fig.align='center'}
 
-dygraph_1 
+dygraph_grafico_1 
 
 ```
-Fuente: Our World In Data based on World Bank & Maddison (2017)
+**Fuente:** *Our World In Data based on World Bank & Maddison (2017)*
+:::
+
 
 ### DATOS POBREZA MUNDIAL
+::: {.grafico .fuente-bajo-grafico}
+```{r pobreza_1, warning = FALSE, out.width=500, echo=FALSE, fig.align='left'}
 
-```{r pobreza_1, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
-
-dygraph_2
-
-```
-Fuente: World Bank Poverty and Inequality Platform (2022)
-
-
-```{r pobreza_2, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
-
-dygraph_3 
+dygraph_grafico_2
 
 ```
-Source: UN WPP (2022); Zijdeman et al. (2015); Riley (2005)  
+**Fuente:** *World Bank Poverty and Inequality Platform (2022)*
+:::
+
+::: {.grafico .fuente-bajo-grafico}
+```{r pobreza_2, warning = FALSE, out.width=500, echo=FALSE, fig.align='left'}
+
+dygraph_grafico_3 
+
+```
+**Source:** *UN WPP (2022); Zijdeman et al. (2015); Riley (2005)*
+:::

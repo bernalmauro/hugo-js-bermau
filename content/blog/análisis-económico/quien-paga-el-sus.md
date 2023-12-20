@@ -1,6 +1,6 @@
 ---
 title: "¿Qué es el Sistema Único de Salud (SUS) y quién lo paga? ¿Será sostenible en el tiempo?"
-date: 2019-09-28
+datePublished: 2019-09-28
 draft: false
 featuredImage: /images/sus-logo-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/quien-paga-el-sus-en-bolivia/"
 ---
 
 Sin duda que las políticas redistribucionistas están en la mayor parte de los casos inspiradas en la mejor de las intenciones, pero en economía, las intenciones son irrelevantes, lo importante son los resultados. Cada vez que hay una redistribución, es decir una distribución en un sentido distinto del que asigna el mercado de acuerdo a la eficiencia para asignarlo en otras direcciones, se está comprometiendo severamente los ingresos y salarios en términos reales de la comunidad. Alberto Benegas Lynch (h) – La “Justicia Social” como Antítesis de la Justicia.

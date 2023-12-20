@@ -13,8 +13,9 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/informe-standard-and-poors-en-bolivia/"
 ---
-*""*
+
 --- 
 ```{r warning = FALSE, include=FALSE}
 

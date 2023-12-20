@@ -1,40 +1,37 @@
 {{ define "main" }}
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid-list custom-flex">
-    <button class="navbar-toggler-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCountrySelect"
-      aria-controls="offcanvasCountrySelect" aria-label="Toggle navigation">ESTADÍSTICAS SEGÚN PAÍS
-    </button>
-    <div class="offcanvas offcanvas-end text-bg-dark ms-auto" tabindex="-1" id="offcanvasCountrySelect"
-      aria-labelledby="offcanvasCountrySelectLabel">
-      <div class="offcanvas-header">
-        <h3>
-          <a class="offcanvas-title nav-link" href="#">PAISES</a>
-        </h3>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav">
-          {{ range .Pages }}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
-          </li>
-          {{ end }}
-        </ul>
-        <div class="row container-text-center">
-          {{ partial "redes" . }}
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid-list custom-flex">
+      <button class="navbar-toggler-list" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasCountrySelect" aria-controls="offcanvasCountrySelect"
+        aria-label="Toggle navigation">ESTADÍSTICAS SEGÚN PAÍS </button>
+      <div class="offcanvas offcanvas-end text-bg-dark ms-auto" tabindex="-1" id="offcanvasCountrySelect"
+        aria-labelledby="offcanvasCountrySelectLabel">
+        <div class="offcanvas-header">
+          <h3>
+            <a class="offcanvas-title nav-link" href="#">PAISES</a>
+          </h3>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav">
+            {{ range .Pages }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+          </ul>
+          <div class="row container-text-center">
+            {{ partial "redes" . }}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</nav>
-
-
-<div class="row container mb-3">
-  <div style="padding-right: 0px; padding-left: 0px;">
-    <div class="row">
-      {{ .Content }}
+  </nav>
+  <div class="row-list-graficos">
+    
+    {{ .Content }}
     </div>
-  </div>
-</div>
+  
 
 {{ end }}

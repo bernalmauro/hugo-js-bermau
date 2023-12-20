@@ -1,6 +1,6 @@
 ---
 title: "La Deuda Pública de Bolivia"
-date: 2023-11-15
+datePublished: 2023-11-15
 draft: false
 featuredImage: /images/deuda-publica-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/deuda-publica-en-bolivia/"
 ---
 
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>

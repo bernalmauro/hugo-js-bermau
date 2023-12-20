@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/breve-analisis-de-la-economia-boliviana/"
 ---
 
 Analizaré la economía nacional bajo el actual contexto de la economía a nivel global.

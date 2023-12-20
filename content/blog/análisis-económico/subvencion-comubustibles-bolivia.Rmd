@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/subvencion-combustibles-bolivia/"
 ---
  
 *"La intervención de los precios puede a menudo revestir apariencias de éxito durante un corto período. Puede dar la impresión de funcionar bien durante cierto tiempo, particularmente en épocas de guerra cuando se halla apoyada por el patriotismo y el ambiente de crisis. Ahora bien, cuanto más se prolonga, tanto mayores son las dificultades. Cuando los precios son mantenidos arbitrariamente bajos por imposición estatal, la demanda excede crónicamente a la oferta."*

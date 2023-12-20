@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/filosofía-política/que-es-el-liberalismo/"
 ---
 
 *“El término liberalismo se identifica con un paradigma político que afronta el problema de la diversidad humana defendiendo instituciones que permitan la coexistencia de distintas creencias y modos de vida. El liberalismo acepta la pluralidad de modos de vida, la multiplicidad de valores religiosos y morales en un mundo moderno y promueve la tolerancia. El liberalismo se diferencia de otras filosofías políticas en que rechaza la idea de un orden social orgánico y espiritualmente unificado, dentro del cual los intereses de los individuos se alinean en perfecta armonía con los intereses de la comunidad. Los individuos poseen fine distintos y no existe un único objetivo que todos tengan la obligación de compartir”*

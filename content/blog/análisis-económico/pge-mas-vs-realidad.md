@@ -1,6 +1,6 @@
 ---
 title: "El PGE del MAS vs la Realidad"
-date: 2023-11-10
+datePublished: 2023-11-10
 draft: false
 featuredImage: /images/presupuesto-general-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]
@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/pge-mas-vs-realidad-bolivia/"
 ---
 
 <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>

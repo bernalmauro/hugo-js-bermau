@@ -490,6 +490,29 @@ ul.share-icons li>* .label {
 	padding: 20px !important;
 }
 
+.row-list-graficos {
+    justify-content: space-around !important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.fuente-bajo-grafico {
+    text-align: center !important; /* Alinea el texto al centro */
+    margin-top: 10px; /* Ajusta el espacio entre el gráfico y la fuente */
+}
+
+.fuente-bajo-grafico img {
+    margin: 0 auto; /* Centra la imagen dentro del contenedor */
+}
+
+.row-list-graficos > h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 /* dygraph align */
 .html-widget {
 	max-width: 100% !important;

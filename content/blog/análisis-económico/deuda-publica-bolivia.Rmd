@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/deuda-publica-en-bolivia/"
 ---
 ```{r warning = FALSE, include=FALSE}
 

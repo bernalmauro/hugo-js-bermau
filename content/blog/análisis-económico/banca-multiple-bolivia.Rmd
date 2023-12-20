@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/banca-multiple-en-bolivia/"
 ---
 
 

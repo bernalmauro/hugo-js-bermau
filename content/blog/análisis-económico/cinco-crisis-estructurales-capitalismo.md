@@ -1,6 +1,6 @@
 ---
 title: "¿Las Cinco Crisis Estructurales del Capitalismo?"
-date: 2019-09-28
+datePublished: 2019-09-28
 draft: false
 featuredImage: /images/cinco-crisis-capitalismo-bernalmauricio.jpg
 categories: ["Análisis Económico"]
@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/las-cinco-crisis-estructurales-del-capitalismo/"
 ---
 
 *"El capitalismo es el único sistema que ha logrado sacar a la gente de la pobreza, pero no funciona en todas partes porque los Estados impiden su funcionamiento"*

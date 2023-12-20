@@ -908,10 +908,6 @@ grafico_3 <- p1+plot_layout(guides = "collect")&anotattion
 
 ```
 
-
-
-
-
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Estructura de Activos" >}}
@@ -1066,8 +1062,6 @@ knitr::include_graphics("/images/asfi/spread-efectivo/UTILIDAD NETA.png", error 
 
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Balance BCB">}}
-
-
 
 ```{r balance_bcb,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
 

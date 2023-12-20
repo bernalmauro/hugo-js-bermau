@@ -1,6 +1,6 @@
 ---
 title: "Subvención al Combustible en Bolivia"
-date: 2023-12-08
+datePublished: 2023-12-08
 draft: false
 featuredImage: /images/subvencion-combustibles-bolivia.jpg
 categories: ["Análisis Económico"]
@@ -13,12 +13,13 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/análisis-económico/subvencion-combustibles-bolivia/"
 ---
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
-
+ 
 *"La intervención de los precios puede a menudo revestir apariencias de éxito durante un corto período. Puede dar la impresión de funcionar bien durante cierto tiempo, particularmente en épocas de guerra cuando se halla apoyada por el patriotismo y el ambiente de crisis. Ahora bien, cuanto más se prolonga, tanto mayores son las dificultades. Cuando los precios son mantenidos arbitrariamente bajos por imposición estatal, la demanda excede crónicamente a la oferta."*
   
 - Henry Hazlitt, *La Economía en una Lección*
@@ -98,7 +99,7 @@ Antes de continuar también hay que señalar que Bolivia no es el único país n
 
 Una estrategia del gobierno fue compensar la subvención de combustibles con excedentes estatales de exportación, pues mientras existía el *boom* de las materias primas el costo de la subvención fue ignorado, incluso desde el año en que comenzó el declive de las exportaciones. 
 
-<img src="/blog/subvencion-comubustibles-bolivia_files/figure-html/knitr-lubris_1-1.png" width="100%" />
+<img src="/blog/análisis-económico/subvencion-comubustibles-bolivia_files/figure-html/knitr-lubris_1-1.png" width="100%" />
 
 Otros efectos que tiene la subvención son el contrabando de combustible, el crecimiento del parque automotor, ni que hablar del narcotráfico, pero sobre todo el incremento del déficit fiscal y por tanto, [la deuda pública](https://bernalmauricio.com/blog/deuda-publica-bolivia/)
 
@@ -213,7 +214,7 @@ En la última conferencia de prensa del ministro de economía Montenegro, argume
 </table>
 {{< /tab >}}
 {{< tab tabName="Gráfico Subvención PGE vs Realidad" >}}
-<img src="/blog/subvencion-comubustibles-bolivia_files/figure-html/knitr-calidad-1.png" width="100%" />
+<img src="/blog/análisis-económico/subvencion-comubustibles-bolivia_files/figure-html/knitr-calidad-1.png" width="100%" />
 {{< /tab >}}
 {{< /tabs >}}
 

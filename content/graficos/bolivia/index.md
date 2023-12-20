@@ -9,10 +9,6 @@ output: html_document
 
 
 
-
-
-
-
 ### Autoridad de Supervisión del Sistema Financiero (ASFI)
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Estructura de Activos" >}}
@@ -66,8 +62,6 @@ output: html_document
 
 {{< tabs tabTotal="14">}}
 {{< tab tabName="Balance BCB">}}
-
-
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/balance_bcb-1.png" width="1056" /><table class=" lightable-paper table" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; margin-left: auto; margin-right: auto;'>
  <thead>

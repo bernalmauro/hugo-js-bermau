@@ -1,6 +1,6 @@
 ---
 title: "¿Quién asigna mejor los recursos?"
-date: 2019-09-20
+datePublished: 2019-09-20
 draft: false
 featuredImage: /images/quien-asigna-mejor-los-recursos-bernalmauricio.jpg
 categories: ["Teoría Económica"]
@@ -13,6 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
+url: "/blog/teoría-económica/quien-asigna-mejor-los-recursos/"
 ---
 
 *"Los derechos de propiedad no son únicamente una fuente de libertad económica. También son una fuente de libertad política."* 
