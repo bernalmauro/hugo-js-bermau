@@ -4,6 +4,7 @@ output: html_document
 ---
 
 ```{r warning = FALSE, include=FALSE}
+#LIBRARY####
 library(dygraphs) 
 library(tidyverse)
 library(zoo)
@@ -66,211 +67,60 @@ pal <- function(num) {
   usecol(c("#065a25", "#f2f419", "#f41919"),
          n = num)
 }
-theme_wrap <- function() {
-  theme(
-    axis.line.x = element_line("#98918B"),
-    axis.line.y = element_line("#98918B"),
-    axis.ticks = element_line(color = "#98918B"),
-    
-    panel.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
-    panel.grid.major = element_line(color = "#1d1d1d"),
-    panel.grid.minor = element_line(color = "#1d1d1d"),
-    panel.grid.major.y = element_line(color = "#e3e3e3", linetype = "dotted"),
-    panel.grid.major.x = element_line(color = "#4a4a4a", linetype = "dotted"),
-    
-    strip.background = element_rect(fill = "#98918B", color = "#98918B"),
-    strip.text = element_text(color = "black"),
-    strip.placement = 'outside',
-    strip.switch.pad.wrap = unit(10, "mm"),
-    
-    plot.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
-    legend.box.background = element_blank(),
-    legend.background = element_blank(),
-    legend.key = element_blank(),
-    
-    
-    axis.text = element_text(color = "#e3e3e3",size = rel(1)),
-    axis.title = element_blank(),
-    text = element_text(color = "#e3e3e3",family = "Constantia"),
-    
-    plot.subtitle = element_text(margin = margin(0, 0, 0.5, 0, "cm")),
-    plot.caption = element_text(margin = margin(0.5, 0, 0, 0, "cm"))
-  )
-}
-theme_annotations <- function() {
-  theme(
-    title = element_text(
-      family = "Constantia",
-      face = "plain",
-      colour = "#e3e3e3",
-      size = rel(1),
-      inherit.blank = FALSE),
-    plot.title = element_text(hjust = 1, vjust = 0),
-    plot.subtitle = element_text(hjust = 1,vjust = 0),
-    plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
-    complete=TRUE)
-}
 html_table_width <- function(kable_output, width){
   width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
   sub("<table>", paste0("<table>\n", width_html), kable_output)
 }
+dygraph_nominal_simple <- function(data, titulo, subtitulo, mi_paleta) {
+  dygraph(data, main=paste(titulo, "<br>", subtitulo)) %>%
+    dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %>%
+    dyOptions(
+      stackedGraph = FALSE,
+      axisLineColor = "#6b7785",
+      colors = mi_paleta) %>%
+    dyAxis("x", drawGrid = FALSE) %>%
+    dyAxis(
+      "y",
+      drawGrid = FALSE,
+      valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+      axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+    ) %>%
+    dyCrosshair(direction = "vertical") %>%
+    dyRangeSelector(height = 30) %>%
+    dyHighlight(
+      highlightCircleSize = 4,
+      highlightSeriesBackgroundAlpha = 1
+    )
+}
+dygraph_nominal_stacked <- function(data, titulo, subtitulo, mi_paleta) {
+  dygraph(data, main=paste(titulo, "<br>", subtitulo)) %>%
+    dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %>%
+    dyOptions(
+      stackedGraph = TRUE,
+      axisLineColor = "#6b7785",
+      colors = mi_paleta) %>%
+    dyAxis("x", drawGrid = FALSE) %>%
+    dyAxis(
+      "y",
+      drawGrid = FALSE,
+      valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+      axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+    ) %>%
+    dyCrosshair(direction = "vertical") %>%
+    dyRangeSelector(height = 30) %>%
+    dyHighlight(
+      highlightCircleSize = 4,
+      highlightSeriesBackgroundAlpha = 1
+    )
+}
 
-#BASE MONETARIA####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
-#IMPORTAR DATOS DE EXCEL
-range <- "D13:T312"
-col_names <- FALSE
-#FORMATO FECHA
+# Crear la paleta de colores
+mi_paleta <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf")
+pal <- function(num) {
+  mi_paleta[seq_len(num)]
+}
 
-data <- 
-  rio::import(
-    file,
-    setclass = "tbl_df",
-    range = range,
-    col_names = col_names,
-    .name_repair = "unique_quiet") %!>%
-  remove_empty(c("rows", "cols")) %!>%
-  replace(is.na(.), 0)
-colnames(data) <- c(
-
-  "Reservas Internacionales Netas",
-  "Reservas Internacionales Brutas",
-  "Obligaciones Externas a Corto Plazo",
-  "Crédito Neto al Sector Público",
-  "Total Crédito a Bancos",
-  "BCL",
-  "BE Y OEF",
-  "Títulos Regulación Monetaria",
-  "SRD",
-  "Otras Cuentas Netas",
-  "Origen Base Monetaria",
-  "Billetes y Monedas en poder del Público",
-  "Reservas Bancarias en Moneda Nacional",
-  "Reservas Bancarias en UFV",
-  "Reservas Bancarias en Moneda Extranjera",
-  "Total Reservas Bancarias",
-  "Destino Base Monetaria"
-  )
-
-from <- "31Jan1998"
-to <- "31Dec2022"
-by <- "month"
-each <- 1
-
-Fecha <- fun_fecha(from,to,by,each)
-data <- cbind(Fecha, data) 
-data <- as_tibble(data)
-
-excel <- data %>%
-  select(`Fecha`, 
-         `Reservas Internacionales Netas`,
-         `Crédito Neto al Sector Público`,
-         `Total Crédito a Bancos`,
-         `Títulos Regulación Monetaria`,
-         `Otras Cuentas Netas`,
-         `Origen Base Monetaria`,
-         `Billetes y Monedas en poder del Público`,
-         `Total Reservas Bancarias`,
-         `Destino Base Monetaria`) 
-
-hoja_excel <- as_tbl_time(excel, index = Fecha) #FORMATO DATE FLEXIBLE
-hoja_excel_ <- as_period(hoja_excel, period = "year", side = "start", include_endpoints = FALSE)
-
-var_col <- colnames(excel)[-c(1,7,10)]
-
-line_col <- 
-  hoja_excel_ %!>%
-  pivot_longer(
-    cols = c(`Origen Base Monetaria`, `Destino Base Monetaria`),
-    names_to = "var_line",
-    values_to = "value_line"
-  ) %!>%
-  pivot_longer(cols = any_of(var_col),
-               names_to = "var_col",
-               values_to = "value_col") %!>%
-  dplyr::filter(
-    var_line %in% "Origen Base Monetaria" &
-      var_col %in% c("Reservas Internacionales Netas",
-                     "Crédito Neto al Sector Público",
-                     "Total Crédito a Bancos",
-                     "Títulos Regulación Monetaria",
-                     "Otras Cuentas Netas") |
-      var_line %in% "Destino Base Monetaria" &
-      var_col %in% c(
-        "Billetes y Monedas en poder del Público",
-        "Total Reservas Bancarias"
-      )
-  ) %!>%
-  mutate(across(where(is.numeric),  ~ . / 1000),
-         across(where(is.character), as_factor),
-         new_id=cur_group_id(),
-         .by = var_line) %!>% 
-  mutate(across(where(is.character), as_factor))
-
-
-
-origen_g <- 
-  line_col %!>% 
-  dplyr::filter(
-    new_id==1) 
-
-destino_g <- 
-  line_col %!>% 
-  dplyr::filter(
-    new_id==2) 
-
-
-pal_fill <- 
-  origen_g %!>%
-  pull(var_col) %!>%
-  unique() %!>% 
-  length() %!>% 
-  pal()
-
-pal_col <- 
-  origen_g %!>%
-  pull(var_col) %!>%
-  unique() %!>% 
-  length() %!>% 
-  pal()
-
-p1 <-    
-  ggplot(line_col,aes(Fecha,value_col))+
-  geom_col(destino_g,mapping=aes(fill = var_col),
-           color="#1d1d1d")+ 
-  scale_fill_manual(values = pal_col)+
-  scale_y_continuous(labels = comma_format()) +
-  labs(fill = "Origen Base Monetaria")+
-  new_scale_fill()+
-  geom_col(origen_g,mapping=aes(fill = var_col),
-           color="#1d1d1d") +
-  scale_fill_manual(values = pal_fill)+
-  labs(fill = "Destino Base Monetaria")+
-  facet_wrap(vars(var_line))+theme_wrap()
-p2 <-    
-  ggplot(destino_g,aes(Fecha,value_col))+
-  geom_line(destino_g,mapping=aes(color = var_col),
-            linewidth=1)+ 
-  scale_color_manual(values = pal_col)+
-  scale_y_continuous(labels = comma_format()) +
-  guides(color = "none")+
-  new_scale_color()+
-    geom_line(origen_g,mapping=aes(color = var_col),
-            linewidth=1)+
-  scale_color_manual(values = pal_fill)+
-  facet_wrap(vars(var_line))+
-  guides(color = "none")+theme_wrap()
-p2
-title <-"ORIGEN Y DESTINO DE LA BASE MONETARIA, 1998 - 2022"
-subtitle <-"(En millones de bolivianos)"
-caption = "Fuente: Elaboración propia en base al BCB\nBernal Mauricio / bernalmauricio.com"
-anotattion <- plot_annotation(title = title,subtitle = subtitle,
-                              caption = caption,theme = theme_annotations())
-
-grafico <- (p1/p2)+plot_layout(guides = "collect")&anotattion
-
-
-#BALANCE BCB####
+#BALANCE ACTIVO BCB####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03a.activos_bcb.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
@@ -310,22 +160,33 @@ colnames(data) <- c(
   "A Bancos Especializados y Otras Entidades Financieras",
   "Otras Cuentas de Activo",
   "Total Activo"
-  )
+)
 Fecha <- fun_fecha(from,to,by,each)
 data <- cbind(Fecha, data) 
 data <- as_tibble(data)
 
-activo <- data %>%
-  select(`Fecha`, 
-         `Reservas Internacionales Brutas`,
-         `Aportes a Organismos Internacionales`,
-         `Otros Activos Externos de Mediano y Largo Plazo`,
-         `Crédito al Sector Público`,
-         `Crédito al Sector Financiero`,
-         `Otras Cuentas de Activo`,
-         `Total Activo`) 
+# Uso de la función con tu conjunto de datos y título
+conjunto_datos <- data %>%
+  select(
+    `Fecha`,
+    `Reservas Internacionales Brutas`,
+    `Aportes a Organismos Internacionales`,
+    `Otros Activos Externos de Mediano y Largo Plazo`,
+    `Crédito al Sector Público`,
+    `Crédito al Sector Financiero`,
+    `Otras Cuentas de Activo`
+  )%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
 
+titulo <- "Balance Activo del BCB"
+subtitulo <- "(En millones BOB)"
 
+mi_paleta <- pal(10)
+
+dygraph_bcb_activo_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_bcb_activo_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+
+#BALANCE PASIVO BCB####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03p.pasivos_bcb.xlsx"
 #IMPORTAR DATOS DE EXCEL
 range <- "B18:AE317"
@@ -347,7 +208,7 @@ data <-
     .name_repair = "unique_quiet") %!>%
   remove_empty(c("rows", "cols")) %!>%
   replace(is.na(.), 0)
-data
+
 colnames(data) <- c(
   
   "Emisión Monetaria",
@@ -356,7 +217,7 @@ colnames(data) <- c(
   "Bancos Comerciales",
   "Bancos Especializados y Otras Entidades Financieras",
   
-  "Obligaciones Externas de Corto Plazo",
+  "Obligaciones Externas a Corto Plazo",
   "Giros sobre el FMI",
   "Con Bancos y Otros Organismos",
   
@@ -366,7 +227,7 @@ colnames(data) <- c(
   
   "Otras Cuentas Pasivo",
   
-  "Certificado de Devolución de Depósito",
+  "Certificado de Devolución de Depósitos",
   "En Moneda Extranjera",
   "En Moneda Nacional con Mantenimiento de Valor",
   
@@ -398,138 +259,35 @@ colnames(data) <- c(
 Fecha <- fun_fecha(from,to,by,each)
 data <- cbind(Fecha, data) 
 data <- as_tibble(data)
-
-pasivo <- data %>%
-  select(`Emisión Monetaria`,
+# Uso de la función con tu conjunto de datos y título
+conjunto_datos <- data %>%
+  select(`Fecha`,
+         `Emisión Monetaria`,
          `Depósitos Bancarios`,
-         `Obligaciones Externas de Corto Plazo`,
+         `Obligaciones Externas a Corto Plazo`,
          `Depósito de Organismos Internacionales`,
          `Obligaciones Externas a Mediano y Largo Plazo`,
          `Otras Cuentas Pasivo`,
-         `Certificado de Devolución de Depósito`,
+         `Certificado de Devolución de Depósitos`,
          `Patrimonio Neto`,
-         `Depósitos del Sector Público`,
-         `Total Pasivo`) 
+         `Depósitos del Sector Público`) %>%
+  mutate(across(where(is.numeric), ~  . / 1000))
 
-data <- cbind(activo, pasivo) 
+titulo <- "Balance Pasivo del BCB"
+subtitulo <- "(En millones BOB)"
+dygraph_bcb_pasivo_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_bcb_pasivo_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
 
-hoja_excel <- as_tbl_time(data, index = Fecha) #FORMATO DATE FLEXIBLE
-hoja_excel_ <- as_period(hoja_excel, period = "year", side = "start", include_endpoints = FALSE)
+#RESERVAS INTERNACIONALES####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
 
-var_col <- colnames(data)[-c(1,8,18)]
-
-line_col_2 <- 
-  hoja_excel_ %!>%
-  pivot_longer(
-    cols = c(`Total Activo`, `Total Pasivo`),
-    names_to = "var_line",
-    values_to = "value_line"
-  ) %!>%
-  pivot_longer(cols = any_of(var_col),
-               names_to = "var_col",
-               values_to = "value_col") %!>%
-  dplyr::filter(
-    var_line %in% "Total Activo" &
-      var_col %in% c(
-        "Reservas Internacionales Brutas",
-        "Aportes a Organismos Internacionales",
-        "Otros Activos Externos de Mediano y Largo Plazo",
-        "Crédito al Sector Público",
-        "Crédito al Sector Financiero",
-        "Otras Cuentas de Activo",
-        "Total Activo") |
-      var_line %in% "Total Pasivo" &
-      var_col %in% c(
-        "Emisión Monetaria",
-        "Depósitos Bancarios",
-        "Obligaciones Externas de Corto Plazo",
-        "Depósito de Organismos Internacionales",
-        "Obligaciones Externas a Mediano y Largo Plazo",
-        "Otras Cuentas Pasivo",
-        "Certificado de Devolución de Depósito",
-        "Patrimonio Neto",
-        "Depósitos del Sector Público",
-        "Total Pasivo"
-      )
-  ) %!>%
-  mutate(across(where(is.numeric),  ~ . / 1000),
-         across(where(is.character), as_factor),
-         new_id=cur_group_id(),
-         .by = var_line) %!>% 
-  mutate(across(where(is.character), as_factor))
-
-origen_g_2 <- 
-  line_col_2 %!>% 
-  dplyr::filter(
-    new_id==1) 
-
-destino_g_2 <- 
-  line_col_2 %!>% 
-  dplyr::filter(
-    new_id==2) 
-
-
-pal_fill <- 
-  destino_g_2 %!>%
-  pull(var_col) %!>%
-  unique() %!>% 
-  length() %!>% 
-  pal()
-
-pal_col <- 
-  destino_g_2 %!>%
-  pull(var_col) %!>%
-  unique() %!>% 
-  length() %!>% 
-  pal()
-
-p1 <-    
-  ggplot(line_col_2,aes(Fecha,value_col))+
-  geom_col(destino_g_2,mapping=aes(fill = var_col),
-           color="#1d1d1d")+ 
-  scale_fill_manual(values = pal_col)+
-  scale_y_continuous(labels = comma_format()) +
-  labs(fill = "Pasivos Totales")+
-  new_scale_fill()+ 
-  geom_col(origen_g_2,mapping=aes(fill = var_col),
-           color="#1d1d1d") +
-  scale_fill_manual(values = pal_fill)+
-  labs(fill = "Activos Totales")+
-  facet_wrap(vars(var_line))+theme_wrap()
-
-
-
-p2 <-    
-  ggplot(destino_g_2,aes(Fecha,value_col))+
-  geom_line(destino_g_2,mapping=aes(color = var_col),
-            linewidth=1)+ 
-  scale_color_manual(values = pal_col)+
-  scale_y_continuous(labels = comma_format()) +
-  guides(color = "none")+
-  new_scale_color()+
-  geom_line(origen_g_2,mapping=aes(color = var_col),
-            linewidth=1)+
-  scale_color_manual(values = pal_fill)+
-  facet_wrap(vars(var_line))+
-  guides(color = "none")+theme_wrap()
-p2
-title <-"ACTIVO Y PASIVO DEL BALANCE DEL BANCO CENTRAL DE BOLIVIA, 1998 - 2022"
-subtitle <-"(En millones de bolivianos)"
-caption = "Fuente: Elaboración propia en base al BCB\nBernal Mauricio / bernalmauricio.com"
-anotattion <- plot_annotation(title = title,subtitle = subtitle,
-                              caption = caption,theme = theme_annotations())
-
-grafico_2 <- (p1/p2)+plot_layout(guides = "collect")&anotattion
-
-
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03a.activos_bcb.xlsx"
 #IMPORTAR DATOS DE EXCEL
-range <- "B6:Q305"
-sheet <- "MENSUAL"
+range <- "D120:G308"
+sheet <- "Hoja1"
 col_names <- FALSE
 #FORMATO FECHA
-from <- "31Jan1998"
-to <- "31Dec2022"
+from <- "01Dec2007"
+to <- "30Aug2023"
 by <- "month"
 each <- 1
 
@@ -543,607 +301,99 @@ data <-
     .name_repair = "unique_quiet") %!>%
   remove_empty(c("rows", "cols")) %!>%
   replace(is.na(.), 0)
+
 colnames(data) <- c(
-  "Reservas Internacionales Brutas",
   "Oro",
   "Divisas",
-  "Otros Activos",
-  "Aportes a Organismos Internacionales",
-  "Otros Activos Externos de Mediano y Largo Plazo",
-  "Crédito al Sector Público",
-  "Al Gobierno Central",
-  "A la Seguridad Social",
-  "A Locales y Regionales",
-  "A Empresas Públicas",
-  "Crédito al Sector Financiero",
-  "A Bancos Comerciales y en Liquidación",
-  "A Bancos Especializados y Otras Entidades Financieras",
-  "Otras Cuentas de Activo",
-  "Total Activo"
-)
-Año <- fun_fecha(from,to,by,each)
-data <- cbind(Año, data) 
-data <- as_tibble(data)
-
-activo <- data %>%
-  select(`Año`, 
-         `Reservas Internacionales Brutas`,
-         `Aportes a Organismos Internacionales`,
-         `Otros Activos Externos de Mediano y Largo Plazo`,
-         `Crédito al Sector Público`,
-         `Crédito al Sector Financiero`,
-         `Otras Cuentas de Activo`,
-         `Total Activo`) 
-
-
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03p.pasivos_bcb.xlsx"
-#IMPORTAR DATOS DE EXCEL
-range <- "B18:AE317"
-sheet <- "Mensual"
-col_names <- FALSE
-#FORMATO FECHA
-from <- "31Jan1998"
-to <- "31Dec2022"
-by <- "month"
-each <- 1
-
-data <- 
-  rio::import(
-    file,
-    setclass = "tbl_df",
-    sheet = sheet,
-    range = range,
-    col_names = col_names,
-    .name_repair = "unique_quiet") %!>%
-  remove_empty(c("rows", "cols")) %!>%
-  replace(is.na(.), 0)
-data
-colnames(data) <- c(
-  
-  "Emisión Monetaria",
-  
-  "Depósitos Bancarios",
-  "Bancos Comerciales",
-  "Bancos Especializados y Otras Entidades Financieras",
-  
-  "Obligaciones Externas de Corto Plazo",
-  "Giros sobre el FMI",
-  "Con Bancos y Otros Organismos",
-  
-  "Depósito de Organismos Internacionales",
-  
-  "Obligaciones Externas a Mediano y Largo Plazo",
-  
-  "Otras Cuentas Pasivo",
-  
-  "Certificado de Devolución de Depósito",
-  "En Moneda Extranjera",
-  "En Moneda Nacional con Mantenimiento de Valor",
-  
-  "Patrimonio Neto",
-  
-  "Depósitos del Sector Público",
-  
-  "Del Gobierno Central (GC)",
-  "Del GC en Moneda Nacional",
-  "Del GC en Unidad de Fomento de Valor",
-  "Del GC en Moneda Extranjera",
-  "Del GC en Moneda Nacional con Mantenimiento de Valor",
-  
-  "De la Seguridad Social (SS)",
-  "De la SS en Moneda Nacional",
-  "De la SS en Moneda Nacional con Mantenimiento de Valor",
-  
-  "De Gobiernos Locales y Regionales (GLyR)",
-  "De GLyR en Moneda Nacional",
-  "De GLyR en Moneda Extranjera",
-  
-  "De Empresas Públicas (EP)",
-  "De EP en Moneda Nacional",
-  "De EP en Moneda Extranjera",
-  
-  "Total Pasivo"
-)
-
-Año <- fun_fecha(from,to,by,each)
-
-data <- cbind(Año, data) 
-data <- as_tibble(data)
-
-pasivo <- data %>%
-  select(`Año`,
-         `Emisión Monetaria`,
-         `Depósitos Bancarios`,
-         
-         
-         `Obligaciones Externas a Mediano y Largo Plazo`,
-         `Otras Cuentas Pasivo`,
-         
-         `Patrimonio Neto`,
-         `Depósitos del Sector Público`,
-         `Total Pasivo`) 
-
-activo <- activo %!>% 
-  mutate(across(where(is.numeric),  ~ . / 1000))
-pasivo <- pasivo %!>% 
-  mutate(across(where(is.numeric),  ~ . / 1000))
-
-activo_ <- as_tbl_time(activo, index = Año) #FORMATO DATE FLEXIBLE
-activo_1 <- as_period(activo_, period = "year", side = "end", include_endpoints = FALSE)
-
-pasivo_ <- as_tbl_time(pasivo, index = Año) #FORMATO DATE FLEXIBLE
-pasivo_1 <- as_period(pasivo_, period = "year", side = "end", include_endpoints = FALSE)
-
-Año <- formattable(activo_1$Año, format = "%Y")
-
-activo_1 <- activo_1[,-1]
-pasivo_1 <- pasivo_1[,-1]
-
-activo_1 <- cbind(Año, activo_1) 
-pasivo_1 <- cbind(Año, pasivo_1) 
-
-#DESTINO LIQUIDEZ Y MEDIO CIRCULANTE####
-
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/04.destino_medio_circulante.xlsx"
-#IMPORTAR DATOS DE EXCEL
-range <- "B96:AK312"
-sheet <- "Hoja2"
-col_names <- FALSE
-#FORMATO FECHA
-from <- "31Jul2005"
-to <- "31Jul2023"
-by <- "month"
-each <- 1
-
-data <- 
-  rio::import(
-    file,
-    setclass = "tbl_df",
-    sheet = sheet,
-    range = range,
-    col_names = col_names,
-    .name_repair = "unique_quiet") %!>%
-  remove_empty(c("rows", "cols")) %!>%
-  replace(is.na(.), 0)
-colnames(data) <- c(
-  
-  "Emisión Monetaria",
-  "En Caja del Sistema Financiero",
-  "Billetes y Monedas en poder del Público",
-  
-  "DV en Moneda Nacional",
-  "DV en Moneda Extranjera",
-  "DV en Moneda Nacional con Mantenimiento de Valor",
-  "DV en Unidad de Fomento a la Vivienda",
-  "Depósitos Vista",
-  
-  "CH en Moneda Nacional",
-  "CH en Moneda Extranjera",
-  "CH en Moneda Nacional con Mantenimiento de Valor",
-  "CH en Unidad de Fomento a la Vivienda",
-  "Caja de Ahorros",
-  
-  "DPF en Moneda Nacional",
-  "DPF en Moneda Extranjera",
-  "DPF en Moneda Nacional con Mantenimiento de Valor",
-  "DPF en Unidad de Fomento a la Vivienda",
-  "Depósito a Plazo Fijo",
-  
-  "OO en Moneda Nacional",
-  "OO en Moneda Extranjera",
-  "OO en Moneda Nacional con Mantenimiento de Valor",
-  "OO en Unidad de Fomento a la Vivienda",
-  "Otras Obligaciones",
-  
-  "DT en Moneda Nacional",
-  "DT en Moneda Extranjera",
-  "DT en Moneda Nacional con Mantenimiento de Valor",
-  "DT en Unidad de Fomento a la Vivienda",
-  "Depósitos Totales",
-  
-  "TP en Moneda Nacional",
-  "TP en Moneda Extranjera",
-  "TP en Moneda Nacional con Mantenimiento de Valor",
-  "TP en Unidad de Fomento a la Vivienda",
-  "Títulos Públicos en Poder del Sector Privado no Financiero",
-  
-  "Destino del Medio Circulante",
-  
-  "Certificados de Depósitos Directo en Moneda Nacional",
-  
-  "Ahorro Financiero"
-)
-Fecha <- fun_fecha(from,to,by,each)
-data <- cbind(Fecha, data) 
-data <- as_tibble(data)
-
-activo <- data %>%
-  select(`Fecha`, 
-         `Billetes y Monedas en poder del Público`,
-         `Depósitos Vista`,
-         `Caja de Ahorros`,
-         `Depósito a Plazo Fijo`,
-         `Otras Obligaciones`,
-         `Títulos Públicos en Poder del Sector Privado no Financiero`,
-         `Destino del Medio Circulante`) 
-
-
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/05.agregados_monetarios.xlsx"
-#IMPORTAR DATOS DE EXCEL
-range <- "B21:I237"
-sheet <- "Hoja2"
-col_names <- FALSE
-#FORMATO FECHA
-from <- "31Jul2005"
-to <- "31Jul2023"
-by <- "month"
-each <- 1
-
-data <- 
-  rio::import(
-    file,
-    setclass = "tbl_df",
-    sheet = sheet,
-    range = range,
-    col_names = col_names,
-    .name_repair = "unique_quiet") %!>%
-  remove_empty(c("rows", "cols")) %!>%
-  replace(is.na(.), 0)
-
-colnames(data) <- c(
-  
-  "M1","M'1",
-  "M2","M'2",
-  "M3","M'3",
-  "M4","Agregados Monetarios"
+  "DEG",
+  "Tramo de Reservas del FMI"
 )
 
 Fecha <- fun_fecha(from,to,by,each)
-
 data <- cbind(Fecha, data) 
-data <- as_tibble(data)
+conjunto_datos <- as_tibble(data)
 
-pasivo <- data %>%
-  select(`M1`,
-         `M'1`,
-         `M2`,
-         `M'2`,
-         `M3`,
-         `M'3`,
-         `M4`,
-         `Agregados Monetarios`) 
+titulo <- "Reservas Internacionales Netas BCB"
+subtitulo <- "(En millones USD)"
 
-data <- cbind(activo, pasivo) 
-data
-hoja_excel <- as_tbl_time(data, index = Fecha) #FORMATO DATE FLEXIBLE
-hoja_excel_ <- as_period(hoja_excel, period = "year", side = "end", include_endpoints = FALSE)
-
-var_col <- colnames(data)[-c(1,8,16)]
-
-line_col_3 <- 
-  hoja_excel_ %!>%
-  pivot_longer(
-    cols = c(`Destino del Medio Circulante`, `Agregados Monetarios`),
-    names_to = "var_line",
-    values_to = "value_line"
-  ) %!>%
-  pivot_longer(cols = any_of(var_col),
-               names_to = "var_col",
-               values_to = "value_col") %!>%
-  dplyr::filter(
-    var_line %in% "Destino del Medio Circulante" &
-      var_col %in% c(
-        "Billetes y Monedas en poder del Público",
-        "Depósitos Vista",
-        "Caja de Ahorros",
-        "Depósito a Plazo Fijo",
-        "Otras Obligaciones",
-        "Títulos Públicos en Poder del Sector Privado no Financiero",
-        "Destino del Medio Circulante") |
-      var_line %in% "Agregados Monetarios" &
-      var_col %in% c(
-        "M1",
-        "M'1",
-        "M2",
-        "M'2",
-        "M3",
-        "M'3",
-        "M4",
-        "Agregados Monetarios"
-      )
-  ) %!>%
-  mutate(across(where(is.numeric),  ~ . / 1000),
-         across(where(is.character), as_factor),
-         new_id=cur_group_id(),
-         .by = var_line) %!>% 
-  mutate(across(where(is.character), as_factor))
-
-origen_g_3 <- 
-  line_col_3 %!>% 
-  dplyr::filter(
-    new_id==1) 
-
-destino_g_3 <- 
-  line_col_3 %!>% 
-  dplyr::filter(
-    new_id==2) 
-
-
-pal_fill <- 
-  destino_g_3 %!>%
-  pull(var_col) %!>%
-  unique() %!>% 
-  length() %!>% 
-  pal()
-
-pal_col <- 
-  destino_g_3 %!>%
-  pull(var_col) %!>%
-  unique() %!>% 
-  length() %!>% 
-  pal()
-
-p1 <-    
-  ggplot(line_col_3,aes(Fecha,value_col))+
-  geom_line(destino_g_3,mapping=aes(color = var_col),
-            linewidth=1)+ 
-  scale_color_manual(values = pal_col)+
-  scale_y_continuous(labels = comma_format()) +
-  labs(col = "Agregados Monetarios")+
-  new_scale_fill()+
-  
-  geom_col(origen_g_3,mapping=aes(fill = var_col),
-           color="#1d1d1d") +
-  scale_fill_manual(values = pal_fill)+
-  labs(fill = "Destino Medio Circulante")+
-  facet_wrap(vars(var_line))+theme_wrap()
-
-title <-"DESTINO DEL MEDIO CIRCULANTE/AGREGADOS MONETARIOS DEL SISTEMA FINANCIERO, 2005 - Jul/2023"
-subtitle <-"(En millones de bolivianos)"
-caption = "Fuente: Elaboración propia en base al BCB\nBernal Mauricio / bernalmauricio.com"
-anotattion <- plot_annotation(title = title,subtitle = subtitle,
-                              caption = caption,theme = theme_annotations())
-
-grafico_3 <- p1+plot_layout(guides = "collect")&anotattion
+dygraph_bcb_rin_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_bcb_rin_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
 
 ```
-
-### Autoridad de Supervisión del Sistema Financiero (ASFI)
-{{< tabs tabTotal="14">}}
-{{< tab tabName="Estructura de Activos" >}}
-```{r knitr-activos, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/activos/Cartera Neta_Activo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/activos/Disponibilidades_Activos.png", error = FALSE)
-```
-{{< /tab >}}
-{{< tab tabName="Calidad de Cartera" >}}
-```{r knitr-calidad, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/calidad/A Cartera con requerimiento de previsión.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/B Cartera con requerimiento de previsión.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/C Cartera con requerimiento de previsión del 20_.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/Cartera Reprog. o Reestruct. Vencida y Ejec._Cartera Reprog. o Reestruct. Total.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/Cartera reprogramada o reestructurada vigente_Cartera vigente total.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/Cartera reprogramada o reestructurada_Cartera.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/Cartera Vencida Total+Ejecución _Total Cartera.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/Cartera Vigente Total_Cartera.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/D Cartera con requerimiento de previsión del 50_.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/E Cartera con requerimiento de previsión del 80_.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/F Cartera con requerimiento de previsión del 100_.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/Prev. Cartera Incobrable_Cartera.png", error = FALSE)
-knitr::include_graphics("/images/asfi/calidad/Prod. Financieros Devengados por Cobrar CarteraCartera.png", error = FALSE)
-```
-{{< /tab >}}
-{{< tab tabName="Estructura Financiera" >}} 
-```{r knitr-esfinanciera, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/esfinanciera/Activo improductivo_Patrimonio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/esfinanciera/Activo Productivo_Activo+Contingente.png", error = FALSE)
-knitr::include_graphics("/images/asfi/esfinanciera/Activo Productivo-Pasivo con Costo_Pasivo con Costo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/esfinanciera/Pasivo con Costo_Pasivo+Contingente.png", error = FALSE )
-```
-{{< /tab >}}
-{{< tab tabName="Estructura de Gastos de Administración">}}
-```{r knitr-gastos, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/gastos/Deprec.y Amortizaciones_Gastos de Administración.png", error = FALSE)
-knitr::include_graphics("/images/asfi/gastos/Gastos de Administración_Total Egresos.png", error = FALSE)
-knitr::include_graphics("/images/asfi/gastos/Gastos de Personal_Gastos de Administración.png", error = FALSE)
-knitr::include_graphics("/images/asfi/gastos/Otros Gastos Administración_Gastos de Administración.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Ingresos y Gastos Financieros">}}
-```{r knitr-ingresos, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/ingresos/cargosbcb.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Int. Depósitos Caja de Ahorro_Oblig. Púb. Ctas. Ahorro.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Int. Depósitos Púb. a Plazo_Depósitos Púb. a Plazo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Int. Oblig. con Emp. públicas_Oblig. cemp. públicas.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Int. Oblig. Púb. a la Vista_Oblig. Púb. a la Vista.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Int. penales Cartera en Ejecución Total_Productos cartera en Ejecución.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Int. penales Cartera Vencida Total y en Ejecución Total_Productos cartera Vencida Total y en Ejecución.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Int. penales Cartera Vencida Total_Productos cartera vencida total.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Productos por Cartera Reprog. y Reestruct. Vencida y en Ejec._Cartera Reprog. y Reestruct. Vencida.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Productos por Cartera Reprog. y Reestruct. Vigente_Cartera Reprog. y Reestruct. Vigente.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Productos por Cartera Vencida y en Ejecución_Cartera Vencida y en Ejecución.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ingresos/Productos por Cartera Vigente_Cartera Vigente.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Liquidez">}}
-```{r knitr-liquidez, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/liquidez/Activos líquidos_Pasivos de corto plazo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/liquidez/Disponib.+Inv.Temp._Oblig.a Corto Plazo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/liquidez/Disponib.+Inv.Temp._Pasivo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/liquidez/Disponibilidades_Oblig.a Corto Plazo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/liquidez/Disponibilidades+Inv.Temporarias_Activo.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Estructura de Obligaciones">}}
-```{r knitr-obligaciones, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/obligaciones/Días de permanencia de los depósitos a plazo fijo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/obligaciones/Oblig. Personas Jurídicas e Institucionales_Total Oblig. Público.png", error = FALSE)
-knitr::include_graphics("/images/asfi/obligaciones/Oblig. Personas Naturales_Total Oblig. Público.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Estructura de Pasivos">}}
-```{r knitr-pasivos, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/pasivos/Oblig. con Bancos y Ent. Fin._Pasivo+Patrimonio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/pasivos/Oblig. con el Público y con Empresas Públicas_Pasivo+Patrimonio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/pasivos/Oblig. con el_ PúblicoPasivo+Patrimonio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/pasivos/Oblig. Subordinadas_Pasivo+Patrimonio.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Ratios de Eficiencia (anualizado)">}}
-```{r knitr-ratios, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_(Activo+Contingente).png", error = FALSE)
-knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_(Cartera+Contingente).png", error = FALSE)
-knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_Activo Productivo Promedio neto de Contingente.png", error = FALSE)
-knitr::include_graphics("/images/asfi/ratios/Gastos de Administración_Depósito.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Ratios de Eficiencia (anualizado)">}}
-```{r knitr-rentabilidad, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/rentabilidad/Resultado de Operación Bruto_(Activo+Contingente).png", error = FALSE)
-knitr::include_graphics("/images/asfi/rentabilidad/Resultado de operación después de Incobrables_(Activo + Contingente).png", error = FALSE)
-knitr::include_graphics("/images/asfi/rentabilidad/Resultado de Operación Neto Antes de Impuestos_(Activo+Contingente).png", error = FALSE)
-knitr::include_graphics("/images/asfi/rentabilidad/Resultado de Operación Neto_(Activo + Contingente).png", error = FALSE)
-knitr::include_graphics("/images/asfi/rentabilidad/Resultado Financiero Bruto_(Activo + Contingente).png", error = FALSE)
-knitr::include_graphics("/images/asfi/rentabilidad/Resultado Neto de la Gestión_(Activo+Contingente) (ROA).png", error = FALSE)
-knitr::include_graphics("/images/asfi/rentabilidad/Resultado Neto de la Gestión_Patrimonio (ROE.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Resultados (anualizado)">}}
-```{r knitr-resultados, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/resultados/Ajustes netos por inflación y por diferencias de cambio_Activo+Conting.png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Cargos por Incob. Netos de Recuper._Activo+Conting..png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Deprec. y Desval. Bienes de Uso_Bienes de Uso-Terrenos.png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Gastos de Administración_Activo+Contingente.png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Gastos Financieros_Activo+Contingente.png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Gastos Financieros_Pasivos con costo promedio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Ing. Extraord. y de Gest. Ant. Netos_Activo+Conting..png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Ingresos Financieros_Activo+Contingente.png", error = FALSE)
-knitr::include_graphics("/images/asfi/resultados/Otros Ingresos Operativos Netos_Activo+Contingente.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Solvencia">}}
-```{r knitr-solvencia, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/solvencia/Cartera Vencida + Ejec. reprog. o reestruct._Patrimonio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/solvencia/Cartera Vencida Total + Eje.Total - Prev_Patrimonio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/solvencia/Cartera Vencida Total + Ejecución Total_Patrimonio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/solvencia/Coeficiente de Adecuación Patrimonial.png", error = FALSE)
-knitr::include_graphics("/images/asfi/solvencia/Patrimonio_Activo.png", error = FALSE)
-knitr::include_graphics("/images/asfi/solvencia/Patrimonio_Activo+Contingte..png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Cálculo Spread Efectivo (anualizado)">}}
-```{r knitr-spread, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/spread/1.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread/2.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread/3.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread/4.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread/5.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread/6.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread/7.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< tab tabName="Utillización Spread Efectivo">}}
-```{r knitr-spread-efectivo, out.width='50%', echo=FALSE}
-knitr::include_graphics("/images/asfi/spread-efectivo/Ajustes netos por inflación y por diferencia de cambio.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread-efectivo/Gastos administrativos.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread-efectivo/Incobrabilidad.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread-efectivo/Resultados extraordinarios.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread-efectivo/Resultados gestiones anteriores.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread-efectivo/SPREAD EFECTIVO.png", error = FALSE)
-knitr::include_graphics("/images/asfi/spread-efectivo/UTILIDAD NETA.png", error = FALSE)
-```
-{{< /tab >}} 
-{{< /tabs >}}
-
 
 
 ### Banco Central de Bolivia (BCB)
+<!-- Barra de navegación horizontal -->
+<ul class="nav nav-tabs" id="nav-tab" role="tablist">
 
+  <li class="nav-item">
+    <a class="nav-link active" id="balance-tab" data-toggle="tab" href="#balance" role="tab" aria-controls="balance" aria-selected="true">Balance del BCB</a>
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link" id="rin-tab" data-toggle="tab" href="#rin" role="tab" aria-controls="rin" aria-selected="false">Reservas Internacionales</a>
+  </li>
+  
+  <li class="nav-item">
+  <a class="nav-link" id="basemon-tab" data-toggle="tab" href="#basemon" role="tab" aria-controls="basemon" aria-selected="false">Base Monetaria</a>
+  </li>
+  
+</ul>
 
-{{< tabs tabTotal="14">}}
-{{< tab tabName="Balance BCB">}}
+<!-- Contenido de las pestañas -->
+<div class="tab-content" id="nav-tabContent">
 
-```{r balance_bcb,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
-
-grafico_2
-
-activo_1%>%
-  knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
-  kable_paper(full_width = FALSE)%>%
-  kable_styling(fixed_thead = T)%>%
-  row_spec(1:25, color = "#eee", background = "#212529")%>%
-  html_table_width(c(50,10))
-
-pasivo_1%>%
-  knitr::kable(centering = F, "html", escape = FALSE,longtable = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
-  kable_paper(full_width = FALSE)%>%
-  kable_styling(fixed_thead = T)%>%
-  row_spec(1:25, color = "#eee", background = "#212529") %>%
-  html_table_width(c(50,10))
-
-
+  <div class="tab-pane fade show active" id="balance" role="tabpanel" aria-labelledby="balance-tab">
+```{r bcb-activo, echo=FALSE, warning=FALSE}
+dygraph_bcb_activo_simple
+dygraph_bcb_pasivo_simple
+dygraph_bcb_activo_stacked
+dygraph_bcb_pasivo_stacked
 ```
+</div>
 
-{{< /tab>}}
+<div class="tab-pane fade show active" id="rin" role="tabpanel" aria-labelledby="rin-tab">
+```{r bcb-rin, echo=FALSE, warning=FALSE}
+dygraph_bcb_rin_simple
+dygraph_bcb_rin_stacked
+``` 
+</div>
 
-{{< tab tabName="Base Monetaria">}}
-```{r base_monetaria,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
-grafico
-```
-{{< /tab >}}
-
-{{< tab tabName="Agregados Monetarios" >}} 
-```{r destino_monetaria,warning = FALSE, fig.width = 11,fig.height = 5,echo=FALSE}
-grafico_3
-```
-{{< /tab >}}
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< /tabs >}} 
+<div class="tab-pane fade show active" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
+```{r bcb-base-monetaria, echo=FALSE, warning=FALSE}
 
 
- <script type="text/javascript">
+``` 
+</div>
+  
+</div>
+
+<!-- JavaScript para cargar el contenido dinámicamente y manejar los gráficos Dygraph -->
+<script>
   $(document).ready(function() {
-    $('body').prepend('<div class=\"zoomDiv\"><img src=\"\" class=\"zoomImg\"></div>');
-    // onClick function for all plots (img's)
-    $('img:not(.zoomImg)').click(function() {
-      $('.zoomImg').attr('src', $(this).attr('src')).css({width: '100%'});
-      $('.zoomDiv').css({opacity: '1', width: 'auto', border: '1px solid white', borderRadius: '5px', position: 'fixed', top: '52%', left: '50%', marginRight: '-50%', transform: 'translate(-50%, -50%)', boxShadow: '0px 0px 50px #888888', zIndex: '50', overflow: 'auto', maxHeight: '100%'});
+    // Inicializar Dygraphs en la pestaña activa
+    initDygraphs();
+
+    // Manejar el cambio de pestaña
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      // Inicializar Dygraphs en la nueva pestaña activa
+      initDygraphs();
     });
-    // onClick function for zoomImg
-    $('img.zoomImg').click(function() {
-      $('.zoomDiv').css({opacity: '0', width: '0%'}); 
-    });
+
+    // Función para inicializar Dygraphs
+    function initDygraphs() {
+      // Obtener el contenedor de Dygraphs en la pestaña activa
+      var activeTab = $('.tab-pane.active');
+      var dygraphContainer = activeTab.find('.dygraphs');
+
+      // Verificar si Dygraphs ya está inicializado en esta pestaña
+      if (!dygraphContainer.hasClass('initialized')) {
+        // Inicializar Dygraphs aquí (puedes llamar a la función de inicialización)
+        // Por ejemplo: dygraphContainer.dygraph(options);
+        
+        // Marcar como inicializado
+        dygraphContainer.addClass('initialized');
+      }
+    }
   });
 </script>
