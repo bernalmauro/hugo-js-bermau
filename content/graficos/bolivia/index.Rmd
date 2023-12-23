@@ -344,7 +344,7 @@ dygraph_bcb_rin_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subti
 <div class="tab-content" id="nav-tabContent">
 
   <div class="tab-pane fade show active" id="balance" role="tabpanel" aria-labelledby="balance-tab">
-```{r bcb-activo, echo=FALSE, warning=FALSE}
+```{r bcb-activo, echo=FALSE, warning=FALSE, out.width=500}
 dygraph_bcb_activo_simple
 dygraph_bcb_pasivo_simple
 dygraph_bcb_activo_stacked
@@ -353,14 +353,14 @@ dygraph_bcb_pasivo_stacked
 </div>
 
 <div class="tab-pane fade show active" id="rin" role="tabpanel" aria-labelledby="rin-tab">
-```{r bcb-rin, echo=FALSE, warning=FALSE}
+```{r bcb-rin, echo=FALSE, warning=FALSE, out.width=500}
 dygraph_bcb_rin_simple
 dygraph_bcb_rin_stacked
 ``` 
 </div>
 
 <div class="tab-pane fade show active" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
-```{r bcb-base-monetaria, echo=FALSE, warning=FALSE}
+```{r bcb-base-monetaria, echo=FALSE, warning=FALSE, out.width=500}
 
 
 ``` 
