@@ -1,6 +1,6 @@
 ---
 title: "El Informe de Standard & Poor's para Bolivia"
-datePublished: 2023-11-20
+date: 2023-11-20
 draft: false
 featuredImage: /images/standard-poors-bolivia-bernalmauricio.jpg
 categories: ["Análisis Económico"]

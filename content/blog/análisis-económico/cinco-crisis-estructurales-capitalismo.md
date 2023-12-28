@@ -1,6 +1,6 @@
 ---
 title: "¿Las Cinco Crisis Estructurales del Capitalismo?"
-datePublished: 2019-09-28
+date: 2019-09-28
 draft: false
 featuredImage: /images/cinco-crisis-capitalismo-bernalmauricio.jpg
 categories: ["Análisis Económico"]

@@ -1,6 +1,6 @@
 ---
 title: "¿Quién asigna mejor los recursos?"
-datePublished: 2019-09-20
+date: 2019-09-01
 draft: false
 featuredImage: /images/quien-asigna-mejor-los-recursos-bernalmauricio.jpg
 categories: ["Teoría Económica"]

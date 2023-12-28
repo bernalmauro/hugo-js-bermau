@@ -1,6 +1,6 @@
 ---
 title: "Breve Analisis de la Economia Boliviana"
-datePublished: 2023-11-06
+date: 2018-10-28
 draft: false
 featuredImage: /images/breve-analisis-economia-boliviana-bernalmauricio.jpg
 categories: ["Análisis Económico"]
