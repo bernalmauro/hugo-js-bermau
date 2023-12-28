@@ -319,6 +319,170 @@ subtitulo <- "(En millones USD)"
 dygraph_bcb_rin_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
 dygraph_bcb_rin_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
 
+#ORIGEN BASE MONETARIA####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "D120:S312"
+sheet <- "01"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Dec2006"
+to <- "31Dec2022"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet = sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Reservas Internacionales Netas",
+  "Reservas Internacionales Brutas",
+  "Obligaciones Externas a Corto Plazo",
+  "Crédito Neto al Sector Público",
+  "Crédito a Bancos",
+  "BCL",
+  "BE Y OEF",
+  "Títulos Regulación Monetaria",
+  "SRD",
+  "Otras Cuentas Netas",
+  "Base Monetaria",
+  "Billetes y Monedas en poder del Público",
+  "Reservas Bancarias en Moneda Nacional",
+  "Reservas Bancarias en UFV",
+  "Reservas Bancarias en Moneda Extranjera",
+  "Total Reservas Bancarias"
+)
+
+Fecha <- fun_fecha(from,to,by,each)
+data <- cbind(Fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos <- data %>%
+  select(Fecha, 
+         `Reservas Internacionales Netas`,
+         `Crédito Neto al Sector Público`,
+         `Crédito a Bancos`,
+         `Títulos Regulación Monetaria`,
+         `Otras Cuentas Netas`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+
+titulo <- "Origen de la Base Monetaria"
+subtitulo <- "(En millones BOB)"
+
+dygraph_origen_base_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_origen_base_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+#DESTINO BASE MONETARIA####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "D120:S312"
+sheet <- "01"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Dec2006"
+to <- "31Dec2022"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet = sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Reservas Internacionales Netas",
+  "Reservas Internacionales Brutas",
+  "Obligaciones Externas a Corto Plazo",
+  "Crédito Neto al Sector Público",
+  "Crédito a Bancos",
+  "BCL",
+  "BE Y OEF",
+  "Títulos Regulación Monetaria",
+  "SRD",
+  "Otras Cuentas Netas",
+  "Base Monetaria",
+  "Billetes y Monedas en Poder del Público",
+  "Reservas Bancarias en Moneda Nacional",
+  "Reservas Bancarias en UFV",
+  "Reservas Bancarias en Moneda Extranjera",
+  "Reservas Bancarias"
+)
+
+Fecha <- fun_fecha(from,to,by,each)
+data <- cbind(Fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos <- data %>%
+  select(Fecha, 
+         `Billetes y Monedas en Poder del Público`,
+         `Reservas Bancarias`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+
+titulo <- "Destino de la Base Monetaria"
+subtitulo <- "(En millones BOB)"
+
+dygraph_destino_base_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_destino_base_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+#BALANZA CAMBIARIA INGRESO ANUAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/33.balanza_cambiaria.xlsx"
+#IMPORTAR DATOS DE EXCEL
+range <- "A10:S86"
+sheet <- "hoja_anual"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "31Dec2005"
+to <- "31Dec2022"
+by <- "year"
+each <- 1
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+data
+conjunto_datos <- data %>%
+  select(fecha, matches("^I\\.[A-Z]\\.\\s?[A-Z][^.]*$"))
+
+titulo <- "Ingreso de Divisas (Saldo Anual)"
+subtitulo <- "(En millones USD)"
+
+dygraph_cambiaria_ingreso_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_cambiaria_ingreso_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+
+#BALANZA CAMBIARIA EGRESO ANUAL####
+
+conjunto_datos <- data %>%
+  select(fecha, matches("^II\\.[A-Z]\\.\\s?[A-Z][^.]*$"))
+
+titulo <- "Egreso de Divisas (Saldo Anual)"
+subtitulo <- "(En millones USD)"
+
+dygraph_cambiaria_egreso_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_cambiaria_egreso_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+
+#BALANZA CAMBIARIA SALDO ANUAL####
+
+conjunto_datos <- data %>%
+  select(fecha, `FLUJO NETO DE DIVISAS`)
+
+titulo <- "Saldo Balanza Cambiaria (Anual)"
+subtitulo <- "(En millones USD)"
+
+dygraph_cambiaria_saldo_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
+dygraph_cambiaria_saldo_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+
 ```
 
 
@@ -336,6 +500,10 @@ dygraph_bcb_rin_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subti
   
   <li class="nav-item">
   <a class="nav-link" id="basemon-tab" data-toggle="tab" href="#basemon" role="tab" aria-controls="basemon" aria-selected="false">Base Monetaria</a>
+  </li>
+  
+  <li class="nav-item">
+  <a class="nav-link" id="balanzacamb-tab" data-toggle="tab" href="#balanzacamb" role="tab" aria-controls="balanzacamb" aria-selected="false">Balanza Cambiaria</a>
   </li>
   
 </ul>
@@ -361,8 +529,21 @@ dygraph_bcb_rin_stacked
 
 <div class="tab-pane fade show active" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
 ```{r bcb-base-monetaria, echo=FALSE, warning=FALSE, out.width=500}
-
-
+dygraph_origen_base_simple
+dygraph_destino_base_simple
+dygraph_origen_base_stacked
+dygraph_destino_base_stacked
+``` 
+</div>
+  
+<div class="tab-pane fade show active" id="balanzacamb" role="tabpanel" aria-labelledby="balanzacamb-tab">
+```{r bcb-base-balanzacamb, echo=FALSE, warning=FALSE, out.width=500}
+dygraph_cambiaria_ingreso_simple
+dygraph_cambiaria_egreso_simple
+dygraph_cambiaria_ingreso_stacked
+dygraph_cambiaria_egreso_stacked
+dygraph_cambiaria_saldo_simple
+dygraph_cambiaria_saldo_stacked
 ``` 
 </div>
   
