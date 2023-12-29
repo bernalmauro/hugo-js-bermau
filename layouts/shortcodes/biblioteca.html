@@ -1,0 +1,26 @@
+{{ $categoria := .Get "categoria" }}
+{{ with index .Site.Data.libros.economia $categoria }}
+  <div class="biblioteca_post">
+    <figure class="text-center-biblioteca_post">
+      <blockquote class="blockquote-biblioteca_post">
+        <p></p>
+      </blockquote>
+    </figure>
+
+    <div class="row">
+      {{ range . }}
+      <div class="col-sm d-flex">
+        <div class="card card-body">
+          <div class="card-body flex-fill">
+            <h5 class="card-title">{{ .titulo }}</h5>
+            <p class="card-text">{{ .resumen | truncate 200 }}</p>
+            <a href="{{ .link }}" class="btn btn-primary" download="{{ .titulo }}" target="_blank" rel="noopener noreferrer">Descargar</a>
+
+            
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+{{ end }}
