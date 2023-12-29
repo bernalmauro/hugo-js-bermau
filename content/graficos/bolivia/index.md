@@ -242,25 +242,32 @@ output: html_document
 <!-- JavaScript para cargar el contenido dinámicamente y manejar los gráficos Dygraph -->
 <script>
   $(document).ready(function() {
-    // Inicializar Dygraphs en la pestaña activa
-    initDygraphs();
-&#10;    // Manejar el cambio de pestaña
+    // Manejar el cambio de pestaña
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-      // Inicializar Dygraphs en la nueva pestaña activa
-      initDygraphs();
+      // Obtener el identificador de la pestaña desde el enlace del menú
+      var tabId = $(this).attr('href');
+      &#10;      // Mostrar la pestaña correspondiente
+      $('.nav-link').removeClass('active');
+      $(this).addClass('active');
+      $('.tab-pane').removeClass('show active');
+      $(tabId).addClass('show active');
+&#10;      // Inicializar Dygraphs en la nueva pestaña activa
+      initDygraphs(tabId);
     });
 &#10;    // Función para inicializar Dygraphs
-    function initDygraphs() {
+    function initDygraphs(tabId) {
       // Obtener el contenedor de Dygraphs en la pestaña activa
-      var activeTab = $('.tab-pane.active');
-      var dygraphContainer = activeTab.find('.dygraphs');
-&#10;      // Verificar si Dygraphs ya está inicializado en esta pestaña
-      if (!dygraphContainer.hasClass('initialized')) {
-        // Inicializar Dygraphs aquí (puedes llamar a la función de inicialización)
-        // Por ejemplo: dygraphContainer.dygraph(options);
-        &#10;        // Marcar como inicializado
-        dygraphContainer.addClass('initialized');
-      }
+      var dygraphContainers = $(tabId).find('.dygraph-container');
+&#10;      // Iterar sobre cada contenedor y verificar si Dygraphs ya está inicializado
+      dygraphContainers.each(function() {
+        var dygraphContainer = $(this);
+        if (!dygraphContainer.hasClass('initialized')) {
+          // Inicializar Dygraphs aquí (puedes llamar a la función de inicialización)
+          // Por ejemplo: dygraphContainer.dygraph(options);
+          &#10;          // Marcar como inicializado
+          dygraphContainer.addClass('initialized');
+        }
+      });
     }
   });
 </script>

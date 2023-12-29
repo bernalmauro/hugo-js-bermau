@@ -3,9 +3,7 @@ title: "Gráficos"
 output: html_document
 ---
 
-
 ```{r warning = FALSE, include=FALSE}
-
 #LIBRARY####
 library(dygraphs) 
 library(tidyverse)
@@ -32,19 +30,17 @@ library(patchwork)
 library(kableExtra)
 library(formattable)
 
-
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 
 #LABURO GGPLOT WRAP####
-
 fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
   
   data <- 
     rio::import(
       file, 
       setclass = "tbl_df",
+      sheet=sheet,
       range = range,
-      sheet = sheet,
       col_names = col_names,
       .name_repair = "unique_quiet") %!>% 
     remove_empty(c("rows", "cols")) %!>%
@@ -58,26 +54,68 @@ fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
   fecha <- fun_fecha(from,to,by,each)
   data <- cbind(fecha, data) 
   data <- as_tibble(data)
+  
 }
-
 fun_fecha <-function(from, to, by, each) {
   rep(seq(anydate(from),
           anydate(to),
           by = by), each = each)
 }
+pal <- function(num) {
+  usecol(c("#065a25", "#f2f419", "#f41919"),
+         n = num)
+}
+html_table_width <- function(kable_output, width){
+  width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
+  sub("<table>", paste0("<table>\n", width_html), kable_output)
+}
+dygraph_nominal_simple <- function(data, titulo, subtitulo, mi_paleta) {
+  dygraph(data, main=paste(titulo, "<br>", subtitulo)) %>%
+    dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %>%
+    dyOptions(
+      stackedGraph = FALSE,
+      axisLineColor = "#6b7785",
+      colors = mi_paleta) %>%
+    dyAxis("x", drawGrid = FALSE) %>%
+    dyAxis(
+      "y",
+      drawGrid = FALSE,
+      valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+      axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+    ) %>%
+    dyCrosshair(direction = "vertical") %>%
+    dyRangeSelector(height = 30) %>%
+    dyHighlight(
+      highlightCircleSize = 4,
+      highlightSeriesBackgroundAlpha = 1
+    )
+}
+dygraph_nominal_stacked <- function(data, titulo, subtitulo, mi_paleta) {
+  dygraph(data, main=paste(titulo, "<br>", subtitulo)) %>%
+    dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %>%
+    dyOptions(
+      stackedGraph = TRUE,
+      axisLineColor = "#6b7785",
+      colors = mi_paleta) %>%
+    dyAxis("x", drawGrid = FALSE) %>%
+    dyAxis(
+      "y",
+      drawGrid = FALSE,
+      valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+      axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+    ) %>%
+    dyCrosshair(direction = "vertical") %>%
+    dyRangeSelector(height = 30) %>%
+    dyHighlight(
+      highlightCircleSize = 4,
+      highlightSeriesBackgroundAlpha = 1
+    )
+}
 
-theme_annotations <- function() {
-  theme(
-    title = element_text(
-      family = "Constantia",
-      face = "plain",
-      colour = "#e3e3e3",
-      size = rel(1),
-      inherit.blank = FALSE),
-    plot.title = element_text(hjust = 1, vjust = 0),
-    plot.subtitle = element_text(hjust = 1,vjust = 0),
-    plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
-    complete=TRUE)
+# Crear la paleta de colores
+mi_paleta <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf")
+pal <- function(num) {
+  mi_paleta[seq_len(num)]
 }
 
 #PBI Y POBLACION MUNDIAL DYGRAPHS####
@@ -90,7 +128,7 @@ excel <-excel[c(-1,-2,-4)]
 excel <- cbind(excel, gdp)
 
 
-dygraph_grafico_1 <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios") %!>% 
+pib_mundial <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios") %!>% 
   dySeries("gdp", 
            label = "Producto Interno Bruto Mundial", color="green") %!>% 
   dyLegend(width = 300, show = "onmouseover") %!>% 
@@ -125,7 +163,7 @@ excel <-
          `South Asia`,
          `Sub-Saharan Africa`) 
 
-dygraph_grafico_2 <- dygraph(excel, main = "Población total que vive en pobreza extrema por región del mundo (millones de habitantes)") %!>% 
+pobreza_mundial <- dygraph(excel, main = "Población total que vive en pobreza extrema por región del mundo (millones de habitantes)") %!>% 
   dySeries("High income countries", 
            label = "Paises de Altos Ingresos", color = "#6D3E91") %!>% 
   dySeries("Latin America and the Caribbean", 
@@ -168,7 +206,7 @@ data<-
   remove_empty(c("rows", "cols")) 
 
 
-dygraph_grafico_3 <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</small>") %!>% 
+esperanza_vida <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</small>") %!>% 
   dySeries("Oceania", 
            label = "Oceania", color = "#18470f") %!>% 
   dySeries("Europe", 
@@ -196,32 +234,82 @@ dygraph_grafico_3 <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021
 ```
 
 
-### DATOS PRODUCCION MUNDIAL
-::: {.grafico .fuente-bajo-grafico}
-```{r pib-mundial, warning = FALSE, out.width=600,echo=FALSE, fig.align='center'}
+### Estadísticas Mundiales
+<!-- Barra de navegación horizontal -->
+<ul class="nav nav-tabs" id="nav-tab" role="tablist">
 
-dygraph_grafico_1 
+  <li class="nav-item">
+    <a class="nav-link active" id="pibmundial-tab" data-toggle="tab" href="#pibmundial" role="tab" aria-controls="pibmundial" aria-selected="true">PIB Mundial</a>
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link" id="pobrezamundial-tab" data-toggle="tab" href="#pobrezamundial" role="tab" aria-controls="pobrezamundial" aria-selected="false">Pobreza Mundial</a>
+  </li>
+  
+  <li class="nav-item">
+  <a class="nav-link" id="esperanzavidamundial-tab" data-toggle="tab" href="#esperanzavidamundial" role="tab" aria-controls="esperanzavidamundial" aria-selected="false">Esperanza de Vida Mundial</a>
+  </li>
+  
+</ul>
 
+<!-- Contenido de las pestañas -->
+<div class="tab-content" id="nav-tabContent">
+
+  <div class="tab-pane fade show active" id="pibmundial" role="tabpanel" aria-labelledby="pibmundial-tab">
+```{r pibmundial, echo=FALSE, warning=FALSE, out.width=500}
+pib_mundial
 ```
-**Fuente:** *Our World In Data based on World Bank & Maddison (2017)*
-:::
+</div>
 
+<div class="tab-pane fade show active" id="pobrezamundial" role="tabpanel" aria-labelledby="pobrezamundial-tab">
+```{r pobrezamundial, echo=FALSE, warning=FALSE, out.width=500}
+pobreza_mundial
+``` 
+</div>
 
-### DATOS POBREZA MUNDIAL
-::: {.grafico .fuente-bajo-grafico}
-```{r pobreza_1, warning = FALSE, out.width=500, echo=FALSE, fig.align='left'}
+<div class="tab-pane fade show active" id="esperanzavidamundial" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
+```{r esperanzavidamundial, echo=FALSE, warning=FALSE, out.width=500}
+esperanza_vida
+``` 
+</div>
+  
+  
+</div>
 
-dygraph_grafico_2
+<!-- JavaScript para cargar el contenido dinámicamente y manejar los gráficos Dygraph -->
+<script>
+  $(document).ready(function() {
+    // Manejar el cambio de pestaña
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      // Obtener el identificador de la pestaña desde el enlace del menú
+      var tabId = $(this).attr('href');
+      
+      // Mostrar la pestaña correspondiente
+      $('.nav-link').removeClass('active');
+      $(this).addClass('active');
+      $('.tab-pane').removeClass('show active');
+      $(tabId).addClass('show active');
 
-```
-**Fuente:** *World Bank Poverty and Inequality Platform (2022)*
-:::
+      // Inicializar Dygraphs en la nueva pestaña activa
+      initDygraphs(tabId);
+    });
 
-::: {.grafico .fuente-bajo-grafico}
-```{r pobreza_2, warning = FALSE, out.width=500, echo=FALSE, fig.align='left'}
+    // Función para inicializar Dygraphs
+    function initDygraphs(tabId) {
+      // Obtener el contenedor de Dygraphs en la pestaña activa
+      var dygraphContainers = $(tabId).find('.dygraph-container');
 
-dygraph_grafico_3 
-
-```
-**Source:** *UN WPP (2022); Zijdeman et al. (2015); Riley (2005)*
-:::
+      // Iterar sobre cada contenedor y verificar si Dygraphs ya está inicializado
+      dygraphContainers.each(function() {
+        var dygraphContainer = $(this);
+        if (!dygraphContainer.hasClass('initialized')) {
+          // Inicializar Dygraphs aquí (puedes llamar a la función de inicialización)
+          // Por ejemplo: dygraphContainer.dygraph(options);
+          
+          // Marcar como inicializado
+          dygraphContainer.addClass('initialized');
+        }
+      });
+    }
+  });
+</script>

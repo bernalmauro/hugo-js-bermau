@@ -30,9 +30,7 @@ library(patchwork)
 library(kableExtra)
 library(formattable)
 
-knitr::opts_chunk$set(echo = TRUE, error = TRUE, fig.width=11, fig.height=5)
-
-
+knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 
 #LABURO GGPLOT WRAP####
 fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
