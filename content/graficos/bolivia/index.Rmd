@@ -484,6 +484,7 @@ dygraph_cambiaria_saldo_stacked <- dygraph_nominal_stacked(conjunto_datos, titul
 ```
 
 
+
 ### Banco Central de Bolivia (BCB)
 <!-- Barra de navegación horizontal -->
 <ul class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -546,6 +547,15 @@ dygraph_cambiaria_saldo_stacked
 </div>
   
 </div>
+
+
+
+
+
+
+
+
+
 
 <!-- JavaScript para cargar el contenido dinámicamente y manejar los gráficos Dygraph -->
 <script>
