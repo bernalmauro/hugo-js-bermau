@@ -1,11 +1,39 @@
 {{- define "main" -}}
 
+<script>
+document.addEventListener('click', function(event) {
+    // Ocultar todos los dygraphs al principio
+    var dygraphs = document.querySelectorAll('.tab-pane.fade');
+    dygraphs.forEach(function(dygraph) {
+        dygraph.style.display = 'none';
+        dygraph.classList.remove('active', 'show');
+        dygraph.style.visibility = 'hidden';
+        dygraph.style.position = 'absolute';
+    });
+
+    // Obtener el ID de la pestaña clickeada
+    var selectedTabId = event.target.getAttribute('aria-controls');
+
+    // Mostrar el dygraph asociado a la pestaña clickeada
+    var selectedDygraph = document.getElementById(selectedTabId);
+    if (selectedDygraph) {
+        selectedDygraph.style.display = 'block';
+        selectedDygraph.classList.add('active', 'show');
+        selectedDygraph.style.visibility = 'visible';
+        selectedDygraph.style.position = 'static';
+    }
+});
+
+</script>
+
+
+
 <article class="article-graficos">
   
   <div class="article-container">
     <div class="row" style="padding-top: 0px !important;">
       <div class="col-sm-10 article-style">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
 
         {{ .Content }}
         

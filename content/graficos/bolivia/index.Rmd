@@ -3,6 +3,7 @@ title: "Bolivia"
 output: html_document
 ---
 
+
 ```{r warning = FALSE, include=FALSE}
 #LIBRARY####
 library(dygraphs) 
@@ -510,7 +511,7 @@ dygraph_cambiaria_saldo_stacked <- dygraph_nominal_stacked(conjunto_datos, titul
 <!-- Contenido de las pestañas -->
 <div class="tab-content" id="nav-tabContent">
   
-  <div class="tab-pane fade active" id="balance" role="tabpanel" aria-labelledby="balance-tab">
+  <div class="tab-pane fade active show" id="balance" role="tabpanel" aria-labelledby="balance-tab">
 ```{r bcb-activo, echo=FALSE, warning=FALSE, out.width=500}
 dygraph_bcb_activo_simple
 dygraph_bcb_pasivo_simple
@@ -548,43 +549,5 @@ dygraph_cambiaria_saldo_stacked
   
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Obtener todas las pestañas
-  var tabs = document.querySelectorAll('.nav-link');
 
-  // Iterar sobre cada pestaña
-  tabs.forEach(function (tab) {
-    // Agregar un listener de clic a cada pestaña
-    tab.addEventListener('click', function (event) {
-      // Detener el comportamiento predeterminado del enlace
-      event.preventDefault();
 
-      // Ocultar todos los gráficos
-      hideAllGraphs();
-
-      // Obtener el identificador de la pestaña clickeada
-      var targetId = tab.getAttribute('href');
-
-      // Mostrar los gráficos de la pestaña clickeada
-      showGraphs(targetId);
-    });
-  });
-
-  // Función para ocultar todos los gráficos
-  function hideAllGraphs() {
-    var graphs = document.querySelectorAll('.tab-pane');
-    graphs.forEach(function (graph) {
-      graph.style.display = 'none';
-    });
-  }
-
-  // Función para mostrar los gráficos de una pestaña específica
-  function showGraphs(tabId) {
-    var targetGraphs = document.querySelector(tabId);
-    if (targetGraphs) {
-      targetGraphs.style.display = 'block';
-    }
-  }
-});
-</script>
