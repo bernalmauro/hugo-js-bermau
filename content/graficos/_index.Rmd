@@ -255,7 +255,7 @@ esperanza_vida <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</s
 <!-- Contenido de las pestañas -->
 <div class="tab-content" id="nav-tabContent">
 
-  <div class="tab-pane fade active" id="pibmundial" role="tabpanel" aria-labelledby="pibmundial-tab">
+  <div class="tab-pane fade active show" id="pibmundial" role="tabpanel" aria-labelledby="pibmundial-tab">
 ```{r pibmundial, echo=FALSE, warning=FALSE, out.width=500}
 pib_mundial
 ```
@@ -275,41 +275,3 @@ esperanza_vida
   
   
 </div>
-
-<!-- JavaScript para cargar el contenido dinámicamente y manejar los gráficos Dygraph -->
-<script>
-  $(document).ready(function() {
-    // Manejar el cambio de pestaña
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-      // Obtener el identificador de la pestaña desde el enlace del menú
-      var tabId = $(this).attr('href');
-      
-      // Mostrar la pestaña correspondiente
-      $('.nav-link').removeClass('active');
-      $(this).addClass('active');
-      $('.tab-pane').removeClass('show active');
-      $(tabId).addClass('show active');
-
-      // Inicializar Dygraphs en la nueva pestaña activa
-      initDygraphs(tabId);
-    });
-
-    // Función para inicializar Dygraphs
-    function initDygraphs(tabId) {
-      // Obtener el contenedor de Dygraphs en la pestaña activa
-      var dygraphContainers = $(tabId).find('.dygraph-container');
-
-      // Iterar sobre cada contenedor y verificar si Dygraphs ya está inicializado
-      dygraphContainers.each(function() {
-        var dygraphContainer = $(this);
-        if (!dygraphContainer.hasClass('initialized')) {
-          // Inicializar Dygraphs aquí (puedes llamar a la función de inicialización)
-          // Por ejemplo: dygraphContainer.dygraph(options);
-          
-          // Marcar como inicializado
-          dygraphContainer.addClass('initialized');
-        }
-      });
-    }
-  });
-</script>

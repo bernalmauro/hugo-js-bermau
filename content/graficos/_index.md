@@ -52,7 +52,7 @@ output: html_document
 
 <div id="nav-tabContent" class="tab-content">
 
-<div id="pibmundial" class="tab-pane fade active" role="tabpanel" aria-labelledby="pibmundial-tab">
+<div id="pibmundial" class="tab-pane fade active show" role="tabpanel" aria-labelledby="pibmundial-tab">
 
 <div class="dygraphs html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1" style="width:500px;height:480px;"></div>
 <script type="application/json" data-for="htmlwidget-1">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawAxis":true,"drawGrid":false},"y":{"drawAxis":true,"axisLabelFormatter":"function(d){return \"$\" + d + \" billones\"}","valueFormatter":"function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \",\");}","drawGrid":false}},"series":{"Producto Interno Bruto Mundial":{"axis":"y"}},"title":"PIB Mundial de los Últimos dos Milenios","labels":["Year","Producto Interno Bruto Mundial"],"retainDateWindow":false,"colors":["green","green"],"legend":"onmouseover","labelsDivWidth":300,"labelsShowZeroValues":true,"labelsSeparateLines":false,"stackedGraph":true,"fillGraph":false,"fillAlpha":0.15,"stepPlot":false,"drawPoints":false,"pointSize":1,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"#6b7785","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false,"showRangeSelector":true,"rangeSelectorHeight":30,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel","highlightCircleSize":2,"highlightSeriesBackgroundAlpha":1,"highlightSeriesOpts":[],"hideOverlayOnMouseOut":true},"annotations":[],"shadings":[],"events":[],"format":"numeric","data":[[1,1000,1500,1600,1700,1820,1870,1900,1913,1940,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015],[0.18274103474165,0.21014473481495,0.43052728115293,0.57446865728769,0.6433229243199,1.20236083306954,1.92391732484512,3.41875377452597,4.73867575900573,7.80636856199303,9.25106328451166,9.79563062060308,10.2486951600302,10.7648504702851,11.132816333836,11.8424364378983,12.3993151219929,12.8712015668878,13.2845118842174,13.8933432617901,14.6204308258341,15.1275450029549,15.840374754695,16.5288236949554,17.7274266711053,18.6556197235743,19.6727780214873,20.4048070770476,21.5275961525308,22.7154807852326,23.8667404645702,24.8559369387911,26.0382259438034,27.7663175448469,28.4127369793204,28.8460525283362,30.2531757268988,31.4799138733314,32.8640333749772,34.0390549220292,34.7270633687229,35.4077652872047,35.7991472519796,36.8173468375886,38.4967218991355,39.8236108285131,41.2319711010656,42.8128962218747,44.6496493242313,46.0768423041231,47.0438,47.6509,48.4851,49.4155,50.8866,52.5766,54.6052,56.7721,58.1595,60.2475,63.1009,64.6392,66.4209,68.8949,72.6182,76.0892,80.2026,84.5765,87.0207,86.7501,91.3297,94.9824,98.0323,101.27,104.72,108.12]],"fixedtz":false,"tzone":"","plugins":{"Crosshair":{"direction":"both"}}},"evals":["attrs.axes.y.axisLabelFormatter","attrs.axes.y.valueFormatter","attrs.interactionModel"],"jsHooks":[]}</script>
@@ -74,36 +74,3 @@ output: html_document
 </div>
 
 </div>
-
-<!-- JavaScript para cargar el contenido dinámicamente y manejar los gráficos Dygraph -->
-<script>
-  $(document).ready(function() {
-    // Manejar el cambio de pestaña
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-      // Obtener el identificador de la pestaña desde el enlace del menú
-      var tabId = $(this).attr('href');
-      &#10;      // Mostrar la pestaña correspondiente
-      $('.nav-link').removeClass('active');
-      $(this).addClass('active');
-      $('.tab-pane').removeClass('show active');
-      $(tabId).addClass('show active');
-&#10;      // Inicializar Dygraphs en la nueva pestaña activa
-      initDygraphs(tabId);
-    });
-&#10;    // Función para inicializar Dygraphs
-    function initDygraphs(tabId) {
-      // Obtener el contenedor de Dygraphs en la pestaña activa
-      var dygraphContainers = $(tabId).find('.dygraph-container');
-&#10;      // Iterar sobre cada contenedor y verificar si Dygraphs ya está inicializado
-      dygraphContainers.each(function() {
-        var dygraphContainer = $(this);
-        if (!dygraphContainer.hasClass('initialized')) {
-          // Inicializar Dygraphs aquí (puedes llamar a la función de inicialización)
-          // Por ejemplo: dygraphContainer.dygraph(options);
-          &#10;          // Marcar como inicializado
-          dygraphContainer.addClass('initialized');
-        }
-      });
-    }
-  });
-</script>
