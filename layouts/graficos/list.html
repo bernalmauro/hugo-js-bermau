@@ -1,5 +1,4 @@
-{{ define "main" }}
-
+{{- define "main" -}}
 
   <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid-list custom-flex">
@@ -37,4 +36,29 @@
   </div>
 </div>
 
-{{ end }}
+
+<script>
+document.addEventListener('click', function(event) {
+    // Ocultar solo los dygraphs que no están asociados a la pestaña clickeada
+    var dygraphs = document.querySelectorAll('.tab-pane.fade');
+    dygraphs.forEach(function(dygraph) {
+        var tabId = dygraph.getAttribute('id');
+        if (tabId !== event.target.getAttribute('aria-controls')) {
+            dygraph.style.visibility = 'hidden';
+            dygraph.style.position = 'absolute';
+        }
+    });
+
+    // Obtener el ID de la pestaña clickeada
+    var selectedTabId = event.target.getAttribute('aria-controls');
+
+    // Mostrar el dygraph asociado a la pestaña clickeada
+    var selectedDygraph = document.getElementById(selectedTabId);
+    if (selectedDygraph) {
+        selectedDygraph.style.visibility = 'visible';
+    }
+});
+</script>
+
+
+{{- end -}}
