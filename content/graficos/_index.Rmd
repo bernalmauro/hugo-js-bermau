@@ -255,19 +255,19 @@ esperanza_vida <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</s
 <!-- Contenido de las pestañas -->
 <div class="tab-content" id="nav-tabContent">
 
-  <div class="tab-pane fade show active" id="pibmundial" role="tabpanel" aria-labelledby="pibmundial-tab">
+  <div class="tab-pane fade active" id="pibmundial" role="tabpanel" aria-labelledby="pibmundial-tab">
 ```{r pibmundial, echo=FALSE, warning=FALSE, out.width=500}
 pib_mundial
 ```
 </div>
 
-<div class="tab-pane fade show active" id="pobrezamundial" role="tabpanel" aria-labelledby="pobrezamundial-tab">
+<div class="tab-pane fade active" id="pobrezamundial" role="tabpanel" aria-labelledby="pobrezamundial-tab">
 ```{r pobrezamundial, echo=FALSE, warning=FALSE, out.width=500}
 pobreza_mundial
 ``` 
 </div>
 
-<div class="tab-pane fade show active" id="esperanzavidamundial" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
+<div class="tab-pane fade active" id="esperanzavidamundial" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
 ```{r esperanzavidamundial, echo=FALSE, warning=FALSE, out.width=500}
 esperanza_vida
 ``` 
