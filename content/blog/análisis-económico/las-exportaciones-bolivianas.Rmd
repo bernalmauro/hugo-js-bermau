@@ -13,7 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
-url: "/blog/análisis-económico/un-recambio-de-las-exportaciones-para-la-argentina"
+url: "/blog/análisis-económico/las-exportaciones-bolivianas"
 ---
 
 ---
