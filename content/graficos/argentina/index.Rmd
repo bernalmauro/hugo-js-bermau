@@ -3,11 +3,8 @@ title: "Argentina"
 output: html_document
 ---
 
-
 ```{r warning = FALSE, include=FALSE}
-
 #LIBRARY####
-
 library(dygraphs) 
 library(tidyverse)
 library(zoo)
@@ -68,48 +65,57 @@ pal <- function(num) {
   usecol(c("#065a25", "#f2f419", "#f41919"),
          n = num)
 }
-theme_wrap <- function() {
-  theme(
-    axis.line.x = element_line("#98918B"),
-    axis.line.y = element_line("#98918B"),
-    axis.ticks = element_line(color = "#98918B"),
-    
-    panel.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
-    panel.grid.major = element_line(color = "#1d1d1d"),
-    panel.grid.minor = element_line(color = "#1d1d1d"),
-    panel.grid.major.y = element_line(color = "#e3e3e3", linetype = "dotted"),
-    panel.grid.major.x = element_line(color = "#4a4a4a", linetype = "dotted"),
-    
-    strip.background = element_rect(fill = "#98918B", color = "#98918B"),
-    strip.text = element_text(color = "black"),
-    strip.placement = 'outside',
-    strip.switch.pad.wrap = unit(10, "mm"),
-    
-    plot.background = element_rect(fill = "#1d1d1d", colour = "#1d1d1d"),
-    legend.box.background = element_blank(),
-    legend.background = element_blank(),
-    legend.key = element_blank(),
-    
-    axis.text = element_text(color = "#e3e3e3",size = rel(1)),
-    axis.title = element_blank(),
-    text = element_text(color = "#e3e3e3",family = "Constantia"),
-    
-    plot.subtitle = element_text(margin = margin(0, 0, 0.5, 0, "cm")),
-    plot.caption = element_text(margin = margin(0.5, 0, 0, 0, "cm"))
-  )
+html_table_width <- function(kable_output, width){
+  width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
+  sub("<table>", paste0("<table>\n", width_html), kable_output)
 }
-theme_annotations <- function() {
-  theme(
-    title = element_text(
-      family = "Constantia",
-      face = "plain",
-      colour = "#e3e3e3",
-      size = rel(1),
-      inherit.blank = FALSE),
-    plot.title = element_text(hjust = 1, vjust = 0),
-    plot.subtitle = element_text(hjust = 1,vjust = 0),
-    plot.background = element_rect(fill = "#1d1d1d", color = "#1d1d1d"),
-    complete=TRUE)
+dygraph_nominal_simple <- function(data, titulo, subtitulo, mi_paleta) {
+  dygraph(data, main=paste(titulo, "<br>", subtitulo)) %>%
+    dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %>%
+    dyOptions(
+      stackedGraph = FALSE,
+      axisLineColor = "#6b7785",
+      colors = mi_paleta) %>%
+    dyAxis("x", drawGrid = FALSE) %>%
+    dyAxis(
+      "y",
+      drawGrid = FALSE,
+      valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+      axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+    ) %>%
+    dyCrosshair(direction = "vertical") %>%
+    dyRangeSelector(height = 30) %>%
+    dyHighlight(
+      highlightCircleSize = 4,
+      highlightSeriesBackgroundAlpha = 1
+    )
+}
+dygraph_nominal_stacked <- function(data, titulo, subtitulo, mi_paleta) {
+  dygraph(data, main=paste(titulo, "<br>", subtitulo)) %>%
+    dyLegend(width = 300, show = "onmouseover", labelsSeparateLines = TRUE) %>%
+    dyOptions(
+      stackedGraph = TRUE,
+      axisLineColor = "#6b7785",
+      colors = mi_paleta) %>%
+    dyAxis("x", drawGrid = FALSE) %>%
+    dyAxis(
+      "y",
+      drawGrid = FALSE,
+      valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
+      axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+    ) %>%
+    dyCrosshair(direction = "vertical") %>%
+    dyRangeSelector(height = 30) %>%
+    dyHighlight(
+      highlightCircleSize = 4,
+      highlightSeriesBackgroundAlpha = 1
+    )
+}
+
+# Crear la paleta de colores
+mi_paleta <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf")
+pal <- function(num) {
+  mi_paleta[seq_len(num)]
 }
 
 
@@ -317,76 +323,66 @@ pasivo_arg_1 <- cbind(Año, pasivo_1)
 ```
 
 ### Banco Central de la República Argentina (BCRA)
-{{< tabs tabTotal="14">}}
-{{< tab tabName="Balance BCRA">}}
-```{r balance_bcra,warning = FALSE, fig.width = 11,fig.height = 6,echo=FALSE}
-grafico_arg_1
+<!-- Barra de navegación horizontal -->
+<ul class="nav nav-tabs" id="nav-tab" role="tablist">
 
-activo_arg_1%>%
-  kbl( escape = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
-  kable_styling(fixed_thead = T)%>%
-  kable_paper(bootstrap_options = "striped", full_width = F)%>%
-  row_spec(1:25, color = "#eee", background = "#212529") %!>% 
-  add_header_above(c("Activos BCRA (miles de millones ARS)" = 10)) %!>% 
-  footnote(general = "Banco Central de la República Argentina (BCRA)",
-           general_title = "Fuente:")
+  <li class="nav-item">
+    <a class="nav-link active" id="balance-tab" data-toggle="tab" href="#balance" role="tab" aria-controls="balance" aria-selected="true">Balance del BCB</a>
+  </li>
+  
+  <li class="nav-item">
+    <a class="nav-link" id="rin-tab" data-toggle="tab" href="#rin" role="tab" aria-controls="rin" aria-selected="false">Reservas Internacionales</a>
+  </li>
+  
+  <li class="nav-item">
+  <a class="nav-link" id="basemon-tab" data-toggle="tab" href="#basemon" role="tab" aria-controls="basemon" aria-selected="false">Base Monetaria</a>
+  </li>
+  
+  <li class="nav-item">
+  <a class="nav-link" id="balanzacamb-tab" data-toggle="tab" href="#balanzacamb" role="tab" aria-controls="balanzacamb" aria-selected="false">Balanza Cambiaria</a>
+  </li>
+  
+</ul>
 
-pasivo_arg_1%>%
-  kbl( escape = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
-  kable_styling(fixed_thead = T)%>%
-  kable_paper(bootstrap_options = "striped", full_width = F)%>%
-  row_spec(1:25, color = "#eee", background = "#212529")%!>% 
-  add_header_above(c("Pasivos BCRA (miles de millones ARS)" = 10)) %!>% 
-  footnote(general = "Banco Central de la República Argentina (BCRA)",
-           general_title = "Fuente:")
-
-
-
+<!-- Contenido de las pestañas -->
+<div class="tab-content" id="nav-tabContent">
+  
+  <div class="tab-pane fade active show" id="balance" role="tabpanel" aria-labelledby="balance-tab">
+```{r bcb-activo, echo=FALSE, warning=FALSE, out.width=500}
+dygraph_bcb_activo_simple
+dygraph_bcb_pasivo_simple
+dygraph_bcb_activo_stacked
+dygraph_bcb_pasivo_stacked
 ```
-{{< /tab>}}
+  </div>
+  
+  <div class="tab-pane fade active" id="rin" role="tabpanel" aria-labelledby="rin-tab">
+```{r bcb-rin, echo=FALSE, warning=FALSE, out.width=500}
+dygraph_bcb_rin_simple
+dygraph_bcb_rin_stacked
+``` 
+  </div>
+  
+  <div class="tab-pane fade active" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
+```{r bcb-base-monetaria, echo=FALSE, warning=FALSE, out.width=500}
+dygraph_origen_base_simple
+dygraph_destino_base_simple
+dygraph_origen_base_stacked
+dygraph_destino_base_stacked
+``` 
+  </div>
+  
+  <div class="tab-pane fade active" id="balanzacamb" role="tabpanel" aria-labelledby="balanzacamb-tab">
+```{r bcb-base-balanzacamb, echo=FALSE, warning=FALSE, out.width=500}
+dygraph_cambiaria_ingreso_simple
+dygraph_cambiaria_egreso_simple
+dygraph_cambiaria_ingreso_stacked
+dygraph_cambiaria_egreso_stacked
+dygraph_cambiaria_saldo_simple
+dygraph_cambiaria_saldo_stacked
+``` 
+  </div>
+  
+</div>
 
-{{< tab tabName="Base Monetaria">}}
-```{r base_monetaria,warning = FALSE, fig.width = 11,fig.height = 6,echo=FALSE}
 
-```
-{{< /tab >}}
-
-{{< tab tabName="" >}} 
-```{r destino_monetaria,warning = FALSE, fig.width = 11,fig.height = 6,echo=FALSE}
-
-```
-{{< /tab >}}
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< tab tabName="">}}
-
-{{< /tab >}} 
-{{< /tabs >}} 

@@ -3,7 +3,6 @@ title: "Bolivia"
 output: html_document
 ---
 
-
 ```{r warning = FALSE, include=FALSE}
 #LIBRARY####
 library(dygraphs) 
@@ -483,8 +482,6 @@ dygraph_cambiaria_saldo_simple <- dygraph_nominal_simple(conjunto_datos, titulo,
 dygraph_cambiaria_saldo_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
 
 ```
-
-
 
 ### Banco Central de Bolivia (BCB)
 <!-- Barra de navegación horizontal -->
