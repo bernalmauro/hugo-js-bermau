@@ -848,7 +848,7 @@ Como se puede ver, Bolivia tiene muchos desafíos actualmente, y no sólo en cua
 
 
 
-```{r exportaciones-pais, warning=FALSE, echo=FALSE}
+```{r exportaciones-pais, warning=FALSE, echo=FALSE, message=FALSE}
 
 html_page
 
