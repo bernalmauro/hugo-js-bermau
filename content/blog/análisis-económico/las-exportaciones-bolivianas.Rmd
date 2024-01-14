@@ -17,15 +17,8 @@ url: "/blog/análisis-económico/las-exportaciones-bolivianas"
 ---
 
 ---
-<style>
-    @media only screen and (max-width: 600px) {
-      /* Estilos para pantallas más pequeñas (ajusta según sea necesario) */
-      div[style*="height: 50%;"] { height: 70%; }
-      div[style*="height: 40%;"] { height: 60%; }
-    }
-  </style>
 
-```{r setup, include=FALSE, warning=FALSE}
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
 #LIBRARY####
 
 packages <- c(
@@ -96,70 +89,6 @@ top_productos_2023 <- datos %>%
   arrange(desc(`Enero a Octubre 2023(p)`)) %>%
   head(n_productos)
 
-# Crear el gráfico de barras con colores diferentes
-grafico_barra_exportaciones_producto <- plot_ly(
-  data = top_productos_2023,
-  x = ~reorder(`ACTIVIDAD ECONÓMICA Y PRODUCTO`, `Enero a Octubre 2023(p)`),
-  y = ~`Enero a Octubre 2023(p)`,
-  type = "bar",
-  marker = list(color = colores)
-) %>% 
-  layout(
-    title = "Top 10 Productos de Exportación Enero a Octubre 2023(p) (En Millones USD)",
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(l = 50, r = 50, b = 50, t = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "", tickformat = "$,.0f"),  # Formato de las etiquetas del eje y
-    legend = list(
-      x = 0.8, y = 0.5,  # Ajustar la posición de la leyenda
-      bgcolor = "rgba(245, 245, 245, 0.7)",  # Fondo semitransparente
-      bordercolor = "rgba(255, 255, 255, 0.8)"  # Borde más claro
-    ),
-    annotations = list(
-      x = 0.99,
-      y = -0.28,
-      xref = "paper",
-      yref = "paper",
-      showarrow = FALSE,
-      text = "Fuente: Instituto Nacional de Estadística (INE)",
-      font = list(size = 13, color = "black"),
-      align = "right",
-      xanchor = "right",
-      yanchor = "bottom"
-    )  # Ajusta la altura del gráfico directamente
-  )
-# Crear un nuevo trazo para la flecha y el texto (primera anotación)
-anotacion_1 <- list(
-  x = 8, 
-  y = top_productos_2023$`Enero a Octubre 2023(p)`[1] + 50,  # Ajusta la posición de la flecha y el texto
-  text = "Los tres primeros productos representan el 57% de exportaciones totales",
-  showarrow = TRUE,
-  arrowhead = 2,
-  arrowcolor = "black",
-  arrowsize = 1,
-  arrowwidth = 2,
-  ax = 0,
-  ay = -30
-)
-# Crear un nuevo trazo para la flecha y el texto (segunda anotación)
-anotacion_2 <- list(
-  x = 4, 
-  y = top_productos_2023$`Enero a Octubre 2023(p)`[1] + 150,  # Ajusta la posición de la flecha y el texto
-  text = "Los diez primeros productos representan el 87% de exportaciones totales",
-  showarrow = TRUE,
-  arrowhead = 2,
-  arrowcolor = "black",  # Puedes ajustar el color de la flecha
-  arrowsize = 1,
-  arrowwidth = 2,
-  ax = 0,
-  ay = -30  # Ajusta la posición vertical de la flecha
-)
-# Añadir las anotaciones al gráfico
-grafico_barra_exportaciones_producto <- grafico_barra_exportaciones_producto %>% 
-  layout(annotations = list(anotacion_1, anotacion_2),height = 680 )
-
-
 
 #GRAFICOS TORTA EXPORTACIONES DESTINO PAIS INE####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/exportaciones/Bolivia - Exportaciones segun Pais de Destino y Producto por Año, 2010 - 2023.xlsx"
@@ -199,14 +128,6 @@ datos_brasil_2023 <- data %>%
 datos_componentes_brasil_2023 <- datos_brasil_2023 %>%
   filter(`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS` != "BRASIL")
 
-# Crear el gráfico de torta con plotly
-plot_brasil <- plot_ly(
-  data = datos_componentes_brasil_2023,
-  labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-  values = ~`Enero a Octubre  2023(p)`,
-  type = 'pie'
-)
-
 #ARGENTINA
 # Encuentra la posición de "ARGENTINA"
 pos_argentina <- which(data$`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS` == "ARGENTINA")
@@ -226,15 +147,6 @@ datos_argentina_2023 <- data %>%
 # Filtrar los datos solo para los componentes de Brasil excluyendo "BRASIL"
 datos_componentes_argentina_2023 <- datos_argentina_2023 %>%
   filter(`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS` != "ARGENTINA")
-
-
-# Crear el gráfico de torta con plotly
-plot_argentina <- plot_ly(
-  data = datos_componentes_argentina_2023,
-  labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-  values = ~`Enero a Octubre  2023(p)`,
-  type = 'pie'
-)
 
 #INDIA
 # Encuentra la posición de "INDIA"
@@ -256,14 +168,6 @@ datos_india_2023 <- data %>%
 datos_componentes_india_2023 <- datos_india_2023 %>%
   filter(`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS` != "INDIA")
 
-# Crear el gráfico de torta con plotly
-plot_india <- plot_ly(
-  data = datos_componentes_india_2023,
-  labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-  values = ~`Enero a Octubre  2023(p)`,
-  type = 'pie'
-) 
-
 #CHINA
 # Encuentra la posición de "CHINA"
 pos_china <- which(data$`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS` == "CHINA")
@@ -284,104 +188,12 @@ datos_china_2023 <- data %>%
 datos_componentes_china_2023 <- datos_china_2023 %>%
   filter(`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS` != "CHINA")
 
-# Crear el gráfico de torta con plotly
-plot_china <- plot_ly(
-  data = datos_componentes_china_2023,
-  labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-  values = ~`Enero a Octubre  2023(p)`,
-  type = 'pie'
-) 
-
 # Valores de dominio ajustados para distribuir los círculos más uniformemente y más separados
 domain_values_argentina <- list(x = c(0, 0.49), y = c(0.50, 1))
 domain_values_brasil <- list(x = c(0.49, 1), y = c(0.49, 1))
 domain_values_india <- list(x = c(0, 0.49), y = c(0, 0.49))
 domain_values_china <- list(x = c(0.50, 1), y = c(0, 0.49))
-# Crear la figura combinada con add_pie para tus cuatro plots con ajuste de tamaño y domain
-grafico_torta_destino_pais <- plot_ly() %>%
-  add_pie(
-    data = datos_componentes_argentina_2023,
-    labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-    values = ~`Enero a Octubre  2023(p)`,
-    name = "Argentina",
-    title = "Argentina",
-    domain = domain_values_argentina,
-    scalegroup = "one",
-    rotation = 30,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  add_pie(
-    data = datos_componentes_brasil_2023,
-    labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-    values = ~`Enero a Octubre  2023(p)`,
-    name = "Brasil",
-    title = "Brasil",
-    domain = domain_values_brasil,
-    scalegroup = "two",
-    rotation = -90,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  add_pie(
-    data = datos_componentes_india_2023,
-    labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-    values = ~`Enero a Octubre  2023(p)`,
-    name = "India",
-    title = "India",
-    domain = domain_values_india,
-    scalegroup = "three",
-    rotation = 90,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  add_pie(
-    data = datos_componentes_china_2023,
-    labels = ~`PAIS DE DESTINO Y PRINCIPALES PRODUCTOS`,
-    values = ~`Enero a Octubre  2023(p)`,
-    name = "China",
-    title = "China",
-    domain = domain_values_china,
-    scalegroup = "four",
-    rotation = -90,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  layout(
-    title = "Principales Destinos de las Exportaciones - Enero a Octubre 2023(p) (Millones de USD)",
-    showlegend = FALSE,
-    titlefont = list(size = 20),
-    margin = list(t = 50),  # Ajustar el margen superior
-    annotations = list(
-      x = 0.90,
-      y = -0.05,
-      xref = "paper",
-      yref = "paper",
-      showarrow = FALSE,
-      text = "Fuente: Instituto Nacional de Estadística (INE)",
-      font = list(size = 13, color = "black"),
-      align = "right",
-      xanchor = "right",
-      yanchor = "bottom"
-    ),
-    height = 600
-  )  # Ajusta la altura del gráfico directamente
+
 
 #GRAFICOS TORTA EXPORTACIONES POR DEPARTAMENTO INE####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/exportaciones/Bolivia - Exportaciones segun Departamento y Producto por Año,  2010 - 2023.xlsx"
@@ -421,13 +233,6 @@ datos_santa_cruz_2023 <- data %>%
 datos_componentes_santa_cruz_2023 <- datos_santa_cruz_2023 %>%
   filter(`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS` != "SANTA CRUZ")
 
-# Crear el gráfico de torta con plotly
-plot_santa_cruz <- plot_ly(
-  data = datos_componentes_santa_cruz_2023,
-  x = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-  y = ~`Enero a Octubre 2023(p)`,
-  type = 'bar'
-) 
 #POTOSI
 # Encuentra la posición de "POTOSI"
 pos_potosi <- which(data$`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS` == "POTOSI")
@@ -448,13 +253,6 @@ datos_potosi_2023 <- data %>%
 datos_componentes_potosi_2023 <- datos_potosi_2023 %>%
   filter(`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS` != "POTOSI")
 
-# Crear el gráfico de torta con plotly
-plot_potosi <- plot_ly(
-  data = datos_componentes_potosi_2023,
-  x = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-  y = ~`Enero a Octubre 2023(p)`,
-  type = 'bar'
-)
 #LA PAZ
 # Encuentra la posición de "LA PAZ"
 pos_la_paz <- which(data$`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS` == "LA PAZ")
@@ -475,13 +273,6 @@ datos_la_paz_2023 <- data %>%
 datos_componentes_la_paz_2023 <- datos_la_paz_2023 %>%
   filter(`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS` != "LA PAZ")
 
-# Crear el gráfico de torta con plotly
-plot_la_paz <- plot_ly(
-  data = datos_componentes_la_paz_2023,
-  x = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-  y = ~`Enero a Octubre 2023(p)`,
-  type = 'bar'
-)
 #TARIJA
 # Encuentra la posición de "TARIJA"
 pos_tarija <- which(data$`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS` == "TARIJA")
@@ -502,106 +293,11 @@ datos_tarija_2023 <- data %>%
 datos_componentes_tarija_2023 <- datos_tarija_2023 %>%
   filter(`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS` != "TARIJA")
 
-# Crear el gráfico de torta con plotly
-plot_tarija <- plot_ly(
-  data = datos_componentes_tarija_2023,
-  x = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-  y = ~`Enero a Octubre 2023(p)`,
-  type = 'bar'
-)
-
 # Valores de dominio ajustados para distribuir los círculos más uniformemente y más separados
 domain_values_santa_cruz <- list(x = c(0, 0.49), y = c(0.50, 1))
 domain_values_potosi <- list(x = c(0.49, 1), y = c(0.49, 1))
 domain_values_la_paz <- list(x = c(0, 0.49), y = c(0, 0.49))
 domain_values_tarija <- list(x = c(0.50, 1), y = c(0, 0.49))
-# Crear la figura combinada con add_pie para tus cuatro plots con ajuste de tamaño y domain
-grafico_torta_departamentos <- plot_ly() %>%
-  add_pie(
-    data = datos_componentes_santa_cruz_2023,
-    labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "Santa Cruz",
-    values = ~`Enero a Octubre 2023(p)`,
-    title = "Santa Cruz",
-    domain = domain_values_santa_cruz,
-    scalegroup = "one",
-    rotation = -90,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  add_pie(
-    data = datos_componentes_potosi_2023,
-    labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "Potosí",
-    values = ~`Enero a Octubre 2023(p)`,
-    title = "Potosí",
-    domain = domain_values_potosi,
-    scalegroup = "two",
-    rotation = 90,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  add_pie(
-    data = datos_componentes_la_paz_2023,
-    labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "La Paz",
-    values = ~`Enero a Octubre 2023(p)`,
-    title = "La Paz",
-    domain = domain_values_la_paz,
-    scalegroup = "three",
-    rotation = 90,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  add_pie(
-    data = datos_componentes_tarija_2023,
-    labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "Tarija",
-    values = ~`Enero a Octubre 2023(p)`,
-    title = "Tarija",
-    domain = domain_values_tarija,
-    scalegroup = "four",
-    rotation = -90,  # Ajustar el ángulo de inicio de la torta
-    hole = 0,
-    titlefont = list(size = 18),
-    showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
-    xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "")  # Eliminar el título del eje y
-  ) %>%
-  layout(
-    title = "Exportaciones por Departamento - Enero a Octubre 2023(p) (Millones de USD)",
-    showlegend = FALSE,
-    titlefont = list(size = 20),
-    margin = list(t = 50),  # Ajustar el margen superior
-    annotations = list(
-      x = 0.90,
-      y = -0.05,
-      xref = "paper",
-      yref = "paper",
-      showarrow = FALSE,
-      text = "Fuente: Instituto Nacional de Estadística (INE)",
-      font = list(size = 13, color = "black"),
-      align = "right",
-      xanchor = "right",
-      yanchor = "bottom"
-    ),
-    height = 600
-  )  # Ajusta la altura del gráfico directamente
-
-
 
 #GRAFICOS DE LOS TRES####
 
@@ -613,47 +309,13 @@ grafico_barra_exportaciones_producto <- plot_ly(
   marker = list(color = colores)
 ) %>% 
   layout(
-    title = "Top 10 Productos de Exportación Enero a Octubre 2023(p) (En Millones USD)",
-    titlefont = list(size = 18),
+    title = "Top 10 Productos de Exportación <br> Enero a Octubre 2023(p) <br> (En Millones USD)",
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(l = 50, r = 50, b = 50, t = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
-    yaxis = list(title = "", tickformat = "$,.0f"),  # Formato de las etiquetas del eje y
-    legend = list(
-      x = 0.8, y = 0.5,  # Ajustar la posición de la leyenda
-      bgcolor = "rgba(245, 245, 245, 0.7)",  # Fondo semitransparente
-      bordercolor = "rgba(255, 255, 255, 0.8)"  # Borde más claro
-    ) # Ajusta la altura del gráfico directamente
+    yaxis = list(title = "", tickformat = "$,.0f")
   )
-# Crear un nuevo trazo para la flecha y el texto (primera anotación)
-anotacion_1 <- list(
-  x = 8, 
-  y = top_productos_2023$`Enero a Octubre 2023(p)`[1] + 50,  # Ajusta la posición de la flecha y el texto
-  text = "Los tres representan el 57% de las expo totales",
-  showarrow = TRUE,
-  arrowhead = 2,
-  arrowcolor = "black",
-  arrowsize = 1,
-  arrowwidth = 2,
-  ax = 0,
-  ay = -30
-)
-# Crear un nuevo trazo para la flecha y el texto (segunda anotación)
-anotacion_2 <- list(
-  x = 4, 
-  y = top_productos_2023$`Enero a Octubre 2023(p)`[1] + 150,  # Ajusta la posición de la flecha y el texto
-  text = "Los tres representan el 87% de las expo totales",
-  showarrow = TRUE,
-  arrowhead = 2,
-  arrowcolor = "black",  # Puedes ajustar el color de la flecha
-  arrowsize = 1,
-  arrowwidth = 2,
-  ax = 0,
-  ay = -30  # Ajusta la posición vertical de la flecha
-)
-# Añadir las anotaciones al gráfico
-grafico_barra_exportaciones_producto <- grafico_barra_exportaciones_producto %>% 
-  layout(annotations = list(anotacion_1, anotacion_2),height = 680 )
 
 # Crear la figura combinada con add_pie para tus cuatro plots con ajuste de tamaño y domain
 grafico_torta_destino_pais <- plot_ly() %>%
@@ -667,9 +329,9 @@ grafico_torta_destino_pais <- plot_ly() %>%
     scalegroup = "one",
     rotation = 30,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
@@ -683,9 +345,9 @@ grafico_torta_destino_pais <- plot_ly() %>%
     scalegroup = "two",
     rotation = -90,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
@@ -699,9 +361,9 @@ grafico_torta_destino_pais <- plot_ly() %>%
     scalegroup = "three",
     rotation = 90,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
@@ -715,93 +377,93 @@ grafico_torta_destino_pais <- plot_ly() %>%
     scalegroup = "four",
     rotation = -90,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
   layout(
-    title = "Principales Destinos de las Exportaciones - Enero a Octubre 2023(p) (Millones de USD)",
+    title = "Principales Destinos de las Exportaciones <br> Enero a Octubre 2023(p) <br> (Millones de USD)",
     showlegend = FALSE,
-    titlefont = list(size = 20),
-    margin = list(t = 50),
-    height = 600
+    titlefont = list(size = 14),
+    margin = list(t = 100)
   )  # Ajusta la altura del gráfico directamente
 
 grafico_torta_departamentos <- plot_ly() %>%
   add_pie(
     data = datos_componentes_santa_cruz_2023,
     labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "Santa Cruz",
     values = ~`Enero a Octubre 2023(p)`,
+    name = "Santa Cruz",
     title = "Santa Cruz",
     domain = domain_values_santa_cruz,
     scalegroup = "one",
     rotation = -90,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
+  
   add_pie(
     data = datos_componentes_potosi_2023,
     labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "Potosí",
     values = ~`Enero a Octubre 2023(p)`,
+    name = "Potosí",
     title = "Potosí",
     domain = domain_values_potosi,
     scalegroup = "two",
     rotation = 90,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
   add_pie(
     data = datos_componentes_la_paz_2023,
     labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "La Paz",
     values = ~`Enero a Octubre 2023(p)`,
+    name = "La Paz",
     title = "La Paz",
     domain = domain_values_la_paz,
     scalegroup = "three",
     rotation = 90,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
   add_pie(
     data = datos_componentes_tarija_2023,
     labels = ~`DEPARTAMENTO  Y PRINCIPALES PRODUCTOS`,
-    name = "Tarija",
     values = ~`Enero a Octubre 2023(p)`,
+    name = "Tarija",
     title = "Tarija",
     domain = domain_values_tarija,
     scalegroup = "four",
     rotation = -90,  # Ajustar el ángulo de inicio de la torta
     hole = 0,
-    titlefont = list(size = 18),
+    titlefont = list(size = 14),
     showlegend = FALSE,  # Activar la leyenda
-    margin = list(b = 100),  # Ajustar los márgenes
+    margin = list(b = 100, t = 100),  # Ajustar los márgenes
     xaxis = list(title = ""),  # Eliminar el título del eje x
     yaxis = list(title = "")  # Eliminar el título del eje y
   ) %>%
   layout(
-    title = "Exportaciones por Departamento - Enero a Octubre 2023(p) (Millones de USD)",
+    title = "Exportaciones por Departamento <br> Enero a Octubre 2023(p) <br> (Millones de USD)",
     showlegend = FALSE,
-    titlefont = list(size = 20),
-    margin = list(t = 50),  # Ajustar el margen superior
+    titlefont = list(size = 14),
+    margin = list(t = 100),  # Ajustar los márgenes
     annotations = list(
       x = 0.90,
-      y = -0.05,
+      y = -0.17,
       xref = "paper",
       yref = "paper",
       showarrow = FALSE,
@@ -810,22 +472,8 @@ grafico_torta_departamentos <- plot_ly() %>%
       align = "right",
       xanchor = "right",
       yanchor = "bottom"
-    ),
-    height = 600
+    )
   )  # Ajusta la altura del gráfico directamente
-
-
-style_grafico <- "display: flex; flex-direction: column; align-items: center; width: 100%; margin: 0;"
-
-
-html_page <- tagList(
-  tags$div(style = paste0(style_grafico, "height: 700px; margin-bottom: 0px;"), grafico_barra_exportaciones_producto),
-  tags$div(style = paste0(style_grafico, "height: 650px; margin-bottom: 0px;"), grafico_torta_destino_pais),
-  tags$div(style = paste0(style_grafico, "margin-top: 0px;"), grafico_torta_departamentos),
-  style = "width: 100%; max-width: 800px; margin: 0 auto;"  # Ajustes de ancho y márgenes
-)
-
-
 
 ```
 
@@ -848,9 +496,17 @@ Como se puede ver, Bolivia tiene muchos desafíos actualmente, y no sólo en cua
 
 
 
-```{r exportaciones-pais, warning=FALSE, echo=FALSE, message=FALSE}
+```{r exportaciones-pais, warning=FALSE, echo=FALSE, message=FALSE, fig.align='center'}
 
-html_page
+
+style_grafico <- "align-items: center; margin-left: auto; margin-right: auto; margin: 0; width: 800px;"
+
+tagList(
+  tags$div(grafico_barra_exportaciones_producto),
+  tags$div(grafico_torta_destino_pais),
+  tags$div(grafico_torta_departamentos)
+)
+
 
 ```
 
