@@ -3,7 +3,7 @@ title: "Gráficos"
 output: html_document
 ---
 
-```{r warning = FALSE, include=FALSE}
+```{r warning = FALSE, include=FALSE, echo=FALSE}
 #LIBRARY####
 library(dygraphs) 
 library(tidyverse)
@@ -257,19 +257,34 @@ esperanza_vida <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</s
 
   <div class="tab-pane fade active show" id="pibmundial" role="tabpanel" aria-labelledby="pibmundial-tab">
 ```{r pibmundial, echo=FALSE, warning=FALSE, out.width=500}
-pib_mundial
+htmltools::tags$div(
+  pib_mundial,
+  style = "margin-bottom: 40px; width: 480px;"
+)
+
 ```
 </div>
 
 <div class="tab-pane fade active" id="pobrezamundial" role="tabpanel" aria-labelledby="pobrezamundial-tab">
 ```{r pobrezamundial, echo=FALSE, warning=FALSE, out.width=500}
-pobreza_mundial
+htmltools::tags$div(
+pobreza_mundial,
+  style = "margin-bottom: 40px; width: 480px;"
+)
+
+
 ``` 
+
 </div>
 
 <div class="tab-pane fade active" id="esperanzavidamundial" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
 ```{r esperanzavidamundial, echo=FALSE, warning=FALSE, out.width=500}
-esperanza_vida
+htmltools::tags$div(
+  esperanza_vida,
+  style = "margin-bottom: 40px; width: 480px;"
+)
+
+
 ``` 
 </div>
   
