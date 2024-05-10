@@ -38,27 +38,34 @@
 
 
 <script>
-document.addEventListener('click', function(event) {
-    // Ocultar solo los dygraphs que no están asociados a la pestaña clickeada
-    var dygraphs = document.querySelectorAll('.tab-pane.fade');
-    dygraphs.forEach(function(dygraph) {
-        var tabId = dygraph.getAttribute('id');
-        if (tabId !== event.target.getAttribute('aria-controls')) {
-            dygraph.style.visibility = 'hidden';
-            dygraph.style.position = 'absolute';
-        }
-    });
-
-    // Obtener el ID de la pestaña clickeada
-    var selectedTabId = event.target.getAttribute('aria-controls');
-
-    // Mostrar el dygraph asociado a la pestaña clickeada
-    var selectedDygraph = document.getElementById(selectedTabId);
-    if (selectedDygraph) {
-        selectedDygraph.style.visibility = 'visible';
-    }
-});
-</script>
+  document.addEventListener('click', function(event) {
+      // Obtener el ID del contenedor del gráfico clickeado
+      var selectedTabId = event.target.closest('.tab-pane.fade');
+  
+      // Si se hace clic en un gráfico, no ocultar ningún gráfico
+      if (selectedTabId !== null) {
+          return;
+      }
+  
+      // Si se hace clic en una pestaña, no ocultar ningún gráfico
+      if (event.target.classList.contains('nav-link')) {
+          return;
+      }
+  
+      // Ocultar todos los gráficos de las pestañas
+      var dygraphs = document.querySelectorAll('.tab-pane.fade');
+      dygraphs.forEach(function(dygraph) {
+          dygraph.style.display = 'none';
+      });
+  
+      // Mostrar los gráficos de la pestaña activa
+      var activeTabId = document.querySelector('.nav-link.active').getAttribute('href');
+      var activeDygraphs = document.querySelectorAll(activeTabId);
+      activeDygraphs.forEach(function(dygraph) {
+          dygraph.style.display = 'block';
+      });
+  });
+  </script>
 
 
 {{- end -}}
