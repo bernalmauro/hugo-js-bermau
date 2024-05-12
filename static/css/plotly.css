@@ -1,0 +1,47 @@
+/**
+ * Default styles for the dygraphs charting library.
+ */
+ .js-plotly-plot .plotly .main-svg {
+    background-color: transparent !important;
+  }
+  .modo-oscuro .js-plotly-plot .plotly .main-svg {
+      background-color: transparent !important;
+  }
+  
+.js-plotly-plot .plotly .main-svg text {
+    fill: #343541 !important;
+}
+
+.modo-oscuro .js-plotly-plot .plotly .main-svg text {
+    fill: #D1D5DB !important;
+}
+
+/* Modificar el color de fondo para la clase 'legend' */
+.legend .bg {
+    fill: transparent !important; /* Cambiar el color de fondo */
+}
+
+/* Modificar el color del stroke para la clase 'crisp' dentro de 'yzl' y 'zl' */
+.js-plotly-plot .plotly .yzl.zl.crisp  {
+    stroke: transparent !important; /* Cambiar el color del stroke */
+}
+
+/* Modificar el color del texto de las etiquetas de hover */
+.js-plotly-plot .plotly .hovertext text {
+    fill: #343541 !important; /* Cambiar el color del texto */
+}
+
+/* Modificar el color del texto de las etiquetas de hover */
+.modo-oscuro .js-plotly-plot .plotly .hovertext text {
+    fill: #D1D5DB !important; /* Cambiar el color del texto */
+}
+
+/* Modificar el color de fondo de las etiquetas de hover */
+.js-plotly-plot .plotly .hoverlayer rect {
+    fill: transparent !important; /* Cambiar el color de fondo */
+}
+
+/* Modificar el color de fondo de las etiquetas de hover */
+.modo-oscuro .js-plotly-plot .plotly .hoverlayer rect {
+    fill: transparent !important; /* Cambiar el color de fondo */
+}
