@@ -45,3 +45,21 @@
 .modo-oscuro .js-plotly-plot .plotly .hoverlayer rect {
     fill: transparent !important; /* Cambiar el color de fondo */
 }
+
+.js-plotly-plot .plotly .main-svg .updatemenu-item-text {
+    fill: #343541 !important; /* Cambia el color del texto a rojo */
+}
+
+.js-plotly-plot .plotly .main-svg .updatemenu-item-rect {
+    fill: transparent !important; /* Cambia el color del texto a rojo */
+    stroke: #343541 !important;
+}
+
+.modo-oscuro .js-plotly-plot .plotly .main-svg .updatemenu-item-text {
+    fill: #D1D5DB !important; /* Cambia el color del texto a rojo */
+}
+
+.modo-oscuro .js-plotly-plot .plotly .main-svg .updatemenu-item-rect {
+    fill: #343541 !important; /* Cambia el color del texto a rojo */
+    stroke: #D1D5DB !important;
+}
