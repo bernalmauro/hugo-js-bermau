@@ -59,22 +59,26 @@ fun_fecha <-function(from, to, by, each) {
           by = by), each = each)
 }
 pal <- function(num) {
-  usecol(c("#065a25", "#f2f419", "#f41919"),
+  usecol(c("#ff0000","#00ff00","#ffff00"),
          n = num)
 }
 pal_plotly <- function(num) {
   usecol(c("#ff0000","#00ff00","#0000ff","#ffff00"),
          n = num)
 }
+mi_paleta <- function(num) {
+  usecol(c("#ff0000","#00ff00","#0000ff","#ffff00"),
+         n = num)
+}
 
 
-plotly_activo_lineal_bs <-  function(conjunto_datos, mi_paleta_plotly, titulo_activo_plotly_bs, caption) {
+plotly_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs) {
   
-  conjunto_datos_pasivo_plotly <- conjunto_datos %>%
+  conjunto_datos_plotly <- conjunto_datos_bs %>%
     pivot_longer(!Fecha, names_to = "variables", values_to = "valores")
   
   
-  plot_ly(data = conjunto_datos_pasivo_plotly, x = ~Fecha, y = ~valores,
+  plot_ly(data = conjunto_datos_plotly, x = ~Fecha, y = ~valores,
           color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
     config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
            toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
@@ -88,16 +92,18 @@ plotly_activo_lineal_bs <-  function(conjunto_datos, mi_paleta_plotly, titulo_ac
       plot_bgcolor = '#1d1d1d',
       xaxis = list( 
         zerolinewidth = F, 
+        zerolinecolor = 'transparent',
         showgrid = F,
         title = list(text = " "), 
         tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
         showline =TRUE,  
         linecolor = F,
-        ticks = 'outside',  
-        tickformat = "%b %Y"
+        ticks = 'outside',
+        hoverformat = "%b %Y"
       ), 
       yaxis = list( 
-        zerolinewidth = 1, 
+        zerolinewidth = 1,
+        zerolinecolor = 'transparent',
         showgrid = F,
         title = list(text = " "), 
         tickformat = ",d",
@@ -106,7 +112,7 @@ plotly_activo_lineal_bs <-  function(conjunto_datos, mi_paleta_plotly, titulo_ac
         linecolor = F, 
         ticks = 'outside'  
       ), 
-      title = list(text = titulo_activo_plotly_bs, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+      title = list(text = titulo_plotly_bs, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
       legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
       annotations = list(
         list(
@@ -114,7 +120,7 @@ plotly_activo_lineal_bs <-  function(conjunto_datos, mi_paleta_plotly, titulo_ac
           y = 1.07,  
           xref = "paper",
           yref = "paper",
-          text = caption, 
+          text = "bernalmauricio.com", 
           showarrow = FALSE,
           font = list(color = "#e3e3e3", family = "Arial")
         )
@@ -123,12 +129,12 @@ plotly_activo_lineal_bs <-  function(conjunto_datos, mi_paleta_plotly, titulo_ac
     plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
 }
 
-plotly_activo_lineal_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_activo_plotly_usd, caption) {
+plotly_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd) {
   
-  conjunto_datos_pasivo_plotly_usd <- conjunto_datos_usd %>%
+  conjunto_datos_plotly <- conjunto_datos_usd %>%
     pivot_longer(!Fecha, names_to = "variables", values_to = "valores")
   
-  plot_ly(data = conjunto_datos_pasivo_plotly_usd, x = ~Fecha, y = ~valores,
+  plot_ly(data = conjunto_datos_plotly, x = ~Fecha, y = ~valores,
           color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
     config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
            toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
@@ -142,16 +148,18 @@ plotly_activo_lineal_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titu
       plot_bgcolor = '#1d1d1d',
       xaxis = list( 
         zerolinewidth = F, 
+        zerolinecolor = 'transparent',
         showgrid = F,
         title = list(text = " "), 
         tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
         showline =TRUE,  
         linecolor = F,
-        ticks = 'outside',  
-        tickformat = "%b %Y"   
+        ticks = 'outside',
+        hoverformat = "%b %Y"   
       ), 
       yaxis = list( 
         zerolinewidth = 1, 
+        zerolinecolor = 'transparent',
         showgrid = F,
         title = list(text = " "), 
         tickformat = ",d",
@@ -160,7 +168,7 @@ plotly_activo_lineal_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titu
         linecolor = F, 
         ticks = 'outside'  
       ), 
-      title = list(text = titulo_activo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+      title = list(text = titulo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
       legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
       annotations = list(
         list(
@@ -168,7 +176,7 @@ plotly_activo_lineal_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titu
           y = 1.07,  
           xref = "paper",
           yref = "paper",
-          text = caption, 
+          text = "bernalmauricio.com", 
           showarrow = FALSE,
           font = list(color = "#e3e3e3", family = "Arial")
         )
@@ -177,118 +185,6 @@ plotly_activo_lineal_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titu
     plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
   
 }
-
-
-plotly_pasivo_lineal_bs <-  function(conjunto_datos, mi_paleta_plotly, titulo_pasivo_plotly_bs, caption) {
-  
-  conjunto_datos_pasivo_plotly <- conjunto_datos %>%
-    pivot_longer(!Fecha, names_to = "variables", values_to = "valores")
-  
-  
-  plot_ly(data = conjunto_datos_pasivo_plotly, x = ~Fecha, y = ~valores,
-          color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
-    config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
-           toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                       filename= 'custom_image',
-                                       height=  500,
-                                       width= 700,
-                                       scale= 1 )) %>% 
-    layout(
-      margin = list(l = 20, r = 20, b = 20, t = 40),
-      paper_bgcolor = '#1d1d1d',
-      plot_bgcolor = '#1d1d1d',
-      xaxis = list( 
-        zerolinewidth = F, 
-        showgrid = F,
-        title = list(text = " "), 
-        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-        showline =TRUE,  
-        linecolor = F,
-        ticks = 'outside',  
-        tickformat = "%b %Y"
-      ), 
-      yaxis = list( 
-        zerolinewidth = 1, 
-        showgrid = F,
-        title = list(text = " "), 
-        tickformat = ",d",
-        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-        showline = T,  
-        linecolor = F, 
-        ticks = 'outside'  
-      ), 
-      title = list(text = titulo_pasivo_plotly_bs, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
-      legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
-      annotations = list(
-        list(
-          x = -0,  
-          y = 1.07,  
-          xref = "paper",
-          yref = "paper",
-          text = caption, 
-          showarrow = FALSE,
-          font = list(color = "#e3e3e3", family = "Arial")
-        )
-      )
-    ) %>%
-    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
-}
-
-plotly_pasivo_lineal_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_pasivo_plotly_usd, caption) {
-  
-  conjunto_datos_pasivo_plotly_usd <- conjunto_datos_usd %>%
-    pivot_longer(!Fecha, names_to = "variables", values_to = "valores")
-  
-  plot_ly(data = conjunto_datos_pasivo_plotly_usd, x = ~Fecha, y = ~valores,
-          color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
-    config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
-           toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                       filename= 'custom_image',
-                                       height=  500,
-                                       width= 700,
-                                       scale= 1 )) %>% 
-    layout(
-      margin = list(l = 20, r = 20, b = 20, t = 40),
-      paper_bgcolor = '#1d1d1d',
-      plot_bgcolor = '#1d1d1d',
-      xaxis = list( 
-        zerolinewidth = F, 
-        showgrid = F,
-        title = list(text = " "), 
-        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-        showline =TRUE,  
-        linecolor = F,
-        ticks = 'outside',  
-        tickformat = "%b %Y"   
-      ), 
-      yaxis = list( 
-        zerolinewidth = 1, 
-        showgrid = F,
-        title = list(text = " "), 
-        tickformat = ",d",
-        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-        showline = T,  
-        linecolor = F, 
-        ticks = 'outside'  
-      ), 
-      title = list(text = titulo_pasivo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
-      legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
-      annotations = list(
-        list(
-          x = -0,  
-          y = 1.07,  
-          xref = "paper",
-          yref = "paper",
-          text = caption, 
-          showarrow = FALSE,
-          font = list(color = "#e3e3e3", family = "Arial")
-        )
-      )
-    ) %>%
-    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
-  
-}
-
 
 html_table_width <- function(kable_output, width){
   width_html <- paste0(paste0('<col width="', width, '">'), collapse = "\n")
@@ -336,13 +232,7 @@ dygraph_nominal_stacked <- function(data, titulo, subtitulo, mi_paleta) {
       highlightSeriesBackgroundAlpha = 1
     )
 }
-
-# Crear la paleta de colores
-mi_paleta <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf")
-pal <- function(num) {
-  mi_paleta[seq_len(num)]
-}
-
+mi_paleta <- pal_plotly(10)
 #BALANCE ACTIVO BCB####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03a.activos_bcb.xlsx"
 
@@ -351,8 +241,8 @@ range <- "B6:Q305"
 sheet <- "MENSUAL"
 col_names <- FALSE
 #FORMATO FECHA
-from <- "31Jan1998"
-to <- "31Dec2022"
+from <- "01Jan1998"
+to <- "01Dec2022"
 by <- "month"
 each <- 1
 
@@ -388,8 +278,7 @@ Fecha <- fun_fecha(from,to,by,each)
 data <- cbind(Fecha, data) 
 data <- as_tibble(data)
 
-
-conjunto_datos <- data %>%
+conjunto_datos_bs <- data %>%
   select(
     `Fecha`,
     `Reservas Internacionales Brutas`,
@@ -414,19 +303,17 @@ conjunto_datos_usd <- data %>%
   mutate(across(where(is.numeric), ~  . / 1000/6.86))
 
 
-titulo_activo_plotly_bs <- "<b>Balance Activo del BCB</b><br>Millones Bs"
-titulo_activo_plotly_usd <- "<b>Balance Activo del BCB</b><br>Millones $us"
-caption <- "bernalmauricio.com"
-
-mi_paleta <- pal(10)
+titulo_plotly_bs <- "<b>Balance Activo del BCB</b><br>Millones Bs"
+titulo_plotly_usd <- "<b>Balance Activo del BCB</b><br>Millones $us"
 mi_paleta_plotly <- pal_plotly(6)
 
 #BALANCE ACTIVO DEL BCB LINE####
 
-plotly_grafico_activo_lineal_bs <- plotly_activo_lineal_bs(conjunto_datos, mi_paleta_plotly, titulo_activo_plotly_bs, caption)
-plotly_grafico_activo_lineal_usd <- plotly_activo_lineal_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_activo_plotly_usd, caption)
-#BALANCE ACTIVO DEL BCB STACK####
+plotly_grafico_activo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+plotly_grafico_activo_lineal_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd)
 
+
+#BALANCE ACTIVO DEL BCB STACK####
 
 plotly_grafico_lineal_activo_y_stacked_bs <-  plotly_grafico_activo_lineal_bs %>% layout(
   updatemenus = list(
@@ -451,7 +338,6 @@ plotly_grafico_lineal_activo_y_stacked_bs <-  plotly_grafico_activo_lineal_bs %>
   )
 )
 
-
 plotly_grafico_lineal_activo_y_stacked_usd <-  plotly_grafico_activo_lineal_usd %>% layout(
   updatemenus = list(
     list(
@@ -475,8 +361,6 @@ plotly_grafico_lineal_activo_y_stacked_usd <-  plotly_grafico_activo_lineal_usd 
   )
 )
 
-
-
 #BALANCE PASIVO BCB####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03p.pasivos_bcb.xlsx"
 #IMPORTAR DATOS DE EXCEL
@@ -484,8 +368,8 @@ range <- "B29:AE317"
 sheet <- "Mensual"
 col_names <- FALSE
 #FORMATO FECHA
-from <- "31Dec1998"
-to <- "31Dec2022"
+from <- "01Dec1998"
+to <- "01Dec2022"
 by <- "month"
 each <- 1
 
@@ -551,7 +435,7 @@ Fecha <- fun_fecha(from,to,by,each)
 data <- cbind(Fecha, data) 
 data <- as_tibble(data)
 
-conjunto_datos <- data %>%
+conjunto_datos_bs <- data %>%
   select(`Fecha`,
           `Emisión Monetaria`,
          `Depósitos Bancarios`,
@@ -577,17 +461,18 @@ conjunto_datos_usd <- data %>%
          `Depósitos del Sector Público`) %>%
   mutate(across(where(is.numeric), ~  . / 1000/6.86))
 
-titulo_pasivo_plotly_bs <- "<b>Balance Pasivo del BCB</b><br>Millones Bs"
-titulo_pasivo_plotly_usd <- "<b>Balance Pasivo del BCB</b><br>Millones $us"
-caption <- "bernalmauricio.com"
+titulo_plotly_bs <- "<b>Balance Pasivo del BCB</b><br>Millones Bs"
+titulo_plotly_usd <- "<b>Balance Pasivo del BCB</b><br>Millones $us"
 
-mi_paleta <- pal(10)
 mi_paleta_plotly <- pal_plotly(6)
+
 
 #BALANCE PASIVO DEL BCB LINE####
 
-plotly_grafico_pasivo_lineal_bs <- plotly_pasivo_lineal_bs(conjunto_datos, mi_paleta_plotly, titulo_pasivo_plotly_bs, caption)
-plotly_grafico_pasivo_lineal_usd <- plotly_pasivo_lineal_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_pasivo_plotly_usd, caption)
+plotly_grafico_pasivo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+plotly_grafico_pasivo_lineal_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd)
+
+
 #BALANCE PASIVO DEL BCB STACK####
 
 
@@ -643,12 +528,12 @@ plotly_grafico_lineal_pasivo_y_stacked_usd <-  plotly_grafico_pasivo_lineal_usd 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "D120:G308"
+range <- "D120:G316"
 sheet <- "Hoja1"
 col_names <- FALSE
 #FORMATO FECHA
 from <- "01Dec2007"
-to <- "30Aug2023"
+to <- "01Apr2024"
 by <- "month"
 each <- 1
 
@@ -674,29 +559,84 @@ Fecha <- fun_fecha(from,to,by,each)
 data <- cbind(Fecha, data) 
 conjunto_datos <- as_tibble(data)
 
-titulo <- "Reservas Internacionales Netas BCB"
-subtitulo <- "(En millones USD)"
+conjunto_datos_bs <- conjunto_datos %>%
+  mutate(across(where(is.numeric), ~  . * 6.86))
 
-dygraph_bcb_rin_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
-dygraph_bcb_rin_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+conjunto_datos_usd <- conjunto_datos
+
+titulo_plotly_bs <- "<b>Reservas Internacionales del BCB</b><br>Millones Bs"
+titulo_plotly_usd <- "<b>Reservas Internacionales del BCB</b><br>Millones $us"
+
+mi_paleta_plotly <- pal(4)
+
+plotly_grafico_reservas_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+
+plotly_grafico_reservas_lineal_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd)
+
+plotly_grafico_lineal_reservas_y_stacked_bs <-  plotly_grafico_reservas_lineal_bs %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+
+
+plotly_grafico_lineal_reservas_y_stacked_usd <-  plotly_grafico_reservas_lineal_usd %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+
 
 #ORIGEN BASE MONETARIA####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
 #IMPORTAR DATOS DE EXCEL
-range <- "D120:S312"
-sheet <- "01"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
+range <- "D24:S313"
 col_names <- FALSE
 #FORMATO FECHA
-from <- "01Dec2006"
-to <- "31Dec2022"
+from <- "01Dec1998"
+to <- "01Jan2023"
 by <- "month"
 each <- 1
+
 
 data <- 
   rio::import(
     file,
     setclass = "tbl_df",
-    sheet = sheet,
     range = range,
     col_names = col_names,
     .name_repair = "unique_quiet") %!>%
@@ -704,7 +644,7 @@ data <-
   replace(is.na(.), 0)
 
 colnames(data) <- c(
-  
+
   "Reservas Internacionales Netas",
   "Reservas Internacionales Brutas",
   "Obligaciones Externas a Corto Plazo",
@@ -721,13 +661,13 @@ colnames(data) <- c(
   "Reservas Bancarias en UFV",
   "Reservas Bancarias en Moneda Extranjera",
   "Total Reservas Bancarias"
-)
+  )
 
 Fecha <- fun_fecha(from,to,by,each)
 data <- cbind(Fecha, data) 
 data <- as_tibble(data)
 
-conjunto_datos <- data %>%
+conjunto_datos_bs <- data %>%
   select(Fecha, 
          `Reservas Internacionales Netas`,
          `Crédito Neto al Sector Público`,
@@ -736,69 +676,147 @@ conjunto_datos <- data %>%
          `Otras Cuentas Netas`)%>%
   mutate(across(where(is.numeric), ~  . / 1000))
 
-titulo <- "Origen de la Base Monetaria"
-subtitulo <- "(En millones BOB)"
+conjunto_datos_usd <- data %>%
+  select(Fecha, 
+         `Reservas Internacionales Netas`,
+         `Crédito Neto al Sector Público`,
+         `Crédito a Bancos`,
+         `Títulos Regulación Monetaria`,
+         `Otras Cuentas Netas`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000/6.86))
 
-dygraph_origen_base_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
-dygraph_origen_base_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
-#DESTINO BASE MONETARIA####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
-#IMPORTAR DATOS DE EXCEL
-range <- "D120:S312"
-sheet <- "01"
-col_names <- FALSE
-#FORMATO FECHA
-from <- "01Dec2006"
-to <- "31Dec2022"
-by <- "month"
-each <- 1
+titulo_plotly_bs <- "<b>Origen Base Monetaria</b><br>Millones Bs"
+titulo_plotly_usd <- "<b>Origen Base Monetaria</b><br>Millones $us"
 
-data <- 
-  rio::import(
-    file,
-    setclass = "tbl_df",
-    sheet = sheet,
-    range = range,
-    col_names = col_names,
-    .name_repair = "unique_quiet") %!>%
-  remove_empty(c("rows", "cols")) %!>%
-  replace(is.na(.), 0)
+mi_paleta_plotly <- pal_plotly(5)
 
-colnames(data) <- c(
-  
-  "Reservas Internacionales Netas",
-  "Reservas Internacionales Brutas",
-  "Obligaciones Externas a Corto Plazo",
-  "Crédito Neto al Sector Público",
-  "Crédito a Bancos",
-  "BCL",
-  "BE Y OEF",
-  "Títulos Regulación Monetaria",
-  "SRD",
-  "Otras Cuentas Netas",
-  "Base Monetaria",
-  "Billetes y Monedas en Poder del Público",
-  "Reservas Bancarias en Moneda Nacional",
-  "Reservas Bancarias en UFV",
-  "Reservas Bancarias en Moneda Extranjera",
-  "Reservas Bancarias"
+
+plotly_grafico_base_origen_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+plotly_grafico_base_origen_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd)
+
+plotly_grafico_base_origen_lineal_y_stacked_bs <-  plotly_grafico_base_origen_lineal_bs %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
 )
 
-Fecha <- fun_fecha(from,to,by,each)
-data <- cbind(Fecha, data) 
-data <- as_tibble(data)
 
-conjunto_datos <- data %>%
+plotly_grafico_base_origen_lineal_y_stacked_usd <-  plotly_grafico_base_origen_lineal_usd %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+
+
+
+#DESTINO BASE MONETARIA####
+
+conjunto_datos_bs <- data %>%
   select(Fecha, 
-         `Billetes y Monedas en Poder del Público`,
-         `Reservas Bancarias`)%>%
+         `Billetes y Monedas en poder del Público`,
+         `Reservas Bancarias en Moneda Nacional`,
+         `Reservas Bancarias en UFV`,
+         `Reservas Bancarias en Moneda Extranjera`)%>%
   mutate(across(where(is.numeric), ~  . / 1000))
 
-titulo <- "Destino de la Base Monetaria"
-subtitulo <- "(En millones BOB)"
+conjunto_datos_usd <- data %>%
+  select(Fecha, 
+         `Billetes y Monedas en poder del Público`,
+         `Reservas Bancarias en Moneda Nacional`,
+         `Reservas Bancarias en UFV`,
+         `Reservas Bancarias en Moneda Extranjera`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000/6.86))
 
-dygraph_destino_base_simple <- dygraph_nominal_simple(conjunto_datos, titulo, subtitulo, mi_paleta)
-dygraph_destino_base_stacked <- dygraph_nominal_stacked(conjunto_datos, titulo, subtitulo, mi_paleta)
+titulo_plotly_bs <- "<b>Destino Base Monetaria</b><br>Millones Bs"
+titulo_plotly_usd <- "<b>Destino Base Monetaria</b><br>Millones $us"
+
+mi_paleta_plotly <- pal_plotly(5)
+
+
+plotly_grafico_base_destino_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+plotly_grafico_base_destino_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd)
+
+plotly_grafico_base_destino_lineal_y_stacked_bs <-  plotly_grafico_base_destino_lineal_bs %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+
+
+plotly_grafico_base_destino_lineal_y_stacked_usd <-  plotly_grafico_base_destino_lineal_usd %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+
 #BALANZA CAMBIARIA INGRESO ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/33.balanza_cambiaria.xlsx"
 #IMPORTAR DATOS DE EXCEL
@@ -886,17 +904,21 @@ plotly_grafico_lineal_pasivo_y_stacked_usd
   
   <div class="tab-pane fade active" id="rin" role="tabpanel" aria-labelledby="rin-tab">
 ```{r bcb-rin, echo=FALSE, warning=FALSE, out.width=500}
-dygraph_bcb_rin_simple
-dygraph_bcb_rin_stacked
+plotly_grafico_lineal_reservas_y_stacked_bs
+plotly_grafico_lineal_reservas_y_stacked_usd
 ``` 
   </div>
   
   <div class="tab-pane fade active" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
 ```{r bcb-base-monetaria, echo=FALSE, warning=FALSE, out.width=500}
-dygraph_origen_base_simple
-dygraph_destino_base_simple
-dygraph_origen_base_stacked
-dygraph_destino_base_stacked
+
+plotly_grafico_base_origen_lineal_y_stacked_bs
+
+plotly_grafico_base_destino_lineal_y_stacked_bs
+
+plotly_grafico_base_origen_lineal_y_stacked_usd
+
+plotly_grafico_base_destino_lineal_y_stacked_usd
 ``` 
   </div>
   
