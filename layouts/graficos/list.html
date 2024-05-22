@@ -37,35 +37,5 @@
 </div>
 
 
-<script>
-  document.addEventListener('click', function(event) {
-      // Obtener el ID del contenedor del gráfico clickeado
-      var selectedTabId = event.target.closest('.tab-pane.fade');
-  
-      // Si se hace clic en un gráfico, no ocultar ningún gráfico
-      if (selectedTabId !== null) {
-          return;
-      }
-  
-      // Si se hace clic en una pestaña, no ocultar ningún gráfico
-      if (event.target.classList.contains('nav-link')) {
-          return;
-      }
-  
-      // Ocultar todos los gráficos de las pestañas
-      var dygraphs = document.querySelectorAll('.tab-pane.fade');
-      dygraphs.forEach(function(dygraph) {
-          dygraph.style.display = 'none';
-      });
-  
-      // Mostrar los gráficos de la pestaña activa
-      var activeTabId = document.querySelector('.nav-link.active').getAttribute('href');
-      var activeDygraphs = document.querySelectorAll(activeTabId);
-      activeDygraphs.forEach(function(dygraph) {
-          dygraph.style.display = 'block';
-      });
-  });
-  </script>
-
 
 {{- end -}}

@@ -1,38 +1,51 @@
 {{- define "main" -}}
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var dropdowns = document.querySelectorAll('.dropdown-toggle');
+
+      dropdowns.forEach(function(dropdown) {
+          dropdown.addEventListener('click', function() {
+              // Remover la clase 'active' de todos los dropdowns
+              dropdowns.forEach(function(dd) {
+                  dd.classList.remove('active');
+              });
+
+              // Agregar la clase 'active' al dropdown actual
+              this.classList.add('active');
+          });
+      });
+  });
+</script>
 
 
 <script>
-  document.addEventListener('click', function(event) {
-      // Obtener el ID del contenedor del gráfico clickeado
-      var selectedTabId = event.target.closest('.tab-pane.fade');
-  
-      // Si se hace clic en un gráfico, no ocultar ningún gráfico
-      if (selectedTabId !== null) {
-          return;
-      }
-  
-      // Si se hace clic en una pestaña, no ocultar ningún gráfico
-      if (event.target.classList.contains('nav-link')) {
-          return;
-      }
-  
-      // Ocultar todos los gráficos de las pestañas
-      var dygraphs = document.querySelectorAll('.tab-pane.fade');
-      dygraphs.forEach(function(dygraph) {
-          dygraph.style.display = 'none';
+  document.addEventListener('DOMContentLoaded', function() {
+      // JavaScript para hacer clic en el contenedor del menú desplegable
+      document.querySelectorAll('.dropdown-menu li').forEach(function(item) {
+          item.addEventListener('click', function() {
+              // Realizar alguna acción al hacer clic en el contenedor del menú desplegable
+              console.log('Clic en el contenedor del menú desplegable');
+          });
       });
-  
-      // Mostrar los gráficos de la pestaña activa
-      var activeTabId = document.querySelector('.nav-link.active').getAttribute('href');
-      var activeDygraphs = document.querySelectorAll(activeTabId);
-      activeDygraphs.forEach(function(dygraph) {
-          dygraph.style.display = 'block';
+
+      var dropdowns = document.querySelectorAll('.dropdown-toggle');
+
+      dropdowns.forEach(function(dropdown) {
+          dropdown.addEventListener('click', function() {
+              // Remover la clase 'active' de todos los dropdowns
+              dropdowns.forEach(function(dd) {
+                  dd.classList.remove('active');
+              });
+
+              // Agregar la clase 'active' al dropdown actual
+              this.classList.add('active');
+          });
       });
   });
-  </script>
+</script>
 
-  
+
 
 
 <article class="article-graficos">
@@ -56,5 +69,5 @@
 </article>
 </div>
 
-  
+
 {{- end -}}

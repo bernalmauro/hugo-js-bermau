@@ -1411,37 +1411,33 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
 ```
 
 ### Banco Central de Bolivia (BCB)
-<!-- Barra de navegación horizontal -->
-<ul class="nav nav-tabs" id="nav-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="balance-tab" data-toggle="tab" href="#balance" role="tab" aria-controls="balance" aria-selected="true">Balance del BCB</a>
-  </li>
-  
-  <li class="nav-item">
-    <a class="nav-link" id="balanzacamb-tab" data-toggle="tab" href="#balanzacamb" role="tab" aria-controls="balanzacamb" aria-selected="false">Balanza Cambiaria</a>
-  </li>
-  
-  <li class="nav-item">
-    <a class="nav-link" id="basemon-tab" data-toggle="tab" href="#basemon" role="tab" aria-controls="basemon" aria-selected="false">Base Monetaria</a>
-  </li>
 
-  <li class="nav-item">
-    <a class="nav-link" id="credprivdepto-tab" data-toggle="tab" href="#credprivdepto" role="tab" aria-controls="credprivdepto" aria-selected="false">Crédito al Sector Privado (Departamentos)</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" id="deudaint-tab" data-toggle="tab" href="#deudaint" role="tab" aria-controls="deudaint" aria-selected="false">Deuda Interna del BCB con el Sector Privado</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link" id="finbcb-tab" data-toggle="tab" href="#finbcb" role="tab" aria-controls="finbcb" aria-selected="false">Financiamiento del BCB al Sector Público</a>
-  </li>
-  
-  <li class="nav-item">
-    <a class="nav-link" id="rin-tab" data-toggle="tab" href="#rin" role="tab" aria-controls="rin" aria-selected="false">Reservas Internacionales</a>
-  </li>
-  
+<ul class="nav nav-tabs" role="tablist">
+     <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+          Sector Monetario <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class=""><a href="#balance" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">Balance BCB</a></li>
+          <li class=""><a href="#basemon" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">Base Monetaria</a></li>
+          <li class=""><a href="#credprivdepto" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Crédito al Privado</a></li>
+          <li class=""><a href="#deudaint" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">Deuda Interna del BCB con el Sector Privado</a></li>
+          <li class=""><a href="#finbcb" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Financiamiento del BCB al Sector Público</a></li>
+        </ul>
+     </li>
+     <ul class="nav nav-tabs" role="tablist">
+     <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+          Sector Externo <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class=""><a href="#balanzacamb" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Balanza Cambiaria</a></li>
+          <li class=""><a href="#rin" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Reservas Internacionales</a></li>
+        </ul>
+     </li>
 </ul>
+</ul>
+
 
 <!-- Contenido de las pestañas -->
 <div class="tab-content" id="nav-tabContent">
@@ -1454,7 +1450,7 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
 ```
   </div>
   
-  <div class="tab-pane fade active" id="balanzacamb" role="tabpanel" aria-labelledby="balanzacamb-tab">
+  <div class="tab-pane fade" id="balanzacamb" role="tabpanel" aria-labelledby="balanzacamb-tab">
 ```{r bcb-base-balanzacamb, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs
     plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs
@@ -1463,7 +1459,7 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
 ``` 
   </div>
 
-  <div class="tab-pane fade active" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
+  <div class="tab-pane fade" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
 ```{r bcb-base-monetaria, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_base_origen_lineal_y_stacked_bs
     plotly_grafico_base_destino_lineal_y_stacked_bs
@@ -1472,21 +1468,21 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
 ``` 
   </div>
 
-  <div class="tab-pane fade active" id="credprivdepto" role="tabpanel" aria-labelledby="credprivdepto-tab">
+  <div class="tab-pane fade" id="credprivdepto" role="tabpanel" aria-labelledby="credprivdepto-tab">
 ```{r bcb-cred-privado-depto, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs
     plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd
 ``` 
   </div>
 
-  <div class="tab-pane fade active" id="deudaint" role="tabpanel" aria-labelledby="deudaint-tab">
+  <div class="tab-pane fade" id="deudaint" role="tabpanel" aria-labelledby="deudaint-tab">
 ```{r bcb-cred-sector-privado, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs
     plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd
 ``` 
   </div>
 
-  <div class="tab-pane fade active" id="finbcb" role="tabpanel" aria-labelledby="finbcb-tab">
+  <div class="tab-pane fade" id="finbcb" role="tabpanel" aria-labelledby="finbcb-tab">
 ```{r bcb-fin, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_credito_sector_publico_lineal_y_stacked_bs
     plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs
@@ -1495,7 +1491,7 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
 ``` 
   </div>
 
-  <div class="tab-pane fade active" id="rin" role="tabpanel" aria-labelledby="rin-tab">
+  <div class="tab-pane fade" id="rin" role="tabpanel" aria-labelledby="rin-tab">
 ```{r bcb-rin, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_lineal_reservas_y_stacked_bs
     plotly_grafico_lineal_reservas_y_stacked_usd

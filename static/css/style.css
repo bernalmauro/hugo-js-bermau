@@ -431,16 +431,105 @@ ul.share-icons li>* .label {
     margin-left: auto; /* Esto debería alinear el botón a la derecha */
 }
 
-/* tabs */
+/* DROPDOWN MENU AMBOS TEMAS */
 
+.dropdown-menu li {
+    border: 0.01px solid #212529; /* Agrega un borde inferior a cada elemento del menú */
+	padding: 0 !important;
+	margin: 0 !important;
+	text-decoration: none !important;
+}
+
+.dropdown-menu {
+    border: 0.01px solid #212529; /* Agrega un borde inferior a cada elemento del menú */
+	padding: 0 !important;
+	margin: 0 !important;
+	text-decoration: none !important;
+}
+
+.modo-oscuro .dropdown-menu li {
+    border: 0.01px solid #abb2bf; /* Agrega un borde inferior a cada elemento del menú */
+	padding: 0 !important;
+	margin: 0 !important;
+	background-color: #212529 !important;
+	color: #abb2bf; 
+	text-decoration: none !important;
+}
+
+.modo-oscuro .dropdown-menu {
+    border: 0.01px solid #ffffff; /* Agrega un borde inferior a cada elemento del menú */
+	padding: 0 !important;
+	margin: 0 !important;
+	text-decoration: none !important;
+}
+
+/* DROPDOWN TOOGLE AMBOS TEMAS */
+.dropdown-toggle {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 10px;
+	border: 1px solid #abb2bf; 
+	text-decoration: none !important;
+}
+.dropdown-toggle.active {
+    background-color: #abb2bf; /* Cambia a tu color preferido */
+    color: #212529;
+	border: 1px solid #212529; /* Cambia el color del borde y el grosor */
+	text-decoration: none !important;
+}
+.modo-oscuro .dropdown-toggle {
+    background-color: #abb2bf;
+    color: #212529 !important;
+    padding: 10px;
+	border: 1px solid #212529; /* Cambia el color del borde y el grosor */
+	text-decoration: none !important;
+}
+.modo-oscuro .dropdown-toggle.active {
+    background-color: #212529; /* Cambia a tu color preferido */
+    color: #ffffff !important;
+	border: 1px solid #abb2bf; /* Cambia el color del borde y el grosor */
+	text-decoration: none !important;
+}
+
+/* MENU DESPLEGABLE DE DROPDOWN AMBOS TEMAS */
+
+.dropdown-menu a:hover {
+    background-color: #333; /* Cambia el color de fondo al hacer hover */
+    color: #fff; /* Cambia el color del texto al hacer hover */
+}
+.dropdown-menu li:hover {
+    background-color: #333; /* Cambia el color de fondo del contenedor al hacer hover */
+}
+.dropdown-menu li:hover a {
+    color: #fff; /* Cambia el color del texto al hacer hover */
+	text-decoration: none !important;
+}
+/* TEMA OSCURO */
+.modo-oscuro .dropdown-menu a:hover {
+    background-color: #abb2bf !important; /* Cambia el color de fondo al hacer hover */
+    color: #333 !important; /* Cambia el color del texto al hacer hover */
+}
+.modo-oscuro .dropdown-menu li:hover {
+    background-color: #abb2bf !important; /* Cambia el color de fondo del contenedor al hacer hover */
+}
+.modo-oscuro .dropdown-menu li:hover a {
+    color: #333 !important; /* Cambia el color del texto al hacer hover */
+}
+
+/* TABS */
 .nav-tabs {
-	margin-top: 1rem;
-	border-color: #343541 !important;
+    margin-top: 0rem; /* Ajusta según sea necesario */
+    border-color: #343541 !important; /* Borde de las pestañas */
+    border-bottom-width: 3px; /* Grosor del borde inferior */
+    border-bottom-style: solid; /* Estilo del borde inferior */
+    padding-bottom: 5px; /* Espacio adicional debajo de las pestañas */
+	text-decoration: none !important;
 }
 
 .modo-oscuro .nav-tabs {
-	margin-top: 1rem;
+	margin-top: 0rem;
 	border-color: #abb2bf !important;
+	text-decoration: none !important;
 }
 
 /* Modo claro que tienen active */
@@ -448,12 +537,14 @@ ul.share-icons li>* .label {
 	background-color:#abb2bf !important; /* Cambia el color de fondo en modo claro */
     color: #000000 !important; /* Cambia el color del texto en modo claro */
     border-color: #212529 !important; /* Cambia el color del borde en modo claro */
+	text-decoration: none !important;
 }
 /* Modo oscuro que tienen active */
 .modo-oscuro .nav-link.active{
 	background-color: #212529 !important; /* Cambia el color de fondo en modo oscuro */
     color: #ffffff !important; /* Cambia el color del texto en modo oscuro */
     border-color: #abb2bf !important; /* Cambia el color del borde en modo oscuro */
+	text-decoration: none !important;
 }
 
 /* Modo claro que no tienen active */
@@ -461,20 +552,19 @@ ul.share-icons li>* .label {
 	background-color: #212529 !important; /* Cambia el color de fondo en modo claro */
     color: #abb2bf !important; /* Cambia el color del texto en modo claro */
     border-color: #abb2bf !important; /* Cambia el color del borde en modo claro */
+	text-decoration: none !important;
 }
 /* Modo oscuro que no tienen active */
 .modo-oscuro .nav-link{
 	background-color: #abb2bf !important; /* Cambia el color de fondo en modo oscuro */
     color: #212529 !important; /* Cambia el color del texto en modo oscuro */
     border-color: #000000 !important; /* Cambia el color del borde en modo oscuro */
+	text-decoration: none !important;
 }
-
-
 /* Estilo predeterminado para el borde inferior en modo claro */
 .d-block.my-2.pb-2.border-bottom {
     border-bottom: 1px dashed #343541 !important; /* Color del borde en modo claro */
 }
-
 /* Estilo para el borde inferior en modo oscuro */
 .modo-oscuro .d-block.my-2.pb-2.border-bottom {
     border-bottom: 1px solid #abb2bf !important; /* Color del borde en modo oscuro */
@@ -664,6 +754,14 @@ ul.share-icons li>* .label {
 /* nav modo oscuro */
 .modo-oscuro .navbar.navbar-dark.bg-dark.fixed-top {
 	background-color: #212529 !important; /* Reemplaza con el color hexadecimal que desees */
+}
+
+footer.footer.fixed-bottom.bg-dark {
+    background-color: #343541 !important; /* Color de fondo oscuro */
+}
+
+.modo-oscuro footer.footer.fixed-bottom.bg-dark {
+    background-color: #212529 !important; /* Color de fondo oscuro */
 }
 
 /* nav modo claro */
