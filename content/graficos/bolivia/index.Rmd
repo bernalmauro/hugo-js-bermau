@@ -6,7 +6,9 @@ output: html_document
 ```{r warning = FALSE, include=FALSE}
 #LIBRARY####
 library(dygraphs)
+library(RColorBrewer)
 library(tidyverse)
+library(viridis)
 library(zoo)
 library(rio)
 library(magrittr)
@@ -1377,9 +1379,210 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs <-  plotly_grafico_deuda_b
     )
   )
 )
-
-
 plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_bcb_privados_lineal_usd %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+
+#REMESAS RECIBIDAS PAIS ORIGEN####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/24.remesas_recibidas_del_exterior.xlsx"
+sheet <- "Hoja1"
+range <- "C6:N24"
+col_names <- TRUE
+#FORMATO FECHA
+from <- "01Dec2006"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  mutate(across(where(is.numeric), ~  . *6.86))
+
+conjunto_datos_usd <- data
+
+titulo_plotly_bs <- "<b>Remesas Recibidas</b><br>Millones Bs"
+titulo_plotly_usd <- "<b>Remesas Recibidas</b><br>Millones $us"
+
+mi_paleta_plotly <- pal_plotly(12)
+
+plotly_grafico_remesas_pais_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+plotly_grafico_remesas_pais_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd)
+
+plotly_grafico_remesas_pais_lineal_y_stacked_bs <-  plotly_grafico_remesas_pais_lineal_bs %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+plotly_grafico_remesas_pais_lineal_y_stacked_usd <-  plotly_grafico_remesas_pais_lineal_usd %>% layout(
+  updatemenus = list(
+    list(
+      x = 0.20, 
+      y = 1.20,
+      buttons = list(
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = FALSE), 
+                      list(visible = c(TRUE, FALSE))), 
+          label = 'Sin Apilar', 
+          method = 'update'
+        ),
+        list(
+          args = list(list(type = "scatter", mode = "lines", stackgroup = 'one'), 
+                      list(visible = c(FALSE, TRUE))), 
+          label = 'Apilado', 
+          method = 'update'
+        )
+      )
+    )
+  )
+)
+
+#INDICE DE TIPO DE CAMBIO REAL BASE 2003####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/3.tipo_cambio_y_precios/36.indice_cambio_real.xlsx"
+sheet <- "Hoja1"
+range <- "D158:AF406"
+col_names <- TRUE
+#FORMATO FECHA
+from <- "01Aug2003"
+to <- "01Mar2024"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Argentina`,
+         `Brasil`,
+         `Chile`,
+         `China`,
+         `Estados Unidos`,
+         `Paraguay`,
+         `Perú`,
+         `Zona del Euro`,
+         `Multilateral`)
+
+
+titulo_plotly_bs <- "<b>Índices de Tipo de Cambio Real</b><br>(Agosto de 2003 = 100)"
+
+mi_paleta_plotly <- pal_plotly(9)
+
+plotly_grafico_tipo_real_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+
+#PONDERADORES COMERCIO INTERNACIONAL
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/3.tipo_cambio_y_precios/37.ponderadores_comercio_internacional.xlsx"
+sheet <- "Hoja1"
+range <- "D7:AD40"
+col_names <- TRUE
+#FORMATO FECHA
+from <- "01Dec1991"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+fecha
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Argentina`,
+         `Brasil`,
+         
+         `China`,
+         
+         `Emiratos Árabes Unidos`,
+         `Estados Unidos`,
+         `India`,
+         `Japón`,
+         
+         `Perú`,
+         
+         `Zona del Euro`)
+
+
+titulo_plotly_bs <- "<b>Ponderadores de Comercio Internacional</b><br>(En porcentaje)"
+
+mi_paleta_plotly <- brewer.pal(9, "Set1")
+
+plotly_grafico_ponderadores_comercio_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs)
+
+
+plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs <-  plotly_grafico_ponderadores_comercio_lineal_bs %>% layout(
   updatemenus = list(
     list(
       x = 0.20, 
@@ -1404,10 +1607,6 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
 
 
 
-
-
-
-
 ```
 
 ### Banco Central de Bolivia (BCB)
@@ -1418,22 +1617,45 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
           Sector Monetario <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li class=""><a href="#balance" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">Balance BCB</a></li>
-          <li class=""><a href="#basemon" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">Base Monetaria</a></li>
-          <li class=""><a href="#credprivdepto" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Crédito al Privado</a></li>
-          <li class=""><a href="#deudaint" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">Deuda Interna del BCB con el Sector Privado</a></li>
-          <li class=""><a href="#finbcb" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Financiamiento del BCB al Sector Público</a></li>
-        </ul>
+          <li class=""><a href="#balance" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Balance BCB</a></li>
+          <li class=""><a href="#basemon" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Base Monetaria</a></li>
+          <li class=""><a href="#credprivdepto" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Crédito al Sector Privado</a></li>
+          <li class=""><a href="#deudaint" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Deuda con el Sector Privado</a></li>
+          <li class=""><a href="#finbcb" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Financiamiento al Sector Público</a></li>
+</ul>
      </li>
-     <ul class="nav nav-tabs" role="tablist">
+<ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
           Sector Externo <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li class=""><a href="#balanzacamb" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Balanza Cambiaria</a></li>
-          <li class=""><a href="#rin" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">Reservas Internacionales</a></li>
+          <li class=""><a href="#balanzacamb" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Balanza Cambiaria</a></li>
+          <li class=""><a href="#rin" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Reservas Internacionales</a></li>
+          <li class=""><a href="#remorigen" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Remesas Recibidas</a></li>
         </ul>
+</ul>
+     </li>
+<ul class="nav nav-tabs" role="tablist">
+     <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+          Tipo de Cambio y Precios <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li class=""><a href="#ireal" data-toggle="tab" aria-expanded="false" aria-controls="tercer-tab">
+          Tipo de Cambio Real</a></li>
+          <li class=""><a href="#pondcomercio" data-toggle="tab" aria-expanded="false" aria-controls="tercer-tab">
+          Pond. Comercio Int.</a></li>
+        </ul>
+</ul>
      </li>
 </ul>
 </ul>
@@ -1497,4 +1719,24 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <-  plotly_grafico_deuda_
     plotly_grafico_lineal_reservas_y_stacked_usd
 ``` 
   </div>
+  
+  <div class="tab-pane fade" id="remorigen" role="tabpanel" aria-labelledby="remorigen-tab">
+```{r bcb-remorigen, echo=FALSE, warning=FALSE, out.width=500}
+    plotly_grafico_remesas_pais_lineal_y_stacked_bs
+    plotly_grafico_remesas_pais_lineal_y_stacked_usd
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="ireal" role="tabpanel" aria-labelledby="ireal-tab">
+```{r bcb-ireal, echo=FALSE, warning=FALSE, out.width=500}
+plotly_grafico_tipo_real_lineal_bs
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="pondcomercio" role="tabpanel" aria-labelledby="pondcomercio-tab">
+```{r bcb-pondcomercio, echo=FALSE, warning=FALSE, out.width=500}
+plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs
+``` 
+  </div>
+  
 </div>
