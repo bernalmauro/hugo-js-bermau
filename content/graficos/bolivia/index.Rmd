@@ -1650,9 +1650,11 @@ plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs <-  plotly_grafico_pond
           Tipo de Cambio y Precios <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li class=""><a href="#ireal" data-toggle="tab" aria-expanded="false" aria-controls="tercer-tab">
+          <li class="">
+          <a href="#ireal" data-toggle="tab" aria-expanded="false" aria-controls="tercer-tab">
           Tipo de Cambio Real</a></li>
-          <li class=""><a href="#pondcomercio" data-toggle="tab" aria-expanded="false" aria-controls="tercer-tab">
+          <li class="">
+          <a href="#pondcomer" data-toggle="tab" aria-expanded="false" aria-controls="tercer-tab">
           Pond. Comercio Int.</a></li>
         </ul>
 </ul>
@@ -1733,9 +1735,11 @@ plotly_grafico_tipo_real_lineal_bs
 ``` 
   </div>
   
-  <div class="tab-pane fade" id="pondcomercio" role="tabpanel" aria-labelledby="pondcomercio-tab">
-```{r bcb-pondcomercio, echo=FALSE, warning=FALSE, out.width=500}
+  <div class="tab-pane fade" id="pondcomer" role="tabpanel" aria-labelledby="pondcomer-tab">
+```{r bcb-pondcomer, echo=FALSE, warning=FALSE, out.width=500}
+
 plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs
+
 ``` 
   </div>
   
