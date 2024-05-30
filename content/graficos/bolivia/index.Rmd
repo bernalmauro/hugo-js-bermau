@@ -1362,7 +1362,43 @@ titulo_plotly_bs <- "<b>Producción de Huevo de Aves de Postura</b><br>(En millo
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_produccion_huevos_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+#PRODUCCION CARNE BOVINA####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/pecuarios/Bolivia - Produccion de Carne Bovina por Departamento segun Año, 1990 - 2022.xlsx"
+range <- "D7:L40"
+sheet <- "Producción_carne_bovina"
+col_names <-TRUE
+from <- "01Dec1990"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
 
+data <- datos(file, sheet, range, col_names, from, to, by, each)
+colnames(data) <-  c( "fecha", "Chuquisaca", "La Paz", "Cochabamba","Oruro", "Potosí", "Tarija", "Santa Cruz", "Beni", "Pando")
+mi_paleta_plotly <- createPalette(9, c("#ff0000","#0000ff", "#00ff00" ))
+names(mi_paleta_plotly) <- NULL
+conjunto_datos_bs <- data %>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+titulo_plotly_bs <- "<b>Producción Carne Bovina</b><br>(En miles de toneladas)"
+plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_lineal_produccion_bovina_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#PRODUCCION CARNE PORCINA####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/pecuarios/Bolivia - Produccion de Carne Porcina por Departamento segun Año, 1970 - 2022.xlsx"
+range <- "D7:L60"
+sheet <- "Producción_carne_procina"
+col_names <-TRUE
+from <- "01Dec1970"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+
+data <- datos(file, sheet, range, col_names, from, to, by, each)
+colnames(data) <-  c( "fecha", "Chuquisaca", "La Paz", "Cochabamba","Oruro", "Potosí", "Tarija", "Santa Cruz", "Beni", "Pando")
+conjunto_datos_bs <- data %>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+titulo_plotly_bs <- "<b>Producción Carne Porcina</b><br>(En miles de toneladas)"
+plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_lineal_produccion_porcina_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
 ```
 
@@ -1642,6 +1678,10 @@ plotly_grafico_lineal_superficie_agricola_y_stacked_bs
 plotly_grafico_lineal_produccion_aves_y_stacked_bs
 
 plotly_grafico_lineal_produccion_huevos_y_stacked_bs
+
+plotly_grafico_lineal_produccion_bovina_y_stacked_bs
+
+plotly_grafico_lineal_produccion_porcina_y_stacked_bs
 
 
 ```
