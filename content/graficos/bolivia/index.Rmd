@@ -28,6 +28,7 @@ library(ggnewscale)
 library(patchwork)
 library(kableExtra)
 library(formattable)
+library(Polychrome)
 
 knitr::opts_chunk$set(echo = TRUE, error = TRUE)
 
@@ -180,7 +181,7 @@ plotly_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,
 generar_layout_menus <- function(plotly_lineal, graph_type, barmode) {
   plotly_lineal %!>% 
   
-  layout(
+  plotly::layout(
     updatemenus = list(
       list(
         x = 0.20, 
@@ -205,7 +206,6 @@ generar_layout_menus <- function(plotly_lineal, graph_type, barmode) {
   
   
 }
-
 fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
   
   data <- 
@@ -229,15 +229,44 @@ fun_excel <-function(file, range, sheet, col_names, from, to, by, each) {
   data <- as_tibble(data)
   
 }
+fun_excel_sf <-function(file, range, sheet, col_names) {
+  
+  data <- 
+    rio::import(
+      file, 
+      setclass = "tbl_df",
+      sheet=sheet,
+      range = range,
+      col_names = col_names,
+      .name_repair = "unique_quiet") %!>% 
+    remove_empty(c("rows", "cols")) %!>%
+    replace(is.na(.), 0)
+  data %<>%
+    pivot_longer(!...1) %<>%
+    pivot_wider(names_from = "...1",
+                values_from = "value") %<>%
+    dplyr::select(-name)
+
+  
+}
 fun_fecha <-function(from, to, by, each) {
   rep(seq(anydate(from),
           anydate(to),
           by = by), each = each)
 }
-
 pal_plotly <- function(num) {
   usecol(c("#ff0000","#00ff00","#0000ff","#ffff00"),
          n = num)
+}
+
+#FUNCIONES PLOTLY INE AGROPECUARIA####
+ine_deptos <-  function(data, fecha, departamentos, rubro) {
+  
+  conjunto_datos_bs <-  data %>%
+    select(fecha, contains(rubro)) %>%
+    mutate(across(where(is.numeric), ~ . / 1000)) %>%
+    rename_with(~ departamentos, contains(rubro))
+  
 }
 
 #BALANCE ACTIVO BCB####
@@ -1238,6 +1267,101 @@ titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>Mayores a 1080 días"
 plotly_grafico_dpf_1080_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_dpf_1080_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 
+#AGROPECUARIA - AGRICOLA PRODUCCION####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/1.agricultura/Bolivia - Produccion Año Agricola por Departamento, 1984 - 2022.xlsx"
+range <- "B9:AO94"
+col_names <- FALSE
+
+from <- "01Dec1984"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+tickformat_y <- ",.0d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+#BOLIVIA
+sheet <- "Bolivia"
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `CEREALES`,
+         `ESTIMULANTES`,
+         `HORTALIZAS`,
+         `FRUTALES`,
+         `OLEAGINOSAS E INDUSTRIALES`,
+         `TUBÉRCULOS Y RAICES`,
+         `FORRAJES`)%>%
+  mutate(across(where(is.numeric), ~  . /1000 ))
+
+mi_paleta_plotly <- createPalette(7, c("#ff0000", "#00ff00", "#0000ff"))
+names(mi_paleta_plotly) <- NULL
+
+titulo_plotly_bs <- "<b>Producción Agricola</b><br>(En miles de toneladas)"
+plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_lineal_produccion_agricola_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#PARA GENERAL
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/1.agricultura/Bolivia - Superficie Año Agricola por Departamento, 1984 - 2022.xlsx"
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `CEREALES`,
+         `ESTIMULANTES`,
+         `HORTALIZAS`,
+         `FRUTALES`,
+         `OLEAGINOSAS E INDUSTRIALES`,
+         `TUBÉRCULOS Y RAICES`,
+         `FORRAJES`)%>%
+  mutate(across(where(is.numeric), ~  . /1000 ))
+
+titulo_plotly_bs <- "<b>Superficie Agricola Cultivada</b><br>(En miles de hectáreas)"
+plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_lineal_superficie_agricola_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+
+#AVICOLA PRODUCCION AVES####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/avicultura/Bolivia - Produccion de Carne de Aves Parrilleras por Departamento segun Años, 1984 - 2022.xls"
+range <- "D7:K46"
+sheet <- "Hoja1"
+col_names <-TRUE
+from <- "01Dec1984"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+
+data <- datos(file, sheet, range, col_names, from, to, by, each)
+colnames(data) <-  c( "fecha", "Chuquisaca", "La Paz", "Cochabamba",  "Potosí", "Tarija", "Santa Cruz", "Beni", "Pando")
+mi_paleta_plotly <- createPalette(8, c("#ff0000","#0000ff", "#00ff00" ))
+names(mi_paleta_plotly) <- NULL
+conjunto_datos_bs <- data %>%
+  mutate(across(where(is.numeric), ~  . / 1000000))
+titulo_plotly_bs <- "<b>Producción Carne de Aves Parrilleras</b><br>(En millones de kilogramos)"
+plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_lineal_produccion_aves_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#PRODUCCION HUEVOS####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/avicultura/Bolivia - Produccion de Huevo de Aves Postura por Departamento, segun Años, 1984 - 2022.xls"
+range <- "C7:K46"
+sheet <- "Prod Huevo"
+col_names <-TRUE
+from <- "01Dec1984"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+
+data <- datos(file, sheet, range, col_names, from, to, by, each)
+colnames(data) <-  c( "fecha", "Chuquisaca", "La Paz", "Cochabamba","Oruro","Potosí", "Tarija", "Santa Cruz", "Beni", "Pando")
+mi_paleta_plotly <- createPalette(9, c("#ff0000","#0000ff", "#00ff00" ))
+names(mi_paleta_plotly) <- NULL
+conjunto_datos_bs <- data %>%
+  mutate(across(where(is.numeric), ~  . / 1000000))
+titulo_plotly_bs <- "<b>Producción de Huevo de Aves de Postura</b><br>(En millones de unidades)"
+plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_lineal_produccion_huevos_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
 
 
 ```
@@ -1247,84 +1371,65 @@ plotly_grafico_dpf_1080_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, 
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Sector Monetario <span class="caret"></span>
-        </a>
+          Sector Monetario <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li class=""><a href="#balance" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Balance BCB</a>
-          </li>
+          Balance BCB</a></li>
           <li class=""><a href="#basemon" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Base Monetaria</a>
-          </li>
+          Base Monetaria</a></li>
           <li class=""><a href="#credprivdepto" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Crédito al Sector Privado</a>
-          </li>
+          Crédito al Sector Privado</a></li>
           <li class=""><a href="#deudaint" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Deuda con el Sector Privado</a>
-          </li>
+          Deuda con el Sector Privado</a></li>
           <li class=""><a href="#finbcb" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Financiamiento al Sector Público</a>
-          </li>
+          Financiamiento al Sector Público</a></li>
         </ul>
      </li>
      
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Sector Externo <span class="caret"></span>
-        </a>
+          Sector Externo <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li class=""><a href="#balanzacamb" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Balanza Cambiaria</a>
-          </li>
+          Balanza Cambiaria</a></li>
           <li class=""><a href="#rin" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Reservas Internacionales</a>
-          </li>
+          Reservas Internacionales</a></li>
           <li class=""><a href="#remorigen" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Remesas Recibidas</a>
-          </li>
+          Remesas Recibidas</a></li>
         </ul></ul>
      </li>
      
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Tipo de Cambio y Precios <span class="caret"></span>
-        </a>
+          Tipo de Cambio y Precios <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li class="">
-          <a href="#ireal" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
-          Tipo de Cambio Real</a>
-          </li>
-          <li class="">
-          <a href="#pondcomer" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
-          Pond. Comercio Int.</a>
-          </li>
+          <li class=""><a href="#ireal" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
+          Tipo de Cambio Real</a></li>
+          <li class=""><a href="#pondcomer" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
+          Pond. Comercio Int.</a></li>
         </ul></ul>
      </li>
+
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Sector Crediticio <span class="caret"></span>
-        </a>
+          Sector Crediticio <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li class="">
-          <a href="#pasivahorro" data-toggle="tab" aria-expanded="false" aria-controls="fourth-tab">
-          Tasas Int. Pasivas CAH</a>
-          </li>
-          <li class="">
-          <a href="#pasivadpf" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
-          Tasas Int. Pasivas DPF</a>
-          </li>
+          <li class=""><a href="#pasivahorro" data-toggle="tab" aria-expanded="false" aria-controls="fourth-tab">
+          Tasas Int. Pasivas CAH</a></li>
+          <li class=""><a href="#pasivadpf" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
+          Tasas Int. Pasivas DPF</a></li>
         </ul></ul>
      </li>
 </ul>
 </ul>
 
 
-<!-- Contenido de las pestañas -->
+<!-- Contenido de las pestañas BCB -->
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade active show" id="balance" role="tabpanel" aria-labelledby="balance-tab">
+  <div class="tab-pane fade" id="balance" role="tabpanel" aria-labelledby="balance-tab">
 ```{r bcb-activo, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_lineal_activo_y_stacked_bs
     plotly_grafico_lineal_pasivo_y_stacked_bs
@@ -1451,5 +1556,249 @@ plotly_grafico_dpf_1080_usd
 ``` 
   </div>
     
+</div>
+
+
+
+### Instituto Nacional de Estadística (INE)
+
+<ul class="nav nav-tabs" role="tablist">
+     <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+          Estadísticas Económicas <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class=""><a href="#agrop" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Agropecuaria </a></li>
+          <li class=""><a href="#comex" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Comercio Exterior</a></li>
+          <li class=""><a href="#const" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Construcción</a></li>
+          <li class=""><a href="#cuentasnac" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Cuentas Nacionales</a></li>
+          <li class=""><a href="#hidmin" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Hidrocarburos/Minería</a></li>
+          <li class=""><a href="#icomex" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Industria y Comercio</a></li>
+          <li class=""><a href="#inpre" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Índice de Precios</a></li>
+          <li class=""><a href="#medam" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Medio Ambiente</a></li>
+          <li class=""><a href="#sala" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Salarios</a></li>
+          <li class=""><a href="#servb" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Sevicios Básicos</a></li>
+          <li class=""><a href="#telec" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Telecomunicaciones</a></li>
+          <li class=""><a href="#trans" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Transporte</a></li>
+          <li class=""><a href="#turi" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Turismo</a></li>
+        </ul>
+     </li>
+     
+<ul class="nav nav-tabs" role="tablist">
+     <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+          Estadísticas Sociales <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class=""><a href="#emple" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Empleo</a></li>
+          <li class=""><a href="#pobla" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Población</a></li>
+          <li class=""><a href="#salu" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Salud</a></li>
+          <li class=""><a href="#seguso" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Seguridad Social</a></li>
+          <li class=""><a href="#educa" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Educación</a></li>
+          <li class=""><a href="#tecno" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Tecnología</a></li>
+          <li class=""><a href="#vivi" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Vivienda</a></li>
+          <li class=""><a href="#partp" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Participación Política</a></li>
+          <li class=""><a href="#seguci" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Seguridad Ciudadana</a></li>
+          <li class=""><a href="#dere" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Derechos Humanos</a></li>
+          <li class=""><a href="#pobre" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          Pobreza y Desigualdad</a></li>
+        </ul></ul>
+     </li>
+</ul>
+</ul>
+
+
+<!-- Contenido de las pestañas INE -->
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade" id="agrop" role="tabpanel" aria-labelledby="agrop-tab">
+```{r ine-agrop, echo=FALSE, warning=FALSE, out.width=500}
+
+plotly_grafico_lineal_produccion_agricola_y_stacked_bs
+
+plotly_grafico_lineal_superficie_agricola_y_stacked_bs
+
+plotly_grafico_lineal_produccion_aves_y_stacked_bs
+
+plotly_grafico_lineal_produccion_huevos_y_stacked_bs
+
+
+```
+  </div>
   
+  <div class="tab-pane fade" id="comex" role="tabpanel" aria-labelledby="comex-tab">
+```{r ine-comex, echo=FALSE, warning=FALSE, out.width=500}
+
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="const" role="tabpanel" aria-labelledby="const-tab">
+```{r ine-const, echo=FALSE, warning=FALSE, out.width=500}
+
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="cuentasnac" role="tabpanel" aria-labelledby="cuentasnac-tab">
+```{r ine-cuentasnac, echo=FALSE, warning=FALSE, out.width=500}
+
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="hidmin" role="tabpanel" aria-labelledby="hidmin-tab">
+```{r ine-hidmin, echo=FALSE, warning=FALSE, out.width=500}
+
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="icomex" role="tabpanel" aria-labelledby="icomex-tab">
+```{r ine-icomex, echo=FALSE, warning=FALSE, out.width=500}
+
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="inpre" role="tabpanel" aria-labelledby="inpre-tab">
+```{r ine-inpre, echo=FALSE, warning=FALSE, out.width=500}
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="medam" role="tabpanel" aria-labelledby="medam-tab">
+```{r ine-medam, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="sala" role="tabpanel" aria-labelledby="sala-tab">
+```{r ine-sala, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="servb" role="tabpanel" aria-labelledby="servb-tab">
+```{r ine-servb, echo=FALSE, warning=FALSE, out.width=500}
+    
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="telec" role="tabpanel" aria-labelledby="telec-tab">
+```{r ine-telec, echo=FALSE, warning=FALSE, out.width=500}
+
+
+
+``` 
+  </div>
+    
+  <div class="tab-pane fade" id="trans" role="tabpanel" aria-labelledby="trans-tab">
+```{r ine-trans, echo=FALSE, warning=FALSE, out.width=500}
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="turi" role="tabpanel" aria-labelledby="turi-tab">
+```{r ine-turi, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="emple" role="tabpanel" aria-labelledby="emple-tab">
+```{r ine-emple, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="pobla" role="tabpanel" aria-labelledby="pobla-tab">
+```{r ine-pobla, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="salu" role="tabpanel" aria-labelledby="salu-tab">
+```{r ine-salu, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="seguso" role="tabpanel" aria-labelledby="seguso-tab">
+```{r ine-seguso, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="educa" role="tabpanel" aria-labelledby="educa-tab">
+```{r ine-educa, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="tecno" role="tabpanel" aria-labelledby="tecno-tab">
+```{r ine-tecno, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="vivi" role="tabpanel" aria-labelledby="vivi-tab">
+```{r ine-vivi, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="partp" role="tabpanel" aria-labelledby="partp-tab">
+```{r ine-partp, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="seguci" role="tabpanel" aria-labelledby="seguci-tab">
+```{r ine-seguci, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="dere" role="tabpanel" aria-labelledby="dere-tab">
+```{r ine-dere, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+  
+  <div class="tab-pane fade" id="pobre" role="tabpanel" aria-labelledby="pobre-tab">
+```{r ine-pobre, echo=FALSE, warning=FALSE, out.width=500}
+
+
+``` 
+  </div>
+
 </div>
