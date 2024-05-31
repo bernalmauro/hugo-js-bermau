@@ -1548,6 +1548,202 @@ names(mi_paleta_plotly) <- NULL
 plotly_grafico_lineal_saldo_gce_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 
 
+#PRODUCCION CEMENTO ANUAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/1. Bolivia - Produccion de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
+range <- "B4:I466"
+sheet <- "C1"
+col_names <-TRUE
+from <- "01Dec1991"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+fecha <- fun_fecha(from,to,by,each)
+mi_paleta_plotly <-  pal_plotly(6)
+tickformat_y <- ",.0d"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+
+data <- datos_sf(file,sheet,range,col_names)
+
+data %<>%  
+  dplyr::filter(!(PERÍODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`CHUQUISACA`,
+         `LA PAZ`,
+         `COCHABAMBA`,
+         `ORURO`,
+         `TARIJA`,
+         `SANTA CRUZ`)%<>%  
+  mutate(across(where(is.numeric), ~  . /1000 )) 
+
+conjunto_datos_usd <- cbind(fecha,data)  
+titulo_plotly_usd <- "<b>Producción de Cemento - Anual</b><br>(En miles de toneladas)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_prod_cemento_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#VENTA CEMENTO ANUAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/2. Bolivia - Ventas de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
+range <- "B4:I466"
+sheet <- "C2"
+fecha <- fun_fecha(from,to,by,each)
+mi_paleta_plotly <-  pal_plotly(6)
+
+data <- datos_sf(file,sheet,range,col_names)
+
+data %<>%  
+  dplyr::filter(!(PERIODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`CHUQUISACA`,
+         `LA PAZ`,
+         `COCHABAMBA`,
+         `ORURO`,
+         `TARIJA`,
+         `SANTA CRUZ`)%<>%  
+  mutate(across(where(is.numeric), ~  . /1000 )) 
+
+conjunto_datos_usd <- cbind(fecha,data)  
+titulo_plotly_usd <- "<b>Venta de Cemento - Anual</b><br>(En miles de toneladas)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_venta_cemento_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#CONSUMO CEMENTO ANUAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/3. Bolivia - Consumo de Cemento por Departamento segun Año y Mes 2000 - 2024.xlsx"
+range <- "B4:L340"
+sheet <- "C3"
+from <- "01Dec2000"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+fecha <- fun_fecha(from,to,by,each)
+mi_paleta_plotly <- createPalette(9, c("#ff0000","#0000ff","#00ff00","#ffff00"))
+names(mi_paleta_plotly) <- NULL
+
+data <- datos_sf(file,sheet,range,col_names)
+
+data %<>%  
+  dplyr::filter(!(PERIODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`CHUQUISACA`,
+         `LA PAZ`,
+         `COCHABAMBA`,
+         `ORURO`,
+         `POTOSI`,
+         `TARIJA`,
+         `SANTA CRUZ`,
+         `BENI`,
+         `PANDO`)%<>%  
+  mutate(across(where(is.numeric), ~  . /1000 )) 
+
+conjunto_datos_usd <- cbind(fecha,data)  
+titulo_plotly_usd <- "<b>Consumo de Cemento - Anual</b><br>(En miles de toneladas)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_consumo_cemento_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#PRODUCCION-VENTA-CONSUMO CEMENTO ANUAL####
+from <- "01Dec1991"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+fecha <- fun_fecha(from,to,by,each)
+mi_paleta_plotly <-  pal_plotly(2)
+tickformat_y <- ",.0d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+#PRODUCCION
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/1. Bolivia - Produccion de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
+range <- "B4:I466"
+sheet <- "C1"
+col_names <-TRUE
+
+data_p <- datos_sf(file,sheet,range,col_names)
+data_p %<>%  
+  dplyr::filter(!(PERÍODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`TOTAL`)%<>%  
+  mutate(across(where(is.numeric), ~  . /1000 )) 
+
+#VENTA
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/2. Bolivia - Ventas de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
+sheet <- "C2"     
+data_v <- datos_sf(file,sheet,range,col_names)
+data_v %<>%  
+  dplyr::filter(!(PERIODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`TOTAL`)%<>%  
+  mutate(across(where(is.numeric), ~  . /1000 )) 
+
+#CONSUMO
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/3. Bolivia - Consumo de Cemento por Departamento segun Año y Mes 2000 - 2024.xlsx"
+range <- "B4:L340"
+sheet <- "C3"
+col_names <-TRUE
+data_ <- datos_sf(file,sheet,range,col_names)
+
+data_ %<>%  
+  dplyr::filter(!(PERIODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`TOTAL`)%<>%  
+  mutate(across(where(is.numeric), ~  . /1000 )) 
+
+data_1991_to_1999 <- rep(0, 9)
+nueva_columna <- c(data_1991_to_1999, data_$TOTAL)
+data_c <- tibble::tibble(TOTAL = nueva_columna)
+
+#UNION
+conjunto_datos_usd <- cbind(fecha,data_p,data_v)  
+colnames(conjunto_datos_usd) <- c("fecha", "Producción", "Venta")
+
+titulo_plotly_usd <- "<b>Producción,Venta y Consumo de Cemento - Anual</b><br>(En miles de toneladas)"
+plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+#SUPERFICIE PERMISOS DE CONSTRUCCION ANUAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/2.permisos_construccion/1. Bolivia - Superficie Permisos de Construcción desagregada por Tipo de Trámite según año y mes 2008 - 2024.xls"
+range <- "B9:F217"
+sheet <- "Sup.porTipodeTrám.segúnAñoyMes"
+col_names <-TRUE
+from <- "01Dec2008"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+fecha <- fun_fecha(from,to,by,each)
+mi_paleta_plotly <-  pal_plotly(3)
+tickformat_y <- ",.0d"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+data <- datos_sf(file,sheet,range,col_names)
+
+data %<>%  
+  dplyr::filter(!(PERIODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`APROBACIÓN DE PLANOS DE CONSTRUCCIÓN`,
+         `LEGALIZACIÓN Y REGULARIZACIÓN`,
+         `OTROS`)
+
+conjunto_datos_usd <- cbind(fecha,data)  
+titulo_plotly_usd <- "<b>Superficie en Permisos de Construcción - Anual</b><br>(En metros cuadrados)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_super_permis_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#NRO DE PERMISOS DE CONSTRUCCION ANUAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/2.permisos_construccion/2. Bolivia - Número de Permisos de Construcción desagregado por Tipo de Trámite según año y mes 2008 - 2024.xls"
+sheet <- "Núm.porTipodeTrám.segúnAñoyMes"
+data <- datos_sf(file,sheet,range,col_names)
+
+data %<>%  
+  dplyr::filter(!(PERIODO %in% c("Enero", "Febrero","Marzo", "Abril","Mayo", "Junio","Julio", "Agosto","Septiembre", 
+                                 "Octubre","Noviembre","Diciembre")))%<>%  
+  select(`APROBACIÓN DE PLANOS DE CONSTRUCCIÓN`,
+         `LEGALIZACIÓN Y REGULARIZACIÓN`,
+         `OTROS`)
+
+conjunto_datos_usd <- cbind(fecha,data)  
+titulo_plotly_usd <- "<b>Número de Permisos de Construcción - Anual</b><br>(En número de registros)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_nro_permis_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+
 
 ```
 
@@ -1757,7 +1953,7 @@ plotly_grafico_dpf_1080_usd
           <li class=""><a href="#comex" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Comercio Exterior</a></li>
           <li class=""><a href="#const" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Construcción</a></li>
+          Construcción </a></li>
           <li class=""><a href="#cuentasnac" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Cuentas Nacionales</a></li>
           <li class=""><a href="#hidmin" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
@@ -1813,7 +2009,6 @@ plotly_grafico_dpf_1080_usd
 </ul>
 </ul>
 
-
 <!-- Contenido de las pestañas INE -->
 
 <div class="tab-content" id="nav-tabContent">
@@ -1856,6 +2051,18 @@ plotly_grafico_lineal_saldo_gce_y_stacked_usd
 
   <div class="tab-pane fade" id="const" role="tabpanel" aria-labelledby="const-tab">
 ```{r ine-const, echo=FALSE, warning=FALSE, out.width=500}
+
+plotly_grafico_lineal_prod_cemento_y_stacked_usd
+
+plotly_grafico_lineal_venta_cemento_y_stacked_usd
+
+plotly_grafico_lineal_consumo_cemento_y_stacked_usd
+
+plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd
+
+plotly_grafico_lineal_super_permis_y_stacked_usd
+
+plotly_grafico_lineal_nro_permis_y_stacked_usd
 
 ``` 
   </div>
