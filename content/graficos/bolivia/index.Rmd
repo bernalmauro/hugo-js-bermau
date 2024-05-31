@@ -1400,6 +1400,155 @@ titulo_plotly_bs <- "<b>Producción Carne Porcina</b><br>(En miles de toneladas)
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_produccion_porcina_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+#EXPORTACIONES POR ACTIVIDAD ECONOMICA USD####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/exportaciones/Bolivia - Exportaciones segun Actividad Economica y Producto por Año y Mes, 1992 - 2024.xlsx"
+          
+range <- "B7:NX101"
+sheet <- "ExpActProdMes 92-24 Valor"
+col_names <-FALSE
+from <- "01Jan1992"
+to <- "01Feb2024"
+by <- "month"
+each <- 1
+
+mi_paleta_plotly <-  pal_plotly(4)
+tickformat_y <- ",.0d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `AGRICULTURA, GANADERÍA, CAZA SILVICULTURA Y PESCA`,
+         `EXTRACCIÓN DE HIDROCARBUROS`,
+         `EXTRACCIÓN  DE MINERALES`,
+         `INDUSTRIA MANUFACTURERA`)
+
+titulo_plotly_usd <- "<b>Exportaciones Actividad Económica</b><br>(Millones $us.)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_expo_actividad_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#EXPORTACIONES POR ACTIVIDAD ECONOMICA PESO####
+
+sheet <- "ExpActProdMes 92-24 Peso"
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `AGRICULTURA, GANADERÍA, CAZA SILVICULTURA Y PESCA`,
+         `EXTRACCIÓN DE HIDROCARBUROS`,
+         `EXTRACCIÓN  DE MINERALES`,
+         `INDUSTRIA MANUFACTURERA`)
+
+titulo_plotly_usd <- "<b>Exportaciones Actividad Económica</b><br>(En toneladas)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#IMPORTACIONES CUODE USD####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/importaciones/Bolivia - Importaciones Agregadas segun Clasificacion Uso o Destino Economico por Año y Mes, 1992 - 2024.xlsx"
+range <- "B7:NX26"
+sheet <- "IMP_VAL_MES_CUODE"
+
+mi_paleta_plotly <-  pal_plotly(3)
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `BIENES DE CONSUMO`,
+         `MATERIAS PRIMAS Y PRODUCTOS INTERMEDIOS`,
+         `BIENES DE CAPITAL`)
+
+titulo_plotly_usd <- "<b>Importaciones (CUODE)</b><br>(Millones $us.)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_impo_cuode_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#EXPORTACIONES POR ACTIVIDAD ECONOMICA PESO####
+
+sheet <- "IMP_VOL_MES_CUODE"
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `BIENES DE CONSUMO`,
+         `MATERIAS PRIMAS Y PRODUCTOS INTERMEDIOS`,
+         `BIENES DE CAPITAL`)
+
+titulo_plotly_usd <- "<b>Importaciones(CUODE)</b><br>(En toneladas)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#SALDO COMERCIAL CUCI USD####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Clasificacion Uniforme para el Comercio Internacional, 1992 - 2024.xlsx"
+range <- "C8:CU93"
+sheet <- "SALDO CUCI ANUAL 92-24"
+col_names <-FALSE
+from <- "01Dec1992"
+to <- "01Dec2023"
+by <- "year"
+each <- 3
+mi_secuencia <- rep(c("exportaciones", "importaciones", "saldo comercial"), times = 32)
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+data <- cbind(mi_secuencia, data)
+
+conjunto_datos_usd <- data %!>% 
+  dplyr::filter(mi_secuencia == "saldo comercial") %!>% 
+  select(fecha, 
+         `ANIMALES Y PRODUCTOS ALIMENTICIOS`,
+         `MATERIALES CRUDOS NO COMESTIBLES`,
+         `COMBUSTIBLES Y LUBRICANTES`,
+         `ACEITES, GRASAS ANIMAL Y VEGETAL`,
+         `PRODUCTOS QUÍMICOS Y CONEXOS`,
+         `ARTÍCULOS MANUFACTURADOS`,
+         `MAQUINARIA Y EQUIPO DE TRANSPORTE`,
+         `ARTÍCULOS MANUFACTURADOS DIVERSOS`,
+         `ORO`)
+titulo_plotly_usd <- "<b>Saldo Comercial (CUCI Rev.3)</b><br>(Millones $us.)"
+mi_paleta_plotly <- createPalette(9, c("#ff0000","#0000ff","#00ff00","#ffff00"))
+names(mi_paleta_plotly) <- NULL
+
+plotly_grafico_lineal_saldo_cuci_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+#SALDO COMERCIAL GCE USD####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Grandes Categorias Economicas, 1992 - 2024.xlsx"
+range <- "B7:CT36"
+sheet <- "COMEX GCE ANUAL 92-24"
+col_names <-FALSE
+from <- "01Dec1992"
+to <- "01Dec2023"
+by <- "year"
+each <- 3
+mi_secuencia <- rep(c("exportaciones", "importaciones", "saldo comercial"), times = 32)
+tickformat_y <- ",.0d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+data <- cbind(mi_secuencia, data)
+
+conjunto_datos_usd <- data %!>% 
+  dplyr::filter(mi_secuencia == "saldo comercial") %!>% 
+  select(fecha, 
+         `ALIMENTOS Y BEBIDAS`,
+         `SUMINISTROS INDUSTRIALES`,
+         `COMBUSTIBLES Y LUBRICANTES`,
+         `BIENES DE CAPITAL`,
+         `EQUIPO DE TRANSPORTE Y SUS PIEZAS`,
+         `ARTÍCULOS DE CONSUMO`)
+
+titulo_plotly_usd <- "<b>Saldo Comercial (GCE Rev.3)</b><br>(Millones $us.)"
+mi_paleta_plotly <- createPalette(6, c("#ff0000","#0000ff","#00ff00","#ffff00"))
+names(mi_paleta_plotly) <- NULL
+
+plotly_grafico_lineal_saldo_gce_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+
+
 ```
 
 ### Banco Central de Bolivia (BCB)
@@ -1689,6 +1838,18 @@ plotly_grafico_lineal_produccion_porcina_y_stacked_bs
   
   <div class="tab-pane fade" id="comex" role="tabpanel" aria-labelledby="comex-tab">
 ```{r ine-comex, echo=FALSE, warning=FALSE, out.width=500}
+
+plotly_grafico_lineal_expo_actividad_y_stacked_usd
+
+plotly_grafico_lineal_impo_cuode_y_stacked_usd
+
+plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd
+
+plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd
+
+plotly_grafico_lineal_saldo_cuci_y_stacked_usd
+
+plotly_grafico_lineal_saldo_gce_y_stacked_usd
 
 ``` 
   </div>
