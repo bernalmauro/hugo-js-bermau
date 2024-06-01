@@ -178,6 +178,122 @@ plotly_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,
     plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
   
 }
+
+plotly_solo_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y, graph_type, barmode) {
+  
+  conjunto_datos_plotly <- conjunto_datos_bs %>%
+    pivot_longer(!fecha, names_to = "variables", values_to = "valores")
+  
+  
+  plot_ly(data = conjunto_datos_plotly, x = ~fecha, y = ~valores,
+          color = ~variables, type = graph_type, colors = mi_paleta_plotly) %>% 
+    plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
+                   toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
+                                               filename= 'custom_image',
+                                               height=  500,
+                                               width= 700,
+                                               scale= 1 )) %>% 
+    plotly::layout(
+      margin = list(l = 20, r = 20, b = 20, t = 40),
+      barmode = barmode,
+      paper_bgcolor = '#1d1d1d',
+      plot_bgcolor = '#1d1d1d',
+      xaxis = list( 
+        zerolinewidth = F, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline =TRUE,  
+        linecolor = F,
+        ticks = 'outside',
+        hoverformat = "%b %Y"
+      ), 
+      yaxis = list( 
+        zerolinewidth = 1,
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickformat = tickformat_y,
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline = T,  
+        linecolor = F, 
+        ticks = 'outside'  
+      ), 
+      title = list(text = titulo_plotly_bs, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+      legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
+      annotations = list(
+        list(
+          x = -0,  
+          y = 1.07,  
+          xref = "paper",
+          yref = "paper",
+          text = "bernalmauricio.com", 
+          showarrow = FALSE,
+          font = list(color = "#e3e3e3", family = "Arial")
+        )
+      )
+    ) %>%
+    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
+}
+plotly_solo_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y, graph_type, barmode) {
+  
+  conjunto_datos_plotly <- conjunto_datos_usd %>%
+    pivot_longer(!fecha, names_to = "variables", values_to = "valores")
+  
+  plot_ly(data = conjunto_datos_plotly, x = ~fecha, y = ~valores,
+          color = ~variables, type = graph_type, colors = mi_paleta_plotly) %>% 
+    plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
+                   toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
+                                               filename= 'custom_image',
+                                               height=  500,
+                                               width= 700,
+                                               scale= 1 )) %>% 
+    plotly::layout(
+      barmode = barmode,
+      margin = list(l = 20, r = 20, b = 20, t = 40),
+      paper_bgcolor = '#1d1d1d',
+      plot_bgcolor = '#1d1d1d',
+      xaxis = list( 
+        zerolinewidth = F, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline =TRUE,  
+        linecolor = F,
+        ticks = 'outside',
+        hoverformat = "%b %Y"   
+      ), 
+      yaxis = list( 
+        zerolinewidth = 1, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickformat = tickformat_y,
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline = T,  
+        linecolor = F, 
+        ticks = 'outside'  
+      ), 
+      title = list(text = titulo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+      legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
+      annotations = list(
+        list(
+          x = -0,  
+          y = 1.07,  
+          xref = "paper",
+          yref = "paper",
+          text = "bernalmauricio.com", 
+          showarrow = FALSE,
+          font = list(color = "#e3e3e3", family = "Arial")
+        )
+      )
+    ) %>%
+    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
+  
+}
+
 generar_layout_menus <- function(plotly_lineal, graph_type, barmode) {
   plotly_lineal %!>% 
   
@@ -1562,8 +1678,6 @@ mi_paleta_plotly <-  pal_plotly(6)
 tickformat_y <- ",.0d"
 graph_type <-  "bar"
 barmode <-  "stack"
-
-
 data <- datos_sf(file,sheet,range,col_names)
 
 data %<>%  
@@ -1581,6 +1695,7 @@ conjunto_datos_usd <- cbind(fecha,data)
 titulo_plotly_usd <- "<b>Producción de Cemento - Anual</b><br>(En miles de toneladas)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_prod_cemento_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
 
 #VENTA CEMENTO ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/2. Bolivia - Ventas de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
@@ -1742,6 +1857,133 @@ conjunto_datos_usd <- cbind(fecha,data)
 titulo_plotly_usd <- "<b>Número de Permisos de Construcción - Anual</b><br>(En número de registros)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_nro_permis_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+#PARTICIPACION PIB CORRIENTE OFERTA Y DEMANDA FINAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/1.pib_anual/1.oferta_final_demanda_final/03.02.02.xlsx"
+range <- "B12:AL19"
+sheet <- "03.02.02"
+col_names <-FALSE
+from <- "01Dec1988"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+mi_paleta_plotly <-  pal_plotly(2)
+tickformat_y <- ".0%"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+#OFERTA FINAL
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %!>% 
+  select(`fecha`,
+         `PRODUCTO  INTERNO  BRUTO`,
+         `IMPORTACIONES  DE  BIENES  Y SERVICIOS`)%!>% 
+  mutate(across(where(is.numeric), ~  . /100 )) 
+
+titulo_plotly_usd <- "<b>Estructura de la Oferta Final</b><br>(En porcentaje)"
+
+plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd <- plotly_solo_usd(conjunto_datos_usd,mi_paleta_plotly,titulo_plotly_usd,tickformat_y,graph_type,barmode)
+
+#DEMANDA FINAL
+mi_paleta_plotly <-  pal_plotly(4)
+colnames(data)
+conjunto_datos_usd <- data %!>% 
+  select(`fecha`,
+         `CONSUMO  FINAL`,
+         `FORMACIÓN  BRUTA  DE  CAPITAL  FIJO`,
+         `VARIACIÓN  DE  EXISTENCIAS`,
+         `EXPORTACIONES  DE BIENES  Y  SERVICIOS`)%!>%
+  mutate(across(where(is.numeric), ~  . /100 )) 
+
+titulo_plotly_usd <- "<b>Estructura de la Demanda Final</b><br>(En porcentaje)"
+plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd <- plotly_solo_usd(conjunto_datos_usd,mi_paleta_plotly,titulo_plotly_usd,tickformat_y,graph_type,barmode)
+
+#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/1.pib_anual/1.oferta_final_demanda_final/03.01.02.xlsx"
+range <- "B12:AK19"
+sheet <- "03.01.02"
+col_names <-FALSE
+from <- "01Dec1989"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+mi_paleta_plotly <-  pal_plotly(3)
+tickformat_y <- ".1%"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %<>%  
+  select(`fecha`,
+         `PRODUCTO  INTERNO  BRUTO`,
+         `CONSUMO  FINAL`,
+         `FORMACIÓN  BRUTA  DE  CAPITAL  FIJO`)%<>%  
+  mutate(across(where(is.numeric), ~  . /100 )) 
+
+titulo_plotly_usd <- "<b>Crecimiento real PIB, FBKF y Consumo</b><br>(En porcentaje)"
+plotly_grafico_lineal_crec_pib_final_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+#PIB PER CAPITA BOLIVIA####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/3.pib_departamental/10.bolivia/100106.xlsx"
+range <- "B12:AK22"
+sheet <- "100106"
+col_names <-FALSE
+from <- "01Dec1988"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+
+mi_paleta_plotly <- createPalette(9, c("#ff0000","#0000ff","#00ff00","#ffff00"))
+names(mi_paleta_plotly) <- NULL
+
+tickformat_y <- ",.0d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %!>% 
+  select(`fecha`,
+         `Chuquisaca`,
+         `La Paz`,
+         `Cochabamba`,
+         `Oruro`,
+         `Potosí`,
+         `Tarija`,
+         `Santa Cruz`,
+         `Beni`,
+         `Pando`)
+
+titulo_plotly_usd <- "<b>PIB per cápita Precios de Mercado</b><br>(En Bs.)"
+plotly_grafico_lineal_nom_pib_per_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/4.formacion_bruta_capital_fijo/1.constante/01.02.xlsx"
+range <- "A11:AI19"
+sheet <- "01.02"
+col_names <-FALSE
+from <- "01Dec1989"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+mi_paleta_plotly <-  pal_plotly(2)
+tickformat_y <- ".0%"
+graph_type <-  "bar"
+barmode <-  FALSE
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %<>%  
+  select(`fecha`,
+         `PÚBLICO`,
+         `PRIVADO`)%<>%  
+  mutate(across(where(is.numeric), ~  . /100 )) 
+colnames(conjunto_datos_usd) <-  c("fecha","FBKF Estatal","FBKF Privado")
+titulo_plotly_usd <- "<b>Crecimiento Real FBKF</b><br>(En porcentaje)"
+plotly_grafico_lineal_fbkf_y_stacked_usd <- plotly_solo_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y,graph_type,barmode)
 
 
 
@@ -1952,7 +2194,7 @@ plotly_grafico_dpf_1080_usd
           Agropecuaria </a></li>
           <li class=""><a href="#comex" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Comercio Exterior</a></li>
-          <li class=""><a href="#const" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          <li class=""><a href="#constru" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Construcción </a></li>
           <li class=""><a href="#cuentasnac" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Cuentas Nacionales</a></li>
@@ -2049,8 +2291,8 @@ plotly_grafico_lineal_saldo_gce_y_stacked_usd
 ``` 
   </div>
 
-  <div class="tab-pane fade" id="const" role="tabpanel" aria-labelledby="const-tab">
-```{r ine-const, echo=FALSE, warning=FALSE, out.width=500}
+  <div class="tab-pane fade" id="constru" role="tabpanel" aria-labelledby="constru-tab">
+```{r ine-constru, echo=FALSE, warning=FALSE, out.width=500}
 
 plotly_grafico_lineal_prod_cemento_y_stacked_usd
 
@@ -2069,6 +2311,17 @@ plotly_grafico_lineal_nro_permis_y_stacked_usd
 
   <div class="tab-pane fade" id="cuentasnac" role="tabpanel" aria-labelledby="cuentasnac-tab">
 ```{r ine-cuentasnac, echo=FALSE, warning=FALSE, out.width=500}
+
+plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd
+
+plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd
+
+plotly_grafico_lineal_crec_pib_final_y_stacked_usd
+
+plotly_grafico_lineal_nom_pib_per_y_stacked_usd
+
+plotly_grafico_lineal_fbkf_y_stacked_usd
+
 
 ``` 
   </div>
@@ -2210,3 +2463,5 @@ plotly_grafico_lineal_nro_permis_y_stacked_usd
   </div>
 
 </div>
+
+### Ministerio de Economía y Finanzas (MEFP)
