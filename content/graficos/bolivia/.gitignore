@@ -1,1 +1,15 @@
-index.Rmd
+# Ignorar archivos generados por R
+*.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Ignorar archivos de salida generados por R
+*.html
+*.pdf
+*.docx
+*.xlsx
+
+# Ignorar directorios específicos
+__pycache__/
+node_modules/
