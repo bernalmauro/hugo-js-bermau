@@ -642,13 +642,21 @@ barmode <-  FALSE
 plotly_grafico_activo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
 plotly_lineal <- plotly_grafico_activo_lineal_bs
 plotly_grafico_lineal_activo_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
-plotly_grafico_lineal_activo_y_stacked_bs
 
-saveRDS(plotly_grafico_lineal_activo_y_stacked_bs, file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_activo_y_stacked_bs.rds")
+saveRDS(
+  plotly_grafico_lineal_activo_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_activo_y_stacked_bs.rds",
+  compress = TRUE)
 
 plotly_grafico_activo_lineal_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_lineal <- plotly_grafico_activo_lineal_usd
 plotly_grafico_lineal_activo_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_activo_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_activo_y_stacked_usd.rds",
+  compress = TRUE)
+
 
 #BALANCE PASIVO BCB####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03p.pasivos_bcb.xlsx"
@@ -721,9 +729,19 @@ plotly_grafico_pasivo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly
 plotly_lineal <- plotly_grafico_pasivo_lineal_bs
 plotly_grafico_lineal_pasivo_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_pasivo_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_pasivo_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_pasivo_lineal_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_pasivo_lineal_usd
 plotly_grafico_lineal_pasivo_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_pasivo_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_pasivo_y_stacked_usd.rds",
+  compress = TRUE)
 
 #RESERVAS INTERNACIONALES####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
@@ -756,9 +774,21 @@ plotly_grafico_reservas_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plot
 plotly_lineal <- plotly_grafico_reservas_lineal_bs
 plotly_grafico_lineal_reservas_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_reservas_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_reservas_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_reservas_lineal_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_reservas_lineal_usd
 plotly_grafico_lineal_reservas_y_stacked_usd <-  generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_reservas_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_reservas_y_stacked_usd.rds",
+  compress = TRUE)
+
+
 
 #ORIGEN BASE MONETARIA####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
@@ -816,9 +846,20 @@ plotly_grafico_base_origen_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_
 plotly_lineal <- plotly_grafico_base_origen_lineal_bs
 plotly_grafico_base_origen_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_base_origen_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_origen_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_base_origen_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_base_origen_lineal_usd
 plotly_grafico_base_origen_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_base_origen_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_origen_lineal_y_stacked_usd.rds",
+  compress = TRUE)
+
 
 #DESTINO BASE MONETARIA####
 conjunto_datos_bs <- data %>%
@@ -844,9 +885,19 @@ plotly_grafico_base_destino_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta
 plotly_lineal <- plotly_grafico_base_destino_lineal_bs
 plotly_grafico_base_destino_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_base_destino_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_destino_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_base_destino_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_base_destino_lineal_usd
 plotly_grafico_base_destino_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_base_destino_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_destino_lineal_y_stacked_usd.rds",
+  compress = TRUE)
 
 #BALANZA CAMBIARIA INGRESO ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/33.balanza_cambiaria.xlsx"
@@ -884,9 +935,20 @@ plotly_grafico_ingreso_cambiaria_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_p
 plotly_lineal <- plotly_grafico_ingreso_cambiaria_lineal_bs
 plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_ingreso_cambiaria_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_ingreso_cambiaria_lineal_usd
 plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds",
+  compress = TRUE)
+
 
 conjunto_datos_bs <- data %>%
   select(fecha, 
@@ -912,9 +974,20 @@ plotly_grafico_egreso_cambiaria_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_pa
 plotly_lineal <- plotly_grafico_egreso_cambiaria_lineal_bs
 plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
+
 plotly_grafico_egreso_cambiaria_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_egreso_cambiaria_lineal_usd
 plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd.rds",
+  compress = TRUE)
 
 #FINANCIAMIENTO DEL BCB AL SECTOR PUBLICO####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/06.financiamiento_bcb_sector_publico.xlsx"
@@ -966,9 +1039,19 @@ plotly_grafico_credito_sector_publico_lineal_bs <-  plotly_bs(conjunto_datos_bs,
 plotly_lineal <- plotly_grafico_credito_sector_publico_lineal_bs
 plotly_grafico_credito_sector_publico_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_credito_sector_publico_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_publico_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_credito_sector_publico_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_credito_sector_publico_lineal_usd
 plotly_grafico_credito_sector_publico_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_credito_sector_publico_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_publico_lineal_y_stacked_usd.rds",
+  compress = TRUE)
 
 #DEPOSITOS SECTOR PUBLICO EN BCB
 conjunto_datos_bs <- data %>%
@@ -994,9 +1077,19 @@ plotly_grafico_depositos_sector_publico_lineal_bs <-  plotly_bs(conjunto_datos_b
 plotly_lineal <- plotly_grafico_depositos_sector_publico_lineal_bs
 plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_depositos_sector_publico_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly,titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_depositos_sector_publico_lineal_usd
 plotly_grafico_depositos_sector_publico_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_depositos_sector_publico_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_depositos_sector_publico_lineal_y_stacked_usd.rds",
+  compress = TRUE)
 
 #CREDITO AL SECTOR PRIVADO####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/12.credito_sector_privado.xlsx"
@@ -1040,9 +1133,19 @@ plotly_grafico_credito_sector_privado_depto_lineal_bs <-  plotly_bs(conjunto_dat
 plotly_lineal <- plotly_grafico_credito_sector_privado_depto_lineal_bs
 plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_credito_sector_privado_depto_lineal_usd <- plotly_usd(conjunto_datos_usd,mi_paleta_plotly,titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_credito_sector_privado_depto_lineal_usd
 plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd.rds",
+  compress = TRUE)
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/18A.titulos_tgn_bcb.xlsx"
 sheet <- "Hoja2"
@@ -1102,9 +1205,19 @@ plotly_grafico_deuda_bcb_privados_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_
 plotly_lineal <- plotly_grafico_deuda_bcb_privados_lineal_bs
 plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_deuda_bcb_privados_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_deuda_bcb_privados_lineal_usd
 plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd.rds",
+  compress = TRUE)
 
 #REMESAS RECIBIDAS PAIS ORIGEN####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/24.remesas_recibidas_del_exterior.xlsx"
@@ -1129,9 +1242,20 @@ plotly_grafico_remesas_pais_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta
 plotly_lineal <- plotly_grafico_remesas_pais_lineal_bs
 plotly_grafico_remesas_pais_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_remesas_pais_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_remesas_pais_lineal_y_stacked_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_remesas_pais_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_lineal <- plotly_grafico_remesas_pais_lineal_usd
 plotly_grafico_remesas_pais_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_remesas_pais_lineal_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_remesas_pais_lineal_y_stacked_usd.rds",
+  compress = TRUE)
+
 
 
 #INDICE DE TIPO DE CAMBIO REAL BASE 2003####
@@ -1160,6 +1284,12 @@ mi_paleta_plotly <- pal_plotly(9)
 titulo_plotly_bs <- "<b>Índices de Tipo de Cambio Real</b><br>(Agosto de 2003 = 100)"
 
 plotly_grafico_tipo_real_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_tipo_real_lineal_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tipo_real_lineal_bs.rds",
+  compress = TRUE)
+
 
 #PONDERADORES COMERCIO INTERNACIONAL####
 
@@ -1191,6 +1321,10 @@ plotly_grafico_ponderadores_comercio_lineal_bs <-  plotly_bs(conjunto_datos_bs, 
 plotly_lineal <- plotly_grafico_ponderadores_comercio_lineal_bs
 plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs.rds",
+  compress = TRUE)
 
 #TASAS DE INTERES PASIVAS CAJA DE AHORROS####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/4.monetario_crediticio/44.tasas_pasivas_cah.xlsx"
@@ -1225,7 +1359,18 @@ titulo_plotly_usd <- "<b>% Tasas de Interés Pasivas</b><br>(Caja de Ahorros $us
 tickformat_y <- ".0%"
 
 plotly_grafico_tasa_pasiva_cah_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+
+saveRDS(
+  plotly_grafico_tasa_pasiva_cah_lineal_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tasa_pasiva_cah_lineal_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_tasa_pasiva_cah_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+
+saveRDS(
+  plotly_grafico_tasa_pasiva_cah_lineal_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tasa_pasiva_cah_lineal_usd.rds",
+  compress = TRUE)
 
 #TASAS DE INTERES PASIVAS DPF####
 #1-30 DIAS####
@@ -1274,7 +1419,18 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>1 a 30 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>1 a 30 días"
 
 plotly_grafico_dpf_30_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_30_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_30_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_dpf_30_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_30_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_30_usd.rds",
+  compress = TRUE)
 
 #de 31-60 dias####
 
@@ -1317,7 +1473,20 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>31 a 60 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>31 a 60 días"
 
 plotly_grafico_dpf_31_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_31_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_31_bs.rds",
+  compress = TRUE)
+
+
 plotly_grafico_dpf_31_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_31_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_31_usd.rds",
+  compress = TRUE)
+
 
 #de 61-90 dias####
 
@@ -1360,8 +1529,18 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>61 a 90 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>61 a 90 días"
 
 plotly_grafico_dpf_61_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_61_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_61_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_dpf_61_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 
+saveRDS(
+  plotly_grafico_dpf_61_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_61_usd.rds",
+  compress = TRUE)
 
 #de 91-180 dias####
 
@@ -1404,7 +1583,18 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>91 a 180 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>91 a 180 días"
 
 plotly_grafico_dpf_91_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_91_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_91_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_dpf_91_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_91_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_91_usd.rds",
+  compress = TRUE)
 
 #de 181-360 dias####
 
@@ -1447,7 +1637,21 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>181 a 360 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>181 a 360 días"
 
 plotly_grafico_dpf_181_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_181_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_bs.rds",
+  compress = TRUE)
+
+
 plotly_grafico_dpf_181_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_181_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_usd.rds",
+  compress = TRUE)
+
+
 
 #de 361-720 dias####
 
@@ -1490,7 +1694,20 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>361 a 720 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>361 a 720 días"
 
 plotly_grafico_dpf_361_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_361_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_361_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_dpf_361_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_361_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_361_usd.rds",
+  compress = TRUE)
+
+
 
 #de 721-1080 dias####
 
@@ -1533,7 +1750,19 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>721 a 1080 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>721 a 1080 días"
 
 plotly_grafico_dpf_721_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_721_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_721_bs.rds",
+  compress = TRUE)
+
 plotly_grafico_dpf_721_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_721_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_721_usd.rds",
+  compress = TRUE)
+
 
 #de 1080-mas dias####
 
@@ -1576,7 +1805,20 @@ titulo_plotly_bs <- "<b>Tasas Pasivas DPF (Bs.)</b><br>Mayores a 1080 días"
 titulo_plotly_usd <- "<b>Tasas Pasivas DPF ($us.)</b><br>Mayores a 1080 días"
 
 plotly_grafico_dpf_1080_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_1080_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_1080_bs.rds",
+  compress = TRUE)
+
+
 plotly_grafico_dpf_1080_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_dpf_1080_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_1080_usd.rds",
+  compress = TRUE)
+
 
 #AGROPECUARIA - AGRICOLA PRODUCCION####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/1.agricultura/Bolivia - Produccion Año Agricola por Departamento, 1984 - 2022.xlsx"
@@ -1613,6 +1855,11 @@ titulo_plotly_bs <- "<b>Producción Agricola</b><br>(En miles de toneladas)"
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_produccion_agricola_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_produccion_agricola_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_agricola_y_stacked_bs.rds",
+  compress = TRUE)
+
 #PARA GENERAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/1.agricultura/Bolivia - Superficie Año Agricola por Departamento, 1984 - 2022.xlsx"
 
@@ -1632,6 +1879,10 @@ titulo_plotly_bs <- "<b>Superficie Agricola Cultivada</b><br>(En miles de hectá
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_superficie_agricola_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_superficie_agricola_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_superficie_agricola_y_stacked_bs.rds",
+  compress = TRUE)
 
 #AVICOLA PRODUCCION AVES####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/avicultura/Bolivia - Produccion de Carne de Aves Parrilleras por Departamento segun Años, 1984 - 2022.xls"
@@ -1653,6 +1904,11 @@ titulo_plotly_bs <- "<b>Producción Carne de Aves Parrilleras</b><br>(En millone
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_produccion_aves_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_produccion_aves_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_aves_y_stacked_bs.rds",
+  compress = TRUE)
+
 #PRODUCCION HUEVOS####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/avicultura/Bolivia - Produccion de Huevo de Aves Postura por Departamento, segun Años, 1984 - 2022.xls"
 range <- "C7:K46"
@@ -1672,6 +1928,12 @@ conjunto_datos_bs <- data %>%
 titulo_plotly_bs <- "<b>Producción de Huevo de Aves de Postura</b><br>(En millones de unidades)"
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_produccion_huevos_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_produccion_huevos_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_huevos_y_stacked_bs.rds",
+  compress = TRUE)
+
 
 #PRODUCCION CARNE BOVINA####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/pecuarios/Bolivia - Produccion de Carne Bovina por Departamento segun Año, 1990 - 2022.xlsx"
@@ -1693,6 +1955,11 @@ titulo_plotly_bs <- "<b>Producción Carne Bovina</b><br>(En miles de toneladas)"
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_produccion_bovina_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_produccion_bovina_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_bovina_y_stacked_bs.rds",
+  compress = TRUE)
+
 #PRODUCCION CARNE PORCINA####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/agropecuaria/2.ganaderia_avicultura/pecuarios/Bolivia - Produccion de Carne Porcina por Departamento segun Año, 1970 - 2022.xlsx"
 range <- "D7:L60"
@@ -1710,6 +1977,11 @@ conjunto_datos_bs <- data %>%
 titulo_plotly_bs <- "<b>Producción Carne Porcina</b><br>(En miles de toneladas)"
 plotly_lineal <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_grafico_lineal_produccion_porcina_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_produccion_porcina_y_stacked_bs, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_porcina_y_stacked_bs.rds",
+  compress = TRUE)
 
 #EXPORTACIONES POR ACTIVIDAD ECONOMICA USD####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/exportaciones/Bolivia - Exportaciones segun Actividad Economica y Producto por Año y Mes, 1992 - 2024.xlsx"
@@ -1740,6 +2012,13 @@ titulo_plotly_usd <- "<b>Exportaciones Actividad Económica</b><br>(Millones $us
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_expo_actividad_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_expo_actividad_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_expo_actividad_y_stacked_usd.rds",
+  compress = TRUE)
+
+
+
 #EXPORTACIONES POR ACTIVIDAD ECONOMICA PESO####
 
 sheet <- "ExpActProdMes 92-24 Peso"
@@ -1756,6 +2035,11 @@ conjunto_datos_usd <- data %>%
 titulo_plotly_usd <- "<b>Exportaciones Actividad Económica</b><br>(En toneladas)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd.rds",
+  compress = TRUE)
 
 #IMPORTACIONES CUODE USD####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/importaciones/Bolivia - Importaciones Agregadas segun Clasificacion Uso o Destino Economico por Año y Mes, 1992 - 2024.xlsx"
@@ -1775,6 +2059,11 @@ titulo_plotly_usd <- "<b>Importaciones (CUODE)</b><br>(Millones $us.)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_impo_cuode_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_impo_cuode_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_impo_cuode_y_stacked_usd.rds",
+  compress = TRUE)
+
 #EXPORTACIONES POR ACTIVIDAD ECONOMICA PESO####
 
 sheet <- "IMP_VOL_MES_CUODE"
@@ -1790,6 +2079,11 @@ conjunto_datos_usd <- data %>%
 titulo_plotly_usd <- "<b>Importaciones(CUODE)</b><br>(En toneladas)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd.rds",
+  compress = TRUE)
 
 #SALDO COMERCIAL CUCI USD####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Clasificacion Uniforme para el Comercio Internacional, 1992 - 2024.xlsx"
@@ -1821,8 +2115,12 @@ conjunto_datos_usd <- data %!>%
 titulo_plotly_usd <- "<b>Saldo Comercial (CUCI Rev.3)</b><br>(Millones $us.)"
 mi_paleta_plotly <- createPalette(9, c("#ff0000","#0000ff","#00ff00","#ffff00"))
 names(mi_paleta_plotly) <- NULL
-
 plotly_grafico_lineal_saldo_cuci_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_lineal_saldo_cuci_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_saldo_cuci_y_stacked_usd.rds",
+  compress = TRUE)
 
 #SALDO COMERCIAL GCE USD####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Grandes Categorias Economicas, 1992 - 2024.xlsx"
@@ -1858,6 +2156,12 @@ names(mi_paleta_plotly) <- NULL
 
 plotly_grafico_lineal_saldo_gce_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 
+saveRDS(
+  plotly_grafico_lineal_saldo_gce_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_saldo_gce_y_stacked_usd.rds",
+  compress = TRUE)
+
+
 
 #PRODUCCION CEMENTO ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/1. Bolivia - Produccion de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
@@ -1891,6 +2195,10 @@ titulo_plotly_usd <- "<b>Producción de Cemento - Anual</b><br>(En miles de tone
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_prod_cemento_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_prod_cemento_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_prod_cemento_y_stacked_usd.rds",
+  compress = TRUE)
 
 #VENTA CEMENTO ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/2. Bolivia - Ventas de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
@@ -1916,6 +2224,11 @@ conjunto_datos_usd <- cbind(fecha,data)
 titulo_plotly_usd <- "<b>Venta de Cemento - Anual</b><br>(En miles de toneladas)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_venta_cemento_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_venta_cemento_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_venta_cemento_y_stacked_usd.rds",
+  compress = TRUE)
 
 #CONSUMO CEMENTO ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/3. Bolivia - Consumo de Cemento por Departamento segun Año y Mes 2000 - 2024.xlsx"
@@ -1949,6 +2262,11 @@ conjunto_datos_usd <- cbind(fecha,data)
 titulo_plotly_usd <- "<b>Consumo de Cemento - Anual</b><br>(En miles de toneladas)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_consumo_cemento_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_consumo_cemento_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_consumo_cemento_y_stacked_usd.rds",
+  compress = TRUE)
 
 #PRODUCCION-VENTA-CONSUMO CEMENTO ANUAL####
 from <- "01Dec1991"
@@ -2007,6 +2325,11 @@ colnames(conjunto_datos_usd) <- c("fecha", "Producción", "Venta")
 titulo_plotly_usd <- "<b>Producción,Venta y Consumo de Cemento - Anual</b><br>(En miles de toneladas)"
 plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 
+saveRDS(
+  plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd.rds",
+  compress = TRUE)
+
 #SUPERFICIE PERMISOS DE CONSTRUCCION ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/2.permisos_construccion/1. Bolivia - Superficie Permisos de Construcción desagregada por Tipo de Trámite según año y mes 2008 - 2024.xls"
 range <- "B9:F217"
@@ -2036,6 +2359,11 @@ titulo_plotly_usd <- "<b>Superficie en Permisos de Construcción - Anual</b><br>
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_super_permis_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 
+saveRDS(
+  plotly_grafico_lineal_super_permis_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_super_permis_y_stacked_usd.rds",
+  compress = TRUE)
+
 #NRO DE PERMISOS DE CONSTRUCCION ANUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/construccion/2.permisos_construccion/2. Bolivia - Número de Permisos de Construcción desagregado por Tipo de Trámite según año y mes 2008 - 2024.xls"
 sheet <- "Núm.porTipodeTrám.segúnAñoyMes"
@@ -2052,6 +2380,11 @@ conjunto_datos_usd <- cbind(fecha,data)
 titulo_plotly_usd <- "<b>Número de Permisos de Construcción - Anual</b><br>(En número de registros)"
 plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_lineal_nro_permis_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+
+saveRDS(
+  plotly_grafico_lineal_nro_permis_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_nro_permis_y_stacked_usd.rds",
+  compress = TRUE)
 
 #PARTICIPACION PIB CORRIENTE OFERTA Y DEMANDA FINAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/1.pib_anual/1.oferta_final_demanda_final/03.02.02.xlsx"
@@ -2080,6 +2413,11 @@ titulo_plotly_usd <- "<b>Estructura de la Oferta Final</b><br>(En porcentaje)"
 
 plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd <- plotly_solo_usd(conjunto_datos_usd,mi_paleta_plotly,titulo_plotly_usd,tickformat_y,graph_type,barmode)
 
+saveRDS(
+  plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd.rds",
+  compress = TRUE)
+
 #DEMANDA FINAL
 mi_paleta_plotly <-  pal_plotly(4)
 colnames(data)
@@ -2093,6 +2431,12 @@ conjunto_datos_usd <- data %!>%
 
 titulo_plotly_usd <- "<b>Estructura de la Demanda Final</b><br>(En porcentaje)"
 plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd <- plotly_solo_usd(conjunto_datos_usd,mi_paleta_plotly,titulo_plotly_usd,tickformat_y,graph_type,barmode)
+
+saveRDS(
+  plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd.rds",
+  compress = TRUE)
+
 
 #CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/1.pib_anual/1.oferta_final_demanda_final/03.01.02.xlsx"
@@ -2119,6 +2463,12 @@ conjunto_datos_usd <- data %<>%
 
 titulo_plotly_usd <- "<b>Crecimiento real PIB, FBKF y Consumo</b><br>(En porcentaje)"
 plotly_grafico_lineal_crec_pib_final_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_lineal_crec_pib_final_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_crec_pib_final_y_stacked_usd.rds",
+  compress = TRUE)
+
 
 #PIB PER CAPITA BOLIVIA####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/3.pib_departamental/10.bolivia/100106.xlsx"
@@ -2155,6 +2505,12 @@ conjunto_datos_usd <- data %!>%
 titulo_plotly_usd <- "<b>PIB per cápita Precios de Mercado</b><br>(En Bs.)"
 plotly_grafico_lineal_nom_pib_per_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 
+saveRDS(
+  plotly_grafico_lineal_nom_pib_per_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_nom_pib_per_y_stacked_usd.rds",
+  compress = TRUE)
+
+
 #CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/4.formacion_bruta_capital_fijo/1.constante/01.02.xlsx"
 range <- "A11:AI19"
@@ -2180,6 +2536,11 @@ colnames(conjunto_datos_usd) <-  c("fecha","FBKF Estatal","FBKF Privado")
 titulo_plotly_usd <- "<b>Crecimiento Real FBKF</b><br>(En porcentaje)"
 plotly_grafico_lineal_fbkf_y_stacked_usd <- plotly_solo_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y,graph_type,barmode)
 
+saveRDS(
+  plotly_grafico_lineal_fbkf_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_fbkf_y_stacked_usd.rds",
+  compress = TRUE)
+
 #CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/9.indice_global_actividad_economica/01.04.xlsx"
 range <- "A12:GK31"
@@ -2202,6 +2563,12 @@ conjunto_datos_usd <- data %!>%
 
 titulo_plotly_usd <- "<b>Variación Interanual IGAE</b><br>(En porcentaje)"
 plotly_grafico_lineal_igae_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(
+  plotly_grafico_lineal_igae_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_igae_y_stacked_usd.rds",
+  compress = TRUE)
+
 
 #1.PRODUCCION DE PETROLEO Y GAS NATURAL MENSUAL####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/hidrocarburos_mineria/1.hidrocarburos/8. Bolivia - Indice de Volumen y Variaciones de Producción de Petroleo y Gas Natural segun Año y Mes 1990 - 2024.xlsx"
@@ -2281,32 +2648,8 @@ tickformat_y_2 <- ".0%"
 
 plotly_grafico_lineal_gas_indice_y_stacked_usd <- plotly_nomi_crec_bs(fig,titulo_plotly_bs,titulo_plotly_bs_y_1,titulo_plotly_bs_y_2,tickformat_y_1,tickformat_y_2)
 
+saveRDS(
+  plotly_grafico_lineal_gas_indice_y_stacked_usd, 
+  file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_gas_indice_y_stacked_usd.rds",
+  compress = TRUE)
 
-
-ruta <- "cached_plots/plotly_grafico_lineal_activo_y_stacked_bs.rds"
-if (file.exists(ruta)) {
-  print("El archivo existe.")
-  
-  # Leer el archivo RDS
-  mi_grafico <- readRDS(ruta)
-  
-  # Verificar la estructura del objeto
-  str(mi_grafico)
-  
-} else {
-  print("El archivo no existe en la ruta especificada.")
-}
-
-
-
-# Ejecutar el script para generar el objeto plotly
-source("hugo-js-bermau/static/cached_plots/plotlys_grafico.R")
-
-# Verificar si el objeto plotly está disponible
-if (exists("plotly_grafico_lineal_activo_y_stacked_bs")) {
-  print("El objeto plotly se ha cargado correctamente.")
-} else {
-  print("El objeto plotly no está disponible.")
-}
-
-source("static/cached_plots/plotlys_grafico.R")

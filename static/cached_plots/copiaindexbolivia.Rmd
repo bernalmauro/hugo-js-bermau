@@ -2288,10 +2288,6 @@ plotly_grafico_lineal_gas_indice_y_stacked_usd <- plotly_nomi_crec_bs(fig,titulo
   <div class="tab-pane fade" id="balance" role="tabpanel" aria-labelledby="balance-tab">
 ```{r bcb-activo, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_lineal_activo_y_stacked_bs
-    # Carga el objeto de gráfico desde el archivo RDS
-mi_grafico <- readRDS("../../../cached_plots/plotly_grafico_lineal_activo_y_stacked_bs.rds")
-
-mi_grafico
     plotly_grafico_lineal_pasivo_y_stacked_bs
     plotly_grafico_lineal_activo_y_stacked_usd
     plotly_grafico_lineal_pasivo_y_stacked_usd
@@ -2301,6 +2297,7 @@ mi_grafico
   <div class="tab-pane fade" id="balanzacamb" role="tabpanel" aria-labelledby="balanzacamb-tab">
 ```{r bcb-base-balanzacamb, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs
+    
     plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs
     plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd
     plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd
@@ -2309,6 +2306,7 @@ mi_grafico
 
   <div class="tab-pane fade" id="basemon" role="tabpanel" aria-labelledby="basemon-tab">
 ```{r bcb-base-monetaria, echo=FALSE, warning=FALSE, out.width=500}
+
     plotly_grafico_base_origen_lineal_y_stacked_bs
     plotly_grafico_base_destino_lineal_y_stacked_bs
     plotly_grafico_base_origen_lineal_y_stacked_usd
@@ -2319,21 +2317,28 @@ mi_grafico
   <div class="tab-pane fade" id="credprivdepto" role="tabpanel" aria-labelledby="credprivdepto-tab">
 ```{r bcb-cred-privado-depto, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs
+    
     plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd
+    
+    
+    
 ``` 
   </div>
 
   <div class="tab-pane fade" id="deudaint" role="tabpanel" aria-labelledby="deudaint-tab">
 ```{r bcb-cred-sector-privado, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs
+    
     plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd
 ``` 
   </div>
 
   <div class="tab-pane fade" id="finbcb" role="tabpanel" aria-labelledby="finbcb-tab">
 ```{r bcb-fin, echo=FALSE, warning=FALSE, out.width=500}
+
     plotly_grafico_credito_sector_publico_lineal_y_stacked_bs
     plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs
+    
     plotly_grafico_credito_sector_publico_lineal_y_stacked_usd
     plotly_grafico_depositos_sector_publico_lineal_y_stacked_usd
 ``` 
@@ -2342,6 +2347,7 @@ mi_grafico
   <div class="tab-pane fade" id="rin" role="tabpanel" aria-labelledby="rin-tab">
 ```{r bcb-rin, echo=FALSE, warning=FALSE, out.width=500}
     plotly_grafico_lineal_reservas_y_stacked_bs
+    
     plotly_grafico_lineal_reservas_y_stacked_usd
 ``` 
   </div>
