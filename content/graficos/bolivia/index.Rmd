@@ -13,15 +13,7 @@ plotly_grafico_lineal_activo_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/pro
 
 plotly_grafico_lineal_pasivo_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_pasivo_y_stacked_bs.rds")
 
-plotly_grafico_lineal_activo_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_activo_y_stacked_usd.rds")
-
-plotly_grafico_lineal_pasivo_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_pasivo_y_stacked_usd.rds")
-
 #BALANZA CAMBIARIA
-
-plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs.rds")
-
-plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs.rds")
 
 plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds")
 
@@ -33,9 +25,6 @@ plotly_grafico_base_origen_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Deskto
 
 plotly_grafico_base_destino_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_destino_lineal_y_stacked_bs.rds")
 
-plotly_grafico_base_origen_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_origen_lineal_y_stacked_usd.rds")
-
-plotly_grafico_base_destino_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_destino_lineal_y_stacked_usd.rds")
 
 #CREDITO PRIVADO DEPARTAMENTO
 
@@ -55,9 +44,6 @@ plotly_grafico_credito_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users/M
 
 plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs.rds")
 
-plotly_grafico_credito_sector_publico_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_publico_lineal_y_stacked_usd.rds")
-
-plotly_grafico_depositos_sector_publico_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_depositos_sector_publico_lineal_y_stacked_usd.rds")
 
 #RESERVAS INTERNACIONALES NETAS
 
@@ -91,33 +77,10 @@ plotly_grafico_dpf_30_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-
 
 plotly_grafico_dpf_30_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_30_usd.rds")
 
-plotly_grafico_dpf_31_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_31_bs.rds")
-
-plotly_grafico_dpf_31_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_31_usd.rds")
-
-plotly_grafico_dpf_61_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_61_bs.rds")
-
-plotly_grafico_dpf_61_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_61_usd.rds")
-
-plotly_grafico_dpf_91_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_91_bs.rds")
-
-plotly_grafico_dpf_91_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_91_usd.rds")
-
 plotly_grafico_dpf_181_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_bs.rds")
 
 plotly_grafico_dpf_181_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_usd.rds")
 
-plotly_grafico_dpf_361_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_361_bs.rds")
-
-plotly_grafico_dpf_361_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_361_usd.rds")
-
-plotly_grafico_dpf_721_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_721_bs.rds")
-
-plotly_grafico_dpf_721_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_721_usd.rds")
-
-plotly_grafico_dpf_1080_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_1080_bs.rds")
-
-plotly_grafico_dpf_1080_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_1080_usd.rds")
 
 
 ```
@@ -192,10 +155,6 @@ plotly_grafico_lineal_activo_y_stacked_bs
 
 plotly_grafico_lineal_pasivo_y_stacked_bs
 
-plotly_grafico_lineal_activo_y_stacked_usd
-
-plotly_grafico_lineal_pasivo_y_stacked_usd
-
 ```
   </div>
   
@@ -204,14 +163,9 @@ plotly_grafico_lineal_pasivo_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs
-    
-plotly_grafico_egreso_cambiaria_lineal_y_stacked_bs
-
 plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd
 
 plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd
-
 
 ``` 
   </div>
@@ -224,10 +178,6 @@ knitr::opts_chunk$set(cache = TRUE)
 plotly_grafico_base_origen_lineal_y_stacked_bs
 
 plotly_grafico_base_destino_lineal_y_stacked_bs
-
-plotly_grafico_base_origen_lineal_y_stacked_usd
-
-plotly_grafico_base_destino_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -264,10 +214,6 @@ knitr::opts_chunk$set(cache = TRUE)
 plotly_grafico_credito_sector_publico_lineal_y_stacked_bs
 
 plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs
-
-plotly_grafico_credito_sector_publico_lineal_y_stacked_usd
-
-plotly_grafico_depositos_sector_publico_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -337,33 +283,9 @@ plotly_grafico_dpf_30_bs
 
 plotly_grafico_dpf_30_usd
 
-plotly_grafico_dpf_31_bs
-
-plotly_grafico_dpf_31_usd
-
-plotly_grafico_dpf_61_bs
-
-plotly_grafico_dpf_61_usd
-
-plotly_grafico_dpf_91_bs
-
-plotly_grafico_dpf_91_usd
-
 plotly_grafico_dpf_181_bs
 
 plotly_grafico_dpf_181_usd
-
-plotly_grafico_dpf_361_bs
-
-plotly_grafico_dpf_361_usd
-
-plotly_grafico_dpf_721_bs
-
-plotly_grafico_dpf_721_usd
-
-plotly_grafico_dpf_1080_bs
-
-plotly_grafico_dpf_1080_usd
 
 ``` 
   </div>
@@ -408,19 +330,12 @@ plotly_grafico_lineal_prod_cemento_y_stacked_usd <- readRDS("C:/Users/Mauro/Desk
 
 plotly_grafico_lineal_venta_cemento_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_venta_cemento_y_stacked_usd.rds")
 
-plotly_grafico_lineal_consumo_cemento_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_consumo_cemento_y_stacked_usd.rds")
-
-plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd.rds")
 
 plotly_grafico_lineal_super_permis_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_super_permis_y_stacked_usd.rds")
 
 plotly_grafico_lineal_nro_permis_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_nro_permis_y_stacked_usd.rds")
 
 #CUENTAS NACIONALES
-
-plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd.rds")
-
-plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd.rds")
 
 plotly_grafico_lineal_crec_pib_final_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_crec_pib_final_y_stacked_usd.rds")
 
@@ -436,9 +351,19 @@ plotly_grafico_lineal_igae_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proy
 
 plotly_grafico_lineal_gas_indice_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_gas_indice_y_stacked_usd.rds")
 
-#COMERCIO EXTERIOR
+plotly_grafico_lineal_prod_minerales_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_prod_minerales_y_stacked_usd.rds")
+
+#INDUSTRIA
+
+plotly_grafico_lineal_var_indice_indus_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_indus_y_stacked_usd.rds")
+
+plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd.rds")
+
 
 #INDICE DE PRECIOS
+
+plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd.rds")
+
 
 #MEDIO AMBIENTE
 
@@ -597,10 +522,6 @@ plotly_grafico_lineal_prod_cemento_y_stacked_usd
 
 plotly_grafico_lineal_venta_cemento_y_stacked_usd
 
-plotly_grafico_lineal_consumo_cemento_y_stacked_usd
-
-plotly_grafico_lineal_prod_venta_consumo_cemento_y_stacked_usd
-
 plotly_grafico_lineal_super_permis_y_stacked_usd
 
 plotly_grafico_lineal_nro_permis_y_stacked_usd
@@ -612,10 +533,6 @@ plotly_grafico_lineal_nro_permis_y_stacked_usd
 ```{r ine-cuentasnac, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
 
 knitr::opts_chunk$set(cache = TRUE)
-
-plotly_grafico_lineal_estruc_oferta_final_y_stacked_usd
-
-plotly_grafico_lineal_estruc_demanda_final_y_stacked_usd
 
 plotly_grafico_lineal_crec_pib_final_y_stacked_usd
 
@@ -635,6 +552,8 @@ knitr::opts_chunk$set(cache = TRUE)
 
 plotly_grafico_lineal_gas_indice_y_stacked_usd
 
+plotly_grafico_lineal_prod_minerales_y_stacked_usd
+
 ``` 
   </div>
 
@@ -643,6 +562,9 @@ plotly_grafico_lineal_gas_indice_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
+plotly_grafico_lineal_var_indice_indus_y_stacked_usd
+
+plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd
 
 ``` 
   </div>
@@ -652,6 +574,7 @@ knitr::opts_chunk$set(cache = TRUE)
 
 knitr::opts_chunk$set(cache = TRUE)
 
+plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd
 
 ``` 
   </div>
