@@ -769,8 +769,37 @@ plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- combinacion_grafico
     )
   ) %>%
   plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
-plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd
+
 saveRDS(plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd.rds", compress = TRUE)
 
 
+#2.PRECIPITACION ANUAL####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/medio_ambiente/1.clima_atmosfera/1.mensuales/BOLIVIA - PRECIPITACIÓN ACUMULADA POR CIUDADES, SEGÚN AÑO Y MES, 1990 - 2024.xlsx"
+range <- "B9:L473"
+sheet <- "BOLIVIA"
+col_names <-TRUE
+from <- "01Dec1990"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+fecha <- fun_fecha(from,to,by,each)
+
+data <- datos_sf(file,sheet,range,col_names)
+meses <- c("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+
+data %<>%     
+  dplyr::filter(!(PERIODO %in% meses))%<>% 
+  select(-PERIODO) 
+
+conjunto_datos_usd <- cbind(fecha,data)
+
+titulo_plotly_usd <- "<b>Precipitación Anual Acumulada Por Ciudad</b><br>(En milimetros)"
+tickformat_y <- ",.2f"
+mi_paleta_plotly <- createPalette(10, c("#ff0000", "#00ff00", "#0000ff"))
+names(mi_paleta_plotly) <- NULL
+
+plotly_grafico_lineal_precip_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+
+saveRDS(plotly_grafico_lineal_precip_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_precip_y_stacked_usd.rds", compress = TRUE)

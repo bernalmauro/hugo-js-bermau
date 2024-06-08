@@ -363,7 +363,6 @@ plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd <- readRDS("C:/Users
 
 plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd.rds")
 
-
 #MEDIO AMBIENTE
 
 #SALARIOS
@@ -730,4 +729,4 @@ knitr::opts_chunk$set(cache = TRUE)
 
 </div>
 
-### Ministerio de Economía y Finanzas (MEFP)
+### Ministerio de Economía yo Finanzas (MEFP)
