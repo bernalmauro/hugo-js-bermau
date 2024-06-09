@@ -190,6 +190,7 @@ plotly_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,
       margin = list(l = 20, r = 20, b = 20, t = 40),
       paper_bgcolor = '#1d1d1d',
       plot_bgcolor = '#1d1d1d',
+      
       xaxis = list( 
         zerolinewidth = F, 
         zerolinecolor = 'transparent',
@@ -484,7 +485,103 @@ plotly_nomi_crec_usd <-  function(fig,titulo_plotly_usd,titulo_plotly_usd_y_1,ti
   
 }
 
-
+plotly_nomi_crec_usd_1 <- function(conjunto_datos_usd, name_1,name_2,fecha,y_1,y_2,type_2,type_1,titulo_plotly_usd, mi_paleta_plotly,fecha_min,fecha_max,tickformat_y_1,tickformat_y_2) {
+  
+  # Crear el gráfico con dos ejes
+  fig <- plot_ly(x = ~fecha)
+  
+  # Agregar la serie de "SALARIO MÍNIMO NACIONAL"
+  fig <- fig %>% add_trace(
+    y = y_2,
+    type = type_2,
+    mode = 'lines',
+    yaxis = 'y2',
+    name = name_2,
+    fill = "tozeroy",
+    data = conjunto_datos_usd
+  )
+  
+  # Agregar la serie de "VARIACIÓN PORCENTUAL"
+  fig <- fig %>% add_trace(
+    y = y_1,
+    type = type_1,
+    name = name_1,
+    yaxis = 'y1',
+    data = conjunto_datos_usd
+  )
+  
+  # Configurar los ejes
+  fig <- fig %>% plotly::layout(
+    barmode= "overlay",
+    margin = list(l = 60, r = 60, b = 20, t = 40),
+    paper_bgcolor = '#1d1d1d',
+    plot_bgcolor = '#1d1d1d',
+    xaxis = list(
+      tickformat = "%Y",  # Formato de tick para mostrar solo el año
+      tickmode = 'linear',
+      tick0 = min(conjunto_datos_usd$fecha),
+      dtick = 'M12',  # Saltos mensuales para asegurar que se muestren todos los años
+      type = 'date',
+      zerolinewidth = F, 
+      zerolinecolor = 'transparent',
+      showgrid = F,
+      title = list(text = " "), 
+      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+      showline =TRUE,  
+      linecolor = F,
+      ticks = 'outside',
+      hoverformat = "%b %Y"   
+    ),
+    yaxis = list(
+      title = ' ',
+      side = 'left',
+      zerolinewidth = 1, 
+      zerolinecolor = 'transparent',
+      showgrid = F,
+      title = list(text = " ",
+                   font = list(color = '#e3e3e3', family = "Constantia", size = 13)), 
+      tickformat = tickformat_y_1,
+      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+      showline = T,  
+      linecolor = F, 
+      ticks = 'outside'  
+    ),
+    yaxis2 = list(
+      title = ' ',
+      overlaying = 'y',
+      side = 'right',
+      zerolinewidth = 1, 
+      zerolinecolor = 'transparent',
+      showgrid = F,
+      title = list(text = " ",
+                   font = list(color = '#e3e3e3', family = "Constantia", size = 13)
+      ),
+      tickformat = tickformat_y_2,
+      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+      showline = T,  
+      linecolor = F, 
+      ticks = 'outside'  
+    ),
+    title = list(text = titulo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+    legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
+    annotations = list(
+      list(
+        x = -0,  
+        y = 1.07,  
+        xref = "paper",
+        yref = "paper",
+        text = "bernalmauricio.com", 
+        showarrow = FALSE,
+        font = list(color = "#e3e3e3", family = "Arial")
+      )
+    )
+  ) %>%
+    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
+  
+  
+  
+  
+}
 
 generar_layout_menus <- function(plotly_lineal, graph_type, barmode) {
   plotly_lineal %!>% 
@@ -803,3 +900,74 @@ plotly_grafico_lineal_precip_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_
 
 saveRDS(plotly_grafico_lineal_precip_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_precip_y_stacked_usd.rds", compress = TRUE)
+
+#1.SALARIO MINIMO####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/salario_remuneraciones/1.salario_minimo/BOLIVIA - SALARIO MÍNIMO NACIONAL, 1991 - 2024.xlsx"
+range <- "C7:D40"
+sheet <- "CUADRO"
+col_names <-TRUE
+from <- "01Dec1992"
+to <- "01Dec2024"
+by <- "year"
+each <- 1
+fecha <- fun_fecha(from,to,by,each)
+
+data <- datos_sf(file,sheet,range,col_names)
+conjunto_datos_usd <- cbind(fecha,data)
+colnames(conjunto_datos_usd) <- c("fecha","Salario Mínimo Nacional","Variación Porcentual")
+
+titulo_plotly_usd <- "<b>Salario Mínimo Nacional</b><br>(En bolivianos)"
+mi_paleta_plotly <- createPalette(2, c("#ff0000","#0000ff","#00ff00","#ffff00"))
+names(mi_paleta_plotly) <- NULL
+
+# Ajustar el rango de fechas para mostrar solo los datos disponibles
+fecha_min <- min(conjunto_datos_usd$fecha)
+fecha_max <- max(conjunto_datos_usd$fecha)
+
+# Establecer el formato de los ticks en los ejes y
+tickformat_y_1 <- ".0%"
+tickformat_y_2 <- ",.0f"
+
+y_1 <- conjunto_datos_usd$`Variación Porcentual`
+y_2 <-  conjunto_datos_usd$`Salario Mínimo Nacional`
+name_1 <- 'Variación Porcentual'
+name_2 <- 'Salario Mínimo Nacional'
+type_1 <- 'bar'
+type_2 <- "scatter"
+
+
+plotly_grafico_lineal_sal_nom_y_stacked_usd <- plotly_nomi_crec_usd_1(conjunto_datos_usd, name_1,name_2,fecha,y_1,y_2,type_2,type_1,titulo_plotly_usd, mi_paleta_plotly,fecha_min,fecha_max,tickformat_y_1,tickformat_y_2)
+
+saveRDS(plotly_grafico_lineal_sal_nom_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_sal_nom_y_stacked_usd.rds", compress = TRUE)
+
+#1.SERVICIOS BASICOS####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/servicios_basicos/1. BOLIVIA - ÍNDICE GENERAL DE CONSUMO DE SERVICIOS BASICOS POR TIPO DE SERVICIO SEGÚN AÑO Y MES 1990 - 2.xlsx"
+range <- "B4:F467"
+sheet <- "Variacion a Similar Periodo Ant"
+col_names <-TRUE
+from <- "01Dec1991"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+fecha <- fun_fecha(from,to,by,each)
+
+data <- datos_sf(file,sheet,range,col_names)
+
+meses <- c("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
+
+data %<>%     
+  dplyr::filter(!(PERIODO %in% meses))%<>% 
+  select(-PERIODO, -GENERAL) 
+
+conjunto_datos_usd <- cbind(fecha,data)
+
+titulo_plotly_usd <- "<b>Índice Consumo de Servicios Básicos</b><br>(Variación interanual)"
+tickformat_y <- ",.2f"
+mi_paleta_plotly <- pal_plotly(3)
+
+plotly_grafico_lineal_servicios_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_lineal_servicios_y_stacked_usd
+saveRDS(plotly_grafico_lineal_servicios_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_servicios_y_stacked_usd.rds", compress = TRUE)

@@ -295,19 +295,6 @@ plotly_grafico_dpf_181_usd
 ```{r warning = FALSE, include=FALSE, echo =FALSE}
 knitr::opts_chunk$set(cache = TRUE) 
 #INSTITUTO NACIONAL DE ESTADISTICAS INE####
-#AGROPECUARIO
-
-plotly_grafico_lineal_produccion_agricola_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_agricola_y_stacked_bs.rds")
-
-plotly_grafico_lineal_superficie_agricola_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_superficie_agricola_y_stacked_bs.rds")
-
-plotly_grafico_lineal_produccion_aves_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_aves_y_stacked_bs.rds")
-
-plotly_grafico_lineal_produccion_huevos_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_huevos_y_stacked_bs.rds")
-
-plotly_grafico_lineal_produccion_bovina_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_bovina_y_stacked_bs.rds")
-
-plotly_grafico_lineal_produccion_porcina_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_produccion_porcina_y_stacked_bs.rds")
 
 #COMERCIO EXTERIOR
 
@@ -363,39 +350,16 @@ plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd <- readRDS("C:/Users
 
 plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd.rds")
 
-#MEDIO AMBIENTE
 
 #SALARIOS
 
+plotly_grafico_lineal_sal_nom_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_sal_nom_y_stacked_usd.rds")
+
 #SERVICIOS BASICOS
 
-#TELECOMUNICACIONES
+plotly_grafico_lineal_servicios_y_stacked_usd<- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_servicios_y_stacked_usd.rds")
 
-#TRANSPORTE
 
-#TURISMO
-
-#EMPLEO
-
-#POBLACION
-
-#SALUD
-
-#SEGURIDAD SOCIAL
-
-#EDUCACION
-
-#TECNOLOGIA
-
-#VIVIENDA 
-
-#PARTICIPACION POLITICA
-
-#SEGURIDAD CIUDADANA
-
-#DERECHOS HUMANOS
-
-#POBREZA Y DESIGUALDAD
 
 
 ```
@@ -407,8 +371,6 @@ plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- readRDS("C:/Users/M
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
           Estadísticas Económicas <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li class=""><a href="#agrop" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Agropecuaria </a></li>
           <li class=""><a href="#comex" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Comercio Exterior</a></li>
           <li class=""><a href="#constru" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
@@ -421,76 +383,17 @@ plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- readRDS("C:/Users/M
           Industria y Comercio</a></li>
           <li class=""><a href="#inpre" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Índice de Precios</a></li>
-          <li class=""><a href="#medam" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Medio Ambiente</a></li>
           <li class=""><a href="#sala" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Salarios</a></li>
           <li class=""><a href="#servb" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Sevicios Básicos</a></li>
-          <li class=""><a href="#telec" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Telecomunicaciones</a></li>
-          <li class=""><a href="#trans" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Transporte</a></li>
-          <li class=""><a href="#turi" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Turismo</a></li>
         </ul>
      </li>
-     
-<ul class="nav nav-tabs" role="tablist">
-     <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Estadísticas Sociales <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li class=""><a href="#emple" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Empleo</a></li>
-          <li class=""><a href="#pobla" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Población</a></li>
-          <li class=""><a href="#salu" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Salud</a></li>
-          <li class=""><a href="#seguso" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Seguridad Social</a></li>
-          <li class=""><a href="#educa" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Educación</a></li>
-          <li class=""><a href="#tecno" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Tecnología</a></li>
-          <li class=""><a href="#vivi" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Vivienda</a></li>
-          <li class=""><a href="#partp" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Participación Política</a></li>
-          <li class=""><a href="#seguci" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Seguridad Ciudadana</a></li>
-          <li class=""><a href="#dere" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Derechos Humanos</a></li>
-          <li class=""><a href="#pobre" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          Pobreza y Desigualdad</a></li>
-        </ul></ul>
-     </li>
-</ul>
 </ul>
 
 <!-- Contenido de las pestañas INE -->
 
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade" id="agrop" role="tabpanel" aria-labelledby="agrop-tab">
-```{r ine-agrop, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-plotly_grafico_lineal_produccion_agricola_y_stacked_bs
-
-plotly_grafico_lineal_superficie_agricola_y_stacked_bs
-
-plotly_grafico_lineal_produccion_aves_y_stacked_bs
-
-plotly_grafico_lineal_produccion_huevos_y_stacked_bs
-
-plotly_grafico_lineal_produccion_bovina_y_stacked_bs
-
-plotly_grafico_lineal_produccion_porcina_y_stacked_bs
-
-```
-  </div>
-  
   <div class="tab-pane fade" id="comex" role="tabpanel" aria-labelledby="comex-tab">
 ```{r ine-comex, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
 
@@ -577,20 +480,12 @@ plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd
 ``` 
   </div>
   
-  <div class="tab-pane fade" id="medam" role="tabpanel" aria-labelledby="medam-tab">
-```{r ine-medam, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
   <div class="tab-pane fade" id="sala" role="tabpanel" aria-labelledby="sala-tab">
 ```{r ine-sala, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
 
 knitr::opts_chunk$set(cache = TRUE)
 
+plotly_grafico_lineal_sal_nom_y_stacked_usd
 
 
 ``` 
@@ -601,132 +496,12 @@ knitr::opts_chunk$set(cache = TRUE)
 
 knitr::opts_chunk$set(cache = TRUE)
 
+plotly_grafico_lineal_servicios_y_stacked_usd
     
-``` 
-  </div>
-
-  <div class="tab-pane fade" id="telec" role="tabpanel" aria-labelledby="telec-tab">
-```{r ine-telec, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-    
-  <div class="tab-pane fade" id="trans" role="tabpanel" aria-labelledby="trans-tab">
-```{r ine-trans, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="turi" role="tabpanel" aria-labelledby="turi-tab">
-```{r ine-turi, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="emple" role="tabpanel" aria-labelledby="emple-tab">
-```{r ine-emple, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-knitr::opts_chunk$set(cache = TRUE)
-
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="pobla" role="tabpanel" aria-labelledby="pobla-tab">
-```{r ine-pobla, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="salu" role="tabpanel" aria-labelledby="salu-tab">
-```{r ine-salu, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="seguso" role="tabpanel" aria-labelledby="seguso-tab">
-```{r ine-seguso, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="educa" role="tabpanel" aria-labelledby="educa-tab">
-```{r ine-educa, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="tecno" role="tabpanel" aria-labelledby="tecno-tab">
-```{r ine-tecno, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="vivi" role="tabpanel" aria-labelledby="vivi-tab">
-```{r ine-vivi, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="partp" role="tabpanel" aria-labelledby="partp-tab">
-```{r ine-partp, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="seguci" role="tabpanel" aria-labelledby="seguci-tab">
-```{r ine-seguci, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="dere" role="tabpanel" aria-labelledby="dere-tab">
-```{r ine-dere, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
-``` 
-  </div>
-  
-  <div class="tab-pane fade" id="pobre" role="tabpanel" aria-labelledby="pobre-tab">
-```{r ine-pobre, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-
 ``` 
   </div>
 
 </div>
 
 ### Ministerio de Economía yo Finanzas (MEFP)
+
