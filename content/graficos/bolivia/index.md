@@ -492,3 +492,44 @@ Sevicios Básicos</a>
 </div>
 
 ### Ministerio de Economía yo Finanzas (MEFP)
+
+<ul class="nav nav-tabs" role="tablist">
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+Ingresos Estatales <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class>
+<a href="#ingresosfiscales" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+Ingresos Fiscales</a>
+</li>
+</ul>
+</li>
+<ul class="nav nav-tabs" role="tablist">
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+Egresos Estatales <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class>
+<a href="#egresosfiscales" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+Gasto Fiscales</a>
+</li>
+</ul>
+</li>
+<ul class="nav nav-tabs" role="tablist">
+<li class="dropdown">
+<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+Deuda Estatal <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class>
+<a href="#deudainterna" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
+Deuda Interna Real</a>
+</li>
+<li class>
+<a href="#deudaexterna" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
+Deuda Externa Int.</a>
+</li>
+</ul>
+</ul>
+</li>
+</ul>
+</ul>
