@@ -897,7 +897,7 @@ mi_paleta_plotly <- createPalette(10, c("#ff0000", "#00ff00", "#0000ff"))
 names(mi_paleta_plotly) <- NULL
 
 plotly_grafico_lineal_precip_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
-
+plotly_grafico_ingreso_cambiaria_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 saveRDS(plotly_grafico_lineal_precip_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_precip_y_stacked_usd.rds", compress = TRUE)
 
@@ -971,3 +971,61 @@ plotly_grafico_lineal_servicios_y_stacked_usd <- plotly_usd(conjunto_datos_usd, 
 plotly_grafico_lineal_servicios_y_stacked_usd
 saveRDS(plotly_grafico_lineal_servicios_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_servicios_y_stacked_usd.rds", compress = TRUE)
+
+
+#1. INGRESOS ejecucion_spnf####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/1.estadisticas_fiscales/1.cifras_fiscales_operativas_caja/1.ejecucion_spnf/1.ejecucion_spnf.xlsx"
+col_names <-FALSE
+
+from <- "01Dec1990"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+
+range <- "A6:AH51"
+sheet <- "anual"
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_bs <- data %!>% 
+  select(fecha, `INGRESOS TRIBUTARIOS`, `IMPUESTOS SOBRE HIDROCARBUROS`, `VENTA DE HIDROCARBUROS`,`VENTA DE OTRAS EMPRESAS`,`TRANSFERENCIAS CORRIENTES (Ingresos)`,`OTROS INGRESOS CORRIENTES`, `INGRESOS DE CAPITAL`) 
+
+mi_paleta_plotly <- createPalette(7, c("#ff0000","#0000ff","#00ff00","#ffff00"))
+names(mi_paleta_plotly) <- NULL
+
+titulo_plotly_bs <- "<b>Ingresos Totales SPNF (1990-2022)</b><br>(En millones de Bs.)"
+tickformat_y <- ",.0f"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+plotly_grafico_spnf_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_lineal <- plotly_grafico_spnf_lineal_bs
+
+plotly_grafico_ingre_spnf_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ingre_spnf_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_ingre_spnf_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingre_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
+
+
+#1.EGRESOS ejecucion_spnf####
+
+conjunto_datos_bs <- data %!>% 
+  select(fecha, `SERVICIOS PERSONALES`, `BIENES Y SERVICIOS`, `INTERESES Y COMIS. DEUDA EXTERNA`,`INTERESES Y COMIS. DEUDA INTERNA`,`TRANSFERENCIAS CORRIENTES (Egresos)`,`OTROS EGRESOS CORRIENTES`, `EGRESOS DE CAPITAL`) 
+conjunto_datos_bs
+titulo_plotly_bs <- "<b>Egresos Totales SPNF (1990-2022)</b><br>(En millones de Bs.)"
+tickformat_y <- ",.0f"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+plotly_grafico_spnf_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_lineal <- plotly_grafico_spnf_lineal_bs
+
+plotly_grafico_egre_spnf_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_egre_spnf_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_egre_spnf_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
+
+

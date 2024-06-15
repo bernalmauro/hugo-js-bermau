@@ -137,7 +137,7 @@ plotly_grafico_dpf_181_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hug
         <ul class="dropdown-menu">
           <li class=""><a href="#pasivahorro" data-toggle="tab" aria-expanded="false" aria-controls="fourth-tab">
           Tasas Int. Pasivas CAH</a></li>
-          <li class=""><a href="#pasivadpf" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
+          <li class=""><a href="#pasivadpf" data-toggle="tab" aria-expanded="false" aria-controls="fourth-tab">
           Tasas Int. Pasivas DPF</a></li>
         </ul></ul>
      </li>
@@ -385,10 +385,23 @@ plotly_grafico_lineal_servicios_y_stacked_usd<- readRDS("C:/Users/Mauro/Desktop/
           Índice de Precios</a></li>
           <li class=""><a href="#sala" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
           Salarios</a></li>
-          <li class=""><a href="#servb" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Sevicios Básicos</a></li>
         </ul>
      </li>
+     
+<ul class="nav nav-tabs" role="tablist">
+     <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+          Estadísticas Sociales <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li class=""><a href="#" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          </a></li>
+          <li class=""><a href="#" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          </a></li>
+          <li class=""><a href="#" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
+          </a></li>
+        </ul></ul>
+     </li>
+</ul>
 </ul>
 
 <!-- Contenido de las pestañas INE -->
@@ -490,53 +503,73 @@ plotly_grafico_lineal_sal_nom_y_stacked_usd
 
 ``` 
   </div>
-  
-  <div class="tab-pane fade" id="servb" role="tabpanel" aria-labelledby="servb-tab">
-```{r ine-servb, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
-
-knitr::opts_chunk$set(cache = TRUE)
-
-plotly_grafico_lineal_servicios_y_stacked_usd
-    
-``` 
-  </div>
 
 </div>
+
+```{r warning = FALSE, include=FALSE, echo =FALSE}
+knitr::opts_chunk$set(cache = TRUE) 
+#MINISTERIO DE ECONOMIA Y FINANZAS PUBLICAS####
+
+#INGRESOS 
+
+plotly_grafico_ingre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingre_spnf_lineal_y_stacked_bs.rds")
+
+#EGRESOS
+
+plotly_grafico_egre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds")
+
+```
 
 ### Ministerio de Economía yo Finanzas (MEFP)
 
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Ingresos Estatales <span class="caret"></span></a>
+          SPNF Consolidado <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li class=""><a href="#ingresosfiscales" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Ingresos Fiscales</a></li>
+          <li class=""><a href="#ingregre" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Ingresos y Egresos</a></li>
+            <li class=""><a href="#deficitpu" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
+          Déficit Público</a></li>
         </ul>
      </li>
      
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Egresos Estatales <span class="caret"></span></a>
+          Deuda Pública <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li class=""><a href="#egresosfiscales" data-toggle="tab" aria-expanded="false" aria-controls="first-tab">
-          Gasto Fiscales</a></li>
-        </ul>
-     </li>
-     
-<ul class="nav nav-tabs" role="tablist">
-     <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Deuda Estatal <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li class=""><a href="#deudainterna" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
-          Deuda Interna Real</a></li>
-          <li class=""><a href="#deudaexterna" data-toggle="tab" aria-expanded="false" aria-controls="third-tab">
-          Deuda Externa Int.</a></li>
+          <li class=""><a href="#deudainterna" data-toggle="tab" aria-expanded="false" aria-controls="fourth-tab">
+          Deuda Interna </a></li>
+          <li class=""><a href="#deudaexterna" data-toggle="tab" aria-expanded="false" aria-controls="fourth-tab">
+          Deuda Externa </a></li>
         </ul></ul>
      </li>
+</ul>
+</ul>
 
-</ul>
-</ul>
-n
+
+<!-- Contenido de las pestañas MECON -->
+
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade" id="ingregre" role="tabpanel" aria-labelledby="ingregre-tab">
+```{r mecon-ingregre, echo=FALSE, warning=FALSE,cache = TRUE, out.width=500}
+
+knitr::opts_chunk$set(cache = TRUE)
+
+plotly_grafico_ingre_spnf_lineal_y_stacked_bs
+
+plotly_grafico_egre_spnf_lineal_y_stacked_bs
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="deficitpu" role="tabpanel" aria-labelledby="deficitpu-tab">
+```{r mecon-deficitpu, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
+
+knitr::opts_chunk$set(cache = TRUE)
+
+
+``` 
+  </div>
+
+</div>
