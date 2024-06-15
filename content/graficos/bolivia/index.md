@@ -163,14 +163,6 @@ output: html_document
 <script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
 <link href="{{< blogdown/postref >}}index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index_files/plotly-main/plotly-latest.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="{{< blogdown/postref >}}index_files/plotly-binding/plotly.js"></script>
-<script src="{{< blogdown/postref >}}index_files/typedarray/typedarray.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/jquery/jquery.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/plotly-main/plotly-latest.min.js"></script>
 
 ### Banco Central de Bolivia (BCB)
 
@@ -509,7 +501,7 @@ Estadísticas Sociales <span class="caret"></span></a>
 
 </div>
 
-### Ministerio de Economía yo Finanzas (MEFP)
+### Ministerio de Economía y Finanzas (MEFP)
 
 <ul class="nav nav-tabs" role="tablist">
 <li class="dropdown">

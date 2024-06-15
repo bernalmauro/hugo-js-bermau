@@ -517,10 +517,9 @@ plotly_grafico_ingre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop
 #EGRESOS
 
 plotly_grafico_egre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds")
-
 ```
 
-### Ministerio de Economía yo Finanzas (MEFP)
+### Ministerio de Economía y Finanzas (MEFP)
 
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
