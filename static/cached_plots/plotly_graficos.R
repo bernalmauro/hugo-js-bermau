@@ -804,6 +804,7 @@ pal_plotly <- function(num) {
 #Banco Central de Bolivia (BCB)####
 #Sector Monetario##
 #Balance BCB#
+
 #BALANCE ACTIVO BCB
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03a.activos_bcb.xlsx"
 range <- "B6:Q305"
@@ -860,7 +861,7 @@ conjunto_datos_usd <- data %>%
   mutate(across(where(is.numeric), ~  . / 1000/6.86))
 
 mi_paleta_plotly <- pal_plotly(6)
-titulo_plotly_bs <- "<b>Balance del Activo del BCB</b><br>(Millones Bs.)"
+titulo_plotly_bs <- "<b>Balance del Activo del BCB - Mensual</b><br>(Millones Bs.)"
 
 tickformat_y <- ",d"
 graph_type <-  "scatter"
@@ -946,7 +947,7 @@ conjunto_datos_bs <- data %>%
          `Depósitos del Sector Público`) %>%
   mutate(across(where(is.numeric), ~  . / 1000))
 
-titulo_plotly_bs <- "<b>Balance del Pasivo del BCB</b><br>(Millones Bs.)"
+titulo_plotly_bs <- "<b>Balance del Pasivo del BCB - Mensual</b><br>(Millones Bs.)"
 
 mi_paleta_plotly <- pal_plotly(6)
 
@@ -960,6 +961,7 @@ saveRDS(plotly_grafico_pasivo_lineal_y_stacked_bs,
 
 #Sector Externo##
 #Balanza Cambiaria#
+
 #INGRESO DIVISAS
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/33.balanza_cambiaria.xlsx"
 range <- "A9:O84"
