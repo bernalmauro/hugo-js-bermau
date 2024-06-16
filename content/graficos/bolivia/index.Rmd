@@ -8,9 +8,9 @@ knitr::opts_chunk$set(cache = TRUE)
 #BANCO CENTRAL DE BOLIVIA BCB####
 #ACTIVOS
 
-plotly_grafico_lineal_activo_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_activo_y_stacked_bs.rds")
+plotly_grafico_activo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_activo_lineal_y_stacked_bs.rds")
 
-plotly_grafico_lineal_pasivo_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_pasivo_y_stacked_bs.rds")
+plotly_grafico_pasivo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_pasivo_lineal_y_stacked_bs.rds")
 
 #BALANZA CAMBIARIA
 
@@ -150,9 +150,9 @@ plotly_grafico_dpf_181_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hug
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_activo_y_stacked_bs
+plotly_grafico_activo_lineal_y_stacked_bs
 
-plotly_grafico_lineal_pasivo_y_stacked_bs
+plotly_grafico_pasivo_lineal_y_stacked_bs
 
 ```
   </div>

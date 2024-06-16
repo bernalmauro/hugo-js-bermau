@@ -128,11 +128,11 @@ plotly_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, ti
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
                                                filename= 'custom_image',
-                                               height=  500,
-                                               width= 700,
+                                               height=  650,
+                                               width= 900,
                                                scale= 1 )) %>% 
     plotly::layout(
-      margin = list(l = 20, r = 20, b = 20, t = 40),
+      margin = list(l = 40, r = 60, b = 20, t = 40),
       paper_bgcolor = '#1d1d1d',
       plot_bgcolor = '#1d1d1d',
       xaxis = list( 
@@ -183,14 +183,13 @@ plotly_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
                                                filename= 'custom_image',
-                                               height=  500,
-                                               width= 700,
+                                               height=  650,
+                                               width= 900,
                                                scale= 1 )) %>% 
     plotly::layout(
-      margin = list(l = 20, r = 20, b = 20, t = 40),
+      margin = list(l = 40, r = 60, b = 20, t = 40),
       paper_bgcolor = '#1d1d1d',
       plot_bgcolor = '#1d1d1d',
-      
       xaxis = list( 
         zerolinewidth = F, 
         zerolinecolor = 'transparent',
@@ -201,6 +200,129 @@ plotly_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,
         linecolor = F,
         ticks = 'outside',
         hoverformat = "%b %Y"   
+      ), 
+      yaxis = list( 
+        zerolinewidth = 1, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickformat = tickformat_y,
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline = T,  
+        linecolor = F, 
+        ticks = 'outside'  
+      ), 
+      title = list(text = titulo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+      legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
+      annotations = list(
+        list(
+          x = -0,  
+          y = 1.07,  
+          xref = "paper",
+          yref = "paper",
+          text = "bernalmauricio.com", 
+          showarrow = FALSE,
+          font = list(color = "#e3e3e3", family = "Arial")
+        )
+      )
+    ) %>%
+    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
+  
+}
+
+plotly_combi_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y) {
+  
+  conjunto_datos_plotly <- conjunto_datos_bs %>%
+    pivot_longer(!fecha, names_to = "variables", values_to = "valores")
+  
+  
+  plot_ly(data = conjunto_datos_plotly, x = ~fecha, y = ~valores,
+          color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
+    plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
+                   toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
+                                               filename= 'custom_image',
+                                               height=  650,
+                                               width= 900,
+                                               scale= 1 )) %>% 
+    plotly::layout(
+      margin = list(l = 40, r = 60, b = 20, t = 40),
+      paper_bgcolor = '#1d1d1d',
+      plot_bgcolor = '#1d1d1d',
+      xaxis = list( 
+        tickformat = "%Y",  # Formato de tick para mostrar solo el año
+        tickmode = 'linear',
+        tick0 = min(conjunto_datos_usd$fecha),
+        dtick = 'M36',  # Saltos mensuales para asegurar que se muestren todos los años
+        type = 'date',
+        zerolinewidth = F, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline =TRUE,  
+        linecolor = F,
+        ticks = 'outside',
+        hoverformat = "%Y"  
+      ), 
+      yaxis = list( 
+        zerolinewidth = 1,
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickformat = tickformat_y,
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline = T,  
+        linecolor = F, 
+        ticks = 'outside'  
+      ), 
+      title = list(text = titulo_plotly_bs, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+      legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
+      annotations = list(
+        list(
+          x = -0,  
+          y = 1.07,  
+          xref = "paper",
+          yref = "paper",
+          text = "bernalmauricio.com", 
+          showarrow = FALSE,
+          font = list(color = "#e3e3e3", family = "Arial")
+        )
+      )
+    ) %>%
+    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
+}
+plotly_combi_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y) {
+  
+  conjunto_datos_plotly <- conjunto_datos_usd %>%
+    pivot_longer(!fecha, names_to = "variables", values_to = "valores")
+  
+  plot_ly(data = conjunto_datos_plotly, x = ~fecha, y = ~valores,
+          color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
+    plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
+                   toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
+                                               filename= 'custom_image',
+                                               height=  650,
+                                               width= 900,
+                                               scale= 1 )) %>% 
+    plotly::layout(
+      margin = list(l = 40, r = 60, b = 20, t = 40),
+      paper_bgcolor = '#1d1d1d',
+      plot_bgcolor = '#1d1d1d',
+      xaxis = list( 
+        tickformat = "%Y",  # Formato de tick para mostrar solo el año
+        tickmode = 'linear',
+        tick0 = min(conjunto_datos_usd$fecha),
+        dtick = 'M36',  # Saltos mensuales para asegurar que se muestren todos los años
+        type = 'date',
+        zerolinewidth = F, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline =TRUE,  
+        linecolor = F,
+        ticks = 'outside',
+        hoverformat = "%Y"    
       ), 
       yaxis = list( 
         zerolinewidth = 1, 
@@ -242,11 +364,11 @@ plotly_solo_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_b
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
                                                filename= 'custom_image',
-                                               height=  500,
-                                               width= 700,
+                                               height=  650,
+                                               width= 900,
                                                scale= 1 )) %>% 
     plotly::layout(
-      margin = list(l = 20, r = 20, b = 20, t = 40),
+      margin = list(l = 40, r = 60, b = 20, t = 40),
       barmode = barmode,
       paper_bgcolor = '#1d1d1d',
       plot_bgcolor = '#1d1d1d',
@@ -298,12 +420,12 @@ plotly_solo_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
                                                filename= 'custom_image',
-                                               height=  500,
-                                               width= 700,
+                                               height=  650,
+                                               width= 900,
                                                scale= 1 )) %>% 
     plotly::layout(
       barmode = barmode,
-      margin = list(l = 20, r = 20, b = 20, t = 40),
+      margin = list(l = 40, r = 60, b = 20, t = 40),
       paper_bgcolor = '#1d1d1d',
       plot_bgcolor = '#1d1d1d',
       xaxis = list( 
@@ -353,8 +475,8 @@ plotly_nomi_crec_bs <-  function(fig,titulo_plotly_bs,titulo_plotly_bs_y_1,titul
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
                                                filename= 'custom_image',
-                                               height=  500,
-                                               width= 700,
+                                               height=  650,
+                                               width= 900,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 60, r = 60, b = 20, t = 40),
@@ -422,8 +544,8 @@ plotly_nomi_crec_usd <-  function(fig,titulo_plotly_usd,titulo_plotly_usd_y_1,ti
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
                                                filename= 'custom_image',
-                                               height=  500,
-                                               width= 700,
+                                               height=  650,
+                                               width= 900,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 60, r = 60, b = 20, t = 40),
@@ -511,71 +633,78 @@ plotly_nomi_crec_usd_1 <- function(conjunto_datos_usd, name_1,name_2,fecha,y_1,y
   )
   
   # Configurar los ejes
-  fig <- fig %>% plotly::layout(
-    barmode= "overlay",
-    margin = list(l = 60, r = 60, b = 20, t = 40),
-    paper_bgcolor = '#1d1d1d',
-    plot_bgcolor = '#1d1d1d',
-    xaxis = list(
-      tickformat = "%Y",  # Formato de tick para mostrar solo el año
-      tickmode = 'linear',
-      tick0 = min(conjunto_datos_usd$fecha),
-      dtick = 'M12',  # Saltos mensuales para asegurar que se muestren todos los años
-      type = 'date',
-      zerolinewidth = F, 
-      zerolinecolor = 'transparent',
-      showgrid = F,
-      title = list(text = " "), 
-      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-      showline =TRUE,  
-      linecolor = F,
-      ticks = 'outside',
-      hoverformat = "%b %Y"   
-    ),
-    yaxis = list(
-      title = ' ',
-      side = 'left',
-      zerolinewidth = 1, 
-      zerolinecolor = 'transparent',
-      showgrid = F,
-      title = list(text = " ",
-                   font = list(color = '#e3e3e3', family = "Constantia", size = 13)), 
-      tickformat = tickformat_y_1,
-      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-      showline = T,  
-      linecolor = F, 
-      ticks = 'outside'  
-    ),
-    yaxis2 = list(
-      title = ' ',
-      overlaying = 'y',
-      side = 'right',
-      zerolinewidth = 1, 
-      zerolinecolor = 'transparent',
-      showgrid = F,
-      title = list(text = " ",
-                   font = list(color = '#e3e3e3', family = "Constantia", size = 13)
+  fig <- fig %>% 
+    plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
+                   toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
+                                               filename= 'custom_image',
+                                               height=  650,
+                                               width= 900,
+                                               scale= 1 )) %>% 
+    plotly::layout(
+      barmode= "overlay",
+      margin = list(l = 60, r = 60, b = 20, t = 40),
+      paper_bgcolor = '#1d1d1d',
+      plot_bgcolor = '#1d1d1d',
+      xaxis = list(
+        tickformat = "%Y",  # Formato de tick para mostrar solo el año
+        tickmode = 'linear',
+        tick0 = min(conjunto_datos_usd$fecha),
+        dtick = 'M12',  # Saltos mensuales para asegurar que se muestren todos los años
+        type = 'date',
+        zerolinewidth = F, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " "), 
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline =TRUE,  
+        linecolor = F,
+        ticks = 'outside',
+        hoverformat = "%b %Y"   
       ),
-      tickformat = tickformat_y_2,
-      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-      showline = T,  
-      linecolor = F, 
-      ticks = 'outside'  
-    ),
-    title = list(text = titulo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
-    legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
-    annotations = list(
-      list(
-        x = -0,  
-        y = 1.07,  
-        xref = "paper",
-        yref = "paper",
-        text = "bernalmauricio.com", 
-        showarrow = FALSE,
-        font = list(color = "#e3e3e3", family = "Arial")
+      yaxis = list(
+        title = ' ',
+        side = 'left',
+        zerolinewidth = 1, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " ",
+                     font = list(color = '#e3e3e3', family = "Constantia", size = 13)), 
+        tickformat = tickformat_y_1,
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline = T,  
+        linecolor = F, 
+        ticks = 'outside'  
+      ),
+      yaxis2 = list(
+        title = ' ',
+        overlaying = 'y',
+        side = 'right',
+        zerolinewidth = 1, 
+        zerolinecolor = 'transparent',
+        showgrid = F,
+        title = list(text = " ",
+                     font = list(color = '#e3e3e3', family = "Constantia", size = 13)
+        ),
+        tickformat = tickformat_y_2,
+        tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
+        showline = T,  
+        linecolor = F, 
+        ticks = 'outside'  
+      ),
+      title = list(text = titulo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
+      legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
+      annotations = list(
+        list(
+          x = -0,  
+          y = 1.07,  
+          xref = "paper",
+          yref = "paper",
+          text = "bernalmauricio.com", 
+          showarrow = FALSE,
+          font = list(color = "#e3e3e3", family = "Arial")
+        )
       )
-    )
-  ) %>%
+    ) %>%
     plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
   
   
@@ -585,7 +714,12 @@ plotly_nomi_crec_usd_1 <- function(conjunto_datos_usd, name_1,name_2,fecha,y_1,y
 
 generar_layout_menus <- function(plotly_lineal, graph_type, barmode) {
   plotly_lineal %!>% 
-    
+    plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
+                   toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
+                                               filename= 'custom_image',
+                                               height=  650,
+                                               width= 900,
+                                               scale= 1 )) %>% 
     plotly::layout(
       updatemenus = list(
         list(
@@ -663,6 +797,344 @@ pal_plotly <- function(num) {
   usecol(c("#ff0000","#00ff00","#0000ff","#ffff00"),
          n = num)
 }
+
+
+
+
+#Banco Central de Bolivia (BCB)####
+#Sector Monetario##
+#Balance BCB#
+#BALANCE ACTIVO BCB
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03a.activos_bcb.xlsx"
+range <- "B6:Q305"
+sheet <- "MENSUAL"
+col_names <- FALSE
+from <- "01Jan1998"
+to <- "01Dec2022"
+by <- "month"
+each <- 1
+
+data <- datos(file,sheet,range,col_names, from, to, by, each)
+
+colnames(data) <- c(
+  "fecha",
+  "Reservas Internacionales Brutas",
+  "Oro",
+  "Divisas",
+  "Otros Activos",
+  "Aportes a Organismos Internacionales",
+  "Otros Activos Externos de Mediano y Largo Plazo",
+  "Crédito al Sector Público",
+  "Al Gobierno Central",
+  "A la Seguridad Social",
+  "A Locales y Regionales",
+  "A Empresas Públicas",
+  "Crédito al Sector Financiero",
+  "A Bancos Comerciales y en Liquidación",
+  "A Bancos Especializados y Otras Entidades Financieras",
+  "Otras Cuentas de Activo",
+  "Total Activo"
+)
+
+conjunto_datos_bs <- data %>%
+  select(
+    `fecha`,
+    `Reservas Internacionales Brutas`,
+    `Aportes a Organismos Internacionales`,
+    `Otros Activos Externos de Mediano y Largo Plazo`,
+    `Crédito al Sector Público`,
+    `Crédito al Sector Financiero`,
+    `Otras Cuentas de Activo`
+  )%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+conjunto_datos_usd <- data %>%
+  select(
+    `fecha`,
+    `Reservas Internacionales Brutas`,
+    `Aportes a Organismos Internacionales`,
+    `Otros Activos Externos de Mediano y Largo Plazo`,
+    `Crédito al Sector Público`,
+    `Crédito al Sector Financiero`,
+    `Otras Cuentas de Activo`
+  )%>%
+  mutate(across(where(is.numeric), ~  . / 1000/6.86))
+
+mi_paleta_plotly <- pal_plotly(6)
+titulo_plotly_bs <- "<b>Balance del Activo del BCB</b><br>(Millones Bs.)"
+
+tickformat_y <- ",d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+plotly_grafico_activo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_activo_lineal_bs
+plotly_grafico_activo_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_activo_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_activo_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_activo_lineal_y_stacked_bs.rds", compress = TRUE)
+
+#BALANCE PASIVO BCB
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03p.pasivos_bcb.xlsx"
+
+range <- "B29:AE317"
+sheet <- "Mensual"
+col_names <- FALSE
+from <- "31Dec1998"
+to <- "31Dec2022"
+by <- "month"
+each <- 1
+
+data <- datos(file,sheet,range,col_names, from, to, by, each)
+colnames(data) <- c(
+  "fecha",
+  "Emisión Monetaria",
+  
+  "Depósitos Bancarios",
+  "Bancos Comerciales",
+  "Bancos Especializados y Otras Entidades Financieras",
+  
+  "Obligaciones Externas de Corto Plazo",
+  "Giros sobre el FMI",
+  "Con Bancos y Otros Organismos",
+  
+  "Depósito de Organismos Internacionales",
+  
+  "Obligaciones Externas a Mediano y Largo Plazo",
+  
+  "Otras Cuentas Pasivo",
+  
+  "Certificado de Devolución de Depósito",
+  "En Moneda Extranjera",
+  "En Moneda Nacional con Mantenimiento de Valor",
+  
+  "Patrimonio Neto",
+  
+  "Depósitos del Sector Público",
+  
+  "Del Gobierno Central (GC)",
+  "Del GC en Moneda Nacional",
+  "Del GC en Unidad de Fomento de Valor",
+  "Del GC en Moneda Extranjera",
+  "Del GC en Moneda Nacional con Mantenimiento de Valor",
+  
+  "De la Seguridad Social (SS)",
+  "De la SS en Moneda Nacional",
+  "De la SS en Moneda Nacional con Mantenimiento de Valor",
+  
+  "De Gobiernos Locales y Regionales (GLyR)",
+  "De GLyR en Moneda Nacional",
+  "De GLyR en Moneda Extranjera",
+  
+  "De Empresas Públicas (EP)",
+  "De EP en Moneda Nacional",
+  "De EP en Moneda Extranjera",
+  
+  "Total Pasivo"
+)
+
+conjunto_datos_bs <- data %>%
+  select(`fecha`,
+         `Emisión Monetaria`,
+         `Depósitos Bancarios`,
+         
+         
+         `Obligaciones Externas a Mediano y Largo Plazo`,
+         `Otras Cuentas Pasivo`,
+         
+         `Patrimonio Neto`,
+         `Depósitos del Sector Público`) %>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+
+titulo_plotly_bs <- "<b>Balance del Pasivo del BCB</b><br>(Millones Bs.)"
+
+mi_paleta_plotly <- pal_plotly(6)
+
+plotly_grafico_pasivo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_pasivo_lineal_bs
+plotly_grafico_pasivo_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_pasivo_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_pasivo_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_pasivo_lineal_y_stacked_bs.rds", compress = TRUE)
+
+#Sector Externo##
+#Balanza Cambiaria#
+#INGRESO DIVISAS
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/33.balanza_cambiaria.xlsx"
+range <- "A9:O84"
+sheet <- "hoja_anual"
+col_names <- FALSE
+from <- "01Dec2010"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `I.A. Por Exportaciones`,
+         `I.B. Renta`,
+         `I.D. Bancos - Cheques`,
+         `I.E. Desembolso Deuda Externa`,
+         `I.J. Otros`)
+
+titulo_plotly_usd <- "<b>Balanza Cambiaria (Ingreso Divisas)</b><br>Millones $us"
+
+mi_paleta_plotly <- pal_plotly(5)
+tickformat_y <-  ",d"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+plotly_grafico_ingreso_cambiaria_lineal_usd <-  plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_lineal <- plotly_grafico_ingreso_cambiaria_lineal_usd
+plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd
+
+saveRDS(plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
+
+#EGRESO DIVISAS
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `II.A. Por Importación`,
+         `II.B. Servicio Deuda Externa`,
+         `II.C Sector Privado-Bancos`,
+         `II.G Otros`,
+         `II.H YPFB Costos Recuperables y Retribuciones a Empresas`)%>%
+  mutate(across(where(is.numeric), ~  . *6.86 ))
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `II.A. Por Importación`,
+         `II.B. Servicio Deuda Externa`,
+         `II.C Sector Privado-Bancos`,
+         `II.G Otros`,
+         `II.H YPFB Costos Recuperables y Retribuciones a Empresas`)
+
+titulo_plotly_usd <- "<b>Balanza Cambiaria (Egreso Divisas)</b><br>(En millones $us)"
+
+mi_paleta_plotly <- pal_plotly(5)
+
+plotly_grafico_egreso_cambiaria_lineal_usd <-  plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_lineal <- plotly_grafico_egreso_cambiaria_lineal_usd
+
+plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd
+
+saveRDS(plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
+
+#Base Monetaria#
+#ORIGEN BASE MONETARIA
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
+range <- "D24:S313"
+col_names <- FALSE
+from <- "01Dec1998"
+to <- "01Jan2023"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Reservas Internacionales Netas",
+  "Reservas Internacionales Brutas",
+  "Obligaciones Externas a Corto Plazo",
+  "Crédito Neto al Sector Público",
+  "Crédito a Bancos",
+  "BCL",
+  "BE Y OEF",
+  "Títulos Regulación Monetaria",
+  "SRD",
+  "Otras Cuentas Netas",
+  "Base Monetaria",
+  "Billetes y Monedas en poder del Público",
+  "Reservas Bancarias en Moneda Nacional",
+  "Reservas Bancarias en UFV",
+  "Reservas Bancarias en Moneda Extranjera",
+  "Total Reservas Bancarias"
+)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Reservas Internacionales Netas`,
+         `Crédito Neto al Sector Público`,
+         `Crédito a Bancos`,
+         `Títulos Regulación Monetaria`,
+         `Otras Cuentas Netas`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `Reservas Internacionales Netas`,
+         `Crédito Neto al Sector Público`,
+         `Crédito a Bancos`,
+         `Títulos Regulación Monetaria`,
+         `Otras Cuentas Netas`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000/6.86))
+
+titulo_plotly_bs <- "<b>Origen de la Base Monetaria</b><br>(En millones Bs.)"
+titulo_plotly_usd <- "<b>Origen de la Base Monetaria</b><br>(En millones $us)"
+mi_paleta_plotly <- pal_plotly(5)
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+plotly_grafico_base_origen_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_lineal <- plotly_grafico_base_origen_lineal_bs
+
+plotly_grafico_base_origen_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_base_origen_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_base_origen_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_origen_lineal_y_stacked_bs.rds", compress = TRUE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #1.PRODUCCION ESTATAL DE MINERALES MENSUAL####
