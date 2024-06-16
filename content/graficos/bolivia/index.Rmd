@@ -62,7 +62,7 @@ plotly_grafico_tipo_real_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_
 
 #PONDERACIONES DE COMERCIO INTERNACIONAL
 
-plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs.rds")
+plotly_grafico_ponderadores_comercio_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ponderadores_comercio_lineal_bs.rds")
 
 #TASAS PASIVAS AHORRO
 
@@ -255,7 +255,7 @@ plotly_grafico_tipo_real_lineal_bs
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_ponderadores_comercio_lineal_y_stacked_bs
+plotly_grafico_ponderadores_comercio_lineal_bs
 
 ``` 
   </div>
@@ -389,16 +389,8 @@ plotly_grafico_lineal_servicios_y_stacked_usd<- readRDS("C:/Users/Mauro/Desktop/
      
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-          Estadísticas Sociales <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li class=""><a href="#" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          </a></li>
-          <li class=""><a href="#" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          </a></li>
-          <li class=""><a href="#" data-toggle="tab" aria-expanded="false" aria-controls="second-tab">
-          </a></li>
-        </ul></ul>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> <span class="caret"></span></a>
+        </ul>
      </li>
 </ul>
 </ul>

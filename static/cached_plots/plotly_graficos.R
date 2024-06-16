@@ -1412,10 +1412,281 @@ plotly_grafico_reservas_lineal_y_stacked_usd
 saveRDS(plotly_grafico_reservas_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_usd.rds", compress = TRUE)
 
+#REMESAS ORIGEN
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/24.remesas_recibidas_del_exterior.xlsx"
+sheet <- "Hoja1"
+range <- "C6:N24"
+col_names <- TRUE
+#FORMATO FECHA
+from <- "01Dec2006"
+to <- "01Dec2023"
+by <- "year"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  mutate(across(where(is.numeric), ~  . *6.86))
+
+conjunto_datos_usd <- data
+
+titulo_plotly_bs <- "<b>Remesas Recibidas - Anual</b><br>(En millones Bs.)"
+titulo_plotly_usd <- "<b>Remesas Recibidas - Anual</b><br>(En millones $us)"
+tickformat_y <- ",d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+mi_paleta_plotly <- createPalette(12, c("#ff0000","#0000ff","#00ff00","#ffff00"))
+names(mi_paleta_plotly) <- NULL
+
+plotly_grafico_remesas_pais_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_remesas_pais_lineal_bs
+
+plotly_grafico_remesas_pais_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_remesas_pais_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_remesas_pais_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_remesas_pais_lineal_y_stacked_bs.rds", compress = TRUE)
+
+plotly_grafico_remesas_pais_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_lineal <- plotly_grafico_remesas_pais_lineal_usd
+
+plotly_grafico_remesas_pais_lineal_y_stacked_usd <-  generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_remesas_pais_lineal_y_stacked_usd
+
+saveRDS(plotly_grafico_remesas_pais_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_remesas_pais_lineal_y_stacked_usd.rds", compress = TRUE)
 
 
+#TIPO DE CAMBIO REAL
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/3.tipo_cambio_y_precios/36.indice_cambio_real.xlsx"
+sheet <- "Hoja1"
+range <- "D158:AF406"
+col_names <- TRUE
+from <- "01Aug2003"
+to <- "01Mar2024"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Argentina`,
+         `Brasil`,
+         `Chile`,
+         `China`,
+         `Estados Unidos`,
+         `Paraguay`,
+         `Perú`,
+         `Zona del Euro`,
+         `Multilateral`)
 
 
+titulo_plotly_bs <- "<b>Índices de Tipo de Cambio Real - Mensual</b><br>(Agosto de 2003 = 100)"
+
+mi_paleta_plotly <- pal_plotly(9)
+
+plotly_grafico_tipo_real_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_grafico_tipo_real_lineal_bs
+saveRDS(plotly_grafico_tipo_real_lineal_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tipo_real_lineal_bs.rds", compress = TRUE)
+
+#TASAS PASIVAS AHORRO
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/4.monetario_crediticio/44.tasas_pasivas_cah.xlsx"
+sheet <- "Hoja1"
+range <- "B4:I115"
+col_names <- TRUE
+#FORMATO FECHA
+from <- "01Jan2015"
+to <- "01Mar2024"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Bancos Múltiples`,
+         `Cooperativas`,
+         `Ent. Esp. En Microcrédito`,
+         `Entidades Financieras de Vivienda`
+  )%>%
+  mutate(across(where(is.numeric), ~  . / 100))
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `Bancos Múltiples.`,
+         `Cooperativas.`,
+         `Ent. Esp. En Microcrédito.`,
+         `Entidades Financieras de Vivienda.`
+  )%>%
+  mutate(across(where(is.numeric), ~  . / 100))
+
+titulo_plotly_bs <- "<b>Tasas de Interés Pasivas - Mensual</b><br>(Caja de Ahorros Bs.)"
+titulo_plotly_usd <- "<b>Tasas de Interés Pasivas - Mensual</b><br>(Caja de Ahorros $us)"
+
+mi_paleta_plotly <- pal_plotly(4)
+tickformat_y <- ".1%"
+graph_type <-  "scatter"
+
+plotly_grafico_tasa_pasiva_cah_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_grafico_tasa_pasiva_cah_lineal_bs
+saveRDS(plotly_grafico_tasa_pasiva_cah_lineal_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tasa_pasiva_cah_lineal_bs.rds", compress = TRUE)
+
+plotly_grafico_tasa_pasiva_cah_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_grafico_tasa_pasiva_cah_lineal_usd
+saveRDS(plotly_grafico_tasa_pasiva_cah_lineal_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tasa_pasiva_cah_lineal_usd.rds", compress = TRUE)
+
+
+#TASAS PASIVAS DPF
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/4.monetario_crediticio/43.tasas_pasivas_dpf_mn_me.xlsx"
+range <- "B4:E115"
+col_names <- TRUE
+
+sheet <- "multiples"
+data_1 <- datos_sf(file,sheet,range,col_names)
+
+sheet <- "cooperativas"
+data_2 <- datos_sf(file,sheet,range,col_names)
+
+sheet <- "microcreditos"
+data_3 <- datos_sf(file,sheet,range,col_names)
+
+sheet <- "efv"
+data_4 <- datos_sf(file,sheet,range,col_names)
+
+from <- "01Jan2015"
+to <- "01Mar2024"
+by <- "month"
+each <- 1
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data_1,data_2,data_3,data_4) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(`fecha`,
+         `Bancos Múltiples`,
+         `Cooperativas`,
+         `Ent. Esp. En Microcrédito Nomin`,
+         `Entidades Financieras de Vivienda`) %>%
+  mutate(across(where(is.numeric), ~  . / 100))
+
+conjunto_datos_usd <- data %>%
+  select(`fecha`,
+         `Bancos Múltiples.`,
+         `Cooperativas.`,
+         `Ent. Esp. En Microcrédito Nomin.`,
+         `Entidades Financieras de Vivienda.`) %>%
+  mutate(across(where(is.numeric), ~  . / 100))
+
+mi_paleta_plotly <- pal_plotly(5)
+
+titulo_plotly_bs <- "<b>Tasas Pasivas DPF - Mensual (Bs.)</b><br>1 a 30 días"
+titulo_plotly_usd <- "<b>Tasas Pasivas DPF - Mensual ($us.)</b><br>1 a 30 días"
+tickformat_y <- ".1%"
+
+plotly_grafico_dpf_30_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_dpf_30_bs
+saveRDS(plotly_grafico_dpf_30_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_30_bs.rds", compress = TRUE)
+
+plotly_grafico_dpf_30_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_dpf_30_usd
+saveRDS(plotly_grafico_dpf_30_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_30_usd.rds", compress = TRUE)
+
+#de 181-360 dias####
+
+range <- "R4:U115"
+col_names <- TRUE
+
+sheet <- "multiples"
+data_1 <- datos_sf(file,sheet,range,col_names)
+
+sheet <- "cooperativas"
+data_2 <- datos_sf(file,sheet,range,col_names)
+
+sheet <- "microcreditos"
+data_3 <- datos_sf(file,sheet,range,col_names)
+
+sheet <- "efv"
+data_4 <- datos_sf(file,sheet,range,col_names)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data_1,data_2,data_3,data_4) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(`fecha`,
+         `Bancos Múltiples`,
+         `Cooperativas`,
+         `Ent. Esp. En Microcrédito Nomin`,
+         `Entidades Financieras de Vivienda`) %>%
+  mutate(across(where(is.numeric), ~  . / 100))
+
+conjunto_datos_usd <- data %>%
+  select(`fecha`,
+         `Bancos Múltiples.`,
+         `Cooperativas.`,
+         `Ent. Esp. En Microcrédito Nomin.`,
+         `Entidades Financieras de Vivienda.`) %>%
+  mutate(across(where(is.numeric), ~  . / 100))
+
+titulo_plotly_bs <- "<b>Tasas Pasivas DPF - Mensual (Bs.)</b><br>181 a 360 días"
+titulo_plotly_usd <- "<b>Tasas Pasivas DPF - Mensual ($us)</b><br>181 a 360 días"
+
+plotly_grafico_dpf_181_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_grafico_dpf_181_bs
+saveRDS(plotly_grafico_dpf_181_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_bs.rds", compress = TRUE)
+
+
+plotly_grafico_dpf_181_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_dpf_181_usd
+saveRDS(plotly_grafico_dpf_181_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_usd.rds", compress = TRUE)
 
 
 
