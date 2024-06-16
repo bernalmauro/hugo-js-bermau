@@ -848,21 +848,9 @@ conjunto_datos_bs <- data %>%
     `Otras Cuentas de Activo`
   )%>%
   mutate(across(where(is.numeric), ~  . / 1000))
-conjunto_datos_usd <- data %>%
-  select(
-    `fecha`,
-    `Reservas Internacionales Brutas`,
-    `Aportes a Organismos Internacionales`,
-    `Otros Activos Externos de Mediano y Largo Plazo`,
-    `Crédito al Sector Público`,
-    `Crédito al Sector Financiero`,
-    `Otras Cuentas de Activo`
-  )%>%
-  mutate(across(where(is.numeric), ~  . / 1000/6.86))
 
 mi_paleta_plotly <- pal_plotly(6)
 titulo_plotly_bs <- "<b>Balance del Activo del BCB - Mensual</b><br>(Millones Bs.)"
-
 tickformat_y <- ",d"
 graph_type <-  "scatter"
 barmode <-  FALSE
@@ -949,8 +937,6 @@ conjunto_datos_bs <- data %>%
 
 titulo_plotly_bs <- "<b>Balance del Pasivo del BCB - Mensual</b><br>(Millones Bs.)"
 
-mi_paleta_plotly <- pal_plotly(6)
-
 plotly_grafico_pasivo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
 plotly_lineal <- plotly_grafico_pasivo_lineal_bs
 plotly_grafico_pasivo_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
@@ -982,10 +968,8 @@ conjunto_datos_usd <- data %>%
          `I.E. Desembolso Deuda Externa`,
          `I.J. Otros`)
 
-titulo_plotly_usd <- "<b>Balanza Cambiaria (Ingreso Divisas)</b><br>Millones $us"
-
+titulo_plotly_usd <- "<b>Balanza Cambiaria (Ingreso Divisas) - Anual</b><br>(En millones $us)"
 mi_paleta_plotly <- pal_plotly(5)
-tickformat_y <-  ",d"
 graph_type <-  "bar"
 barmode <-  "stack"
 
@@ -1015,9 +999,7 @@ conjunto_datos_usd <- data %>%
          `II.G Otros`,
          `II.H YPFB Costos Recuperables y Retribuciones a Empresas`)
 
-titulo_plotly_usd <- "<b>Balanza Cambiaria (Egreso Divisas)</b><br>(En millones $us)"
-
-mi_paleta_plotly <- pal_plotly(5)
+titulo_plotly_usd <- "<b>Balanza Cambiaria (Egreso Divisas) - Anual</b><br>(En millones $us)"
 
 plotly_grafico_egreso_cambiaria_lineal_usd <-  plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_lineal <- plotly_grafico_egreso_cambiaria_lineal_usd
@@ -1029,6 +1011,7 @@ saveRDS(plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
 
 #Base Monetaria#
+
 #ORIGEN BASE MONETARIA
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
 range <- "D24:S313"
@@ -1081,18 +1064,7 @@ conjunto_datos_bs <- data %>%
          `Otras Cuentas Netas`)%>%
   mutate(across(where(is.numeric), ~  . / 1000))
 
-conjunto_datos_usd <- data %>%
-  select(fecha, 
-         `Reservas Internacionales Netas`,
-         `Crédito Neto al Sector Público`,
-         `Crédito a Bancos`,
-         `Títulos Regulación Monetaria`,
-         `Otras Cuentas Netas`)%>%
-  mutate(across(where(is.numeric), ~  . / 1000/6.86))
-
-titulo_plotly_bs <- "<b>Origen de la Base Monetaria</b><br>(En millones Bs.)"
-titulo_plotly_usd <- "<b>Origen de la Base Monetaria</b><br>(En millones $us)"
-mi_paleta_plotly <- pal_plotly(5)
+titulo_plotly_bs <- "<b>Origen de la Base Monetaria - Mensual</b><br>(En millones Bs.)"
 graph_type <-  "scatter"
 barmode <-  FALSE
 
@@ -1105,16 +1077,278 @@ plotly_grafico_base_origen_lineal_y_stacked_bs
 saveRDS(plotly_grafico_base_origen_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_origen_lineal_y_stacked_bs.rds", compress = TRUE)
 
+#DESTINO BASE MONETARIA
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Billetes y Monedas en poder del Público`,
+         `Reservas Bancarias en Moneda Nacional`,
+         `Reservas Bancarias en UFV`,
+         `Reservas Bancarias en Moneda Extranjera`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+
+titulo_plotly_bs <- "<b>Destino de la Base Monetaria - Mensual</b><br>(En millones Bs.)"
+
+plotly_grafico_base_destino_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_lineal <- plotly_grafico_base_destino_lineal_bs
+plotly_grafico_base_destino_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_base_destino_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_base_destino_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_destino_lineal_y_stacked_bs.rds", compress = TRUE)
+
+#CREDITO SECTOR PRIVADO
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/12.credito_sector_privado.xlsx"
+sheet <- "Hoja1"
+range <- "B61:F279"
+col_names <- FALSE
+from <- "01Jan2006"
+to <- "01Mar2024"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "La Paz",
+  "Santa Cruz",
+  "Cochabamba",
+  "Resto del País",
+  "Total"
+)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `La Paz`,
+         `Santa Cruz`,
+         `Cochabamba`,
+         `Resto del País`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `La Paz`,
+         `Santa Cruz`,
+         `Cochabamba`,
+         `Resto del País`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000/6.86))
+
+titulo_plotly_bs <- "<b>Crédito al Sector Privado - Mensual</b><br>(En millones Bs.)"
+titulo_plotly_usd <- "<b>Crédito al Sector Privado - Mensual</b><br>(En millones $us)"
+
+mi_paleta_plotly <- pal_plotly(4)
+
+plotly_grafico_credito_sector_privado_depto_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_credito_sector_privado_depto_lineal_bs
+plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs.rds", compress = TRUE)
+
+plotly_grafico_credito_sector_privado_depto_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_lineal <- plotly_grafico_credito_sector_privado_depto_lineal_usd
+plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd
+
+saveRDS(plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd.rds", compress = TRUE)
+
+#DEUDA SECTOR PUBLICO BCB
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/18A.titulos_tgn_bcb.xlsx"
+sheet <- "Hoja2"
+range <- "B325:V376"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Dec2019"
+to <- "01Mar2024"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Letras MN",
+  "Letras UFV",
+  "Letras ME",
+  "Letras",
+  
+  "Bonos MN",
+  "Bonos UFV",
+  "Bonos ME",
+  "Bonos",
+  
+  "BCB Directo MN",
+  "BCB Directo UFV",
+  "BCB Directo ME",
+  "BCB Directo",
+  
+  "CDDS",
+  "Bonos BCB (Fianza)",
+  "CDS ME y MVDOL",
+  
+  "RAL MN",
+  "RAL UFV",
+  "Fondo Ral",
+  
+  "CDS AFP (MN)",
+  "Reservas Complementarias",
+  "Deuda Interna del BCB"
+)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Letras`,
+         `Bonos`,
+         `BCB Directo`,
+         `Fondo Ral`,
+         `CDS AFP (MN)`)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `Letras`,
+         `Bonos`,
+         `BCB Directo`,
+         `Fondo Ral`,
+         `CDS AFP (MN)`) %>% 
+  mutate(across(where(is.numeric), ~  . /6.86))
+
+titulo_plotly_bs <- "<b>Deuda Interna del BCB con Sector Privado - Mensual</b><br>(En millones Bs.)"
+titulo_plotly_usd <- "<b>Deuda Interna del BCB con Sector Privado - Mensual</b><br>(En millones $us)"
+
+mi_paleta_plotly <- pal_plotly(5)
+
+plotly_grafico_deuda_bcb_privados_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_deuda_bcb_privados_lineal_bs
+
+plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs.rds", compress = TRUE)
+
+plotly_grafico_deuda_bcb_privados_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_lineal <- plotly_grafico_deuda_bcb_privados_lineal_usd
+
+plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd
+
+saveRDS(plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd.rds", compress = TRUE)
+
+#CREDITO AL SECTOR PUBLICO
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/06.financiamiento_bcb_sector_publico.xlsx"
+range <- "B6:P314"
+sheet <- "Hoja1"
+col_names <- FALSE
+from <- "01Jan1998"
+to <- "01Sep2023"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    range = range,
+    sheet = sheet,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  
+  "Crédito Bruto a Gobierno Central",
+  "Depósitos de Gobierno Central",
+  "Crédito Neto a Gobierno Central",
+  
+  "Crédito Bruto a la Seguridad Social",
+  "Depósitos de Seguridad Social",
+  "Crédito Neto a Seguridad Social",
+  
+  "Crédito Bruto a Gobiernos Locales y Regionales",
+  "Depósitos de Gobiernos Locales y Regionales",
+  "Crédito Neto a Gobiernos Locales y Regionales",
+  
+  "Crédito Bruto a Empresas Públicas",
+  "Depósitos de Empresas Públicas",
+  "Crédito Neto a Empresas Públicas",
+  
+  "Crédito Bruto Total",
+  "Depósitos Totales",
+  "Crédito Neto Total"
+)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
+
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Crédito Bruto a Gobierno Central`,
+         `Crédito Bruto a Empresas Públicas`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
+
+titulo_plotly_bs <- "<b>Financiamiento del BCB al Sector Público - Mensual</b><br>(En millones Bs.)"
 
 
+plotly_grafico_credito_sector_publico_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_credito_sector_publico_lineal_bs
 
+plotly_grafico_credito_sector_publico_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_credito_sector_publico_lineal_y_stacked_bs
 
+saveRDS(plotly_grafico_credito_sector_publico_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_publico_lineal_y_stacked_bs.rds", compress = TRUE)
 
+#DEPOSITOS DEL SECTOR PUBLICO EN EL BCB
+conjunto_datos_bs <- data %>%
+  select(fecha, 
+         `Depósitos de Empresas Públicas`,
+         `Depósitos de Gobierno Central`,
+         `Depósitos de Gobiernos Locales y Regionales`,
+         `Depósitos de Seguridad Social`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000))
 
+titulo_plotly_bs <- "<b>Depósitos del Sector Público en el BCB - Mensual</b><br>(En millones Bs.)"
+mi_paleta_plotly <- pal_plotly(4)
 
+plotly_grafico_depositos_sector_publico_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_depositos_sector_publico_lineal_bs
 
+plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs
 
-
+saveRDS(plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs.rds", compress = TRUE)
 
 
 

@@ -37,7 +37,7 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro
 
 plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd.rds")
 
-#CREDITO AL SECTOR PUBLICO
+#CREDITO Y DEPOSITOS AL SECTOR PUBLICO
 
 plotly_grafico_credito_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_publico_lineal_y_stacked_bs.rds")
 
@@ -46,9 +46,9 @@ plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users
 
 #RESERVAS INTERNACIONALES NETAS
 
-plotly_grafico_lineal_reservas_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_reservas_y_stacked_bs.rds")
+plotly_grafico_reservas_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_bs.rds")
 
-plotly_grafico_lineal_reservas_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_reservas_y_stacked_usd.rds")    
+plotly_grafico_lineal_reservas_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_reservas_y_stacked_usd.rds")  
 
 #REMESAS ORIGEN
 
@@ -79,8 +79,6 @@ plotly_grafico_dpf_30_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo
 plotly_grafico_dpf_181_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_bs.rds")
 
 plotly_grafico_dpf_181_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_usd.rds")
-
-
 
 ```
 
