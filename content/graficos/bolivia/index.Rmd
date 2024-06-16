@@ -48,7 +48,7 @@ plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users
 
 plotly_grafico_reservas_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_bs.rds")
 
-plotly_grafico_lineal_reservas_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_reservas_y_stacked_usd.rds")  
+plotly_grafico_reservas_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_usd.rds")  
 
 #REMESAS ORIGEN
 
@@ -176,6 +176,7 @@ plotly_grafico_base_origen_lineal_y_stacked_bs
 
 plotly_grafico_base_destino_lineal_y_stacked_bs
 
+
 ``` 
   </div>
 
@@ -220,9 +221,9 @@ plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_reservas_y_stacked_bs
-    
-plotly_grafico_lineal_reservas_y_stacked_usd
+plotly_grafico_reservas_lineal_y_stacked_bs
+
+plotly_grafico_reservas_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -564,7 +565,6 @@ plotly_grafico_egre_spnf_lineal_y_stacked_bs
 ```{r mecon-deficitpu, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
 
 knitr::opts_chunk$set(cache = TRUE)
-
 
 ``` 
   </div>

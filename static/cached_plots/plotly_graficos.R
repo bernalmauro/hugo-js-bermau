@@ -798,9 +798,6 @@ pal_plotly <- function(num) {
          n = num)
 }
 
-
-
-
 #Banco Central de Bolivia (BCB)####
 #Sector Monetario##
 #Balance BCB#
@@ -1351,7 +1348,69 @@ saveRDS(plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs.rds", compress = TRUE)
 
 
+#RESERVAS INTERNACIONALES
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
 
+#IMPORTAR DATOS DE EXCEL
+range <- "D120:G316"
+sheet <- "Hoja1"
+col_names <- FALSE
+#FORMATO FECHA
+from <- "01Dec2007"
+to <- "01Apr2024"
+by <- "month"
+each <- 1
+
+data <- 
+  rio::import(
+    file,
+    setclass = "tbl_df",
+    sheet = sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>%
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+
+colnames(data) <- c(
+  "Oro",
+  "Divisas",
+  "DEG",
+  "Tramo de Reservas del FMI"
+)
+
+fecha <- fun_fecha(from,to,by,each)
+data <- cbind(fecha, data) 
+conjunto_datos <- as_tibble(data)
+
+conjunto_datos_bs <- conjunto_datos %>%
+  mutate(across(where(is.numeric), ~  . * 6.86))
+
+conjunto_datos_usd <- conjunto_datos
+
+titulo_plotly_bs <- "<b>Reservas Internacionales del BCB - Mensual</b><br>(En millones Bs.)"
+titulo_plotly_usd <- "<b>Reservas Internacionales del BCB - Mensual</b><br>(En millones $us)"
+mi_paleta_plotly <- pal_plotly(4)
+tickformat_y <- ",d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+plotly_grafico_lineal_reservas_bs  <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
+plotly_lineal <- plotly_grafico_lineal_reservas_bs
+
+plotly_grafico_reservas_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_reservas_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_reservas_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_bs.rds", compress = TRUE)
+
+plotly_grafico_lineal_reservas_usd  <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_lineal <- plotly_grafico_lineal_reservas_usd
+
+plotly_grafico_reservas_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_reservas_lineal_y_stacked_usd
+
+saveRDS(plotly_grafico_reservas_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_usd.rds", compress = TRUE)
 
 
 
