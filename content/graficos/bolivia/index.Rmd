@@ -297,69 +297,61 @@ knitr::opts_chunk$set(cache = TRUE)
 
 #COMERCIO EXTERIOR
 
-plotly_grafico_lineal_expo_actividad_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_expo_actividad_y_stacked_usd.rds")
+plotly_grafico_expo_actividad_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_expo_actividad_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_impo_cuode_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd.rds")
+plotly_grafico_impo_cuode_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_impo_cuode_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_impo_cuode_y_stacked_usd.rds")
+plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd.rds")
+plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_saldo_cuci_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_saldo_cuci_y_stacked_usd.rds")
+plotly_grafico_saldo_cuci_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_saldo_cuci_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_saldo_gce_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_saldo_gce_y_stacked_usd.rds")
+plotly_grafico_saldo_gce_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_saldo_gce_lineal_y_stacked_usd.rds")
 
 #CONSTRUCCION
 
-plotly_grafico_lineal_prod_cemento_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_prod_cemento_y_stacked_usd.rds")
+plotly_grafico_prod_cemento_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_prod_cemento_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_venta_cemento_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_venta_cemento_y_stacked_usd.rds")
+plotly_grafico_venta_cemento_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_venta_cemento_lineal_y_stacked_usd.rds")
 
+plotly_grafico_super_permis_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_super_permis_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_super_permis_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_super_permis_y_stacked_usd.rds")
-
-plotly_grafico_lineal_nro_permis_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_nro_permis_y_stacked_usd.rds")
+plotly_grafico_nro_permis_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_nro_permis_lineal_y_stacked_usd.rds")
 
 #CUENTAS NACIONALES
 
-plotly_grafico_lineal_crec_pib_final_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_crec_pib_final_y_stacked_usd.rds")
+plotly_grafico_crec_pib_final_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_crec_pib_final_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_nom_pib_per_y_stacked_usd <- 
-readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_nom_pib_per_y_stacked_usd.rds")
+plotly_grafico_nom_pib_per_lineal_y_stacked_usd <- 
+readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_nom_pib_per_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_fbkf_y_stacked_usd <- 
-readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_fbkf_y_stacked_usd.rds")
+plotly_grafico_fbkf_lineal_y_stacked_usd <- 
+readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_fbkf_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_igae_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_igae_y_stacked_usd.rds")
+plotly_grafico_igae_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_igae_lineal_y_stacked_usd.rds")
 
 #HIDROCARBUROS E INDUSTRIA
 
-plotly_grafico_lineal_gas_indice_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_gas_indice_y_stacked_usd.rds")
+plotly_grafico_gas_indice_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_gas_indice_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_prod_minerales_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_prod_minerales_y_stacked_usd.rds")
+plotly_grafico_prod_minerales_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_prod_minerales_lineal_y_stacked_usd.rds")
 
 #INDUSTRIA
 
-plotly_grafico_lineal_var_indice_indus_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_indus_y_stacked_usd.rds")
+plotly_grafico_var_indice_indus_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_indus_lineal_y_stacked_usd.rds")
 
-plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd.rds")
+plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd.rds")
 
 
 #INDICE DE PRECIOS
 
-plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd.rds")
+plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd.rds")
 
 
 #SALARIOS
 
-plotly_grafico_lineal_sal_nom_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_sal_nom_y_stacked_usd.rds")
-
-#SERVICIOS BASICOS
-
-plotly_grafico_lineal_servicios_y_stacked_usd<- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_servicios_y_stacked_usd.rds")
-
-
-
+plotly_grafico_sal_nom_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_sal_nom_lineal_y_stacked_usd.rds")
 
 ```
 
@@ -403,17 +395,17 @@ plotly_grafico_lineal_servicios_y_stacked_usd<- readRDS("C:/Users/Mauro/Desktop/
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_expo_actividad_y_stacked_usd
+plotly_grafico_expo_actividad_lineal_y_stacked_usd
 
-plotly_grafico_lineal_impo_cuode_y_stacked_usd
+plotly_grafico_impo_cuode_lineal_y_stacked_usd
 
-plotly_grafico_lineal_expo_actividad_ton_y_stacked_usd
+plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd
 
-plotly_grafico_lineal_impo_cuode_ton_y_stacked_usd
+plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd
 
-plotly_grafico_lineal_saldo_cuci_y_stacked_usd
+plotly_grafico_saldo_cuci_lineal_y_stacked_usd
 
-plotly_grafico_lineal_saldo_gce_y_stacked_usd
+plotly_grafico_saldo_gce_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -423,13 +415,13 @@ plotly_grafico_lineal_saldo_gce_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_prod_cemento_y_stacked_usd
+plotly_grafico_prod_cemento_lineal_y_stacked_usd
 
-plotly_grafico_lineal_venta_cemento_y_stacked_usd
+plotly_grafico_venta_cemento_lineal_y_stacked_usd
 
-plotly_grafico_lineal_super_permis_y_stacked_usd
+plotly_grafico_super_permis_lineal_y_stacked_usd
 
-plotly_grafico_lineal_nro_permis_y_stacked_usd
+plotly_grafico_nro_permis_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -439,13 +431,13 @@ plotly_grafico_lineal_nro_permis_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_crec_pib_final_y_stacked_usd
+plotly_grafico_crec_pib_final_lineal_y_stacked_usd
 
-plotly_grafico_lineal_nom_pib_per_y_stacked_usd
+plotly_grafico_nom_pib_per_lineal_y_stacked_usd
 
-plotly_grafico_lineal_fbkf_y_stacked_usd
+plotly_grafico_fbkf_lineal_y_stacked_usd
 
-plotly_grafico_lineal_igae_y_stacked_usd
+plotly_grafico_igae_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -455,9 +447,9 @@ plotly_grafico_lineal_igae_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_gas_indice_y_stacked_usd
+plotly_grafico_gas_indice_lineal_y_stacked_usd
 
-plotly_grafico_lineal_prod_minerales_y_stacked_usd
+plotly_grafico_prod_minerales_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -467,9 +459,9 @@ plotly_grafico_lineal_prod_minerales_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_var_indice_indus_y_stacked_usd
+plotly_grafico_var_indice_indus_lineal_y_stacked_usd
 
-plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd
+plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -479,7 +471,7 @@ plotly_grafico_lineal_var_indice_indus_ventas_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd
+plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd
 
 ``` 
   </div>
@@ -489,7 +481,7 @@ plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd
 
 knitr::opts_chunk$set(cache = TRUE)
 
-plotly_grafico_lineal_sal_nom_y_stacked_usd
+plotly_grafico_sal_nom_lineal_y_stacked_usd
 
 
 ``` 
