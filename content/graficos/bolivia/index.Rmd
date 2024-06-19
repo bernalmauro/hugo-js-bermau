@@ -12,6 +12,7 @@ plotly_grafico_activo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/pro
 
 plotly_grafico_pasivo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_pasivo_lineal_y_stacked_bs.rds")
 
+
 #BALANZA CAMBIARIA
 
 plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds")

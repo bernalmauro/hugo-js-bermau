@@ -127,9 +127,9 @@ plotly_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, ti
           color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 40, r = 60, b = 20, t = 40),
@@ -182,9 +182,9 @@ plotly_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,
           color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 40, r = 60, b = 20, t = 40),
@@ -240,9 +240,9 @@ plotly_combi_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_
           color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 40, r = 60, b = 20, t = 40),
@@ -300,9 +300,9 @@ plotly_combi_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotl
           color = ~variables, type = "scatter", mode = "lines", colors = mi_paleta_plotly) %>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 40, r = 60, b = 20, t = 40),
@@ -363,9 +363,9 @@ plotly_solo_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_b
           color = ~variables, type = graph_type, colors = mi_paleta_plotly) %>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 40, r = 60, b = 20, t = 40),
@@ -424,9 +424,9 @@ plotly_solo_usd <-  function(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly
           color = ~variables, type = graph_type, colors = mi_paleta_plotly) %>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       barmode = barmode,
@@ -484,9 +484,9 @@ plotly_nomi_crec_bs <-  function(fig,titulo_plotly_bs,titulo_plotly_bs_y_1,titul
   fig%>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 60, r = 60, b = 20, t = 40),
@@ -553,9 +553,9 @@ plotly_nomi_crec_usd <-  function(fig,titulo_plotly_usd,titulo_plotly_usd_y_1,ti
   fig%>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       margin = list(l = 60, r = 60, b = 20, t = 40),
@@ -646,9 +646,9 @@ plotly_nomi_crec_usd_1 <- function(conjunto_datos_usd, name_1,name_2,fecha,y_1,y
   fig <- fig %>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       barmode= "overlay",
@@ -726,9 +726,9 @@ generar_layout_menus <- function(plotly_lineal, graph_type, barmode) {
   plotly_lineal %!>% 
     plotly::config(scrollZoom = FALSE, responsive = TRUE, displaylogo = FALSE,
                    toImageButtonOptions = list(format= 'png', # one of png, svg, jpeg, webp
-                                               filename= 'custom_image',
-                                               height=  650,
-                                               width= 900,
+                                               filename= 'bernalmauricio',
+                                               height=  550,
+                                               width= 750,
                                                scale= 1 )) %>% 
     plotly::layout(
       updatemenus = list(
@@ -1798,6 +1798,60 @@ plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd
 saveRDS(plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd.rds", compress = TRUE)
 
+
+#IMPORTACIONES CUODE USD####
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/importaciones/Bolivia - Importaciones Agregadas segun Clasificacion Uso o Destino Economico por Año y Mes, 1992 - 2024.xlsx"
+range <- "B7:NX26"
+sheet <- "IMP_VAL_MES_CUODE"
+col_names <-FALSE
+from <- "01Jan1992"
+to <- "01Feb2024"
+by <- "month"
+each <- 1
+
+mi_paleta_plotly <-  pal_plotly(3)
+tickformat_y <- ",.0d"
+graph_type <-  "scatter"
+barmode <-  FALSE
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `BIENES DE CONSUMO`,
+         `MATERIAS PRIMAS Y PRODUCTOS INTERMEDIOS`,
+         `BIENES DE CAPITAL`)
+
+titulo_plotly_usd <- "<b>Importaciones (CUODE) - Mensual</b><br>(En millones $us)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_impo_cuode_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_impo_cuode_lineal_y_stacked_usd
+saveRDS(plotly_grafico_impo_cuode_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_impo_cuode_lineal_y_stacked_usd.rds", compress = TRUE)
+
+
+
+#IMPORTACIONES ACTIVIDAD ECONOMICA PESO#
+
+sheet <- "IMP_VOL_MES_CUODE"
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `BIENES DE CONSUMO`,
+         `MATERIAS PRIMAS Y PRODUCTOS INTERMEDIOS`,
+         `BIENES DE CAPITAL`)
+
+titulo_plotly_usd <- "<b>Importaciones (CUODE) - Mensual</b><br>(En toneladas)"
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd
+saveRDS(plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd.rds", compress = TRUE)
+
+
+
 #SALDO COMERCIAL CUCI REV
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Clasificacion Uniforme para el Comercio Internacional, 1992 - 2024.xlsx"
 range <- "C8:CU93"
@@ -2268,7 +2322,7 @@ tickformat_y <- ".0%"
 mi_paleta_plotly <- pal_plotly(1)
 
 plotly_grafico_var_indice_indus_lineal_y_stacked_usd <- plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
-
+plotly_grafico_var_indice_indus_lineal_y_stacked_usd
 saveRDS(plotly_grafico_var_indice_indus_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_indus_lineal_y_stacked_usd.rds", compress = TRUE)
 
@@ -2366,7 +2420,7 @@ combinacion_graficos <- combinacion_graficos %>%
 
 tickformat_y <- ",.2f"
 # Estilo y diseño del gráfico
-plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- combinacion_graficos %>%
+plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd <- combinacion_graficos %>%
   plotly::layout(
     barmode = "overlay",
     margin = list(l = 20, r = 20, b = 20, t = 40),
@@ -2412,8 +2466,8 @@ plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd <- combinacion_grafico
 
 
 plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd
-saveRDS(plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd, 
-        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_lineal_var_indice_consumidor_y_stacked_usd.rds", compress = TRUE)
+saveRDS(plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd.rds", compress = TRUE)
 
 #1.SALARIO MINIMO####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/salario_remuneraciones/1.salario_minimo/BOLIVIA - SALARIO MÍNIMO NACIONAL, 1991 - 2024.xlsx"
@@ -2448,106 +2502,6 @@ name_1 <- 'Variación Porcentual'
 name_2 <- 'Salario Mínimo Nacional'
 type_1 <- 'bar'
 type_2 <- "scatter"
-conjunto_datos_usd
-
-
-plotly_nomi_crec_usd_1 <- function(conjunto_datos_usd, name_1,name_2,fecha,y_1,y_2,type_2,type_1,titulo_plotly_usd, mi_paleta_plotly,fecha_min,fecha_max,tickformat_y_1,tickformat_y_2) {
-  
-  # Crear el gráfico con dos ejes
-  fig <- plot_ly(x = ~fecha)
-  
-  # Agregar la serie de "SALARIO MÍNIMO NACIONAL"
-  fig <- fig %>% add_trace(
-    y = y_2,
-    type = type_2,
-    mode = 'lines',
-    yaxis = 'y2',
-    name = name_2,
-    fill = "tozeroy",
-    data = conjunto_datos_usd
-  )
-  
-  # Agregar la serie de "VARIACIÓN PORCENTUAL"
-  fig <- fig %>% add_trace(
-    y = y_1,
-    type = type_1,
-    name = name_1,
-    yaxis = 'y1',
-    data = conjunto_datos_usd
-  )
-  
-  # Configurar los ejes
-  fig <- fig %>% plotly::layout(
-    barmode= "overlay",
-    margin = list(l = 60, r = 60, b = 20, t = 40),
-    paper_bgcolor = '#1d1d1d',
-    plot_bgcolor = '#1d1d1d',
-    xaxis = list(
-      tickformat = "%Y",  # Formato de tick para mostrar solo el año
-      tickmode = 'linear',
-      tick0 = min(conjunto_datos_usd$fecha),
-      dtick = 'M36',  # Saltos mensuales para asegurar que se muestren todos los años
-      type = 'date',
-      zerolinewidth = F, 
-      zerolinecolor = 'transparent',
-      showgrid = F,
-      title = list(text = " "), 
-      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-      showline =TRUE,  
-      linecolor = F,
-      ticks = 'outside',
-      hoverformat = "%b %Y"   
-    ),
-    yaxis = list(
-      title = ' ',
-      side = 'left',
-      zerolinewidth = 1, 
-      zerolinecolor = 'transparent',
-      showgrid = F,
-      title = list(text = " ",
-                   font = list(color = '#e3e3e3', family = "Constantia", size = 13)), 
-      tickformat = tickformat_y_1,
-      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-      showline = T,  
-      linecolor = F, 
-      ticks = 'outside'  
-    ),
-    yaxis2 = list(
-      title = ' ',
-      overlaying = 'y',
-      side = 'right',
-      zerolinewidth = 1, 
-      zerolinecolor = 'transparent',
-      showgrid = F,
-      title = list(text = " ",
-                   font = list(color = '#e3e3e3', family = "Constantia", size = 13)
-      ),
-      tickformat = tickformat_y_2,
-      tickfont = list(color = '#e3e3e3', family = "Constantia", size = 13),
-      showline = T,  
-      linecolor = F, 
-      ticks = 'outside'  
-    ),
-    title = list(text = titulo_plotly_usd, x = 0.9, font = list(color = '#e3e3e3', family = "Constantia", size=15)), 
-    legend = list(font = list(color = '#e3e3e3',size = 12, family = "Constantia"), orientation="h", traceorder= "normal"),  
-    annotations = list(
-      list(
-        x = -0,  
-        y = 1.07,  
-        xref = "paper",
-        yref = "paper",
-        text = "bernalmauricio.com", 
-        showarrow = FALSE,
-        font = list(color = "#e3e3e3", family = "Arial")
-      )
-    )
-  ) %>%
-    plotly::style(hoverlabel = list(namelength = -1, font = list(family = "Constantia")))
-  
-  
-  
-  
-}
 
 plotly_grafico_sal_nom_lineal_y_stacked_usd <- plotly_nomi_crec_usd_1(conjunto_datos_usd, name_1,name_2,fecha,y_1,y_2,type_2,type_1,titulo_plotly_usd, mi_paleta_plotly,fecha_min,fecha_max,tickformat_y_1,tickformat_y_2)
 plotly_grafico_sal_nom_lineal_y_stacked_usd
