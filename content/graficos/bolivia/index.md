@@ -171,38 +171,6 @@ output: html_document
 <script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
 <link href="{{< blogdown/postref >}}index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="{{< blogdown/postref >}}index_files/plotly-main/plotly-latest.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="{{< blogdown/postref >}}index_files/plotly-binding/plotly.js"></script>
-<script src="{{< blogdown/postref >}}index_files/typedarray/typedarray.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/jquery/jquery.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/plotly-main/plotly-latest.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="{{< blogdown/postref >}}index_files/plotly-binding/plotly.js"></script>
-<script src="{{< blogdown/postref >}}index_files/typedarray/typedarray.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/jquery/jquery.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/plotly-main/plotly-latest.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="{{< blogdown/postref >}}index_files/plotly-binding/plotly.js"></script>
-<script src="{{< blogdown/postref >}}index_files/typedarray/typedarray.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/jquery/jquery.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/plotly-main/plotly-latest.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
-<script src="{{< blogdown/postref >}}index_files/plotly-binding/plotly.js"></script>
-<script src="{{< blogdown/postref >}}index_files/typedarray/typedarray.min.js"></script>
-<script src="{{< blogdown/postref >}}index_files/jquery/jquery.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/plotly-htmlwidgets-css/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/plotly-main/plotly-latest.min.js"></script>
 
 ### Banco Central de Bolivia (BCB)
 
@@ -575,6 +543,17 @@ Deuda Externa </a>
 </div>
 
 <div id="deficitpu" class="tab-pane fade" role="tabpanel" aria-labelledby="deficitpu-tab">
+
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-47" style="width:500px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-47">{"x":{"visdat":{"23d811574131":["function () ","plotlyVisDat"]},"cur_data":"23d811574131","attrs":{"23d811574131":{"x":{},"y":{},"mode":"lines","color":{},"colors":["#FF0000","#FFFF00"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":20,"l":40,"t":40,"r":60},"paper_bgcolor":"#1d1d1d","plot_bgcolor":"#1d1d1d","xaxis":{"domain":[0,1],"automargin":true,"tickformat":"%Y","tickmode":"linear","tick0":"1990-12-01","dtick":"M36","type":"date","zerolinewidth":false,"zerolinecolor":"transparent","showgrid":false,"title":{"text":" "},"tickfont":{"color":"#e3e3e3","family":"Constantia","size":13},"showline":true,"linecolor":false,"ticks":"outside","hoverformat":"%Y"},"yaxis":{"domain":[0,1],"automargin":true,"zerolinewidth":1,"zerolinecolor":"transparent","showgrid":false,"title":{"text":" "},"tickformat":",.0f","tickfont":{"color":"#e3e3e3","family":"Constantia","size":13},"showline":true,"linecolor":false,"ticks":"outside"},"title":{"text":"<b>Défcit Público SPNF - Anual (1990-2022)<\/b><br>(En millones Bs.)","x":0.90000000000000002,"font":{"color":"#e3e3e3","family":"Constantia","size":15}},"legend":{"font":{"color":"#e3e3e3","size":12,"family":"Constantia"},"orientation":"h","traceorder":"normal"},"annotations":[{"x":-0,"y":1.0700000000000001,"xref":"paper","yref":"paper","text":"bernalmauricio.com","showarrow":false,"font":{"color":"#e3e3e3","family":"Arial"}}],"hovermode":"closest","showlegend":true,"updatemenus":[{"x":0.20000000000000001,"y":1.2,"buttons":[{"args":[{"type":"scatter","mode":"lines","stackgroup":false},{"visible":[true,false]}],"label":"Sin Apilar","method":"update"},{"args":[{"type":"bar","mode":"lines","stackgroup":"one"},{"visible":[false,true],"barmode":"stack"}],"label":"Apilado","method":"update"}]}]},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"scrollZoom":false,"responsive":true,"displaylogo":false,"toImageButtonOptions":{"format":"png","filename":"bernalmauricio","height":550,"width":750,"scale":1}},"data":[{"x":["1990-12-01","1991-12-01","1992-12-01","1993-12-01","1994-12-01","1995-12-01","1996-12-01","1997-12-01","1998-12-01","1999-12-01","2000-12-01","2001-12-01","2002-12-01","2003-12-01","2004-12-01","2005-12-01","2006-12-01","2007-12-01","2008-12-01","2009-12-01","2010-12-01","2011-12-01","2012-12-01","2013-12-01","2014-12-01","2015-12-01","2016-12-01","2017-12-01","2018-12-01","2019-12-01","2020-12-01","2021-12-01","2022-12-01"],"y":[380.89999999999998,535.39999999999873,655.60000000000127,384,993.09999999999945,1512.4100000000001,1436.2834021052604,983.91216590000113,461.03778000000239,448.27925000000323,583.77187500000036,-476.40827220000028,-1512.3473542952006,-1640.840835650004,648.34319498000332,4394.8281717985046,11963.152875462994,13094.468967840003,17621.762466580003,14297.164811371698,15475.478002999997,22120.877203,27290.612768194274,35118.790377458325,35860.463933925399,23652.801961510599,24306.238662658005,19440.945754968005,13123.182312408793,11026.837092495207,-15404.69671880181,-5119.7440796242054,-748.07139641240246],"mode":"lines","type":"scatter","name":"SUPERAVIT O DEFICIT CORRIENTE","marker":{"color":"rgba(255,0,0,1)","line":{"color":"rgba(255,0,0,1)"}},"textfont":{"color":"rgba(255,0,0,1)"},"error_y":{"color":"rgba(255,0,0,1)"},"error_x":{"color":"rgba(255,0,0,1)"},"line":{"color":"rgba(255,0,0,1)"},"xaxis":"x","yaxis":"y","frame":null,"hoverlabel":{"namelength":-1,"font":{"family":"Constantia"}}},{"x":["1990-12-01","1991-12-01","1992-12-01","1993-12-01","1994-12-01","1995-12-01","1996-12-01","1997-12-01","1998-12-01","1999-12-01","2000-12-01","2001-12-01","2002-12-01","2003-12-01","2004-12-01","2005-12-01","2006-12-01","2007-12-01","2008-12-01","2009-12-01","2010-12-01","2011-12-01","2012-12-01","2013-12-01","2014-12-01","2015-12-01","2016-12-01","2017-12-01","2018-12-01","2019-12-01","2020-12-01","2021-12-01","2022-12-01"],"y":[-674.39999999999998,-814.50000000000091,-960.59999999999854,-1484,-825.39999999999998,-582.80999999999949,-726.92659789473873,-1438.7778340999994,-1911.9932199999967,-2178.3067499999961,-1940.9461249999986,-3668.2882722000031,-5007.7156104600008,-4879.8455599300032,-3859.6672002599989,-1720.1747678014945,4131.9406779929996,1785.364269040002,3916.2483601800041,109.21418528169988,2315.7323119999992,1382.0325923600021,3287.9570733142809,1376.0979430043262,-7669.1862076146081,-15732.684330269396,-15364.376799722002,-20254.847134012001,-22670.208604651205,-20404.763634984789,-32075.928786874207,-25945.681857964206,-21574.055470412397],"mode":"lines","type":"scatter","name":"SUPERAVIT O DEFICIT GLOBAL","marker":{"color":"rgba(255,255,0,1)","line":{"color":"rgba(255,255,0,1)"}},"textfont":{"color":"rgba(255,255,0,1)"},"error_y":{"color":"rgba(255,255,0,1)"},"error_x":{"color":"rgba(255,255,0,1)"},"line":{"color":"rgba(255,255,0,1)"},"xaxis":"x","yaxis":"y","frame":null,"hoverlabel":{"namelength":-1,"font":{"family":"Constantia"}}}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+
+</div>
+
+<div id="deudainterna" class="tab-pane fade" role="tabpanel" aria-labelledby="deudainterna-tab">
+
+</div>
+
+<div id="deudaexterna" class="tab-pane fade" role="tabpanel" aria-labelledby="deudaexterna-tab">
 
 </div>
 

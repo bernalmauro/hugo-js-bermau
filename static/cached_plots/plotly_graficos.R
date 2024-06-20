@@ -251,7 +251,7 @@ plotly_combi_bs <-  function(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_
       xaxis = list( 
         tickformat = "%Y",  # Formato de tick para mostrar solo el año
         tickmode = 'linear',
-        tick0 = min(conjunto_datos_usd$fecha),
+        tick0 = min(conjunto_datos_bs$fecha),
         dtick = 'M36',  # Saltos mensuales para asegurar que se muestren todos los años
         type = 'date',
         zerolinewidth = F, 
@@ -2563,5 +2563,46 @@ plotly_grafico_egre_spnf_lineal_y_stacked_bs
 
 saveRDS(plotly_grafico_egre_spnf_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
+
+
+#1. DEFICIT PUBLICO####
+
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/1.estadisticas_fiscales/1.cifras_fiscales_operativas_caja/1.ejecucion_spnf/1.ejecucion_spnf.xlsx"
+col_names <-FALSE
+
+from <- "01Dec1990"
+to <- "01Dec2022"
+by <- "year"
+each <- 1
+
+range <- "A6:AH51"
+sheet <- "anual"
+
+data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+colnames(data)
+conjunto_datos_bs <- data %!>% 
+  select(fecha, `SUPERAVIT O DEFICIT CORRIENTE`, `SUPERAVIT O DEFICIT GLOBAL`) 
+
+mi_paleta_plotly <- pal_plotly(2)
+
+titulo_plotly_bs <- "<b>Défcit Público SPNF - Anual (1990-2022)</b><br>(En millones Bs.)"
+tickformat_y <- ",.0f"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+plotly_grafico_deficit_spnf_lineal_bs <-  plotly_combi_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
+plotly_lineal <- plotly_grafico_deficit_spnf_lineal_bs
+
+plotly_grafico_deficit_spnf_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_deficit_spnf_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_deficit_spnf_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deficit_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
+
+
+
+
+
+
 
 

@@ -501,6 +501,11 @@ plotly_grafico_ingre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop
 #EGRESOS
 
 plotly_grafico_egre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds")
+
+#DEFICIT
+plotly_grafico_deficit_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deficit_spnf_lineal_y_stacked_bs.rds")
+
+
 ```
 
 ### Ministerio de Economía y Finanzas (MEFP)
@@ -551,7 +556,26 @@ plotly_grafico_egre_spnf_lineal_y_stacked_bs
 
 knitr::opts_chunk$set(cache = TRUE)
 
+plotly_grafico_deficit_spnf_lineal_y_stacked_bs
+
 ``` 
   </div>
+
+  <div class="tab-pane fade" id="deudainterna" role="tabpanel" aria-labelledby="deudainterna-tab">
+```{r mecon-deudainterna, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
+
+knitr::opts_chunk$set(cache = TRUE)
+
+``` 
+  </div>
+
+  <div class="tab-pane fade" id="deudaexterna" role="tabpanel" aria-labelledby="deudaexterna-tab">
+```{r mecon-deudaexterna, echo=FALSE, warning=FALSE, cache = TRUE,out.width=500}
+
+knitr::opts_chunk$set(cache = TRUE)
+
+``` 
+  </div>
+
 
 </div>
