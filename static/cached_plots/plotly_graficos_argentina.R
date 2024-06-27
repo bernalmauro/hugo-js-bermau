@@ -808,223 +808,216 @@ pal_plotly <- function(num) {
          n = num)
 }
 
-#Banco Central de Bolivia (BCB)####
+#Banco Central de Argentina (BCRA)####
 #Sector Monetario##
-#Balance BCB#
+#Balance BCRA#
 
-#BALANCE ACTIVO BCB
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03a.activos_bcb.xlsx"
-range <- "B6:Q305"
-sheet <- "MENSUAL"
+#BALANCE ACTIVO BCRA
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/argentina/banco_central/estadisticas_estandarizadas/2.dinero_credito/1.balances_consolidados/Serieanual.xls"
+range <- "A8:P111"
+sheet <- "anual"
 col_names <- FALSE
-from <- "01Jan1998"
-to <- "01Dec2022"
-by <- "month"
-each <- 1
+fecha <- dmy(c("31-dec-10", "31-dec-11", "31-dec-12", "31-dec-13", "31-dec-14", 
+               "31-dec-15", "31-dec-16", "31-dec-17", "31-dec-18", "31-dec-19", 
+               "31-dec-20", "31-dec-21", "31-dec-22", "31-dec-23", "15-jun-24"))
+data <- 
+  rio::import(
+    file, 
+    setclass = "tbl_df",
+    sheet=sheet,
+    range = range,
+    col_names = col_names,
+    .name_repair = "unique_quiet") %!>% 
+  remove_empty(c("rows", "cols")) %!>%
+  replace(is.na(.), 0)
+data %<>%
+  pivot_longer(!...1) %<>%
+  pivot_wider(names_from = "...1",
+              values_from = "value") %<>%
+  dplyr::select(-name)
 
-data <- datos(file,sheet,range,col_names, from, to, by, each)
-
-colnames(data) <- c(
-  "fecha",
-  "Reservas Internacionales Brutas",
-  "Oro",
-  "Divisas",
-  "Otros Activos",
-  "Aportes a Organismos Internacionales",
-  "Otros Activos Externos de Mediano y Largo Plazo",
-  "Crédito al Sector Público",
-  "Al Gobierno Central",
-  "A la Seguridad Social",
-  "A Locales y Regionales",
-  "A Empresas Públicas",
-  "Crédito al Sector Financiero",
-  "A Bancos Comerciales y en Liquidación",
-  "A Bancos Especializados y Otras Entidades Financieras",
-  "Otras Cuentas de Activo",
-  "Total Activo"
-)
+data <- cbind(fecha, data) 
+data <- as_tibble(data)
 
 conjunto_datos_bs <- data %>%
   select(
     `fecha`,
-    `Reservas Internacionales Brutas`,
-    `Aportes a Organismos Internacionales`,
-    `Otros Activos Externos de Mediano y Largo Plazo`,
-    `Crédito al Sector Público`,
-    `Crédito al Sector Financiero`,
-    `Otras Cuentas de Activo`
+    `RESERVAS INTERNACIONALES`,
+    `TITULOS PUBLICOS`,
+    `ADELANTOS TRANSITORIOS AL GOBIERNO NACIONAL`,
+    `APORTES A ORGANISMOS INTERNACIONALES`,
+    `DERECHOS POR OPERACIONES DE PASES`
   )%>%
-  mutate(across(where(is.numeric), ~  . / 1000))
+  mutate(across(where(is.numeric), ~  . / 1000000000))
 
-mi_paleta_plotly <- pal_plotly(6)
-titulo_plotly_bs <- "<b>Balance del Activo del BCB - Mensual</b><br>(Millones Bs.)"
+mi_paleta_plotly <- pal_plotly(5)
+titulo_plotly_bs <- "<b>Balance del Activo del BCRA - Saldos Anuales</b><br>(En Billones de $.)"
 tickformat_y <- ",d"
 graph_type <-  "scatter"
 barmode <-  FALSE
 
 plotly_grafico_activo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
 plotly_lineal <- plotly_grafico_activo_lineal_bs
-plotly_grafico_activo_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
-plotly_grafico_activo_lineal_y_stacked_bs
+plotly_grafico_ar_activo_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ar_activo_lineal_y_stacked_bs
 
-saveRDS(plotly_grafico_activo_lineal_y_stacked_bs, 
-        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_activo_lineal_y_stacked_bs.rds", compress = TRUE)
+saveRDS(plotly_grafico_ar_activo_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/argentina/plotly_grafico_ar_activo_lineal_y_stacked_bs.rds", compress = TRUE)
 
-#BALANCE PASIVO BCB
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/03p.pasivos_bcb.xlsx"
-
-range <- "B29:AE317"
-sheet <- "Mensual"
-col_names <- FALSE
-from <- "31Dec1998"
-to <- "31Dec2022"
-by <- "month"
-each <- 1
-
-data <- datos(file,sheet,range,col_names, from, to, by, each)
-colnames(data) <- c(
-  "fecha",
-  "Emisión Monetaria",
-  
-  "Depósitos Bancarios",
-  "Bancos Comerciales",
-  "Bancos Especializados y Otras Entidades Financieras",
-  
-  "Obligaciones Externas de Corto Plazo",
-  "Giros sobre el FMI",
-  "Con Bancos y Otros Organismos",
-  
-  "Depósito de Organismos Internacionales",
-  
-  "Obligaciones Externas a Mediano y Largo Plazo",
-  
-  "Otras Cuentas Pasivo",
-  
-  "Certificado de Devolución de Depósito",
-  "En Moneda Extranjera",
-  "En Moneda Nacional con Mantenimiento de Valor",
-  
-  "Patrimonio Neto",
-  
-  "Depósitos del Sector Público",
-  
-  "Del Gobierno Central (GC)",
-  "Del GC en Moneda Nacional",
-  "Del GC en Unidad de Fomento de Valor",
-  "Del GC en Moneda Extranjera",
-  "Del GC en Moneda Nacional con Mantenimiento de Valor",
-  
-  "De la Seguridad Social (SS)",
-  "De la SS en Moneda Nacional",
-  "De la SS en Moneda Nacional con Mantenimiento de Valor",
-  
-  "De Gobiernos Locales y Regionales (GLyR)",
-  "De GLyR en Moneda Nacional",
-  "De GLyR en Moneda Extranjera",
-  
-  "De Empresas Públicas (EP)",
-  "De EP en Moneda Nacional",
-  "De EP en Moneda Extranjera",
-  
-  "Total Pasivo"
-)
+#BALANCE PASIVO BCRA
 
 conjunto_datos_bs <- data %>%
-  select(`fecha`,
-         `Emisión Monetaria`,
-         `Depósitos Bancarios`,
-         
-         
-         `Obligaciones Externas a Mediano y Largo Plazo`,
-         `Otras Cuentas Pasivo`,
-         
-         `Patrimonio Neto`,
-         `Depósitos del Sector Público`) %>%
-  mutate(across(where(is.numeric), ~  . / 1000))
+  select(
+    `fecha`,
+    `BASE MONETARIA`,
+    `CUENTAS CORRIENTES EN OTRAS MONEDAS`,
+    `DEPOSITOS DEL GOBIERNO NACIONAL Y OTROS`,
+    `TITULOS EMITIDOS POR EL B.C.R.A.`,
+    `OBLIGACIONES POR OPERACIONES DE PASE`,
+    `OTROS PASIVOS`,
+    `TOTAL DEL PATRIMONIO NETO`
+  )%>%
+  mutate(across(where(is.numeric), ~  . / 1000000000))
 
-titulo_plotly_bs <- "<b>Balance del Pasivo del BCB - Mensual</b><br>(Millones Bs.)"
+mi_paleta_plotly <- pal_plotly(7)
+titulo_plotly_bs <- "<b>Balance del Pasivo del BCRA - Saldos Anuales</b><br>(En Billones de $.)"
 
 plotly_grafico_pasivo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
 plotly_lineal <- plotly_grafico_pasivo_lineal_bs
-plotly_grafico_pasivo_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
-plotly_grafico_pasivo_lineal_y_stacked_bs
+plotly_grafico_ar_pasivo_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ar_pasivo_lineal_y_stacked_bs
 
-saveRDS(plotly_grafico_pasivo_lineal_y_stacked_bs, 
-        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_pasivo_lineal_y_stacked_bs.rds", compress = TRUE)
+saveRDS(plotly_grafico_ar_pasivo_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/argentina/plotly_grafico_ar_pasivo_lineal_y_stacked_bs.rds", compress = TRUE)
 
 #Sector Externo##
 #Balanza Cambiaria#
 
 #INGRESO DIVISAS
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/33.balanza_cambiaria.xlsx"
-range <- "A9:O84"
-sheet <- "hoja_anual"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/argentina/banco_central/publicaciones/3.sector_externo/1.informe_mercado_cambios/nuevo_anexo_mc.xlsx"
+range <- "B15:BA267"
+sheet <- "Balance Cambiario"
 col_names <- FALSE
-from <- "01Dec2010"
-to <- "01Dec2023"
-by <- "year"
+from <- "01Apr2003"
+to <- "01Apr2024"
+by <- "month"
 each <- 1
 
-data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
+data <- datos(file,sheet,range,col_names, from, to, by, each)
+
+colnames(data) <- c(
+  
+              "fecha",  
+  
+             "Saldo Cuenta Corriente Cambiaria", 
+             
+             "Saldo Total Bienes", 
+             "Cobros de exportaciones de bienes","Pagos de importaciones de bienes", 
+             
+             "Saldo Total Servicios", 
+             "Ingreso Servicios", "Egreso Servicios", 
+             
+             "Saldo Ingreso Primario", 
+             "Saldo Total Intereses", 
+             
+             "Ingresos Intereses", "Egresos Intereses",
+             
+             "Pagos de intereses al FMI", "Pagos de intereses a otros Org. Int. Y otros bilaterales", "Otros pagos de intereses", "Otros pagos de Gobierno Nacional",
+             
+             "Saldo Utilidades y Dividendos y otras Rentas",
+             "Ingresos Utilidades y dividendos y otras rentas", "Egresos Utilidades y dividendos y otras rentas",
+             
+             "Saldo Ingreso Secundario",
+             "Ingreso Ingreso Secundario", "Egreso Ingreso Secundario",
+             
+             "Cuenta de capital cambiaria",
+             
+             "Saldo Cuenta financiera",
+             
+             "Saldo Inversión Directa de no Residentes", 
+             "Ingresos Inversión directa de no residentes", "Egresos Inversión directa de no residentes",
+             
+             "Saldo Inversión de Portafolio de no Residentes",
+             "Ingresos Inversión de portafolio de no residentes","Egresos Inversión de portafolio de no residentes",
+             
+             "Saldo Préstamos Financieros, Títulos de deuda y Líneas de Crédito", 
+             "Ingresos Préstamos financieros, títulos de deuda y líneas de crédito", "Egresos Préstamos financieros, títulos de deuda y líneas de crédito",
+             
+             "Saldo Operaciones con el FMI",
+             "Ingresos Operaciones con el FMI", "Egresos Operaciones con el FMI",
+             
+             "Saldo Préstamos de Otros Org. Int. y Otros Bilaterales",
+             "Ingresos Préstamos de otros Org. Int. y otros bilaterales", "Egresos Préstamos de otros Org. Int. y otros bilaterales",
+             
+             "Saldo Formación  de Activos Externos del Sector Privado no Financiero",
+             "Ingresos Formación  de activos externos del sector privado no financiero", "Egresos Formación  de activos externos del sector privado no financiero",
+             
+             "Operaciones de canje por transferencias con el exterior",
+             
+             "Formación de activos externos del sector financiero (PGC)",
+             
+             "Formación de activos externos del sector público",
+             
+             "Compra-venta de títulos valores",
+             
+             "Otras operaciones del sector público nacional (neto)",
+             
+             "Otros movimientos netos",
+             
+             "Concepto no informado por el cliente (neto)",
+             
+             "Variación de Reservas Internacionales por transacciones",
+             
+             "Variación contable de Reservas Internacionales del BCRA",
+             
+             "Ajuste por tipo de pase y valuación",
+             
+             "Item de Memorandum: Pago del saldo en moneda extranjera por uso de tarjetas en el exterior(7)"
+             )
 
 conjunto_datos_usd <- data %>%
   select(fecha, 
-         `I.A. Por Exportaciones`,
-         `I.B. Renta`,
-         `I.D. Bancos - Cheques`,
-         `I.E. Desembolso Deuda Externa`,
-         `I.J. Otros`)
+         `Saldo Total Bienes`,
+         `Saldo Total Servicios`,
+         `Saldo Ingreso Primario`,
+         `Saldo Ingreso Secundario`)
 
-titulo_plotly_usd <- "<b>Balanza Cambiaria (Ingreso Divisas) - Anual</b><br>(En millones $us)"
-mi_paleta_plotly <- pal_plotly(5)
-graph_type <-  "bar"
-barmode <-  "stack"
+titulo_plotly_usd <- "<b>Balance Cambiario (Cuenta Corriente Cambiaria) - Saldos Mensuales</b><br>(Millones $us)"
+mi_paleta_plotly <- createPalette(4, c("#ff0000","#0000ff","#00ff00"))
+names(mi_paleta_plotly) <- NULL
 
-plotly_grafico_ingreso_cambiaria_lineal_usd <-  plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
-plotly_lineal <- plotly_grafico_ingreso_cambiaria_lineal_usd
-plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
-plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd
+plotly_grafico_ar_ingreso_cambiaria_lineal_y_stacked_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_ar_ingreso_cambiaria_lineal_y_stacked_usd
 
-saveRDS(plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd, 
-        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
-
-#EGRESO DIVISAS
-conjunto_datos_bs <- data %>%
-  select(fecha, 
-         `II.A. Por Importación`,
-         `II.B. Servicio Deuda Externa`,
-         `II.C Sector Privado-Bancos`,
-         `II.G Otros`,
-         `II.H YPFB Costos Recuperables y Retribuciones a Empresas`)%>%
-  mutate(across(where(is.numeric), ~  . *6.86 ))
+saveRDS(plotly_grafico_ar_ingreso_cambiaria_lineal_y_stacked_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/argentina/plotly_grafico_ar_ingreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
 
 conjunto_datos_usd <- data %>%
   select(fecha, 
-         `II.A. Por Importación`,
-         `II.B. Servicio Deuda Externa`,
-         `II.C Sector Privado-Bancos`,
-         `II.G Otros`,
-         `II.H YPFB Costos Recuperables y Retribuciones a Empresas`)
+         `Saldo Inversión Directa de no Residentes`,
+         `Saldo Inversión de Portafolio de no Residentes`,
+         `Saldo Préstamos Financieros, Títulos de deuda y Líneas de Crédito`,
+         `Saldo Operaciones con el FMI`,
+         `Saldo Préstamos de Otros Org. Int. y Otros Bilaterales`,
+         `Saldo Formación  de Activos Externos del Sector Privado no Financiero`)
 
-titulo_plotly_usd <- "<b>Balanza Cambiaria (Egreso Divisas) - Anual</b><br>(En millones $us)"
+titulo_plotly_usd <- "<b>Balance Cambiario (Cuenta Financiera) - Saldos Mensuales</b><br>(Millones $us)"
+mi_paleta_plotly <- createPalette(6, c("#ff0000","#0000ff","#00ff00", "#ffff00"))
+names(mi_paleta_plotly) <- NULL
 
-plotly_grafico_egreso_cambiaria_lineal_usd <-  plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
-plotly_lineal <- plotly_grafico_egreso_cambiaria_lineal_usd
-
-plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
-plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd
-
-saveRDS(plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd, 
-        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
+plotly_grafico_ar_egreso_cambiaria_lineal_usd <-  plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
+plotly_grafico_ar_egreso_cambiaria_lineal_usd
+saveRDS(plotly_grafico_ar_egreso_cambiaria_lineal_usd, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ar_egreso_cambiaria_lineal_usd.rds", compress = TRUE)
 
 #Base Monetaria#
 
 #ORIGEN BASE MONETARIA
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
-range <- "D24:S313"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/argentina/banco_central/estadisticas_estandarizadas/2.dinero_credito/1.balances_consolidados/balbcrhis.xls"
+range <- "G886:AP1124"
 col_names <- FALSE
-from <- "01Dec1998"
-to <- "01Jan2023"
+from <- "01Jan2006"
+to <- "01May2024"
 by <- "month"
 each <- 1
 
@@ -1040,68 +1033,92 @@ data <-
 
 colnames(data) <- c(
   
-  "Reservas Internacionales Netas",
-  "Reservas Internacionales Brutas",
-  "Obligaciones Externas a Corto Plazo",
-  "Crédito Neto al Sector Público",
-  "Crédito a Bancos",
-  "BCL",
-  "BE Y OEF",
-  "Títulos Regulación Monetaria",
-  "SRD",
-  "Otras Cuentas Netas",
-  "Base Monetaria",
-  "Billetes y Monedas en poder del Público",
-  "Reservas Bancarias en Moneda Nacional",
-  "Reservas Bancarias en UFV",
-  "Reservas Bancarias en Moneda Extranjera",
-  "Total Reservas Bancarias"
-)
+  "Total Activos Externos Netos",
+  "Oro y Divisas",
+  "Resultados de Operaciones de Cambio",
+  "Aportes a Organismos Internacionales",
+  "Asignaciones DEG",
+  "Obligacioens con Org. Internacionales",
+  "Total Sector Oficial",
+  "Sector Oficial en Moneda Nacional",
+  "Gobierno Nacional en Moneda Nacional",
+  "Adelantos Transitorios",
+  "Total Valores Públicos",
+  "Art. 51 C.O.",
+  "Otros Valores Públicos",
+  "Rec. dev sobre cred.",
+  "Sector Oficial en Moneda Extranjera",
+  "Total Valores Públicos en Moneda Extranjera",
+  "Financ. Ext. al Gobierno Nacional",
+  "Créditos a Entidades Financieras en Moneda Nacional",
+  "Total Fuentes de Creación",
+  "Total Fuentes de Absorción",
+  "Depósitos Totales",
+  "Depósitos Oficiales",
+  "Depósitos Oficiales en Moneda Nacional",
+  "Depósitos Oficiales en Moneda Extranjera",
+  "Dirección Nacional de Rec.Previs.",
+  "Diversos",
+  "Otras Obligaciones en Moneda Nacional",
+  "Depósitos de Entidades Financieras en Moneda Extranjera",
+  "Depósitos de Entidades Financieras por Cuenta y Orden del BCRA",
+  "Títulos Emitidos por el BCRA",
+  "Cuentas Varias",
+  "Total Base Monetaria",
+  "Total Circulación Monetaria",
+  "Circulación Monetaria fuera del Sistema Financiero",
+  "Circulación Monetaria en Entidades Financieras",
+  "Depósitos de Entidades Financieras en Cuenta Corriente"
+  )
 
 fecha <- fun_fecha(from,to,by,each)
 data <- cbind(fecha, data) 
 data <- as_tibble(data)
 
+#ORIGEN BASE MONETARIA
 conjunto_datos_bs <- data %>%
   select(fecha, 
-         `Reservas Internacionales Netas`,
-         `Crédito Neto al Sector Público`,
-         `Crédito a Bancos`,
-         `Títulos Regulación Monetaria`,
-         `Otras Cuentas Netas`)%>%
-  mutate(across(where(is.numeric), ~  . / 1000))
+         `Total Activos Externos Netos`,
+         `Sector Oficial en Moneda Nacional`,
+         `Sector Oficial en Moneda Extranjera`,
+         `Créditos a Entidades Financieras en Moneda Nacional`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000000000))
 
-titulo_plotly_bs <- "<b>Origen de la Base Monetaria - Mensual</b><br>(En millones Bs.)"
-graph_type <-  "scatter"
-barmode <-  FALSE
+titulo_plotly_bs <- "<b>Fuentes de Creación de la Base Monetaria - Saldos Mensuales</b><br>(En billones de $.)"
+graph_type <-  "bar"
+barmode <-  "stack"
+mi_paleta_plotly <- pal_plotly(4)
+
 
 plotly_grafico_base_origen_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_lineal <- plotly_grafico_base_origen_lineal_bs
 
-plotly_grafico_base_origen_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
-plotly_grafico_base_origen_lineal_y_stacked_bs
+plotly_grafico_ar_base_origen_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ar_base_origen_lineal_y_stacked_bs
 
-saveRDS(plotly_grafico_base_origen_lineal_y_stacked_bs, 
-        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_origen_lineal_y_stacked_bs.rds", compress = TRUE)
+saveRDS(plotly_grafico_ar_base_origen_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ar_base_origen_lineal_y_stacked_bs.rds", compress = TRUE)
 
 #DESTINO BASE MONETARIA
 conjunto_datos_bs <- data %>%
   select(fecha, 
-         `Billetes y Monedas en poder del Público`,
-         `Reservas Bancarias en Moneda Nacional`,
-         `Reservas Bancarias en UFV`,
-         `Reservas Bancarias en Moneda Extranjera`)%>%
-  mutate(across(where(is.numeric), ~  . / 1000))
+         `Depósitos Oficiales en Moneda Nacional`,
+         `Depósitos Oficiales en Moneda Extranjera`,
+         `Depósitos de Entidades Financieras en Moneda Extranjera`,
+         `Títulos Emitidos por el BCRA`,
+         `Cuentas Varias`)%>%
+  mutate(across(where(is.numeric), ~  . / 1000000000))
 
-titulo_plotly_bs <- "<b>Destino de la Base Monetaria - Mensual</b><br>(En millones Bs.)"
+titulo_plotly_bs <- "<b>Fuentes de Absorción de la Base Monetaria - Saldos Mensuales</b><br>(En billones de $.)"
+mi_paleta_plotly <- pal_plotly(5)
 
 plotly_grafico_base_destino_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
 plotly_lineal <- plotly_grafico_base_destino_lineal_bs
-plotly_grafico_base_destino_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
-plotly_grafico_base_destino_lineal_y_stacked_bs
+plotly_grafico_ar_base_destino_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ar_base_destino_lineal_y_stacked_bs
 
-saveRDS(plotly_grafico_base_destino_lineal_y_stacked_bs, 
-        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_destino_lineal_y_stacked_bs.rds", compress = TRUE)
+saveRDS(plotly_grafico_ar_base_destino_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ar_base_destino_lineal_y_stacked_bs.rds", compress = TRUE)
 
 #CREDITO SECTOR PRIVADO
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/1.monetario/12.credito_sector_privado.xlsx"
