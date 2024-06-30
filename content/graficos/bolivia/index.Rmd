@@ -8,78 +8,78 @@ knitr::opts_chunk$set(cache = TRUE)
 #BANCO CENTRAL DE BOLIVIA BCB####
 #ACTIVOS
 
-plotly_grafico_activo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_activo_lineal_y_stacked_bs.rds")
+plotly_grafico_activo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_activo_lineal_y_stacked_bs.rds")
 
-plotly_grafico_pasivo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_pasivo_lineal_y_stacked_bs.rds")
+plotly_grafico_pasivo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_pasivo_lineal_y_stacked_bs.rds")
 
 
 #BALANZA CAMBIARIA
 
-plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds")
+plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds")
 
-plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd.rds")
+plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd.rds")
 
 #BASE MONETARIA
 
-plotly_grafico_base_origen_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_origen_lineal_y_stacked_bs.rds")
+plotly_grafico_base_origen_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_base_origen_lineal_y_stacked_bs.rds")
 
-plotly_grafico_base_destino_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_base_destino_lineal_y_stacked_bs.rds")
+plotly_grafico_base_destino_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_base_destino_lineal_y_stacked_bs.rds")
 
 
 #CREDITO PRIVADO DEPARTAMENTO
 
-plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs.rds")
+plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_bs.rds")
 
-plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd.rds")
+plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd.rds")
     
 #CREDITO SECTOR PRIVADO 
 
-plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs.rds")
+plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_bs.rds")
 
-plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd.rds")
+plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd.rds")
 
 #CREDITO Y DEPOSITOS AL SECTOR PUBLICO
 
-plotly_grafico_credito_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_credito_sector_publico_lineal_y_stacked_bs.rds")
+plotly_grafico_credito_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_credito_sector_publico_lineal_y_stacked_bs.rds")
 
-plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs.rds")
+plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs.rds")
 
 
 #RESERVAS INTERNACIONALES NETAS
 
-plotly_grafico_reservas_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_bs.rds")
+plotly_grafico_reservas_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_reservas_lineal_y_stacked_bs.rds")
 
-plotly_grafico_reservas_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_reservas_lineal_y_stacked_usd.rds")  
+plotly_grafico_reservas_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_reservas_lineal_y_stacked_usd.rds")  
 
 #REMESAS ORIGEN
 
-plotly_grafico_remesas_pais_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_remesas_pais_lineal_y_stacked_bs.rds")
+plotly_grafico_remesas_pais_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_remesas_pais_lineal_y_stacked_bs.rds")
 
-plotly_grafico_remesas_pais_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_remesas_pais_lineal_y_stacked_usd.rds")  
+plotly_grafico_remesas_pais_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_remesas_pais_lineal_y_stacked_usd.rds")  
 
 #TIPO DE CAMBIO REAL
 
-plotly_grafico_tipo_real_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tipo_real_lineal_bs.rds")
+plotly_grafico_tipo_real_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_tipo_real_lineal_bs.rds")
 
 #PONDERACIONES DE COMERCIO INTERNACIONAL
 
-plotly_grafico_ponderadores_comercio_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ponderadores_comercio_lineal_bs.rds")
+plotly_grafico_ponderadores_comercio_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_ponderadores_comercio_lineal_bs.rds")
 
 #TASAS PASIVAS AHORRO
 
-plotly_grafico_tasa_pasiva_cah_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tasa_pasiva_cah_lineal_bs.rds")
+plotly_grafico_tasa_pasiva_cah_lineal_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_tasa_pasiva_cah_lineal_bs.rds")
 
-plotly_grafico_tasa_pasiva_cah_lineal_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_tasa_pasiva_cah_lineal_usd.rds")
+plotly_grafico_tasa_pasiva_cah_lineal_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_tasa_pasiva_cah_lineal_usd.rds")
 
 #TASAS PASIVAS DPF
 
-plotly_grafico_dpf_30_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_30_bs.rds")
+plotly_grafico_dpf_30_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_dpf_30_bs.rds")
 
-plotly_grafico_dpf_30_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_30_usd.rds")
+plotly_grafico_dpf_30_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_dpf_30_usd.rds")
 
-plotly_grafico_dpf_181_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_bs.rds")
+plotly_grafico_dpf_181_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_dpf_181_bs.rds")
 
-plotly_grafico_dpf_181_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_dpf_181_usd.rds")
+plotly_grafico_dpf_181_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_dpf_181_usd.rds")
 
 ```
 
@@ -298,61 +298,61 @@ knitr::opts_chunk$set(cache = TRUE)
 
 #COMERCIO EXTERIOR
 
-plotly_grafico_expo_actividad_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_expo_actividad_lineal_y_stacked_usd.rds")
+plotly_grafico_expo_actividad_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_expo_actividad_lineal_y_stacked_usd.rds")
 
-plotly_grafico_impo_cuode_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_impo_cuode_lineal_y_stacked_usd.rds")
+plotly_grafico_impo_cuode_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_impo_cuode_lineal_y_stacked_usd.rds")
 
-plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd.rds")
+plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_expo_actividad_ton_lineal_y_stacked_usd.rds")
 
-plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd.rds")
+plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd.rds")
 
-plotly_grafico_saldo_cuci_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_saldo_cuci_lineal_y_stacked_usd.rds")
+plotly_grafico_saldo_cuci_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_saldo_cuci_lineal_y_stacked_usd.rds")
 
-plotly_grafico_saldo_gce_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_saldo_gce_lineal_y_stacked_usd.rds")
+plotly_grafico_saldo_gce_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_saldo_gce_lineal_y_stacked_usd.rds")
 
 #CONSTRUCCION
 
-plotly_grafico_prod_cemento_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_prod_cemento_lineal_y_stacked_usd.rds")
+plotly_grafico_prod_cemento_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_prod_cemento_lineal_y_stacked_usd.rds")
 
-plotly_grafico_venta_cemento_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_venta_cemento_lineal_y_stacked_usd.rds")
+plotly_grafico_venta_cemento_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_venta_cemento_lineal_y_stacked_usd.rds")
 
-plotly_grafico_super_permis_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_super_permis_lineal_y_stacked_usd.rds")
+plotly_grafico_super_permis_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_super_permis_lineal_y_stacked_usd.rds")
 
-plotly_grafico_nro_permis_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_nro_permis_lineal_y_stacked_usd.rds")
+plotly_grafico_nro_permis_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_nro_permis_lineal_y_stacked_usd.rds")
 
 #CUENTAS NACIONALES
 
-plotly_grafico_crec_pib_final_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_crec_pib_final_lineal_y_stacked_usd.rds")
+plotly_grafico_crec_pib_final_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_crec_pib_final_lineal_y_stacked_usd.rds")
 
 plotly_grafico_nom_pib_per_lineal_y_stacked_usd <- 
-readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_nom_pib_per_lineal_y_stacked_usd.rds")
+readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_nom_pib_per_lineal_y_stacked_usd.rds")
 
 plotly_grafico_fbkf_lineal_y_stacked_usd <- 
-readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_fbkf_lineal_y_stacked_usd.rds")
+readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_fbkf_lineal_y_stacked_usd.rds")
 
-plotly_grafico_igae_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_igae_lineal_y_stacked_usd.rds")
+plotly_grafico_igae_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_igae_lineal_y_stacked_usd.rds")
 
 #HIDROCARBUROS E INDUSTRIA
 
-plotly_grafico_gas_indice_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_gas_indice_lineal_y_stacked_usd.rds")
+plotly_grafico_gas_indice_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_gas_indice_lineal_y_stacked_usd.rds")
 
-plotly_grafico_prod_minerales_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_prod_minerales_lineal_y_stacked_usd.rds")
+plotly_grafico_prod_minerales_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_prod_minerales_lineal_y_stacked_usd.rds")
 
 #INDUSTRIA
 
-plotly_grafico_var_indice_indus_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_indus_lineal_y_stacked_usd.rds")
+plotly_grafico_var_indice_indus_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_var_indice_indus_lineal_y_stacked_usd.rds")
 
-plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd.rds")
+plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd.rds")
 
 
 #INDICE DE PRECIOS
 
-plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd.rds")
+plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd.rds")
 
 
 #SALARIOS
 
-plotly_grafico_sal_nom_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_sal_nom_lineal_y_stacked_usd.rds")
+plotly_grafico_sal_nom_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_sal_nom_lineal_y_stacked_usd.rds")
 
 ```
 
@@ -496,14 +496,14 @@ knitr::opts_chunk$set(cache = TRUE)
 
 #INGRESOS 
 
-plotly_grafico_ingre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_ingre_spnf_lineal_y_stacked_bs.rds")
+plotly_grafico_ingre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_ingre_spnf_lineal_y_stacked_bs.rds")
 
 #EGRESOS
 
-plotly_grafico_egre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds")
+plotly_grafico_egre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds")
 
 #DEFICIT
-plotly_grafico_deficit_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/plotly_grafico_deficit_spnf_lineal_y_stacked_bs.rds")
+plotly_grafico_deficit_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_deficit_spnf_lineal_y_stacked_bs.rds")
 
 
 ```
