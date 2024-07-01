@@ -852,7 +852,7 @@ conjunto_datos_bs <- data %>%
   mutate(across(where(is.numeric), ~  . / 1000000000))
 
 mi_paleta_plotly <- pal_plotly(5)
-titulo_plotly_bs <- "<b>Balance del Activo del BCRA - Saldos Anuales</b><br>(En Billones de $.)"
+titulo_plotly_bs <- "<b>Balance del Activo del BCRA</b><br>(Billones de $.)"
 tickformat_y <- ",d"
 graph_type <-  "scatter"
 barmode <-  FALSE
@@ -881,7 +881,7 @@ conjunto_datos_bs <- data %>%
   mutate(across(where(is.numeric), ~  . / 1000000000))
 
 mi_paleta_plotly <- pal_plotly(7)
-titulo_plotly_bs <- "<b>Balance del Pasivo del BCRA - Saldos Anuales</b><br>(En Billones de $.)"
+titulo_plotly_bs <- "<b>Balance del Pasivo del BCRA</b><br>(Billones de $.)"
 
 plotly_grafico_pasivo_lineal_bs <- plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
 plotly_lineal <- plotly_grafico_pasivo_lineal_bs
@@ -895,7 +895,7 @@ saveRDS(plotly_grafico_ar_pasivo_lineal_y_stacked_bs,
 #Balanza Cambiaria#
 
 #INGRESO DIVISAS
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/argentina/banco_central/publicaciones/3.sector_externo/1.informe_mercado_cambios/nuevo_anexo_mc.xlsx"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/argentina/banco_central/Nuevo-anexo-MC.xlsx"
 range <- "B15:BA267"
 sheet <- "Balance Cambiario"
 col_names <- FALSE
@@ -983,7 +983,7 @@ conjunto_datos_usd <- data %>%
          `Saldo Ingreso Primario`,
          `Saldo Ingreso Secundario`)
 
-titulo_plotly_usd <- "<b>Balance Cambiario (Cuenta Corriente Cambiaria) - Saldos Mensuales</b><br>(Millones $us)"
+titulo_plotly_usd <- "<b>Balance Cambiario</b><br>(Millones $us)"
 mi_paleta_plotly <- createPalette(4, c("#ff0000","#0000ff","#00ff00"))
 names(mi_paleta_plotly) <- NULL
 
@@ -1002,7 +1002,7 @@ conjunto_datos_usd <- data %>%
          `Saldo Préstamos de Otros Org. Int. y Otros Bilaterales`,
          `Saldo Formación  de Activos Externos del Sector Privado no Financiero`)
 
-titulo_plotly_usd <- "<b>Balance Cambiario (Cuenta Financiera) - Saldos Mensuales</b><br>(En millones $us)"
+titulo_plotly_usd <- "<b>Balance Cambiario (Cuenta Financiera)</b><br>(Millones $us)"
 mi_paleta_plotly <- createPalette(6, c("#ff0000","#0000ff","#00ff00", "#ffff00"))
 names(mi_paleta_plotly) <- NULL
 
@@ -1014,7 +1014,7 @@ saveRDS(plotly_grafico_ar_egreso_cambiaria_lineal_usd,
 #Base Monetaria#
 
 #ORIGEN BASE MONETARIA
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/argentina/banco_central/estadisticas_estandarizadas/2.dinero_credito/1.balances_consolidados/balbcrhis.xls"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/argentina/banco_central/1.balance_consolidado_sistema_financiero/balbcrhis.xls"
 range <- "G886:AP1124"
 col_names <- FALSE
 from <- "01Jan2006"
@@ -1085,7 +1085,7 @@ conjunto_datos_bs <- data %>%
          `Créditos a Entidades Financieras en Moneda Nacional`)%>%
   mutate(across(where(is.numeric), ~  . / 1000000000))
 
-titulo_plotly_bs <- "<b>Fuentes de Creación de la Base Monetaria - Saldos Mensuales</b><br>(En billones de $.)"
+titulo_plotly_bs <- "<b>Creación Base Monetaria</b><br>(Billones de $.)"
 graph_type <-  "bar"
 barmode <-  "stack"
 mi_paleta_plotly <- pal_plotly(4)
@@ -1110,7 +1110,7 @@ conjunto_datos_bs <- data %>%
          `Cuentas Varias`)%>%
   mutate(across(where(is.numeric), ~  . / 1000000000))
 
-titulo_plotly_bs <- "<b>Fuentes de Absorción de la Base Monetaria - Saldos Mensuales</b><br>(En billones de $.)"
+titulo_plotly_bs <- "<b>Absorción Base Monetaria</b><br>(Billones de $.)"
 mi_paleta_plotly <- pal_plotly(5)
 
 plotly_grafico_base_destino_lineal_bs <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs,tickformat_y)
@@ -1165,7 +1165,7 @@ conjunto_datos_bs <- data %>%
   mutate(across(where(is.numeric), ~  . / 1000000))
 
 
-titulo_plotly_bs <- "<b>Pasivos Remunerados del BCRA (VN $) </b><br>Promedios Mensuales (En billones de $.)"
+titulo_plotly_bs <- "<b>Pasivos Remunerados BCRA</b><br>(Billones de $.)"
 
 mi_paleta_plotly <- pal_plotly(3)
 
@@ -1217,12 +1217,10 @@ conjunto_datos_bs <- data %>%
   mutate(across(where(is.numeric), ~  . / 1000000000))
 
 mi_paleta_plotly <- pal_plotly(5)
-titulo_plotly_bs <- "<b>Reservas Internacionales Brutas - Saldos Anuales</b><br>(En billones de $.)"
+titulo_plotly_bs <- "<b>Reservas Internacionales Brutas</b><br>(Billones de $.)"
 tickformat_y <- ",d"
 graph_type <-  "scatter"
 barmode <-  FALSE
-
-titulo_plotly_usd <- "<b>Reservas Internacionales del BCB - Mensual</b><br>(En millones $us)"
 
 plotly_grafico_lineal_reservas_bs  <-  plotly_bs(conjunto_datos_bs, mi_paleta_plotly, titulo_plotly_bs, tickformat_y)
 plotly_lineal <- plotly_grafico_lineal_reservas_bs
@@ -1232,6 +1230,8 @@ plotly_grafico_ar_reservas_lineal_y_stacked_bs
 
 saveRDS(plotly_grafico_ar_reservas_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_reservas_lineal_y_stacked_bs.rds", compress = TRUE)
+
+#INDEC ARGENTINA####
 
 #EXPORTACIONES POR ACTIVIDAD ECONOMICA USD
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/argentina/indec/3.economia/3.comercio_exterior/1.complejos_exportadores/complexp_variacion_1993_2023.xls"
@@ -1260,7 +1260,7 @@ conjunto_datos_usd <- data %>%
          `Sector bovino`,
          `Resto de exportaciones`)
 
-titulo_plotly_usd <- "<b>Exportaciones por Complejos Exportadores</b><br>2005-2023 (Millones $us.)"
+titulo_plotly_usd <- "<b>Complejos Exportadores</b><br>(Millones $us)"
 plotly_lineal <- plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_ar_expo_actividad_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 plotly_grafico_ar_expo_actividad_lineal_y_stacked_usd
@@ -1287,7 +1287,7 @@ data <- fun_excel(file,range,sheet,col_names,from,to,by,each)
 conjunto_datos_usd <- data %>%
   mutate(across(where(is.numeric), ~  . / 1000))
 
-titulo_plotly_usd <- "<b>Importaciones por usos económicos</b><br>2005-2023 (Millones $us.)"
+titulo_plotly_usd <- "<b>Importaciones usos económicos</b><br>(Millones $us.)"
 plotly_lineal <- plotly_combi_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd,tickformat_y)
 plotly_grafico_ar_impo_cuode_lineal_y_stacked_usd <- generar_layout_menus(plotly_lineal, graph_type, barmode)
 plotly_grafico_ar_impo_cuode_lineal_y_stacked_usd
@@ -1314,7 +1314,7 @@ colnames(data) <- c("fecha","Serie Tendencia Ciclo")
 conjunto_datos_usd <- data %>%
   mutate(across(where(is.numeric), ~  . / 100))
 
-titulo_plotly_usd <- "<b>Indicador sintético de la actividad de la construcción (ISAC)</b><br>Variación porcentual respecto al mes anterior - SERIE TENDENCIA CICLO"
+titulo_plotly_usd <- "<b>ISAC Serie Tendencia-Ciclo</b><br>Variación intermensual"
 plotly_grafico_ar_prod_cemento_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_prod_cemento_lineal_y_stacked_usd
 
@@ -1386,7 +1386,7 @@ mi_paleta_plotly <-  pal_plotly(4)
 tickformat_y <- ",.0%"
 
 
-titulo_plotly_usd <- "<b>Oferta y demanda globales (2005-2023)</b><br>Variación porcentual respecto a igual período del año anterior"
+titulo_plotly_usd <- "<b>Oferta y Demanda Globales</b><br>Variación interanual"
 plotly_grafico_ar_crec_pib_final_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_crec_pib_final_lineal_y_stacked_usd
 
@@ -1458,7 +1458,7 @@ conjunto_datos_usd <- data %>%
 mi_paleta_plotly <-  pal_plotly(3)
 tickformat_y <- ",.0%"
 
-titulo_plotly_usd <- "<b>Ahorro e Ingreso Nacional Bruto</b><br>Estructura porcentual respecto al PIB. Años 2006-2022"
+titulo_plotly_usd <- "<b>Ahorro e Ingreso Nacional Bruto</b><br>En % al PIB"
 plotly_grafico_ar_fbkf_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_fbkf_lineal_y_stacked_usd
 
@@ -1491,7 +1491,7 @@ conjunto_datos_usd <- data %>%
 mi_paleta_plotly <-  pal_plotly(1)
 tickformat_y <- ",.0%"
 
-titulo_plotly_usd <- "<b>Estimador Mensual de Actividad Económica. Variaciones porcentuales</b><br>Var % respecto a igual período del año anterior Años 2005-2024"
+titulo_plotly_usd <- "<b>EMAE</b><br>Variación interanual"
 plotly_grafico_ar_igae_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_igae_lineal_y_stacked_usd
 saveRDS(plotly_grafico_ar_igae_lineal_y_stacked_usd, 
@@ -1533,7 +1533,7 @@ conjunto_datos_usd <- data %>%
 mi_paleta_plotly <-  pal_plotly(3)
 tickformat_y <- ",.0%"
 
-titulo_plotly_usd <- "<b>IPI Minero Nivel General Base 2016=100</b><br>Variación porcentual interanual. Años 2017-2024"
+titulo_plotly_usd <- "<b>IPI Minero Nivel General</b><br>Variación interanual<br>Base 2016=100"
 plotly_grafico_ar_dos_prod_minerales_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_dos_prod_minerales_lineal_y_stacked_usd
 saveRDS(plotly_grafico_ar_dos_prod_minerales_lineal_y_stacked_usd, 
@@ -1581,7 +1581,7 @@ conjunto_datos_usd <- data %>%
 mi_paleta_plotly <-  pal_plotly(3)
 tickformat_y <- ",.0%"
 
-titulo_plotly_usd <- "<b>Utilización de la capacidad instalada en la industria, nivel general y bloques sectoriales </b><br>Años 2016-2024 (En porcentaje)"
+titulo_plotly_usd <- "<b>Utilización Capacidad Instalada</b><br>(En porcentaje)"
 plotly_grafico_ar_var_indice_indus_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_var_indice_indus_lineal_y_stacked_usd
 saveRDS(plotly_grafico_ar_var_indice_indus_lineal_y_stacked_usd, 
@@ -1624,16 +1624,15 @@ conjunto_datos_usd <- data %>%
 mi_paleta_plotly <-  pal_plotly(3)
 tickformat_y <- ",.0%"
 
-titulo_plotly_usd <- "<b>IPI Manufacturero Nivel General Base 2004=100</b><br>Variación porcentual interanual. Años 2016-2024"
+titulo_plotly_usd <- "<b>IPI Manufacturero</b><br>Variación interanual<br>Base 2004=100"
 plotly_grafico_ar_var_indice_indus_ventas_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
-
 plotly_grafico_ar_var_indice_indus_ventas_lineal_y_stacked_usd
 
 saveRDS(plotly_grafico_ar_var_indice_indus_ventas_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_var_indice_indus_ventas_lineal_y_stacked_usd.rds", compress = TRUE)
 
 #INDICE DE PRECIOS AL CONSUMIDOR VARIACION INTERANUAL
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/argentina/indec/3.economia/12.precios/3.indice_precios_consumidor/sh_ipc_06_24.xls"
+file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/argentina/indec/3.economia/12.precios/3.indice_precios_consumidor/sh_ipc_06_24.xls"
 range <- "A25:CA27"
 sheet <- "Var. interanual IPC Nacional"
 col_names <-FALSE
@@ -1649,7 +1648,7 @@ conjunto_datos_usd <- data
 mi_paleta_plotly <-  pal_plotly(3)
 tickformat_y <- ",.0d"
 
-titulo_plotly_usd <- "<b>Índice de precios al consumidor con cobertura nacional</b><br>Período de referencia: Diciembre 2016=100<br>Variaciones interanuales correspondientes a los meses de diciembre de 2017 a mayo de 2024"
+titulo_plotly_usd <- "<b>Índice Precios Consumidor</b><br>Variación interanual"
 plotly_grafico_ar_var_indice_consumidor_lineal_y_stacked_usd <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_var_indice_consumidor_lineal_y_stacked_usd
 saveRDS(plotly_grafico_ar_var_indice_consumidor_lineal_y_stacked_usd, 
@@ -1675,35 +1674,35 @@ colnames(data) <- c(
   "fecha",
   "(I) INGRESOS CORRIENTES",
   
-  "INGRESOS CORRIENTES - INGRESOS TRIBUTARIOS",
+  "INGRESOS TRIBUTARIOS",
   
-  "INGRESOS CORRIENTES - APORTES Y CONTRIB. A LA SEG. SOCIAL",
+  "APORTES Y CONTRIB. A LA SEG. SOCIAL",
   
-  "INGRESOS CORRIENTES - INGRESOS NO TRIBUTARIOS",
+  "INGRESOS NO TRIBUTARIOS",
   
-  "INGRESOS CORRIENTES - VENTAS DE BS. Y SERV. DE LAS ADM. PUB.",
+  "VENTAS DE BS. Y SERV. DE LAS ADM. PUB.",
   
   "INGRESOS CORRIENTES - INGRESOS DE OPERACION",
   
-  "INGRESOS CORRIENTES - TOTAL RENTAS DE LA PROPIEDAD",
+  "TOTAL RENTAS DE LA PROPIEDAD",
   "INGRESOS CORRIENTES - RENTAS DE LA PROPIEDAD - RENTAS DE LA PROPIEDAD PERCIBIDAS DEL BCRA",
   "INGRESOS CORRIENTES - RENTAS DE LA PROPIEDAD - RENTAS PÚBLICAS PERCIBIDAS POR EL FGS",
   "INGRESOS CORRIENTES - RENTAS DE LA PROPIEDAD - RENTAS PÚBLICAS PERCIBIDAS POR EL FGS Y OTROS",
   "INGRESOS CORRIENTES - RENTAS DE LA PROPIEDAD - OTRAS RENTAS DE LA PROPIEDAD",
   "INGRESOS CORRIENTES - RENTAS DE LA PROPIEDAD - RENTAS DE LA PROPIEDAD NETAS",
   
-  "INGRESOS CORRIENTES - TRANSFERENCIAS CORRIENTES DE INGRESOS",
-  "INGRESOS CORRIENTES - OTROS INGRESOS",
+  "TRANSFERENCIAS CORRIENTES DE INGRESOS",
+  "OTROS INGRESOS",
   "INGRESOS CORRIENTES - INGRESOS EXTRAPRESUPUESTARIOS",
   "INGRESOS CORRIENTES - SUPERAVIT OPERATIVO EMPRESAS PUB.",
   
   "(II) GASTOS CORRIENTES",
   
-  "GASTOS CORRIENTES - GASTOS DE CONSUMO Y OPERACION - Remuneraciones",
-  "GASTOS CORRIENTES - GASTOS DE CONSUMO Y OPERACION - Bienes y Servicios",
+  "REMUNERACIONES",
+  "BIENES Y SERVICIOS",
   "GASTOS CORRIENTES - GASTOS DE CONSUMO Y OPERACION - Otros Gastos",
   
-  "GASTOS CORRIENTES - Total Rentas de la Propiedad",
+  "GASTOS RENTAS DE PROPIEDAD",
   "GASTOS CORRIENTES - INTERESES Y OTRAS RENTAS DE LA PROP. - Intereses en Moneda Local",
   "GASTOS CORRIENTES - INTERESES Y OTRAS RENTAS DE LA PROP. - Intereses Deuda Interna",
   "GASTOS CORRIENTES - INTERESES Y OTRAS RENTAS DE LA PROP. - Intereses en Moneda Extranjera",
@@ -1713,11 +1712,11 @@ colnames(data) <- c(
   "GASTOS CORRIENTES - INTERESES Y OTRAS RENTAS DE LA PROP. - Otras Rentas",
   "GASTOS CORRIENTES - INTERESES Y OTRAS RENTAS DE LA PROP. - Pagadas sobre Deuda",
   
-  "GASTOS CORRIENTES - PRESTACIONES DE LA SEGURIDAD SOCIAL",
+  "PRESTACIONES DE LA SEGURIDAD SOCIAL",
   
-  "GASTOS CORRIENTES - OTROS GASTOS CORRIENTES",
+  "OTROS GASTOS CORRIENTES",
   
-  "GASTOS CORRIENTES - TRANSFERENCIAS CORRIENTES DE GASTOS - Total al Sector Privado",
+  "TRANSFERENCIAS CORRIENTES DE GASTOS - Total al Sector Privado",
   "GASTOS CORRIENTES - TRANSFERENCIAS CORRIENTES DE GASTOS - Al Sector Privado - Instituciones de Enseñanza",
   "GASTOS CORRIENTES - TRANSFERENCIAS CORRIENTES DE GASTOS - Al Sector Privado - Otras",
   "GASTOS CORRIENTES - TRANSFERENCIAS CORRIENTES DE GASTOS - Al Sector Público - Total Provincias y CABA",
@@ -1808,9 +1807,66 @@ conjunto_datos_usd <- data %>%
 mi_paleta_plotly <-  pal_plotly(3)
 tickformat_y <- ",.0d"
 
-titulo_plotly_usd <- "<b>Cuenta A.I.F. - Base Caja. Sector Público Nacional No Financiero</b><br>Resultados Mensuales 2015 - 2024<br>En Miles de $."
+titulo_plotly_usd <- "<b>Sector Público no Financiero</b><br>(Miles de $.)"
 plotly_grafico_ar_deficit_spnf_lineal_y_stacked_bs <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
 plotly_grafico_ar_deficit_spnf_lineal_y_stacked_bs
 saveRDS(plotly_grafico_ar_deficit_spnf_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_deficit_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
+
+
+#INGRESOS PUBLICOS
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `INGRESOS TRIBUTARIOS`,
+         `APORTES Y CONTRIB. A LA SEG. SOCIAL`,
+         `INGRESOS NO TRIBUTARIOS`,
+         `VENTAS DE BS. Y SERV. DE LAS ADM. PUB.`,
+         `TOTAL RENTAS DE LA PROPIEDAD`,
+         `TRANSFERENCIAS CORRIENTES DE INGRESOS`,
+         `OTROS INGRESOS`,
+         `RECURSOS DE CAPITAL`)
+
+mi_paleta_plotly <-  pal_plotly(8)
+tickformat_y <- ",.0d"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+titulo_plotly_usd <- "<b>Ingresos del Sector Público no Financiero</b><br>(Miles de $.)"
+
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_grafico_ar_ingre_spnf_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ar_ingre_spnf_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_ar_ingre_spnf_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_ingre_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
+
+
+#GASTO PUBLICO
+
+conjunto_datos_usd <- data %>%
+  select(fecha, 
+         `REMUNERACIONES`,
+         `BIENES Y SERVICIOS`,
+         `GASTOS RENTAS DE PROPIEDAD`,
+         `PRESTACIONES DE LA SEGURIDAD SOCIAL`,
+         `TOTAL RENTAS DE LA PROPIEDAD`,
+         `TRANSFERENCIAS CORRIENTES DE GASTOS - Total al Sector Privado`,
+         `GASTOS DE CAPITAL`)
+
+mi_paleta_plotly <-  pal_plotly(7)
+tickformat_y <- ",.0d"
+graph_type <-  "bar"
+barmode <-  "stack"
+
+
+titulo_plotly_usd <- "<b>Gastos del Sector Público no Financiero</b><br>(Miles de $.)"
+
+plotly_lineal <- plotly_usd(conjunto_datos_usd, mi_paleta_plotly, titulo_plotly_usd, tickformat_y)
+plotly_grafico_ar_egre_spnf_lineal_y_stacked_bs <- generar_layout_menus(plotly_lineal, graph_type, barmode)
+plotly_grafico_ar_egre_spnf_lineal_y_stacked_bs
+
+saveRDS(plotly_grafico_ar_egre_spnf_lineal_y_stacked_bs, 
+        file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_egre_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
+
 

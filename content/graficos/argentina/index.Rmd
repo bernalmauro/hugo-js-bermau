@@ -12,7 +12,6 @@ plotly_grafico_ar_activo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/
 
 plotly_grafico_ar_pasivo_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_pasivo_lineal_y_stacked_bs.rds")
 
-
 #BALANZA CAMBIARIA
 
 plotly_grafico_ar_ingreso_cambiaria_lineal_y_stacked_usd <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_ingreso_cambiaria_lineal_y_stacked_usd.rds")
@@ -36,7 +35,7 @@ plotly_grafico_ar_reservas_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Deskto
 
 ```
 
-### Banco Central de la República Argentina (BCRA)
+### Banco Central República Argentina (BCRA)
 
 <ul class="nav nav-tabs" role="tablist">
      <li class="dropdown">
@@ -295,7 +294,6 @@ plotly_grafico_ar_egre_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Deskt
 
 #DEFICIT
 plotly_grafico_ar_deficit_spnf_lineal_y_stacked_bs <- readRDS("C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/argentina/plotly_grafico_ar_deficit_spnf_lineal_y_stacked_bs.rds")
-
 
 ```
 
