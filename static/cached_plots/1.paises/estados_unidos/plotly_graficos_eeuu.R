@@ -808,7 +808,11 @@ pal_plotly <- function(num) {
          n = num)
 }
 
-#BALANCE ACTIVO BCB####
+#Banco Central de la Reserva Federal (FED)####
+#Sector Monetario##
+#Balance FED#
+
+#BALANCE ACTIVO FED
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/1.monetario/03a.activos_bcb.xlsx"
 range <- "B6:Q305"
 sheet <- "MENSUAL"
@@ -817,6 +821,13 @@ from <- "01Jan1998"
 to <- "01Dec2022"
 by <- "month"
 each <- 1
+
+# Crear una secuencia de fechas semanalmente desde 2002-12-18 hasta la última fecha en 2014
+start_date <- as.Date("2002-12-18")
+end_date <- as.Date("2014-11-26") # ajusta esta fecha según tus datos
+
+# Generar una serie de fechas semanalmente
+dates <- seq.Date(from = start_date, to = end_date, by = "week")
 
 data <- datos(file,sheet,range,col_names, from, to, by, each)
 
@@ -866,7 +877,7 @@ plotly_grafico_activo_lineal_y_stacked_bs
 saveRDS(plotly_grafico_activo_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_activo_lineal_y_stacked_bs.rds", compress = TRUE)
 
-#BALANCE PASIVO BCB####
+#BALANCE PASIVO BCB
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/1.monetario/03p.pasivos_bcb.xlsx"
 
 range <- "B29:AE317"
@@ -948,8 +959,10 @@ plotly_grafico_pasivo_lineal_y_stacked_bs
 saveRDS(plotly_grafico_pasivo_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_pasivo_lineal_y_stacked_bs.rds", compress = TRUE)
 
+#Sector Externo##
+#Balanza Cambiaria#
 
-#INGRESO DIVISAS####
+#INGRESO DIVISAS
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/2.externo/33.balanza_cambiaria.xlsx"
 range <- "A9:O84"
 sheet <- "hoja_anual"
@@ -982,7 +995,7 @@ plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd
 saveRDS(plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_ingreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#EGRESO DIVISAS####
+#EGRESO DIVISAS
 conjunto_datos_bs <- data %>%
   select(fecha, 
          `II.A. Por Importación`,
@@ -1011,7 +1024,9 @@ plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd
 saveRDS(plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_egreso_cambiaria_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#ORIGEN BASE MONETARIA####
+#Base Monetaria#
+
+#ORIGEN BASE MONETARIA
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/1.monetario/01.base_monetaria.xlsx"
 range <- "D24:S313"
 col_names <- FALSE
@@ -1076,7 +1091,7 @@ plotly_grafico_base_origen_lineal_y_stacked_bs
 saveRDS(plotly_grafico_base_origen_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_base_origen_lineal_y_stacked_bs.rds", compress = TRUE)
 
-#DESTINO BASE MONETARIA####
+#DESTINO BASE MONETARIA
 conjunto_datos_bs <- data %>%
   select(fecha, 
          `Billetes y Monedas en poder del Público`,
@@ -1095,7 +1110,7 @@ plotly_grafico_base_destino_lineal_y_stacked_bs
 saveRDS(plotly_grafico_base_destino_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_base_destino_lineal_y_stacked_bs.rds", compress = TRUE)
 
-#CREDITO SECTOR PRIVADO####
+#CREDITO SECTOR PRIVADO
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/1.monetario/12.credito_sector_privado.xlsx"
 sheet <- "Hoja1"
 range <- "B61:F279"
@@ -1166,11 +1181,12 @@ plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd
 saveRDS(plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_credito_sector_privado_depto_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#DEUDA SECTOR PUBLICO BCB####
+#DEUDA SECTOR PUBLICO BCB
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/1.monetario/18A.titulos_tgn_bcb.xlsx"
 sheet <- "Hoja2"
 range <- "B325:V376"
 col_names <- FALSE
+#FORMATO FECHA
 from <- "01Dec2019"
 to <- "01Mar2024"
 by <- "month"
@@ -1261,7 +1277,7 @@ plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd
 saveRDS(plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_deuda_bcb_privados_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#CREDITO AL SECTOR PUBLICO####
+#CREDITO AL SECTOR PUBLICO
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/1.monetario/06.financiamiento_bcb_sector_publico.xlsx"
 range <- "B6:P314"
 sheet <- "Hoja1"
@@ -1327,7 +1343,7 @@ plotly_grafico_credito_sector_publico_lineal_y_stacked_bs
 saveRDS(plotly_grafico_credito_sector_publico_lineal_y_stacked_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_credito_sector_publico_lineal_y_stacked_bs.rds", compress = TRUE)
 
-#DEPOSITOS DEL SECTOR PUBLICO EN EL BCB####
+#DEPOSITOS DEL SECTOR PUBLICO EN EL BCB
 conjunto_datos_bs <- data %>%
   select(fecha, 
          `Depósitos de Empresas Públicas`,
@@ -1349,12 +1365,14 @@ saveRDS(plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_depositos_sector_publico_lineal_y_stacked_bs.rds", compress = TRUE)
 
 
-#RESERVAS INTERNACIONALES####
+#RESERVAS INTERNACIONALES
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
 
+#IMPORTAR DATOS DE EXCEL
 range <- "D120:G316"
 sheet <- "Hoja1"
 col_names <- FALSE
+#FORMATO FECHA
 from <- "01Dec2007"
 to <- "01Apr2024"
 by <- "month"
@@ -1411,11 +1429,12 @@ plotly_grafico_reservas_lineal_y_stacked_usd
 saveRDS(plotly_grafico_reservas_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_reservas_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#REMESAS ORIGEN####
+#REMESAS ORIGEN
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/2.externo/24.remesas_recibidas_del_exterior.xlsx"
 sheet <- "Hoja1"
 range <- "C6:N24"
 col_names <- TRUE
+#FORMATO FECHA
 from <- "01Dec2006"
 to <- "01Dec2023"
 by <- "year"
@@ -1469,7 +1488,7 @@ saveRDS(plotly_grafico_remesas_pais_lineal_y_stacked_usd,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_remesas_pais_lineal_y_stacked_usd.rds", compress = TRUE)
 
 
-#TIPO DE CAMBIO REAL####
+#TIPO DE CAMBIO REAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/3.tipo_cambio_y_precios/36.indice_cambio_real.xlsx"
 sheet <- "Hoja1"
 range <- "D158:AF406"
@@ -1516,11 +1535,12 @@ plotly_grafico_tipo_real_lineal_bs
 saveRDS(plotly_grafico_tipo_real_lineal_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_tipo_real_lineal_bs.rds", compress = TRUE)
 
-#PONDERACIONES DE COMERCIO INTERNACIONAL####
+#PONDERACIONES DE COMERCIO INTERNACIONAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/3.tipo_cambio_y_precios/37.ponderadores_comercio_internacional.xlsx"
 sheet <- "Hoja1"
 range <- "D7:AD40"
 col_names <- TRUE
+#FORMATO FECHA
 from <- "01Dec1991"
 to <- "01Dec2023"
 by <- "year"
@@ -1568,11 +1588,12 @@ plotly_grafico_ponderadores_comercio_lineal_bs
 saveRDS(plotly_grafico_ponderadores_comercio_lineal_bs, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_ponderadores_comercio_lineal_bs.rds", compress = TRUE)
 
-#TASAS PASIVAS AHORRO####
+#TASAS PASIVAS AHORRO
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/4.monetario_crediticio/44.tasas_pasivas_cah.xlsx"
 sheet <- "Hoja1"
 range <- "B4:I115"
 col_names <- TRUE
+#FORMATO FECHA
 from <- "01Jan2015"
 to <- "01Mar2024"
 by <- "month"
@@ -1628,7 +1649,7 @@ saveRDS(plotly_grafico_tasa_pasiva_cah_lineal_usd,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_tasa_pasiva_cah_lineal_usd.rds", compress = TRUE)
 
 
-#TASAS PASIVAS DPF####
+#TASAS PASIVAS DPF
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/4.monetario_crediticio/43.tasas_pasivas_dpf_mn_me.xlsx"
 range <- "B4:E115"
 col_names <- TRUE
@@ -1686,7 +1707,7 @@ plotly_grafico_dpf_30_usd
 saveRDS(plotly_grafico_dpf_30_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_dpf_30_usd.rds", compress = TRUE)
 
-#DE 181-360 DIAS####
+#de 181-360 dias####
 
 range <- "R4:U115"
 col_names <- TRUE
@@ -1736,7 +1757,7 @@ plotly_grafico_dpf_181_usd
 saveRDS(plotly_grafico_dpf_181_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_dpf_181_usd.rds", compress = TRUE)
 
-#COMERCIO EXTERIOR####
+#COMERCIO EXTERIOR
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/comercio_exterior/exportaciones/1.paises/bolivia - Exportaciones segun Actividad Economica y Producto por Año y Mes, 1992 - 2024.xlsx"
 range <- "B7:NX101"
 sheet <- "ExpActProdMes 92-24 Valor"
@@ -1817,7 +1838,7 @@ saveRDS(plotly_grafico_impo_cuode_lineal_y_stacked_usd,
 
 
 
-#IMPORTACIONES ACTIVIDAD ECONOMICA PESO####
+#IMPORTACIONES ACTIVIDAD ECONOMICA PESO#
 
 sheet <- "IMP_VOL_MES_CUODE"
 
@@ -1838,7 +1859,7 @@ saveRDS(plotly_grafico_impo_cuode_ton_lineal_y_stacked_usd,
 
 
 
-#SALDO COMERCIAL CUCI REV####
+#SALDO COMERCIAL CUCI REV
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/1.paises/bolivia - Comercio Exterior segun Clasificacion Uniforme para el Comercio Internacional, 1992 - 2024.xlsx"
 range <- "C8:CU93"
 sheet <- "SALDO CUCI ANUAL 92-24"
@@ -1879,7 +1900,7 @@ plotly_grafico_saldo_cuci_lineal_y_stacked_usd
 saveRDS(plotly_grafico_saldo_cuci_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_saldo_cuci_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#SALDO COMERCIAL GCE USD####
+#SALDO COMERCIAL GCE USD
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/1.paises/bolivia - Comercio Exterior segun Grandes Categorias Economicas, 1992 - 2024.xlsx"
 range <- "B7:CT36"
 sheet <- "COMEX GCE ANUAL 92-24"
@@ -1916,7 +1937,7 @@ plotly_grafico_saldo_gce_lineal_y_stacked_usd
 saveRDS(plotly_grafico_saldo_gce_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_saldo_gce_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#PRODUCCION CEMENTO ANUAL####
+#PRODUCCION CEMENTO ANUAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/1. Bolivia - Produccion de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
 range <- "B4:I466"
 sheet <- "C1"
@@ -1956,7 +1977,7 @@ saveRDS(plotly_grafico_prod_cemento_lineal_y_stacked_usd,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_prod_cemento_lineal_y_stacked_usd.rds", compress = TRUE)
 
 
-#VENTA CEMENTO ANUAL####
+#VENTA CEMENTO ANUAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/construccion/1.produccion_venta_consumo/2. Bolivia - Ventas de Cemento por Departamento segun Año y Mes 1991 - 2024.xlsx"
 range <- "B4:I466"
 sheet <- "C2"
@@ -1985,7 +2006,7 @@ plotly_grafico_venta_cemento_lineal_y_stacked_usd
 saveRDS(plotly_grafico_venta_cemento_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_venta_cemento_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#SUPERFICIE PERMISOS DE CONSTRUCCION ANUAL####
+#SUPERFICIE PERMISOS DE CONSTRUCCION ANUAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/construccion/2.permisos_construccion/1. Bolivia - Superficie Permisos de Construcción desagregada por Tipo de Trámite según año y mes 2008 - 2024.xls"
 range <- "B9:F217"
 sheet <- "Sup.porTipodeTrám.segúnAñoyMes"
@@ -2018,7 +2039,7 @@ plotly_grafico_super_permis_lineal_y_stacked_usd
 saveRDS(plotly_grafico_super_permis_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_super_permis_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#NRO DE PERMISOS DE CONSTRUCCION ANUAL####
+#NRO DE PERMISOS DE CONSTRUCCION ANUAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/construccion/2.permisos_construccion/2. Bolivia - Número de Permisos de Construcción desagregado por Tipo de Trámite según año y mes 2008 - 2024.xls"
 sheet <- "Núm.porTipodeTrám.segúnAñoyMes"
 data <- datos_sf(file,sheet,range,col_names)
@@ -2039,7 +2060,7 @@ plotly_grafico_nro_permis_lineal_y_stacked_usd
 saveRDS(plotly_grafico_nro_permis_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_nro_permis_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
+#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/cuentas_nacionales/1.pib_anual/1.oferta_final_demanda_final/03.01.02.xlsx"
 range <- "B12:AK19"
 sheet <- "03.01.02"
@@ -2069,7 +2090,7 @@ saveRDS(plotly_grafico_crec_pib_final_lineal_y_stacked_usd,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_crec_pib_final_lineal_y_stacked_usd.rds", compress = TRUE)
 
 
-#PIB PER CAPITA BOLIVIA####
+#PIB PER CAPITA BOLIVIA
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/cuentas_nacionales/3.pib_departamental/10.bolivia/100106.xlsx"
 range <- "B12:AK22"
 sheet <- "100106"
@@ -2108,7 +2129,7 @@ plotly_grafico_nom_pib_per_lineal_y_stacked_usd
 saveRDS(plotly_grafico_nom_pib_per_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_nom_pib_per_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
+#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/cuentas_nacionales/4.formacion_bruta_capital_fijo/1.constante/01.02.xlsx"
 range <- "A11:AI19"
 sheet <- "01.02"
@@ -2137,7 +2158,7 @@ plotly_grafico_fbkf_lineal_y_stacked_usd
 saveRDS(plotly_grafico_fbkf_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_fbkf_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL####
+#CRECIMIENTO PIB CONSTANTE DEMANDA FINAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/cuentas_nacionales/9.indice_global_actividad_economica/01.04.xlsx"
 range <- "A12:GK31"
 sheet <- "01.04"
@@ -2164,7 +2185,7 @@ plotly_grafico_igae_lineal_y_stacked_usd
 saveRDS(plotly_grafico_igae_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_igae_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#PRODUCCION DE PETROLEO Y GAS NATURAL MENSUAL####
+#1.PRODUCCION DE PETROLEO Y GAS NATURAL MENSUAL
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/hidrocarburos_mineria/1.hidrocarburos/8. Bolivia - Indice de Volumen y Variaciones de Producción de Petroleo y Gas Natural segun Año y Mes 1990 - 2024.xlsx"
 range <- "B4:E485"
 sheet <- "INDICE"
@@ -2246,7 +2267,7 @@ plotly_grafico_gas_indice_lineal_y_stacked_usd
 saveRDS(plotly_grafico_gas_indice_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_gas_indice_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#PRODUCCION ESTATAL DE MINERALES MENSUAL####
+#1.PRODUCCION ESTATAL DE MINERALES MENSUAL####
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/hidrocarburos_mineria/2.mineria/1. Bolivia - Produccion Nacional de Minerales por Tipo de Mineral segun Año y Mes 1990 - 2024.xlsx"
 range <- "B4:J485"
@@ -2282,7 +2303,7 @@ plotly_grafico_prod_minerales_lineal_y_stacked_usd
 saveRDS(plotly_grafico_prod_minerales_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_prod_minerales_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#INDICE DE VOLUMEN DE PRODUCCION####
+#1.INDICE DE VOLUMEN DE PRODUCCION
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/industria_manufacturera_comercio/1.coyunturales/1.paises/bolivia - Indice de Volumen de Producción de la Industria Manufacturera, 1990 - 2019.xls"
 range <- "A10:D190"
@@ -2312,7 +2333,7 @@ plotly_grafico_var_indice_indus_lineal_y_stacked_usd
 saveRDS(plotly_grafico_var_indice_indus_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_var_indice_indus_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#INDICE DE VOLUMEN DE VENTAS####
+#1.INDICE DE VOLUMEN DE VENTAS
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/industria_manufacturera_comercio/1.coyunturales/1.paises/bolivia - Indice de Volumen de Ventas de la Industria Manufacturera, 1990 - 2019.xls"
 range <- "A10:D190"
@@ -2343,7 +2364,7 @@ saveRDS(plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_var_indice_indus_ventas_lineal_y_stacked_usd.rds", compress = TRUE)
 
 
-#NAL-2024_05_1_BOLIVIA_INDICEGENERAL_VAR_MENSUAL_12_MESES_ACUMULADO####
+#1.Nal-2024_05_1_Bolivia_Indicegeneral_Var_Mensual_12_Meses_Acumulado####
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/ipc/ipc/2016/1.nacional/Nal-2024_05_1_Bolivia_Indicegeneral_Var_Mensual_12_Meses_Acumulado.xlsx"
 col_names <-TRUE
@@ -2455,7 +2476,7 @@ plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd
 saveRDS(plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_var_indice_consumidor_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#SALARIO MINIMO####
+#1.SALARIO MINIMO####
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/salario_remuneraciones/1.salario_minimo/1.paises/bolivia - SALARIO MÍNIMO NACIONAL, 1991 - 2024.xlsx"
 range <- "C7:D40"
 sheet <- "CUADRO"
@@ -2495,7 +2516,7 @@ plotly_grafico_sal_nom_lineal_y_stacked_usd
 saveRDS(plotly_grafico_sal_nom_lineal_y_stacked_usd, 
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_sal_nom_lineal_y_stacked_usd.rds", compress = TRUE)
 
-#INGRESOS EJECUCION_SPNF####
+#1. INGRESOS ejecucion_spnf####
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ministerio_economia/1.estadisticas_fiscales/1.cifras_fiscales_operativas_caja/1.ejecucion_spnf/1.ejecucion_spnf.xlsx"
 col_names <-FALSE
@@ -2531,7 +2552,7 @@ saveRDS(plotly_grafico_ingre_spnf_lineal_y_stacked_bs,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_ingre_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
 
 
-#EGRESOS EJECUCION_SPNF####
+#1.EGRESOS ejecucion_spnf####
 
 conjunto_datos_bs <- data %!>% 
   select(fecha, `SERVICIOS PERSONALES`, `BIENES Y SERVICIOS`, `INTERESES Y COMIS. DEUDA EXTERNA`,`INTERESES Y COMIS. DEUDA INTERNA`,`TRANSFERENCIAS CORRIENTES (Egresos)`,`OTROS EGRESOS CORRIENTES`, `EGRESOS DE CAPITAL`) 
@@ -2551,7 +2572,7 @@ saveRDS(plotly_grafico_egre_spnf_lineal_y_stacked_bs,
         file = "C:/Users/Mauro/Desktop/proyectos_hugo/hugo-js-bermau/static/cached_plots/1.paises/bolivia/plotly_grafico_egre_spnf_lineal_y_stacked_bs.rds", compress = TRUE)
 
 
-#DEFICIT PUBLICO####
+#1. DEFICIT PUBLICO####
 
 file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ministerio_economia/1.estadisticas_fiscales/1.cifras_fiscales_operativas_caja/1.ejecucion_spnf/1.ejecucion_spnf.xlsx"
 col_names <-FALSE
