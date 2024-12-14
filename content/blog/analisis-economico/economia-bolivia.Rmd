@@ -1,0 +1,43 @@
+---
+title: "Economía de Bolivia"
+date: 2024-12-08
+draft: false
+featuredImage: /images/ministro_economia.jpg
+categories: ["Análisis Económico"]
+tags: ["Deuda Pública Bolivia", "Presupuesto General 2025", "Política Económica" ]
+keywords: ["", "", "", ""]
+author: "Mauricio Bernal"
+menu:
+  main:
+    identifier: "blog"
+    weight: 0 
+    parent: ""
+socialshare: true
+url: "/blog/analisis-economico/economia-bolivia-estudiantes/"
+---
+
+Este análisis se originó en el marco de mis clases de macroeconomía, donde abordé con mis estudiantes los fenómenos económicos que han definido la economía de Bolivia en los últimos años. En estas sesiones, se exploraron temas clave como la escasez de dólares, las políticas de subsidios a los combustibles, y un gasto público que lleva diez años gastando más de lo que recauda, básicamente.
+
+¿Cuáles han sido los fenómenos macroeconómicos de la economía boliviana que han tomado mayor protagonismo en el último año? Esta pregunta es fundamental para iniciar un análisis detallado y contextualizado de la situación económica del país. El análisis macroeconómico no solo busca entender los números, sino interpretar las causas y consecuencias de estos fenómenos para prever sus impactos y guiar futuras políticas.
+
+Partiendo de estos fenómenos, es crucial no solo enfocarse en la economía interna, sino también considerar un análisis comparativo con economías locales y regionales. Examinar cómo se comportan los principales indicadores económicos de Bolivia frente a sus vecinos permite obtener una perspectiva más amplia y valorar en qué medida las políticas y los factores externos influyen en nuestra economía. 
+
+Ya sea por las noticias o por los informes estadísticos presentados por el gobierno, los fenómenos económicos que han tomado mayor protagonismo en la economía boliviana fueron la escasez del dólar y la subvención a los combustibles. La escasez de dólares ha impactado los niveles de reservas internacionales, reflejándose en una reducción en la liquidez del mercado cambiario y una presión sobre la balanza de pagos. Por otro lado, la subvención a los combustibles ha implicado un gasto fiscal significativo, con repercusiones en el déficit fiscal del sector públicos, aumentando la deuda pública del mismo. Estos fenómenos deben analizarse en detalle, utilizando datos estadísticos relevantes como la evolución de las reservas internacionales, el tipo de cambio, la balanza de pagos y los subsidios al sector energético para evaluar sus implicaciones cuantitativas en la economía boliviana. Adicionalmente, también es importante analizar las tres variables macroeconómicas: crecimiento del PIB, inflación y desempleo.
+
+Comencemos por analizar la escasez del dólar y la subvención a los combustibles. La escasez del dólar en la economía boliviana es un fenómeno que se ha agudizado el último año y está estrechamente relacionado con la política de subsidios a los combustibles que el gobierno implementó desde el año 2004. Esta política buscó mantener los precios de los combustibles artificialmente bajos, lo que generó un sobreconsumo o sobredemanda de este bien y, en consecuencia, un desequilibrio en la balanza de pagos.
+
+Desde la perspectiva microeconómica, la subvención al combustible incentiva el consumo excesivo, ya que el precio reducido aumenta la cantidad demandada, mientras que la oferta de divisas (dólares) no se ajusta de manera proporcional para cubrir ese aumento en la demanda de bienes importados y otros gastos en dólares. Esta situación llevó a un incremento en el déficit comercial, especialmente después de 2014, cuando la caída de los precios internacionales del gas natural, principal exportación de Bolivia, no fue compensada por una caída similar en las importaciones, debido a la política de subsidios.
+
+La falta de ajuste en el precio de los combustibles por parte del gobierno desde el año 2014 exacerbó este problema y provocó un drenaje de las reservas internacionales. El déficit en la balanza de pagos se amplió y afectó la posición de inversión internacional, debilitando la capacidad del país para sostener los niveles de reservas en dólares y aumentando la presión sobre el tipo de cambio.
+
+Además, la falta de ajuste en los precios de los combustibles contribuyó a un aumento en el déficit público y, por tanto, en la deuda del sector público. Esta deuda se incrementó tanto en términos internos como externos:
+
+- Deuda externa: el gobierno incrementó su endeudamiento en dólares para mantener el gasto de capital y financiar el déficit.
+
+- Deuda interna: se utilizaron mecanismos de emisión monetaria y se consumió el ahorro interno, ya que el Tesoro General de la Nación (TGN) se endeudó con el sector privado, inyectando más dinero en la economía.
+
+Este contexto de subsidios prolongados, falta de ajustes fiscales y políticas de financiamiento expansivas ha llevado a un crecimiento insostenible de la deuda pública. Las consecuencias han sido una menor capacidad de respuesta ante crisis económicas, un incremento en el costo de la deuda y una mayor dependencia de la importación de bienes. La falta de políticas de ajuste en el sector energético, junto con el incentivo al sobreconsumo, han desestabilizado la economía y generado un entorno inflacionario y de escasez de divisas.
+
+El análisis de estos fenómenos debe contextualizarse además con la evolución de variables macroeconómicas clave como el crecimiento del PIB, la inflación y el desempleo. A pesar de los intentos de estimular la economía mediante el gasto público (que no ajusto el gasto desde el año 2014), la sostenibilidad del modelo económico boliviano se encuentra en una encrucijada. La inflación ha aumentado debido a la expansión monetaria y la falta de ajustes en los precios de los combustibles, mientras que el desempleo puede verse afectado por un posible enfriamiento económico debido a la reducción de la inversión y el consumo.
+
+Para abordar estos desafíos, es crucial un enfoque de política económica que considere el impacto de la subvención a los combustibles y evalúe un plan de ajustes fiscales y económicos que permita una transición hacia un modelo más sostenible y menos dependiente de las importaciones y del endeudamiento.
