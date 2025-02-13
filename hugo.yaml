@@ -37,6 +37,10 @@ frontmatter:
   lastmod:
     - lastmod
     - ':fileModTime'
+
+permalinks:
+  blog: "/blog/:slug/"
+  
 menu:
   main:
     - identifier: blog
