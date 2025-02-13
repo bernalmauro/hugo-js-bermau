@@ -9,9 +9,7 @@
             <ul class="navbar-nav">
                 {{ range sort ($.Site.GetPage "taxonomyTerm" "categories").Pages "Title" }}
                 <li class="nav-item">
-                    <a class="nav-link text-decoration-none" href="/blog/{{ .Slug  }}"
-   onclick="showCategory('{{ .Slug  }}')">{{ .Title }}</a>
-
+                    <a class="nav-link text-decoration-none" href="blog/{{ .Title | urlize }}/" onclick="showCategory('{{ .Title | urlize}}')">{{ .Title }}</a>
                 </li>
                 {{ end }}
             </ul>
