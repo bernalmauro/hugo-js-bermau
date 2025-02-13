@@ -1,5 +1,6 @@
 ---
 title: "Filosofía Política"
+slug: "filosofia-politica"
 date: 2017-01-01
 draft: false
 featuredImage: /images/filosofia-politica-blog-bernalmauricio.jpg

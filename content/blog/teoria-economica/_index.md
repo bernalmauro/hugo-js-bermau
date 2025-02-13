@@ -1,5 +1,6 @@
 ---
 title: "Teoría Económica"
+slug: "teoria-economica"
 date: 2017-01-01
 draft: false
 featuredImage: /images/teoria-economica-blog-bernalmauricio.jpg
