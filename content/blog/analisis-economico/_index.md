@@ -1,6 +1,6 @@
 ---
 title: "Análisis Económico"
-slug: "teoria-economica"
+slug: "analisis-economico"
 date: 2017-01-01
 draft: false
 featuredImage: /images/analisis-economico-blog-bernalmauricio.jpg
