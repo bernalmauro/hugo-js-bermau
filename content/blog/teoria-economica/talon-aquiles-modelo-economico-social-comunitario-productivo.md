@@ -3,7 +3,7 @@ title: "El Talón de Aquiles del Modelo Económico, Social, Comunitario y Produc
 date: 2018-11-10
 draft: false
 featuredImage: /images/critica-modelo-comunitario-social-productivo-bernalmauricio.jpg
-categories: ["Teoría Económica"]
+categories: ["Teoria Economica"]
 tags: ["Bolivia", "Modelo Económico Social Comunitario y Productivo"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

@@ -3,7 +3,7 @@ title: "Subvención al Combustible en Bolivia"
 date: 2023-12-08
 draft: false
 featuredImage: /images/subvencion-combustibles-bolivia.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Bolivia", "Subvención Combustibles Bolivia"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

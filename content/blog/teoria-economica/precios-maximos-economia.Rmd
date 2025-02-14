@@ -3,7 +3,7 @@ title: "Efecto de los Precios Máximos en Economía"
 date: 2024-12-19
 draft: false
 featuredImage: /images/precios-maximos-economia.jpg
-categories: ["Teoría Económica"]
+categories: ["Teoria Economica"]
 tags: ["Escuela Austríaca de Economía", "Precios Máximos", "Control de Precios"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

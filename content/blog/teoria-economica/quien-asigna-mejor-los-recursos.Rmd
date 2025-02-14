@@ -3,7 +3,7 @@ title: "¿Quién asigna mejor los recursos?"
 date: 2019-09-01
 draft: false
 featuredImage: /images/quien-asigna-mejor-los-recursos-bernalmauricio.jpg
-categories: ["Teoría Económica"]
+categories: ["Teoria Economica"]
 tags: ["Economía", "Asignación Recursos", "Estatismo"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

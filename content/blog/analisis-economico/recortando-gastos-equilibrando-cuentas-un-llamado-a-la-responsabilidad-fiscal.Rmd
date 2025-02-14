@@ -3,7 +3,7 @@ title: "Recortando Gastos, Equilibrando Cuentas: Un Llamado a la Responsabilidad
 date: 2018-12-30
 draft: false
 featuredImage: /images/reduzcamos-el-gasto-y-el-deficit-fiscal-bernalmauricio.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Bolivia", "Ajuste Presupuestario"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

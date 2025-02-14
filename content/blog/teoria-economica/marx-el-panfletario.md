@@ -3,7 +3,7 @@ title: "Marx El Panfletario"
 date: 2017-05-07
 draft: false
 featuredImage: /images/Marx El Panfletario.jpg
-categories: ["Teoría Económica"]
+categories: ["Teoria Economica"]
 tags: ["Marxismo", "Teoría del Valor" ]
 keywords: ["", "","", ""]
 author: "Misael Mauricio Bernal Ramos"

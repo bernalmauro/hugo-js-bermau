@@ -3,7 +3,7 @@ title: "Desmitificando el Salario Mínimo: ¿Realmente Cumple su Propósito?"
 date: 2017-12-10
 draft: false
 featuredImage: /images/salario minimo-para-que-bernalmauricio.jpg
-categories: ["Teoría Económica"]
+categories: ["Teoria Economica"]
 tags: ["Bolivia", "Salario Mínimo", "Estatismo"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

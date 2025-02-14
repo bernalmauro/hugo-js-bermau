@@ -3,7 +3,7 @@ title: "¿Qué es el Sistema Único de Salud (SUS) y quién lo paga? ¿Será sos
 date: 2019-09-20
 draft: false
 featuredImage: /images/sus-logo-bolivia-bernalmauricio.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Bolivia", "Sistema Único de Salud Bolivia", "Estatismo"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

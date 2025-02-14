@@ -3,7 +3,7 @@ title: "Nuevamente el Salario Mínimo"
 date: 2024-05-04
 draft: false
 featuredImage: /images/salario_minimo.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Salario Mínimo Bolivia", "Consecuencias del Intervencionismo"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

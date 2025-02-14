@@ -3,7 +3,7 @@ title: "Libertad y Prosperidad: La Alternativa más Efectiva al Socialismo"
 date: 2018-05-10
 draft: false
 featuredImage: /images/la-mejor-opcion frente-al-socialismo-bernalmauricio.jpg
-categories: ["Filosofía Política"]
+categories: ["Filosofia Politica"]
 tags: ["Liberalismo", "Libertad o Socialismo"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

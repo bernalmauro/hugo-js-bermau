@@ -1,10 +1,10 @@
 ---
-title: "Programación con R"
+title: "Programacion R"
 slug: "programacion-r"
 date: 2017-01-01
 draft: false
 featuredImage: /images/programacion-con-r-blog-bernalmauricio.jpg
-categories: ["Programación con R"]
+categories: ["Programacion R"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"
 menu:

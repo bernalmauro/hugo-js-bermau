@@ -3,7 +3,7 @@ title: "El PGE del MAS vs la Realidad"
 date: 2023-11-10
 draft: false
 featuredImage: /images/presupuesto-general-bolivia-bernalmauricio.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["PGE Bolivia", "Estatismo en Bolivia"]
 keywords: ["", "", "", ""]
 author: "Mauricio Bernal"

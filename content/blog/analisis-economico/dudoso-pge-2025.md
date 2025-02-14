@@ -3,7 +3,7 @@ title: "PGE 2025: Un Presupuesto sin Sostenibilidad ni Consenso"
 date: 2025-02-13
 draft: false
 featuredImage: /images/dudoso-2025-pge.jpeg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Presupuesto General 2025", "Deuda Externa", "Déficit Fiscal"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

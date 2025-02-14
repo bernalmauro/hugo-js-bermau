@@ -3,7 +3,7 @@ title: "Economía de Bolivia"
 date: 2024-12-08
 draft: false
 featuredImage: /images/ministro_economia.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Deuda Pública Bolivia", "Presupuesto General 2025", "Política Económica" ]
 keywords: ["", "", "", ""]
 author: "Mauricio Bernal"

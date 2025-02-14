@@ -3,7 +3,7 @@ title: "Las Exportaciones Bolivianas"
 date: 2024-01-01
 draft: false
 featuredImage: /images/gas-ultimo-articulo-bernalmauricio.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Argentina", "Brasil","India", "Exportaciones"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

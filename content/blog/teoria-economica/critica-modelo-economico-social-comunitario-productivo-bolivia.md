@@ -3,7 +3,7 @@ title: "Crítica al Nuevo Modelo Económico Social Comunitario y Productivo"
 date: 2019-08-20
 draft: false
 featuredImage: /images/critica-modelo-comunitario-social-productivo-bernalmauricio.jpg
-categories: ["Teoría Económica"]
+categories: ["Teoria Economica"]
 tags: ["Bolivia", "Modelo Económico Social Comunitario y Productivo"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

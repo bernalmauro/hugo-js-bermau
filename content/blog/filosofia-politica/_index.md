@@ -1,10 +1,10 @@
 ---
-title: "Filosofía Política"
+title: "Filosofia Politica"
 slug: "filosofia-politica"
 date: 2017-01-01
 draft: false
 featuredImage: /images/filosofia-politica-blog-bernalmauricio.jpg
-categories: ["Filosofía Política"]
+categories: ["Filosofia Politica"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"
 menu:

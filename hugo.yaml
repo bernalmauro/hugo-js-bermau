@@ -36,11 +36,10 @@ frontmatter:
     - lastmod
   lastmod:
     - lastmod
-    - ':fileModTime'
-
-permalinks:
-  blog: "/blog/:slug/"
-  
+    - ':fileModTime' 
+taxonomies:
+  category: "categories"
+  tag: "tags"
 menu:
   main:
     - identifier: blog
