@@ -3,7 +3,7 @@ title: "Teoria Economica"
 slug: "teoria-economica"
 date: 2017-01-01
 draft: false
-featuredImage: /images/teoria-economica-blog-bernalmauricio.jpg
+featuredImage: /images/teoria-economica-blog-bernalmauricio.jpeg
 categories: ["Teoria Economica"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

@@ -2,7 +2,7 @@
 title: "La inflación en Bolivia"
 date: 2024-12-13
 draft: false
-featuredImage: /images/dolares-bolivia-inflacion.jpeg
+featuredImage: /images/dolares-bolivia-inflacion.jpg
 categories: ["Analisis Economico"]
 tags: ["Bolivia", "Inflación Bolivia", "Análisis Economía Boliviana"]
 keywords: ["", "","", ""]
