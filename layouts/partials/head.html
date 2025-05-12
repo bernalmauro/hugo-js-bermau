@@ -39,9 +39,10 @@
   {{ end }}
 
   <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
+  <meta property="og:description" content="{{ .Summary | markdownify | plainify | truncate 400 }}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ .Params.featuredImage }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
 
   <!-- Fonts & Icons -->
@@ -71,27 +72,7 @@
     });
   </script>
 
-  {{ range first 3 .Site.RegularPages }}
-  <div class="blog-post row g-4 mt-2">
-    <div class="col-lg-3 col-sm-12">
-        <img class="img-fluid rounded" src="{{ .Params.featuredImage }}" alt="featured image {{ .Title }}">
-    </div>
-    <div class="col-lg-9 col-sm-12 p-3">
-        <h2 class="h4"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <time datetime="{{ .PublishDate.Format `006-01-02T15:04:05Z07:00` | safeHTML }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
-        <br /> Categorías: {{ with .Params.categories }}
-        {{ $category := index . 0 }}
-        <a class="text-decoration-none nav-item px-1" href="/blog/{{ $category | urlize }}">{{ $category }}</a>
-        {{ end }} Tags:{{ range .Params.tags }} <a class="text-decoration-none nav-item px-1"
-            href="/tags/{{ . | urlize}}">{{ . }}</a>
-        {{ end }}
-        <p class="lead">{{ .Summary | markdownify | plainify | truncate 400 }}</p>
-        <a class="btn btn-primary" href="{{.Permalink}}">Leer más</a>
-    </div>
-  </div>
-{{ end }}
-
-
+  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ "imgPath" | relURL }}">  
 </head>
