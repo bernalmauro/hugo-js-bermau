@@ -3,7 +3,7 @@ title: "Bolivia y la Hiperinflación de 1985"
 date: 2025-05-11
 draft: false
 featuredImage: /images/la-hiperinflacion-bolivia-1985.jpg
-categories: ["Análisis Económico"]
+categories: ["Analisis Economico"]
 tags: ["Hiperinflación Bolivia 1985", "Gasto Público", "Emisión Monetaria"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

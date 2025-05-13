@@ -13,7 +13,7 @@ menu:
     weight: 0 
     parent: ""
 socialshare: true
-url: "/blog/análisis-económico/salario-minimo-bolivia/"
+url: "/blog/analisis-economico/salario-minimo-bolivia/"
 
 ---
 
