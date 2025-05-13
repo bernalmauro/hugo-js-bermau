@@ -2,7 +2,7 @@
 title: "Libertad y Prosperidad: La Alternativa más Efectiva al Socialismo"
 date: 2018-05-10
 draft: false
-featuredImage: /images/la-mejor-opcion frente-al-socialismo-bernalmauricio.jpg
+featuredImage: /images/la-mejor-opcion frente-al-socialismo.jpg
 categories: ["Filosofia Politica"]
 tags: ["Liberalismo", "Libertad o Socialismo"]
 keywords: ["", "","", ""]

@@ -2,7 +2,7 @@
 title: "El Legado del Socialismo del Siglo XXI"
 date: 2018-01-10
 draft: false
-featuredImage: /images/el-legado-del-socialismo-del-siglo-xxi-bernalramos.jpg
+featuredImage: /images/el-legado-del-socialismo-del-siglo-xxi.jpg
 categories: ["Analisis Economico"]
 tags: ["Latinoamérica", "Socialismo del Siglo XXI"]
 keywords: ["", "","", ""]

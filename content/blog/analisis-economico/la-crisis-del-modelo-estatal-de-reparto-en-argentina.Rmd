@@ -2,7 +2,7 @@
 title: "La Crisis del Modelo Estatal de Reparto en Argentina"
 date: 2017-12-10
 draft: false
-featuredImage: /images/la-quiebra-del-sistema-reparto-argentino-bernalmauricio.jpg
+featuredImage: /images/la-quiebra-del-sistema-reparto-argentino.jpg
 categories: ["Analisis Economico"]
 tags: ["Argentina", "Reforma", "Reparto Argentino"]
 keywords: ["", "","", ""]

@@ -2,7 +2,7 @@
 title: "¿Las Cinco Crisis Estructurales del Capitalismo?"
 date: 2019-09-28
 draft: false
-featuredImage: /images/cinco-crisis-capitalismo-bernalmauricio.jpg
+featuredImage: /images/cinco-crisis-capitalismo.jpg
 categories: ["Analisis Economico"]
 tags: ["Bolivia", "Crisis del Capitalismo"]
 keywords: ["", "","", ""]

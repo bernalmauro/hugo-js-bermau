@@ -2,7 +2,7 @@
 title: "Breve Analisis de la Economia Boliviana"
 date: 2018-10-28
 draft: false
-featuredImage: /images/breve-analisis-economia-boliviana-bernalmauricio.jpg
+featuredImage: /images/breve-analisis-economia-boliviana.jpg
 categories: ["Analisis Economico"]
 tags: ["Bolivia", "Modelo Económico", "Análisis Economía Boliviana"]
 keywords: ["", "","", ""]

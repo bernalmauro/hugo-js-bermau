@@ -2,7 +2,7 @@
 title: "El Talón de Aquiles del Modelo Económico, Social, Comunitario y Productivo (MESCP)"
 date: 2018-11-10
 draft: false
-featuredImage: /images/critica-modelo-comunitario-social-productivo-bernalmauricio.jpg
+featuredImage: /images/critica-modelo-comunitario-social-productivo.jpg
 categories: ["Teoria Economica"]
 tags: ["Bolivia", "Modelo Económico Social Comunitario y Productivo"]
 keywords: ["", "","", ""]

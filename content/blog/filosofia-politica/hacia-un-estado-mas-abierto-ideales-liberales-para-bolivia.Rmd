@@ -2,7 +2,7 @@
 title: "Hacia un Estado más Abierto: Ideales Liberales para Bolivia"
 date: 2018-01-10
 draft: false
-featuredImage: /images/por-un-gobierno-liberal-en-bolivia-bernalmauricio.jpg
+featuredImage: /images/por-un-gobierno-liberal-en-bolivia.jpg
 categories: ["Filosofia Politica"]
 tags: ["Bolivia", "Liberalismo"]
 keywords: ["", "","", ""]

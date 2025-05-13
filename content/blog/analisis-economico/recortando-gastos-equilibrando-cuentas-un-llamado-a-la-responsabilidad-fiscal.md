@@ -2,7 +2,7 @@
 title: "Recortando Gastos, Equilibrando Cuentas: Un Llamado a la Responsabilidad Fiscal"
 date: 2018-12-30
 draft: false
-featuredImage: /images/reduzcamos-el-gasto-y-el-deficit-fiscal-bernalmauricio.jpg
+featuredImage: /images/reduzcamos-el-gasto-y-el-deficit-fiscal.jpg
 categories: ["Analisis Economico"]
 tags: ["Bolivia", "Ajuste Presupuestario"]
 keywords: ["", "","", ""]

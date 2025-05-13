@@ -2,7 +2,7 @@
 title: "¿Qué es el Liberalismo?"
 date: 2019-09-10
 draft: false
-featuredImage: /images/que-es-liberalismo-bernalmauricio.jpg
+featuredImage: /images/que-es-liberalismo.jpg
 categories: ["Filosofia Politica"]
 tags: ["Liberalismo", "Libertad"]
 keywords: ["", "","", ""]

@@ -2,7 +2,7 @@
 title: "¿Qué es el Sistema Único de Salud (SUS) y quién lo paga? ¿Será sostenible en el tiempo?"
 date: 2019-09-20
 draft: false
-featuredImage: /images/sus-logo-bolivia-bernalmauricio.jpg
+featuredImage: /images/sus-logo-bolivia.jpg
 categories: ["Analisis Economico"]
 tags: ["Bolivia", "Sistema Único de Salud Bolivia", "Estatismo"]
 keywords: ["", "","", ""]

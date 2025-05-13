@@ -2,7 +2,7 @@
 title: "Los Motores del Progreso para las Sociedades"
 date: 2019-08-10
 draft: false
-featuredImage: /images/los-motores-del-progreso-economico-bernalmauricio.jpg
+featuredImage: /images/los-motores-del-progreso-economico.jpg
 categories: ["Teoria Economica"]
 tags: ["Escuela Austríaca de Economía", "Progreso Económico"]
 keywords: ["", "","", ""]
