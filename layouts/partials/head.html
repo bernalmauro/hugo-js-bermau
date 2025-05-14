@@ -33,15 +33,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
 
-  <!-- Open Graph -->
-  {{ with .Params.featuredImage }}
-    <meta property="og:image" content="{{ . | absURL }}" />
-  {{ end }}
-
   <meta property="og:title" content="{{ .Title }}">
   <meta property="og:description" content="{{ .Summary | markdownify | plainify | truncate 400 }}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ .Params.featuredImage }}">
   <meta property="og:site_name" content="{{ .Site.Title }}">
 
   <!-- Fonts & Icons -->
