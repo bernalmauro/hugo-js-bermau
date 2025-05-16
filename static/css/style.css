@@ -963,7 +963,7 @@ a:hover {
 #scrollTopBtn {
     display: none;
     position: fixed;
-    bottom: 40px;
+    bottom: 80px;
     right: 20px;
     width: 35px;
     height: 35px;
