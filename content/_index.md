@@ -76,7 +76,7 @@ Este es un espacio dedicado a explorar la economía, donde la información y el 
 
 ## [Mi Blog](https://bernalmauricio.com/blog/)
 
-Sumérgete en artículos informativos y análisis profundos sobre los últimos acontecimientos económicos. Exploraremos juntos los entresijos del panorama financiero y sus impactos en nuestro día a día.
+Aquí encontrarás análisis claros y directos sobre lo que pasa en la economía y cómo afecta tu día a día. Información directa, sin adornos, exageraciones y con explicaciones concretas.
 
 {{< blog_post limit="3" >}}
 

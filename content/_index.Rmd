@@ -5,10 +5,6 @@ title: |
 output: html_document
 ---
 
-# Bienvenido!
-
-Este es un espacio dedicado a explorar la economía, donde la información y el análisis detallados, gráficos esclarecedores y una biblioteca llena de conocimientos lograrán su cometido.
-
 
 ## [Mi Blog](https://bernalmauricio.com/blog/)
 
