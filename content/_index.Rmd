@@ -14,6 +14,7 @@ Este es un espacio dedicado a explorar la economía, donde la información y el 
 
 Aquí encontrarás análisis claros y directos sobre lo que pasa en la economía y cómo afecta tu día a día. Información directa, sin adornos, exageraciones y con explicaciones concretas.
 
+
 {{< W limit="3" >}}
 
 ## [Biblioteca](https://bernalmauricio.com/biblioteca/) 
