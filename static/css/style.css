@@ -1041,3 +1041,24 @@ a:hover {
         text-align: center;
     }
 }
+
+/* Bloques de código en general */
+pre {
+  background-color: #1e1e1e;  /* fondo oscuro elegante */
+  color: #d4d4d4;             /* texto gris claro */
+  padding: 1em;
+  border-radius: 5px;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-size: 1em;
+  overflow-x: auto;
+}
+
+/* Salida de código (output) */
+pre, pre code {
+  color: #d4d4d4 !important;
+  background-color: #1e1e1e !important;
+}
+
+pre code span {
+  color: inherit !important; /* fuerza que el span tome el color padre */
+}

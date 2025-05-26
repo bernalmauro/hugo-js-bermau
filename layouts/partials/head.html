@@ -6,9 +6,8 @@
   <meta name="description" content='{{ .Param "Description" }}' />
   <meta name="dc.relation" content="{{ .Site.BaseURL }}" />
 
-  {{- if not .Site.IsServer }}
-    {{ partial "google_analytics.html" . }}
-  {{- end }}
+{{ partial "google_analytics.html" . }}
+
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />

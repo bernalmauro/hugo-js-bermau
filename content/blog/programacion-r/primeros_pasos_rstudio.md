@@ -1,0 +1,99 @@
+---
+title: "Introducción a R y RStudio: La herramienta esencial para economistas"
+date: 2025-05-26
+draft: false
+featuredImage: /images/r-studio.png
+categories: ["Programacion R"]
+tags: ["R", "Economia", "Estadistica", "RStudio"]
+keywords: ["R básico", "programacion economica", "tutorial R", "economistas"]
+author: "Mauricio Bernal"
+menu:
+  main:
+    identifier: "blog"
+    weight: 0
+    parent: ""
+socialshare: true
+url: "/blog/programacion-r/introduccion-a-r-y-rstudio/"
+---
+
+Como economista, saber manejar datos y realizar análisis estadísticos es fundamental. En este post te voy a presentar R y RStudio, dos herramientas gratuitas y poderosas que te permitirán hacer análisis económicos, econométricos y estadísticos con facilidad y reproducibilidad.
+
+## ¿Qué es R y por qué usarlo en economía?
+
+R es un lenguaje de programación y entorno diseñado para análisis estadístico y gráfico. Es ampliamente usado en investigación económica porque es:
+
+- **Gratis y de código abierto**: no dependes de licencias costosas.  
+- **Potente y flexible**: puedes hacer desde análisis simples hasta modelos econométricos complejos.  
+- **Reproducible**: todo tu trabajo queda en scripts que otros pueden ejecutar igual.
+
+## ¿Qué es RStudio?
+
+RStudio es un entorno de desarrollo integrado (IDE) que facilita trabajar con R. Tiene una interfaz amigable con varias ventanas que te ayudan a organizar tu código, visualizar resultados y administrar archivos.
+
+Las partes básicas de RStudio son:
+
+- **Consola**: aquí se ejecutan los comandos de R.  
+- **Script**: editor donde escribís tu código para guardarlo y reutilizarlo.  
+- **Entorno**: muestra las variables y datos cargados.  
+- **Archivos**: explorador para tus carpetas y proyectos.
+
+## Instalación básica de R y RStudio
+
+1. **Instalar R**  
+   Ve a https://cran.r-project.org/  
+   Descarga la versión para tu sistema operativo (Windows, Mac o Linux) e instálala con los valores por defecto.
+
+2. **Instalar RStudio**  
+   Ve a https://posit.co/download/rstudio-desktop/  
+   Descarga la versión gratuita “RStudio Desktop Open Source” e instálala.
+
+## Primeros pasos en RStudio
+
+- Abre RStudio.  
+- Crea un nuevo script: Archivo > Nuevo archivo > Script R.  
+- Escribe tu primer código en el script, por ejemplo:  
+
+
+``` r
+# Suma simple
+2 + 2
+```
+
+```
+## [1] 4
+```
+
+Para ejecutar la línea, pon el cursor ahí y presiona Ctrl + Enter (Cmd + Enter en Mac).
+
+Los resultados aparecen en la consola.
+
+Guarda el script con Archivo > Guardar como, ponle un nombre con extensión .R.
+
+Ejemplo sencillo: calcular media y desviación estándar
+
+Supongamos que tenemos una muestra de datos de ingresos mensuales:
+
+
+``` r
+# Código y salida claros
+
+x <- c(1,2,3,4)
+
+mean(x)
+```
+
+```
+## [1] 2.5
+```
+
+Esto calcula la media de los ingresos y muestra los resultados.
+
+Consejos para seguir aprendiendo
+
+Este es solo el comienzo. En los próximos posts te voy a enseñar paso a paso cómo usar R para analizar datos económicos, desde importar bases de datos hasta visualizar resultados, construir modelos y automatizar reportes.
+
+Sigue atento a esta serie y practica cada bloque de código. Lo importante es que entiendas el razonamiento detrás de cada línea. R no es complicado si te lo explican bien, y para eso estoy escribiendo esto: para que no dependas de nadie más.
+
+
+
+

@@ -56,7 +56,7 @@ menu:
       weight: 300
 markup:
   highlight:
-    codeFences: false
+    codeFences: true
   goldmark:
     renderer:
       unsafe: true

@@ -55,7 +55,7 @@ weight = 300
 
 [markup]
 [markup.highlight]
-codeFences = false
+codeFences = true
 
 [markup.goldmark]
 [markup.goldmark.renderer]
