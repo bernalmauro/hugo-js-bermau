@@ -72,28 +72,29 @@ output: html_document
 
 # Bienvenido!
 
-Este es un espacio dedicado a explorar la economía, donde la información y el análisis detallados, gráficos esclarecedores y una biblioteca llena de conocimientos lograrán su cometido.
+Un espacio para analizar la economía más allá del discurso político, a partir de datos y razonamiento económico.
 
 ## [Mi Blog](https://bernalmauricio.com/blog/)
 
-Aquí encontrarás análisis claros y directos sobre lo que pasa en la economía y cómo afecta tu día a día. Información directa, sin adornos, exageraciones y con explicaciones concretas.
+Análisis económico, teoría económica, filosofía política y programación aplicada, basados en datos y argumentación rigurosa.
 
 {{< blog_post limit="3" >}}
 
 ## [Biblioteca](https://bernalmauricio.com/biblioteca/)
 
-Explora nuestra colección de libros cuidadosamente seleccionados sobre Economía y Filosofía Política. Desde clásicos atemporales hasta las últimas publicaciones, aquí encontrarás material para nutrir tu mente.
+Una selección de libros de economía y filosofía política, que incluye obras clásicas y contemporáneas relevantes para el análisis y la reflexión teórica.
 
 {{< biblioteca categoria="austriacos" >}}
 
 
 ## [Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
 
-Las cifras hablan por sí solas. Descubre visualmente las tendencias económicas a través de gráficos y tablas que desglosan datos complejos de manera comprensible.
+Gráficos y tablas construidos a partir de datos económicos, utilizados como herramienta de análisis y comparación.
 
 
 ## [Consultoría Macroeconómica](https://bernalmauricio.com/consultoria/)
-Las cifras hablan por sí solas. Descubre visualmente las tendencias económicas a través de gráficos y tablas que desglosan datos complejos de manera comprensible.
+
+Análisis macroeconómico aplicado, basado en datos y modelos, para la evaluación de escenarios económicos y toma de decisiones.
 
 
 ### DATOS INSTITUTO NACIONAL DE ESTADISTICA BOLIVIA
