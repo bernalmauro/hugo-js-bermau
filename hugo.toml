@@ -53,6 +53,13 @@ name = "Gráficos"
 url = "/graficos/"
 weight = 300
 
+[[menu.main]]
+identifier = "consultoria"
+name = "Consultoría Macroeconómica"
+url = "/consultoria/"
+weight = 300
+
+
 [markup]
 [markup.highlight]
 codeFences = true

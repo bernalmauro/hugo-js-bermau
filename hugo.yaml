@@ -54,6 +54,11 @@ menu:
       name: Gráficos
       url: /graficos/
       weight: 300
+    - identifier: consultoria
+      name: Consultoría Macroeconómica
+      url: /consultoria/
+      weight: 300
+      
 markup:
   highlight:
     codeFences: true

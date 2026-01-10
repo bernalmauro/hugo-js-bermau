@@ -26,6 +26,10 @@ Explora nuestra colección de libros cuidadosamente seleccionados sobre Economí
 Las cifras hablan por sí solas. Descubre visualmente las tendencias económicas a través de gráficos y tablas que desglosan datos complejos de manera comprensible.
 
 
+## [Consultoría Macroeconómica](https://bernalmauricio.com/consultoria/)
+Las cifras hablan por sí solas. Descubre visualmente las tendencias económicas a través de gráficos y tablas que desglosan datos complejos de manera comprensible.
+
+
 ```{r warning = FALSE, include=FALSE}
 #LIBRARY####
 library(dygraphs) 
