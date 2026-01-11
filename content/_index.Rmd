@@ -20,6 +20,7 @@ Análisis económico, teoría económica, filosofía política y programación a
 
 Una selección de libros de economía y filosofía política, que incluye obras clásicas y contemporáneas relevantes para el análisis y la reflexión teórica.
 
+
 {{< biblioteca categoria="austriacos" >}}
 
 ## [Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
@@ -29,6 +30,8 @@ Gráficos y tablas construidos a partir de datos económicos, utilizados como he
 ## [Consultoría Macroeconómica](https://bernalmauricio.com/consultoria/)
 
 Análisis macroeconómico aplicado, basado en datos y modelos, para la evaluación de escenarios económicos y toma de decisiones.
+
+
 
 
 ```{r warning = FALSE, include=FALSE}
@@ -108,7 +111,7 @@ theme_annotations <- function() {
 
 #CRECIMIENTO PBI OFERTA Y DEMANDA FINAL DYGRAPHS####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/cuentas_nacionales/pib_anual/oferta_final_demanda_final/03.01.02.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/cuentas_nacionales/1.pib_anual/1.oferta_final_demanda_final/03.01.02.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
 range <- "B12:AJ19"
@@ -142,7 +145,6 @@ dygraph_1 <- dygraph(pib, main = "Crecimiento del PIB /Anual") %!>%
          valueFormatter = "function(v){return (v*1).toFixed(1) + '%'}",
          axisLabelFormatter = "function(v){return (v*1).toFixed(0) + '%'}"
   ) %!>% 
-  dyCrosshair(direction = FALSE) %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 2,
               highlightSeriesBackgroundAlpha = 1) 
@@ -150,16 +152,16 @@ dygraph_1 <- dygraph(pib, main = "Crecimiento del PIB /Anual") %!>%
 
 #OPERACIONES CONSOLIDADAS DEL SECTOR PUBLICO DYGRAPHS####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/ministerio_economia/3.datos_estadisticas/1.estadisticas_fiscales/1.cifras_fiscales_operativas_caja/1.ejecucion/historico.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "A5:AH30"
-sheet <- "Hoja1"
+range <- "A5:AK32"
+sheet <- "anual"
 col_names <- FALSE
 
 #FORMATO FECHA
 from <- "1990.12.31"
-to <- "2022.12.31"
+to <- "2025.12.31"
 by <- "year"
 each <- 1
 
@@ -193,7 +195,7 @@ consolidado <- excel %!>%
          `INGRESOS TOTALES`,
          `EGRESOS TOTALES`) 
 
-dygraph_2 <- dygraph(consolidado, main = "Ingresos y Egresos Estatales /Anual (millones de BOB)") %!>% 
+dygraph_2 <- dygraph(consolidado, main = "Ingresos y Egresos Estatales - Anual (millones de BOB)<br><span style='font-size: 12px; color: #666;'>Datos acumulados hasta septiembre de 2025</span>") %!>% 
   dySeries(fillGraph = FALSE, "EGRESOS TOTALES", 
            label = "Egresos Totales", color="red") %!>% 
   dySeries(fillGraph = TRUE, "INGRESOS TOTALES", 
@@ -228,8 +230,8 @@ dygraph_3 <- dygraph(resultado, main = "Resultado Fiscal Estatal /Anual (millone
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
          drawGrid = FALSE,
-         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
-         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ".");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ".");}'
   ) %!>% 
   
   dyRangeSelector(height = 30) %!>% 
@@ -238,16 +240,16 @@ dygraph_3 <- dygraph(resultado, main = "Resultado Fiscal Estatal /Anual (millone
 
 #RESERVAS INTERNACIONALES DE BOLIVIA DYGRAPHS####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/4.mensual/2.externo/29.reservas_internacionales_bcb.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "B14:G302"
+range <- "B23:G335"
 sheet <- "Hoja1"
 col_names <- FALSE
 
 #FORMATO FECHA
-from <- "1999.2.28"
-to <- "2023.2.28"
+from <- "1999.11.30"
+to <- "2025.11.30"
 by <- "month"
 each <- 1
 
@@ -290,7 +292,7 @@ hoja_excel_ %!>%
   read.zoo(hoja_excel_, FUN = as.Date) %!>% 
   as.ts()
 
-dygraph_4 <- dygraph(hoja_excel_, main = "RIN /Mensual-Feb (millones de USD)") %!>% 
+dygraph_4 <- dygraph(hoja_excel_, main = "RIN - Mensual (millones de USD)") %!>% 
   dySeries(fillGraph = TRUE, "Oro", 
            label = "Oro", color="yellow") %!>% 
   dySeries(fillGraph = TRUE, "Divisas", 
@@ -302,13 +304,14 @@ dygraph_4 <- dygraph(hoja_excel_, main = "RIN /Mensual-Feb (millones de USD)") %
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y",
          drawGrid = FALSE,
-         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
-         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
+         valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ".");}',
+         axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ".");}'
   ) %!>% 
   
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 2,
               highlightSeriesBackgroundAlpha = 1) 
+
 
 excel <- data %>%
   select(`Año`, 
@@ -329,16 +332,16 @@ dygraph_5 <- cbind(Año, dygraph_5)
 
 #SALDO COMERCIAL ANUAL DYGRAPHS####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Año, 1992 - 2022.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/ine/estadistica_economica/comercio_exterior/saldo_comercial/Bolivia - Comercio Exterior segun Año, 1992 - 2024.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "C6:E36"
-sheet <- "COMEX Anual 92-22"
+range <- "C6:E38"
+sheet <- "COMEX Anual 92-24"
 col_names <- FALSE
 
 #FORMATO FECHA
 from <- "1992.12.31"
-to <- "2022.12.31"
+to <- "2024.12.31"
 by <- "year"
 each <- 1
 
@@ -386,7 +389,7 @@ dygraph_6 <- dygraph(hoja_excel_, main = "Saldo Comercial /Anual (millones de US
   dySeries(fillGraph = FALSE, "Importaciones", 
            label = "Importaciones", color="yellow") %!>% 
   dyBarSeries("Saldo Comercial", 
-           label = "Saldo Comercial", color="red") %!>% 
+              label = "Saldo Comercial", color="red") %!>% 
   dyLegend(width = 500, show = "onmouseover", labelsSeparateLines = TRUE) %!>% 
   dyOptions(stackedGraph = FALSE, axisLineColor = "#6b7785") %!>%
   dyAxis("x", drawGrid = FALSE) %>%
@@ -400,12 +403,13 @@ dygraph_6 <- dygraph(hoja_excel_, main = "Saldo Comercial /Anual (millones de US
   dyHighlight(highlightCircleSize = 2,
               highlightSeriesBackgroundAlpha = 1) 
 
+
 #BALANZA COMERCIAL ANUAL KABLE####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/5.trimestral/2.externo/9.comercio/9.balanza_pagos.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/5.trimestral/2.externo/9.comercio/9.balanza_pagos.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "A4:H18"
+range <- "A4:K18"
 sheet <- "Hoja2"
 col_names <- TRUE
 
@@ -422,16 +426,16 @@ dygraph_7 <-
 
 #BALANZA CAMBIARIA ANUAL DYGRAPHS####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/bolivia/banco_central/6.externo/5.balanza_cambiaria/35.balanza_cambiaria_resumen.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/6.externo/5.balanza_cambiaria/35.balanza_cambiaria_resumen.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
-range <- "D9:F41"
+range <- "D9:F43"
 sheet <- "Hoja2"
 col_names <- FALSE
 
 #FORMATO FECHA
 from <- "1990.12.31"
-to <- "2022.12.31"
+to <- "2024.12.31"
 by <- "year"
 each <- 1
 
@@ -451,7 +455,7 @@ colnames(data) <- c(
   "Ingreso de Divisas",
   "Egreso de Divisas",
   "Saldo Divisas"
-  )
+)
 
 Año <- fun_fecha(from,to,by,each)
 
@@ -469,7 +473,8 @@ excel %!>%
   read.zoo(excel, FUN = as.Date) %!>% 
   as.ts()
 
-dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (millones de USD)") %!>% 
+
+dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria - Anual (millones de USD)") %!>% 
   dySeries(fillGraph = FALSE, "Ingreso de Divisas", 
            label = "Ingreso de Divisas", color="green") %!>% 
   dySeries(fillGraph = FALSE, "Egreso de Divisas", 
@@ -484,7 +489,6 @@ dygraph_8 <- dygraph(excel, main = "Balanza Cambiaria /Anual (millones de USD)")
          valueFormatter = 'function(d){return Math.round(d).toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}',
          axisLabelFormatter = 'function(d){return d.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");}'
   ) %!>% 
-  dyCrosshair(direction = FALSE) %!>% 
   dyRangeSelector(height = 30) %!>% 
   dyHighlight(highlightCircleSize = 2,
               highlightSeriesBackgroundAlpha = 1) 
@@ -525,12 +529,13 @@ dygraph_5%>%
   kbl( escape = F, align = "c",  digits=0,format.args = list(big.mark = ",")) %>%
   kable_styling(fixed_thead = T)%>%
   kable_paper(bootstrap_options = "striped", full_width = F)%>%
-  row_spec(1:25, color = "#eee", background = "#212529") %!>% 
+  row_spec(1:27, color = "#eee", background = "#212529") %!>% 
   scroll_box(width ="500px",height = "480px")
 
 ```
 
-### DATOS SECTOR EXTERNO 
+
+### DATOS SECTOR EXTERNO
 
 ```{r externo_1, warning = FALSE, out.width=500, echo=FALSE,fig.align='left'}
 
@@ -544,13 +549,14 @@ dygraph_7 %>%
   kable_styling(bootstrap_options ="striped", fixed_thead = T) %!>% 
   kable_paper(full_width = F)%>%
   row_spec(1:14, color = "#eee", background = "#212529") %!>% 
-  add_header_above(c("Balanza de Pagos/Anual (millones de USD)" = 8)) %!>% 
+  add_header_above(c("Balanza de Pagos /Anual (millones de USD)" = 11)) %!>% 
   pack_rows("", 7,7) %!>% 
   pack_rows("", 8,7) %!>% 
   add_indent(c(2,3,4,5,9,10,11,12,13)) %!>% 
   scroll_box(width ="500px",height = "480px") %!>% 
   footnote(general = "Banco Central de Bolivia (BCB)",
-           general_title = "Fuente: ")
+           general_title = "Fuente: ",
+           symbol = "Datos Preliminares Sept. 2025")
 
 ```
 ```{r externo_3, warning = FALSE, out.width=500, echo=FALSE,fig.align='center'}
@@ -558,6 +564,4 @@ dygraph_7 %>%
 dygraph_8
 
 ```
-
-
 

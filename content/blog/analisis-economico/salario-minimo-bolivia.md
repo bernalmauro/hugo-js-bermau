@@ -24,6 +24,7 @@ url: "/blog/analisis-economico/salario-minimo-bolivia/"
 --- 
 
 
+
 [Justificar que se incremente el salario mínimo en caso de incrementarse el crecimiento económico](https://www.brujuladigital.net/economia/ejecutivo-de-la-cob-dice-que-el-incremento-salarial-es-reflejo-del-crecimiento-economico-en-el-pais) es tener el punto de vista equivocado. Creer que parte de la burocracia estatal pueda conocer todos los efectos derivados de un incremento del salario mínimo es, por lo menos, ingenuo, pero no tanto como pensar que esta parte de la burocracia que fija los salarios sean una clase de personas distintas al resto de la sociedad por preocuparse por la "justicia social". 
 
 Eso no pasa en niguna parte del mundo, mucho menos en Bolivia, donde la sociedad vive politizada y más ahora que las elecciones presidenciales están a la vuelta de la esquina. En realidad, el incremento del salario mínimo es parte de la demagogia puesta en práctica por el partido del MAS, que por el momento es apoyado por la cúpula de alcahuetes de la COB. Pero retomemos el análisis. 
@@ -32,7 +33,7 @@ La variable más importante para incrementar el salario de los trabajadores es e
 
 En materia de Inversión Extranjera Directa (IED) nos encontramos con el siguiente panorama:
 
-<img src="/blog/análisis-económico/salario-minimo-bolivia_files/figure-html/grafico_cepal-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="/blog/analisis-economico/salario-minimo-bolivia_files/figure-html/grafico_cepal-1.png" width="100%" style="display: block; margin: auto;" />
 
 La IED en Bolivia en 2022 fue menos del 1% del PIB, muy lejos de lo que se inviritó en Chile (9.61% de su PIB), Perú (4.25% de su PIB) e incluso Argentina (2.12% de su PIB) con todas las dificultades macroeconómicas que arrastra desde hace mucho tiempo tuvo mayor IED que el país. 
 
@@ -49,7 +50,7 @@ Los niveles de IED como de FBKF son bajos en comparación con los países vecino
 Volviendo al tema del salario mínimo, las consecuencias de incrementar el salario mediante decreto, deja de lado una cuestión importante como su productividad, que se incrementa con inversiones, y puesto que la IED y la inversión privada interna han tenido una participación mínima en comparación con los países vecinos, incrementar el salario por decreto reduce la competitividad empresarial, genera desempleo, desincentiva la inversión y, sobre todo en nuestro país, aumenta la informalidad de los trabajadores que según la Organización Internacional del Trabajo (OIT), en 2022 representa el 85% en la ocupación total.  
 
 
-<img src="/blog/análisis-económico/salario-minimo-bolivia_files/figure-html/grafico_ilo-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="/blog/analisis-economico/salario-minimo-bolivia_files/figure-html/grafico_ilo-1.png" width="100%" style="display: block; margin: auto;" />
 
 
 

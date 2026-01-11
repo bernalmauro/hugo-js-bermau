@@ -250,6 +250,7 @@ grafico_ilo <-  get_ilostat(id = 'SDG_0831_SEX_ECO_RT_A',
 
 ```
 
+
 [Justificar que se incremente el salario mínimo en caso de incrementarse el crecimiento económico](https://www.brujuladigital.net/economia/ejecutivo-de-la-cob-dice-que-el-incremento-salarial-es-reflejo-del-crecimiento-economico-en-el-pais) es tener el punto de vista equivocado. Creer que parte de la burocracia estatal pueda conocer todos los efectos derivados de un incremento del salario mínimo es, por lo menos, ingenuo, pero no tanto como pensar que esta parte de la burocracia que fija los salarios sean una clase de personas distintas al resto de la sociedad por preocuparse por la "justicia social". 
 
 Eso no pasa en niguna parte del mundo, mucho menos en Bolivia, donde la sociedad vive politizada y más ahora que las elecciones presidenciales están a la vuelta de la esquina. En realidad, el incremento del salario mínimo es parte de la demagogia puesta en práctica por el partido del MAS, que por el momento es apoyado por la cúpula de alcahuetes de la COB. Pero retomemos el análisis. 

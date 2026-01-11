@@ -132,7 +132,7 @@ html_table_width <- function(kable_output, width){
 }
 
 #RESULTADO CORRIENTE####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/5.trimestral/3.fiscal/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
 range <- "A42:W49"
@@ -167,7 +167,7 @@ corriente_dy <-
               highlightSeriesBackgroundAlpha = 1) 
 
 #RESULTADO GLOBAL####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/5.trimestral/3.fiscal/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
 range <- "A42:W49"
@@ -202,7 +202,7 @@ global_dy <-
               highlightSeriesBackgroundAlpha = 1) 
 
 #GASTOS DE CAPITAL Y CORRIENTE####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/5.trimestral/3.fiscal/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
 range <- "A81:W82"
@@ -238,7 +238,7 @@ capital_corriente_dy <-
 
 
 #GASTOS DE CAPITAL####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/1.paises/bolivia/ministerio_economia/presupuesto/presupuestaria/13-01.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/1.paises/bolivia/banco_central/5.trimestral/3.fiscal/13-01.xlsx"
 
 #IMPORTAR DATOS DE EXCEL
 range <- "A73:W74"

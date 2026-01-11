@@ -4,7 +4,6 @@ title = "Bernal Mauricio"
 theme = "bernalmautheme"
 googleAnalytics = "G-VKZTVP9H01"
 disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 footnotereturnlinkcontents = "↩"
 enableRobotsTXT = true
 

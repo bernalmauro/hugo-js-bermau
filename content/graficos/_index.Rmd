@@ -120,7 +120,7 @@ pal <- function(num) {
 
 #PBI Y POBLACION MUNDIAL DYGRAPHS####
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/world-gdp-over-the-last-two-millennia.csv"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/2.organismos_internacionales/ourworldindata/world-gdp-over-the-last-two-millennia.csv"
 
 excel <- import(file)
 gdp <- excel$`World GDP in 2011 Int.$ (OWID based on World Bank & Maddison (2017))`/1000000000000
@@ -143,7 +143,7 @@ pib_mundial <- dygraph(excel, main = "PIB Mundial de los Últimos dos Milenios")
   dyHighlight(highlightCircleSize = 2,
               highlightSeriesBackgroundAlpha = 1)
 
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/total-population-living-in-extreme-poverty-by-world-region.csv"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/2.organismos_internacionales/ourworldindata/total-population-living-in-extreme-poverty-by-world-region.csv"
 
 excel <- import(file)
 
@@ -192,7 +192,7 @@ pobreza_mundial <- dygraph(excel, main = "Población total que vive en pobreza e
               hideOnMouseOut = TRUE) 
 
 #ESPERANZA DE VIDA DYGRAPHS####
-file <- "C:/Users/Mauro/Desktop/bases_de_datos/ourworldindata/excel2.xlsx"
+file <- "C:/Users/mauro/Desktop/bases_de_datos/2.organismos_internacionales/ourworldindata/excel2.xlsx"
 range <- "A1:G83"
 col_names <- TRUE
 
@@ -231,7 +231,9 @@ esperanza_vida <- dygraph(data, main = "Esperanza de Vida<br><small>1770-2021</s
   dyHighlight(highlightCircleSize = 2,
               highlightSeriesBackgroundAlpha = 1,
               hideOnMouseOut = TRUE) 
+
 ```
+
 
 
 ### Estadísticas Mundiales
