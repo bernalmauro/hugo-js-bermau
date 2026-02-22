@@ -12,7 +12,6 @@ enableRobotsTXT = true
   priority = 0.5
   filename = "sitemap.xml"
 
-
 [params]
 author = "Misael Mauricio Bernal Ramos"
 description = "Economía, Programación y Filosofía Política."
