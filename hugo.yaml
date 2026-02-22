@@ -6,6 +6,12 @@ googleAnalytics: G-VKZTVP9H01
 disqusShortname: ''
 footnotereturnlinkcontents: ↩
 enableRobotsTXT: true
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
 params:
   author: Misael Mauricio Bernal Ramos
   description: ''
