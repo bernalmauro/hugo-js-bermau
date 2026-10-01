@@ -1,0 +1,500 @@
+{{ define "main" }}
+
+<style>
+  .bm-consultoria {
+    --bm-text: #20313b;
+    --bm-muted: #49616d;
+    --bm-accent: #0b6170;
+    --bm-surface: #ffffff;
+    --bm-border: #d4e2e4;
+    --bm-soft: #eaf3f2;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 48px 24px 32px;
+    color: var(--bm-text);
+    text-align: left;
+    hyphens: none;
+  }
+
+  body.modo-oscuro .bm-consultoria {
+    --bm-text: #e8f0f1;
+    --bm-muted: #b7cbd2;
+    --bm-accent: #79d8ce;
+    --bm-surface: #1c2b35;
+    --bm-border: #3b515d;
+    --bm-soft: #182b34;
+  }
+
+  .bm-consultoria,
+  .bm-consultoria * {
+    box-sizing: border-box;
+  }
+
+  body .bm-consultoria h1,
+  body .bm-consultoria h2,
+  body .bm-consultoria h3 {
+    color: var(--bm-text) !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
+
+  body .bm-consultoria p {
+    margin: 0;
+    color: var(--bm-muted);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .bm-consultoria .bm-label {
+    color: var(--bm-accent) !important;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .bm-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+    padding: 32px 0 64px;
+    border-bottom: 1px solid var(--bm-border);
+  }
+
+  body .bm-consultoria h1 {
+    max-width: 740px;
+    margin: 20px 0 24px !important;
+    font-size: clamp(36px, 5vw, 62px);
+    line-height: 1.08;
+  }
+
+  body .bm-consultoria .bm-intro {
+    max-width: 610px;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  .bm-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  body .bm-consultoria a.bm-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 13px 20px;
+    border: 1px solid var(--bm-accent);
+    border-radius: 6px;
+    background: var(--bm-accent);
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none !important;
+    text-align: center;
+  }
+
+  body.modo-oscuro .bm-consultoria a.bm-button {
+    color: #10212a !important;
+  }
+
+  body .bm-consultoria a.bm-button-secondary {
+    background: transparent;
+    color: var(--bm-accent) !important;
+    border-color: var(--bm-border);
+  }
+
+  body .bm-consultoria a.bm-button:hover {
+    filter: brightness(0.94);
+  }
+
+  body .bm-consultoria a:focus-visible {
+    outline: 3px solid var(--bm-accent);
+    outline-offset: 5px;
+  }
+
+  .bm-signature {
+    padding: 32px;
+    background: var(--bm-soft);
+    border-left: 3px solid var(--bm-accent);
+  }
+
+  .bm-signature strong {
+    display: block;
+    margin: 16px 0 8px;
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .bm-signature .bm-signature-note {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--bm-border);
+    font-size: 14px;
+  }
+
+  .bm-section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--bm-border);
+  }
+
+  .bm-section-heading {
+    max-width: 720px;
+    margin-bottom: 30px;
+  }
+
+  body .bm-consultoria h2 {
+    margin: 12px 0 16px !important;
+    font-size: clamp(27px, 3vw, 36px);
+    line-height: 1.2;
+  }
+
+  .bm-services {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .bm-service {
+    min-width: 0;
+    padding: 30px 26px;
+    background: var(--bm-surface);
+    border: 1px solid var(--bm-border);
+    border-radius: 8px;
+  }
+
+  .bm-service-number {
+    display: block;
+    margin-bottom: 28px;
+    color: var(--bm-accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  body .bm-consultoria h3 {
+    margin-bottom: 18px !important;
+    font-size: 23px;
+    line-height: 1.25;
+  }
+
+  .bm-service p + p {
+    margin-top: 16px;
+  }
+
+  .bm-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    gap: 56px;
+    align-items: start;
+  }
+
+  .bm-split-copy p + p {
+    margin-top: 18px;
+  }
+
+  .bm-deliverables {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+  }
+
+  .bm-deliverable {
+    min-width: 0;
+    border-top: 2px solid var(--bm-accent);
+    padding-top: 20px;
+  }
+
+  body .bm-consultoria .bm-deliverable h3 {
+    font-size: 19px;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px !important;
+  }
+
+  .bm-contact {
+    margin-top: 48px;
+    padding: 38px;
+    background: var(--bm-soft);
+    border: 1px solid var(--bm-border);
+    border-radius: 8px;
+  }
+
+  .bm-contact p {
+    max-width: 700px;
+  }
+
+  body .bm-consultoria a.bm-email {
+    display: inline-block;
+    margin-top: 22px;
+    color: var(--bm-accent) !important;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+    text-decoration: underline !important;
+    text-underline-offset: 4px;
+  }
+
+  @media (max-width: 850px) {
+    .bm-hero,
+    .bm-split {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+
+    .bm-services {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bm-service-number {
+      margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .bm-consultoria {
+      padding: 24px 16px;
+    }
+
+    .bm-hero {
+      padding: 16px 0 36px;
+    }
+
+    .bm-section {
+      padding: 36px 0;
+    }
+
+    .bm-signature,
+    .bm-service,
+    .bm-contact {
+      padding: 24px;
+    }
+
+    .bm-deliverables {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .bm-actions {
+      flex-direction: column;
+    }
+
+    .bm-actions .bm-button {
+      width: 100%;
+    }
+
+    .bm-contact {
+      margin-top: 32px;
+    }
+  }
+</style>
+
+<div class="bm-consultoria">
+
+  <header class="bm-hero">
+    <div>
+      <p class="bm-label">Consultoría económica</p>
+
+      <h1>Perspectiva económica para decisiones de inversión.</h1>
+
+      <p class="bm-intro">
+        Análisis macroeconómico, proyecciones y evaluación de
+        inversiones para empresas, inversionistas e instituciones.
+        Estudios a medida, orientados a la decisión que necesitas tomar.
+      </p>
+
+      <div class="bm-actions">
+        <a class="bm-button" href="#bm-contacto">
+          Solicitar una propuesta
+        </a>
+        <a class="bm-button bm-button-secondary" href="#bm-servicios">
+          Explorar servicios
+        </a>
+      </div>
+    </div>
+
+    <aside class="bm-signature" aria-label="Presentación profesional">
+      <p class="bm-label">Bernal Mauricio</p>
+      <strong>Economista</strong>
+      <p>
+        Interpreto el entorno económico y desarrollo modelos
+        para evaluar sus implicaciones sobre la planificación
+        y las decisiones de capital.
+      </p>
+      <p class="bm-signature-note">
+        Fundamento económico · Evidencia verificable ·
+        Supuestos explícitos
+      </p>
+    </aside>
+  </header>
+
+  <section class="bm-section" id="bm-servicios"
+           aria-labelledby="bm-servicios-titulo">
+
+    <div class="bm-section-heading">
+      <p class="bm-label">Áreas de trabajo</p>
+      <h2 id="bm-servicios-titulo">
+        De la perspectiva macroeconómica a la evaluación de inversiones.
+      </h2>
+    </div>
+
+    <div class="bm-services">
+
+      <article class="bm-service">
+        <span class="bm-service-number" aria-hidden="true">01</span>
+        <h3>Análisis macroeconómico</h3>
+        <p>
+          Estudios de coyuntura y perspectivas sobre actividad
+          económica, inflación, condiciones monetarias y financieras,
+          finanzas públicas y sector externo.
+        </p>
+        <p>
+          Evaluación de tendencias y vulnerabilidades, con una
+          interpretación de sus implicaciones para empresas,
+          sectores e instituciones.
+        </p>
+      </article>
+
+      <article class="bm-service">
+        <span class="bm-service-number" aria-hidden="true">02</span>
+        <h3>Proyecciones y escenarios</h3>
+        <p>
+          Modelos desarrollados según la consulta, el horizonte
+          de análisis y la información disponible.
+        </p>
+        <p>
+          Proyecciones y escenarios para apoyar la planificación,
+          con evaluación de desempeño, incertidumbre y contraste
+          con la teoría económica subyacente.
+        </p>
+      </article>
+
+      <article class="bm-service">
+        <span class="bm-service-number" aria-hidden="true">03</span>
+        <h3>Evaluación de inversiones</h3>
+        <p>
+          Estudios de viabilidad económica y financiera para
+          nuevas inversiones, ampliaciones y comparación
+          de alternativas.
+        </p>
+        <p>
+          Evaluación de la capacidad del proyecto para generar
+          valor, sus necesidades de capital y los factores que
+          pueden comprometer su viabilidad.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="bm-section bm-split"
+           aria-labelledby="bm-enfoque-titulo">
+    <div>
+      <p class="bm-label">Enfoque</p>
+      <h2 id="bm-enfoque-titulo">
+        El entorno económico también forma parte de tu inversión.
+      </h2>
+    </div>
+
+    <div class="bm-split-copy">
+      <p>
+        Los cambios en inflación, actividad económica, condiciones
+        financieras y sector externo pueden modificar los ingresos,
+        los costos y el financiamiento de un proyecto.
+      </p>
+      <p>
+        Cuando el encargo lo requiere, integro esas relaciones
+        en la evaluación para examinar el desempeño de la inversión
+        bajo distintos escenarios y determinar qué condiciones
+        sostienen su viabilidad.
+      </p>
+    </div>
+  </section>
+
+  <section class="bm-section" aria-labelledby="bm-entrega-titulo">
+    <div class="bm-section-heading">
+      <p class="bm-label">Cada encargo</p>
+      <h2 id="bm-entrega-titulo">
+        Una pregunta concreta. Un estudio a medida.
+      </h2>
+      <p>
+        Definimos la decisión, revisamos la información disponible
+        y acordamos una propuesta con alcance, metodología,
+        entregables, plazo y honorarios.
+      </p>
+    </div>
+
+    <div class="bm-deliverables">
+      <div class="bm-deliverable">
+        <h3>Resultados para decidir</h3>
+        <p>
+          Una síntesis ejecutiva de los hallazgos y sus implicaciones,
+          presentada en una reunión de explicación y revisión.
+        </p>
+      </div>
+
+      <div class="bm-deliverable">
+        <h3>Modelo y evidencia</h3>
+        <p>
+          Según el alcance, proyecciones, escenarios o un modelo
+          de evaluación con fuentes y supuestos documentados.
+        </p>
+      </div>
+
+      <div class="bm-deliverable">
+        <h3>Alcances y limitaciones</h3>
+        <p>
+          Interpretación de la incertidumbre y de las condiciones
+          que pueden modificar los resultados del estudio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bm-contact" id="bm-contacto"
+           aria-labelledby="bm-contacto-titulo">
+    <p class="bm-label">Trabajemos en tu consulta</p>
+    <h2 id="bm-contacto-titulo">
+      ¿Qué decisión necesitas evaluar?
+    </h2>
+    <p>
+      Comparte el objetivo del estudio, el sector o proyecto
+      involucrado y el plazo previsto. Con esa información
+      podremos definir el alcance y preparar una propuesta.
+    </p>
+
+    <div class="bm-actions">
+      <a
+        class="bm-button"
+        href="https://wa.me/59178029335?text=Hola%20Mauricio%2C%20quisiera%20solicitar%20una%20propuesta%20para%20un%20estudio%20econ%C3%B3mico%20o%20un%20proyecto%20de%20inversi%C3%B3n."
+        target="_blank"
+        rel="noopener noreferrer">
+        Consultar por WhatsApp
+      </a>
+
+      <a
+        class="bm-button bm-button-secondary"
+        href="{{ "/graficos/" | relURL }}">
+        Conocer los gráficos económicos
+      </a>
+    </div>
+
+    <a
+      class="bm-email"
+      href="mailto:bernalramosmisaelmauricio@gmail.com">
+      bernalramosmisaelmauricio@gmail.com
+    </a>
+  </section>
+
+</div>
+
+{{ end }}

@@ -1,57 +1,73 @@
 ---
-title: "Consultoría económica y análisis de datos"
-description: "Análisis económico, investigación aplicada y visualización de datos para empresas, instituciones y proyectos en Bolivia."
+title: "Consultoría económica"
+description: "Análisis macroeconómico, proyecciones y evaluación de inversiones para empresas, inversionistas e instituciones."
+type: "consultoria"
 ---
 
-**Decisiones mejor informadas a partir de datos claros, fuentes verificables y análisis económico.**
+## Análisis económico para decisiones estratégicas
 
-Trabajo con empresas, instituciones, medios y proyectos que necesitan comprender un problema económico, ordenar información dispersa o comunicar sus resultados con rigor. El alcance y los entregables se acuerdan según cada necesidad.
+El entorno económico condiciona las decisiones de inversión, financiamiento y expansión. Comprender sus perspectivas y evaluar sus implicaciones permite decidir con mayor fundamento.
 
-## ¿En qué puedo ayudarte?
+Soy **Bernal Mauricio, economista**. Desarrollo estudios de análisis macroeconómico y evaluación de inversiones para empresas, inversionistas e instituciones, adaptados a la consulta y las características de cada encargo.
 
-### Análisis económico aplicado
+---
 
-Estudio de indicadores, tendencias y escenarios relevantes para una decisión o investigación: inflación, actividad económica, sector externo, finanzas públicas y otros temas según el proyecto.
+## Análisis macroeconómico
 
-### Investigación y reportes
+Interpretación de la coyuntura y las perspectivas económicas, con atención a los factores que inciden sobre la actividad empresarial y las decisiones de inversión.
 
-Recolección, revisión y análisis de información estadística y documental. Presentación de hallazgos en un informe con gráficos, fuentes, supuestos y conclusiones comprensibles.
+Los estudios abarcan actividad económica, inflación, condiciones monetarias y financieras, finanzas públicas y sector externo. Su alcance puede ser nacional o sectorial, según la pregunta que se busca resolver.
 
-### Datos y visualización
+El análisis vincula la evidencia estadística con la teoría económica y el contexto institucional para identificar tendencias, vulnerabilidades e implicaciones estratégicas.
 
-Organización y limpieza de series de datos; elaboración de tablas y gráficos para informes, presentaciones y comunicación pública. Cuando corresponde, también puedo desarrollar visualizaciones interactivas.
+## Proyecciones y escenarios económicos
 
-## ¿Qué recibirás?
+Desarrollo de proyecciones a medida para apoyar la planificación y evaluar la exposición a cambios en el entorno económico.
 
-Una propuesta concreta antes de empezar, con el objetivo, el alcance, los entregables, el plazo y el costo acordados. Según el trabajo, el resultado puede ser un informe, una base de datos ordenada, gráficos o una combinación de estos. Los datos utilizados se identifican con su fuente y fecha.
+La selección del modelo responde al objetivo del estudio, al horizonte de análisis y a la información disponible. Los resultados se acompañan de supuestos explícitos, evaluación de su desempeño y una interpretación económica de sus alcances.
 
-## Ejemplos de proyectos que podemos trabajar
+Los escenarios permiten examinar cómo distintas condiciones económicas pueden afectar una empresa, un sector o una inversión.
 
-- **Para una empresa:** analizar cómo la inflación, el tipo de cambio o la actividad económica afectan sus costos, su mercado o sus decisiones de planificación.
-- **Para una institución o investigación:** organizar información de distintas fuentes y convertirla en un reporte con indicadores, gráficos y conclusiones.
-- **Para un medio o una presentación:** explicar un tema económico con datos verificables y visualizaciones que el público pueda comprender.
+## Evaluación de proyectos de inversión
 
-## ¿Cómo trabajaremos?
+Estudios de viabilidad económica y financiera para nuevas inversiones, ampliaciones y comparación de alternativas.
 
-1. **Me cuentas tu necesidad.** Definimos la pregunta, el uso del resultado y los datos disponibles.
-2. **Recibes una propuesta.** Acordamos el alcance, los entregables, el plazo y el costo antes de empezar.
-3. **Desarrollo el análisis.** Reviso las fuentes, organizo la información y preparo los resultados.
-4. **Revisamos la entrega.** Te explico los hallazgos, los supuestos y las limitaciones del análisis.
+La evaluación integra las características del proyecto, sus perspectivas de ingresos, costos, necesidades de capital y condiciones de financiamiento. Examina su capacidad para generar valor y los factores que pueden comprometer su viabilidad.
 
-Puedes conocer mi forma de presentar datos en la [sección de gráficos económicos](/graficos/).
+Cuando el encargo lo requiere, los escenarios macroeconómicos se incorporan al análisis para evaluar sus efectos sobre el desempeño de la inversión.
 
-## Hablemos de tu proyecto
+---
 
-Cuéntame qué necesitas analizar, para qué usarás el resultado y si tienes una fecha límite. Con esa información podremos definir el trabajo y preparar una propuesta.
+## Un estudio definido por tu decisión
+
+Cada trabajo comienza con una pregunta concreta: qué necesitas decidir, qué información está disponible y qué horizonte debe considerar el análisis.
+
+A partir de esa consulta, preparo una propuesta que establece el alcance, el enfoque metodológico, los entregables, el plazo y los honorarios.
+
+La entrega se adapta al encargo y puede comprender un informe ejecutivo, proyecciones, un modelo de evaluación y documentación técnica. Los resultados identifican sus fuentes, supuestos y limitaciones, y se presentan en una reunión de explicación y revisión.
+
+**Rigor analítico, fundamento económico y claridad para decidir.**
+
+---
+
+## Conoce mi trabajo
+
+Explora la [sección de gráficos económicos](/graficos/) para conocer mi trabajo con indicadores, series históricas y visualización de información económica.
+
+---
+
+## Solicita una propuesta
+
+Cuéntame qué decisión necesitas evaluar, el sector o proyecto involucrado y el plazo previsto. Con esa información podremos definir el alcance del estudio.
 
 <p>
   <a
     class="btn btn-primary"
-    href="https://wa.me/59178029335?text=Hola%20Mauricio%2C%20quisiera%20consultar%20sobre%20un%20proyecto%20de%20an%C3%A1lisis%20econ%C3%B3mico."
+    href="https://wa.me/59178029335?text=Hola%20Mauricio%2C%20quisiera%20solicitar%20una%20propuesta%20de%20consultor%C3%ADa%20para%20un%20estudio%20econ%C3%B3mico%20o%20un%20proyecto%20de%20inversi%C3%B3n."
     target="_blank"
     rel="noopener noreferrer">
-    Consultar por WhatsApp
+    Solicitar una propuesta
   </a>
 </p>
 
-También puedes escribirme a [bernalramosmisaelmauricio@gmail.com](mailto:bernalramosmisaelmauricio@gmail.com).
+**Correo:** [bernalramosmisaelmauricio@gmail.com](mailto:bernalramosmisaelmauricio@gmail.com)
