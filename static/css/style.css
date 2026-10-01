@@ -1062,3 +1062,463 @@ pre, pre code {
 pre code span {
   color: inherit !important; /* fuerza que el span tome el color padre */
 }
+
+
+/* Nueva paleta Bernal Mauricio: prueba visual */
+body {
+  background-color: #f7f9f8 !important;
+  color: #20313b !important;
+}
+
+body.modo-oscuro {
+  background-color: #111c24 !important;
+  color: #e8f0f1 !important;
+}
+
+body h1, body h2, body h3, body h4,
+body .title, body .lead {
+  color: #20313b !important;
+}
+
+body.modo-oscuro h1, body.modo-oscuro h2,
+body.modo-oscuro h3, body.modo-oscuro h4,
+body.modo-oscuro .title, body.modo-oscuro .lead {
+  color: #e8f0f1 !important;
+}
+
+body a { color: #0b6170 !important; }
+body.modo-oscuro a { color: #79d8ce !important; }
+
+.navbar.navbar-dark.bg-dark.fixed-top,
+footer.footer.fixed-bottom.bg-dark {
+  background-color: #19313d !important;
+  color: #f2f7f7 !important;
+}
+
+.modo-oscuro .navbar.navbar-dark.bg-dark.fixed-top,
+.modo-oscuro footer.footer.fixed-bottom.bg-dark {
+  background-color: #0b151d !important;
+}
+
+.navbar.navbar-dark a, .modo-oscuro .navbar.navbar-dark a,
+footer.footer.bg-dark a, .modo-oscuro footer.footer.bg-dark a {
+  color: #f2f7f7 !important;
+}
+
+body .p-3 {
+  background-color: #ffffff !important;
+  border-color: #d9e3e5 !important;
+  color: #20313b !important;
+}
+
+body.modo-oscuro .p-3 {
+  background-color: #1c2b35 !important;
+  border-color: #3b515d !important;
+  color: #e8f0f1 !important;
+}
+
+body .p-3 p, body .p-3 time { color: #405461 !important; }
+body.modo-oscuro .p-3 p,
+body.modo-oscuro .p-3 time { color: #c7d6dc !important; }
+
+body .btn.btn-primary {
+  background-color: #0b6170 !important;
+  border-color: #0b6170 !important;
+  color: #ffffff !important;
+}
+
+body.modo-oscuro .btn.btn-primary {
+  background-color: #79d8ce !important;
+  border-color: #79d8ce !important;
+  color: #10212a !important;
+}
+
+#modo-oscuro {
+  background-color: #2a4855 !important;
+  color: #ffffff !important;
+  border-color: #66818c !important;
+}
+
+.modo-oscuro #modo-oscuro {
+  background-color: #27434d !important;
+  color: #f2f7f7 !important;
+  border-color: #66818c !important;
+}
+
+
+/* El pie de página queda después del contenido */
+footer.footer.fixed-bottom {
+  position: static !important;
+  width: 100%;
+  margin-top: 3rem;
+}/* Ajuste de la navegación en pantallas pequeñas */
+@media (max-width: 575px) {
+  nav.breadcrumb.container {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  body > .row.container-text-center {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+/* Enlace de las tarjetas del Blog */
+body a.text-decoration-none.link-secondary.nav-link {
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  min-height: 44px;
+  margin-top: 0.75rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background-color: #0b6170 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+body a.text-decoration-none.link-secondary.nav-link::after {
+  content: "→";
+  margin-left: 0.55rem;
+}
+
+body.modo-oscuro a.text-decoration-none.link-secondary.nav-link {
+  background-color: #79d8ce !important;
+  color: #10212a !important;
+}
+
+/* Gráficos mundiales en teléfono */
+@media (max-width: 575px) {
+  .row-list-graficos {
+    flex-direction: column !important;
+    padding: 12px !important;
+  }
+
+  .row-list-graficos .nav-tabs {
+    width: 100%;
+  }
+
+  .row-list-graficos .tab-content {
+    width: 100%;
+    min-width: 0;
+    margin: 1rem 0;
+  }
+
+  .row-list-graficos .tab-pane > div[style*="width: 480px"] {
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .row-list-graficos .html-widget {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Pestañas de los gráficos mundiales */
+body .row-list-graficos #nav-tab {
+  --tab-text: #0b6170;
+  --tab-border: #c9dadd;
+  --tab-active: #0b6170;
+  --tab-active-text: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border: 0 !important;
+  padding: 0;
+}
+
+body.modo-oscuro .row-list-graficos #nav-tab {
+  --tab-text: #79d8ce;
+  --tab-border: #3b515d;
+  --tab-active: #79d8ce;
+  --tab-active-text: #10212a;
+}
+
+body .row-list-graficos #nav-tab .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  margin: 0;
+  border: 1px solid var(--tab-border) !important;
+  border-radius: 10px;
+  background: transparent !important;
+  color: var(--tab-text) !important;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+body .row-list-graficos #nav-tab .nav-link.active {
+  background: var(--tab-active) !important;
+  border-color: var(--tab-active) !important;
+  color: var(--tab-active-text) !important;
+}
+
+body .row-list-graficos #nav-tab .nav-link:hover {
+  border-color: var(--tab-text) !important;
+}
+
+body .row-list-graficos #nav-tab .nav-link:focus-visible {
+  outline: 2px solid var(--tab-text);
+  outline-offset: 3px;
+}
+
+/* Gráficos mundiales en celular */
+@media (max-width: 575px) {
+  .row-list-graficos .dygraphs.html-widget {
+    height: 360px !important;
+  }
+
+  .row-list-graficos .dygraph-title {
+    font-size: 12px !important;
+    line-height: 1.35;
+  }
+}
+
+/* Índice de gráficos por país */
+.graficos-indice-movil {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .article-graficos .graficos-indice-escritorio {
+    display: none;
+  }
+
+  .article-graficos .article-container > .row > .article-style,
+  .article-graficos .graficos-indice {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  .article-graficos .graficos-indice {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+
+  .graficos-indice-movil {
+    display: block;
+    padding: 12px 16px;
+    border: 1px solid #c9dadd;
+    border-radius: 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .graficos-indice-movil summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .graficos-indice-movil[open] summary {
+    margin-bottom: 12px;
+  }
+
+  .modo-oscuro .graficos-indice-movil {
+    border-color: #3b515d;
+  }
+}
+
+
+/* Sectores e indicadores de gráficos por país */
+body .article-graficos {
+  --sector-bg: #ffffff;
+  --sector-text: #0b6170;
+  --sector-border: #c9dadd;
+  --sector-hover: #e8f3f2;
+  --sector-active: #0b6170;
+  --sector-active-text: #ffffff;
+}
+
+body.modo-oscuro .article-graficos {
+  --sector-bg: #1c2b35;
+  --sector-text: #79d8ce;
+  --sector-border: #3b515d;
+  --sector-hover: #27434d;
+  --sector-active: #79d8ce;
+  --sector-active-text: #10212a;
+}
+
+body .article-graficos .nav-tabs {
+  gap: 8px;
+  border: 0 !important;
+  padding-bottom: 8px;
+}
+
+body .article-graficos .dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--sector-border) !important;
+  border-radius: 10px;
+  background: var(--sector-bg) !important;
+  color: var(--sector-text) !important;
+  font-weight: 600;
+  gap: 8px;
+}
+
+body .article-graficos .dropdown-toggle[aria-expanded="true"] {
+  background: var(--sector-active) !important;
+  color: var(--sector-active-text) !important;
+  border-color: var(--sector-active) !important;
+}
+
+body .article-graficos .dropdown-menu {
+  background: var(--sector-bg) !important;
+  border: 1px solid var(--sector-border) !important;
+  border-radius: 10px;
+  padding: 6px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .14);
+  max-width: calc(100vw - 32px);
+}
+
+body .article-graficos .dropdown-menu li {
+  border: 0 !important;
+  background: transparent !important;
+}
+
+body .article-graficos .dropdown-menu a {
+  display: block;
+  min-height: 44px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: var(--sector-text) !important;
+  background: transparent !important;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+body .article-graficos .dropdown-menu li:hover,
+body .article-graficos .dropdown-menu a:hover,
+body .article-graficos .dropdown-menu a:focus-visible {
+  background: var(--sector-hover) !important;
+}
+
+body .article-graficos .dropdown-menu li:hover a {
+  color: var(--sector-text) !important;
+} 
+
+
+
+/* Estructura: el pie queda después del contenido */
+body.site-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-main {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Pie de página */
+body .site-footer {
+  position: static;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 24px 20px;
+  background: transparent !important;
+  border-top: 1px solid #c9dadd;
+  color: #405461;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body.modo-oscuro .site-footer {
+  border-color: #3b515d;
+  color: #c7d6dc;
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 12px;
+  text-align: center;
+}
+
+/* Redes: centradas, separadas y con salto automático */
+body .social-share {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center !important;
+  align-items: center;
+  gap: 12px;
+  width: 100% !important;
+  margin: 24px 0;
+  padding: 0;
+}
+
+body .social-share .share-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body .social-share .share-icons li {
+  margin: 0;
+  padding: 0 !important;
+}
+
+body .social-share a.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px !important;
+  height: 44px !important;
+  padding: 0 !important;
+  flex-shrink: 0;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+}
+
+body .social-share .widget-social__link-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+body .social-share p {
+  display: none;
+}
+
+body .social-share a.share-btn:focus-visible {
+  outline: 3px solid #0b6170;
+  outline-offset: 4px;
+}
+
+/* Redes dentro del menú */
+body .offcanvas .row.container-text-center {
+  margin: 0;
+}
+
+body .offcanvas .social-share {
+  margin: 24px 0;
+}
+
+/* Botón para volver arriba */
+body #scrollTopBtn {
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  right: 18px;
+  bottom: 18px;
+}

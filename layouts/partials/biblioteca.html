@@ -1,23 +1,91 @@
-<div class="biblioteca">
-  <figure class="text-center-biblioteca">
-    <blockquote class="blockquote-biblioteca">
-      <p>Escuela Austríaca de Economía</p>
-    </blockquote>
-  </figure>
-
-  <div class="row">
-    {{ range .Site.Data.libros.economia.austriacos }}
-    <div class="col-sm d-flex">
-      <div class="card card-body">
-        
-        <div class="card-body flex-fill">
-          <h5 class="card-title">{{ .titulo }}</h5>
-          <p class="card-text">{{ .resumen | truncate 200 }}</p>
-          <a href="{{ .link }}" class="btn btn-primary">Descargar</a>
-
-        </div>
-      </div>
-    </div>
+{{ $categorias := dict "austriacos" "Escuela Austríaca" "economia" "Economía" "bolivia" "Bolivia" "cepal_fmi_bid" "CEPAL, FMI y BID" "filosofia" "Filosofía" "filosofia_politica" "Filosofía política" "historia" "Historia" "literatura" "Literatura" "matematica_estadistica" "Matemática y estadística" "neurociencia" "Neurociencia" "objetivismo" "Objetivismo" "otros" "Otros documentos" }}
+<section class="bm-library" aria-labelledby="library-title">
+  <header>
+    <p class="bm-library-label">LIBROS Y DOCUMENTOS DE CONSULTA</p>
+    <h1 id="library-title">Biblioteca</h1>
+    <p>Explora el catálogo por título, colección o tema.</p>
+  </header>
+  <label for="library-search">Buscar un título, autor o tema</label>
+  <input id="library-search" type="search" placeholder="Por ejemplo: Menger o acción humana">
+  <div class="bm-library-filters" role="group" aria-label="Categorías de libros">
+    <button type="button" data-category="all" aria-pressed="true">Todos</button>
+    {{ range $categoria, $libros := .Site.Data.libros.economia }}
+      <button type="button" data-category="{{ $categoria }}" aria-pressed="false">{{ index $categorias $categoria | default (humanize $categoria) }}</button>
     {{ end }}
   </div>
-</div>
+  <p id="library-count" role="status" aria-live="polite"></p>
+  <div class="bm-library-grid">
+    {{ range $categoria, $libros := .Site.Data.libros.economia }}
+      {{ range $libros }}
+        <article class="bm-book" data-category="{{ $categoria }}">
+          <span class="bm-book-category">{{ index $categorias $categoria | default (humanize $categoria) }}</span>
+          <h2>{{ .titulo }}</h2>
+          {{ with .autor }}<p>{{ . }}</p>{{ end }}
+          {{ with .coleccion }}<p class="bm-book-summary">{{ . }}</p>{{ end }}
+          {{ with .resumen }}<p class="bm-book-summary">{{ . | plainify | truncate 200 }}</p>{{ end }}
+          {{ with .formato }}<span class="bm-book-category">{{ . }}</span>{{ end }}
+          {{ if eq .acceso "not_shared" }}<p class="bm-book-summary">Acceso privado en Drive</p>{{ else if eq .acceso "access_not_verified" }}<p class="bm-book-summary">Acceso público pendiente de comprobar</p>{{ end }}
+          {{ with .link }}
+            <a class="bm-book-link" href="{{ . }}" target="_blank" rel="noopener noreferrer">Abrir documento ↗</a>
+          {{ end }}
+        </article>
+      {{ end }}
+    {{ end }}
+  </div>
+  <nav class="bm-library-pages" aria-label="Páginas del catálogo">
+    <button type="button" id="library-prev">Anterior</button>
+    <span id="library-page"></span>
+    <button type="button" id="library-next">Siguiente</button>
+  </nav>
+  <p id="library-empty" hidden>No encontramos libros con esa búsqueda. Prueba otro autor o tema.</p>
+</section>
+<script>
+(function () {
+  const library = document.querySelector('.bm-library');
+  if (!library) return;
+  const search = library.querySelector('#library-search');
+  const buttons = Array.from(library.querySelectorAll('.bm-library-filters button'));
+  const books = Array.from(library.querySelectorAll('.bm-book'));
+  let category = 'all';
+  let page = 1;
+  const pageSize = 24;
+  const prev = library.querySelector('#library-prev');
+  const next = library.querySelector('#library-next');
+  function normalize(text) {
+    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+  const texts = books.map(book => normalize(book.textContent));
+  function filter() {
+    const words = normalize(search.value).trim().split(/\s+/).filter(Boolean);
+    const matches = books.filter((book, index) =>
+      (category === 'all' || book.dataset.category === category)
+      && words.every(word => texts[index].includes(word))
+    );
+    const pages = Math.max(1, Math.ceil(matches.length / pageSize));
+    page = Math.min(page, pages);
+    books.forEach(book => { book.hidden = true; });
+    matches.slice((page - 1) * pageSize, page * pageSize).forEach(book => { book.hidden = false; });
+    library.querySelector('#library-count').textContent = matches.length + ' documentos en el catálogo';
+    library.querySelector('#library-empty').hidden = matches.length !== 0;
+    library.querySelector('#library-page').textContent = 'Página ' + page + ' de ' + pages;
+    library.querySelector('.bm-library-pages').hidden = matches.length <= pageSize;
+    prev.disabled = page <= 1;
+    next.disabled = page >= pages;
+  }
+  search.addEventListener('input', () => { page = 1; filter(); });
+  buttons.forEach(button => button.addEventListener('click', () => {
+    category = button.dataset.category;
+    page = 1;
+    buttons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    filter();
+  }));
+  function changePage(delta) {
+    page += delta;
+    filter();
+    search.scrollIntoView({ block: 'start' });
+  }
+  prev.addEventListener('click', () => changePage(-1));
+  next.addEventListener('click', () => changePage(1));
+  filter();
+})();
+</script>

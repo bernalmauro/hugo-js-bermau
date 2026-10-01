@@ -59,15 +59,11 @@ weight = 300
 
 [[menu.main]]
 identifier = "consultoria"
-name = "Consultoría Macroeconómica"
+name = "Consultoría"
 url = "/consultoria/"
 weight = 300
 
-[[menu.main]]
-identifier = "atlas"
-name = "Atlas de Economía"
-url = "/atlas/"
-weight = 300
+
 
 
 [markup]

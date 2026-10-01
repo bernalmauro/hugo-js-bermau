@@ -99,7 +99,7 @@ output: html_document
 
 </div>
 
-<div id="pobrezamundial" class="tab-pane fade active" role="tabpanel" aria-labelledby="pobrezamundial-tab">
+<div id="pobrezamundial" class="tab-pane fade" role="tabpanel" aria-labelledby="pobrezamundial-tab">
 
 <div style="margin-bottom: 40px; width: 480px;">
 <div class="dygraphs html-widget html-fill-item" id="htmlwidget-2" style="width:960px;height:500px;"></div>
@@ -108,7 +108,7 @@ output: html_document
 
 </div>
 
-<div id="esperanzavidamundial" class="tab-pane fade active" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
+<div id="esperanzavidamundial" class="tab-pane fade" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
 
 <div style="margin-bottom: 40px; width: 480px;">
 <div class="dygraphs html-widget html-fill-item" id="htmlwidget-3" style="width:960px;height:500px;"></div>

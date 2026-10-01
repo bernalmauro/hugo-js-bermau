@@ -1,46 +1,48 @@
 <!DOCTYPE html>
-<html>
-{{- partial "head.html" . -}}
-{{- partial "nav.html" . -}}
-{{ partial "breadcrumb.html" . }}
+<html lang="es">
+  {{- partial "head.html" . -}}
 
-<body>
-    {{- block "main" . }}{{- end }}
-  <!-- HTML para el botón con icono de flecha hacia arriba -->
-<button id="scrollTopBtn" onclick="scrollToTop()">
-  <i class="fas fa-arrow-up"></i>
-</button>
- <!-- JavaScript para desplazarse hacia arriba -->
- <script>
-  window.onscroll = function() { scrollFunction() };
+  <body class="site-layout">
+    {{- partial "nav.html" . -}}
+    {{ partial "breadcrumb.html" . }}
 
-  function scrollFunction() {
-    var scrollTopBtn = document.getElementById("scrollTopBtn");
+    <main class="site-main">
+      {{- block "main" . }}{{- end }}
+    </main>
 
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      scrollTopBtn.style.display = "block";
-      scrollTopBtn.style.opacity = "1";
-    } else {
-      scrollTopBtn.style.opacity = "0";
-      setTimeout(function() {
-        scrollTopBtn.style.display = "none";
-      }, 300); // Esperamos a que termine la transición antes de ocultar completamente el botón
-    }
-  }
+    <button
+      id="scrollTopBtn"
+      type="button"
+      onclick="scrollToTop()"
+      aria-label="Volver arriba">
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
-  function scrollToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-</script>
+    <script>
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
 
+      (function () {
+        const button = document.getElementById('scrollTopBtn');
 
-    <div class="row container-text-center">
-    <!--     {{ partial "redes" . }}
-       {{ partial "comment" . }}
-      </div> -->
-    {{- partial "footer.html" . -}} 
-    
-</body>
+        function updateButton() {
+          const visible = window.scrollY > 200;
+          button.style.display = visible ? 'flex' : 'none';
+          button.style.opacity = visible ? '1' : '0';
+        }
 
-</html> 
+        window.addEventListener('scroll', updateButton, {
+          passive: true
+        });
+
+        updateButton();
+      })();
+    </script>
+
+    {{- partial "footer.html" . -}}
+  </body>
+</html>

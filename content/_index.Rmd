@@ -5,10 +5,11 @@ title: |
 output: html_document
 ---
 
-# Bienvenido!
+# Análisis económico con datos claros
 
-Un espacio para analizar la economía más allá del discurso político, a partir de datos y razonamiento económico.
+Soy Mauricio Bernal. Comparto análisis, gráficos y lecturas para entender la economía. También desarrollo trabajos de consultoría para empresas, instituciones y proyectos que necesitan tomar decisiones mejor informadas.
 
+<p><a class="btn btn-primary" href="/consultoria/">Conoce mi consultoría</a></p>
 ## [Mi Blog](https://bernalmauricio.com/blog/)
 
 Análisis económico, teoría económica, filosofía política y programación aplicada, basados en datos y argumentación rigurosa.

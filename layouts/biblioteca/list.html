@@ -1,7 +1,7 @@
 {{ define "main" }}
-<div class="container-sm">
-    
-    {{ partial "biblioteca" . }}
-</div>
+  <link rel="stylesheet" href="{{ "/css/biblioteca.css" | relURL }}">
 
+  <div class="container-sm py-4">
+    {{ partial "biblioteca.html" . }}
+  </div>
 {{ end }}

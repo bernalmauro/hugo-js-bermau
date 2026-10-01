@@ -2,7 +2,7 @@
 title: "Analisis Economico"
 date: 2017-01-01
 draft: false
-featuredImage: /images/analisis-economico-blog-bernalmauricio.jpeg
+featuredImage: /images/portada-analisis-economico.png
 categories: ["Analisis Economico"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

@@ -36,6 +36,57 @@
   </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = Array.from(document.querySelectorAll('#nav-tab a[href^="#"]'));
+  const panels = Array.from(document.querySelectorAll('#nav-tabContent > .tab-pane'));
+  if (tabs.length !== 3 || panels.length !== 3) return;
 
+  function resizeVisibleChart(panel) {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        panel.querySelectorAll('.html-widget').forEach(function (widget) {
+          const instance = window.HTMLWidgets && HTMLWidgets.getInstance(widget);
+          if (instance && typeof instance.resize === 'function') {
+            instance.resize(widget.clientWidth, widget.clientHeight);
+          }
+        });
+        window.dispatchEvent(new Event('resize'));
+      });
+    });
+  }
+
+  function showChart(tab) {
+    const target = tab.getAttribute('href').slice(1);
+    const panel = panels.find(function (item) { return item.id === target; });
+    if (!panel) return;
+
+    tabs.forEach(function (item) {
+      const selected = item === tab;
+      item.classList.toggle('active', selected);
+      item.setAttribute('aria-selected', String(selected));
+    });
+
+    panels.forEach(function (item) {
+      const selected = item === panel;
+      item.classList.toggle('active', selected);
+      item.classList.toggle('show', selected);
+    });
+
+    resizeVisibleChart(panel);
+    setTimeout(function () { resizeVisibleChart(panel); }, 80);
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      showChart(tab);
+    }, true);
+  });
+
+  showChart(tabs[0]);
+});
+</script>
 
 {{- end -}}

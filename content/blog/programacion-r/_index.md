@@ -3,7 +3,7 @@ title: "Programacion R"
 slug: "programacion-r"
 date: 2017-01-01
 draft: false
-featuredImage: /images/programacion-r-blog-bernalmauricio.jpeg
+featuredImage: /images/portada-programacion-r.png
 categories: ["Programacion R"]
 keywords: ["", "","", ""]
 author: "Mauricio Bernal"

@@ -70,18 +70,19 @@ output: html_document
 <script src="/rmarkdown-libs/dygraphs-binding/dygraphs.js"></script>
 <script src="/rmarkdown-libs/Dygraph.Plugins.Crosshair/crosshair.js"></script>
 
-# Bienvenido!
+# Análisis económico con datos claros
 
-Un espacio para analizar la economía más allá del discurso político, a partir de datos y razonamiento económico.
+Soy Mauricio Bernal. Comparto análisis, gráficos y lecturas para entender la economía. También desarrollo trabajos de consultoría para empresas, instituciones y proyectos que necesitan tomar decisiones mejor informadas.
 
+<p><a class="btn btn-primary" href="/consultoria/">Conoce mi consultoría</a></p>
 
-## [Mi Blog](https://bernalmauricio.com/blog/)
+## [Mi Blog](/blog/)
 
 Análisis económico, teoría económica, filosofía política y programación aplicada, basados en datos y argumentación rigurosa.
 
 {{< blog_post limit="3" >}}
 
-## [Biblioteca](https://bernalmauricio.com/biblioteca/)
+## [Biblioteca](/biblioteca/)
 
 Una selección de libros de economía y filosofía política, que incluye obras clásicas y contemporáneas relevantes para el análisis y la reflexión teórica.
 
@@ -89,12 +90,12 @@ Una selección de libros de economía y filosofía política, que incluye obras 
 {{< biblioteca categoria="austriacos" >}}
 
 
-## [Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
+## [Gráficos y Tablas Económicas](/graficos/)
 
 Gráficos y tablas construidos a partir de datos económicos, utilizados como herramienta de análisis y comparación.
 
 
-## [Consultoría Macroeconómica](https://bernalmauricio.com/consultoria/)
+## [Consultoría Macroeconómica](/consultoria/)
 
 Análisis macroeconómico aplicado, basado en datos y modelos, para la evaluación de escenarios económicos y toma de decisiones.
 

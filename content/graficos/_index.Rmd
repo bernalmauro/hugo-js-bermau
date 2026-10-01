@@ -267,7 +267,7 @@ htmltools::tags$div(
 ```
 </div>
 
-<div class="tab-pane fade active" id="pobrezamundial" role="tabpanel" aria-labelledby="pobrezamundial-tab">
+<div class="tab-pane fade" id="pobrezamundial" role="tabpanel" aria-labelledby="pobrezamundial-tab">
 ```{r pobrezamundial, echo=FALSE, warning=FALSE, out.width=500}
 htmltools::tags$div(
 pobreza_mundial,
@@ -279,7 +279,7 @@ pobreza_mundial,
 
 </div>
 
-<div class="tab-pane fade active" id="esperanzavidamundial" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
+<div class="tab-pane fade" id="esperanzavidamundial" role="tabpanel" aria-labelledby="esperanzavidamundial-tab">
 ```{r esperanzavidamundial, echo=FALSE, warning=FALSE, out.width=500}
 htmltools::tags$div(
   esperanza_vida,
