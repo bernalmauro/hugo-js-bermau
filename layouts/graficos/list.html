@@ -1,92 +1,19 @@
-{{- define "main" -}}
+{{ define "main" }}
+<section class="container py-5">
+  <h1>Economicus</h1>
+  <p>Explora nuestra biblioteca de indicadores económicos.</p>
 
-  <nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid-list custom-flex">
-      <button class="navbar-toggler-list" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasCountrySelect" aria-controls="offcanvasCountrySelect"
-        aria-label="Toggle navigation">ESTADÍSTICAS SEGÚN PAÍS </button>
-      <div class="offcanvas offcanvas-end text-bg-dark ms-auto" tabindex="-1" id="offcanvasCountrySelect"
-        aria-labelledby="offcanvasCountrySelectLabel">
-        <div class="offcanvas-header">
-          <h3>
-            <a class="offcanvas-title nav-link" href="#">PAISES</a>
-          </h3>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-            aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav">
-            {{ range .Pages }}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ .Permalink }}">{{ .Title }}</a>
-            </li>
-            {{ end }}
-          </ul>
-          <div class="row container-text-center">
-            {{ partial "redes" . }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-<div>
-  <div class="row row-list-graficos">
-  
-    {{ .Content }}
-  </div>
-</div>
+  <a id="enlace-economicus"
+     class="btn btn-primary"
+     href="{{ "/economicus/" | relURL }}">
+    Entrar a Economicus
+  </a>
+</section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const tabs = Array.from(document.querySelectorAll('#nav-tab a[href^="#"]'));
-  const panels = Array.from(document.querySelectorAll('#nav-tabContent > .tab-pane'));
-  if (tabs.length !== 3 || panels.length !== 3) return;
-
-  function resizeVisibleChart(panel) {
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        panel.querySelectorAll('.html-widget').forEach(function (widget) {
-          const instance = window.HTMLWidgets && HTMLWidgets.getInstance(widget);
-          if (instance && typeof instance.resize === 'function') {
-            instance.resize(widget.clientWidth, widget.clientHeight);
-          }
-        });
-        window.dispatchEvent(new Event('resize'));
-      });
-    });
+  const enlace = document.getElementById("enlace-economicus");
+  if (enlace) {
+    window.location.replace(enlace.href);
   }
-
-  function showChart(tab) {
-    const target = tab.getAttribute('href').slice(1);
-    const panel = panels.find(function (item) { return item.id === target; });
-    if (!panel) return;
-
-    tabs.forEach(function (item) {
-      const selected = item === tab;
-      item.classList.toggle('active', selected);
-      item.setAttribute('aria-selected', String(selected));
-    });
-
-    panels.forEach(function (item) {
-      const selected = item === panel;
-      item.classList.toggle('active', selected);
-      item.classList.toggle('show', selected);
-    });
-
-    resizeVisibleChart(panel);
-    setTimeout(function () { resizeVisibleChart(panel); }, 80);
-  }
-
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function (event) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      showChart(tab);
-    }, true);
-  });
-
-  showChart(tabs[0]);
-});
 </script>
-
-{{- end -}}
+{{ end }}

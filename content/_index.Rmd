@@ -24,7 +24,8 @@ Una selección de libros de economía y filosofía política, que incluye obras 
 
 {{< biblioteca categoria="austriacos" >}}
 
-## [Gráficos y Tablas Económicas](https://bernalmauricio.com/graficos/)
+## [Economicus](/economicus/)
+
 
 Gráficos y tablas construidos a partir de datos económicos, utilizados como herramienta de análisis y comparación.
 
