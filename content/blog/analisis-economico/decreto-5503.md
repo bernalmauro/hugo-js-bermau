@@ -1,5 +1,7 @@
 ---
 title: "Decreto Supremo 5503: ¿el nuevo DS 21060?"
+seoTitle: "Decreto Supremo 5503: análisis económico de Bolivia | Bernal Mauricio"
+description: "Análisis del Decreto Supremo 5503, sus medidas económicas y su comparación con el DS 21060."
 date: 2026-01-09
 draft: false
 featuredImage: /images/decreto-5503.jpg
