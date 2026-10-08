@@ -1,0 +1,53 @@
+[
+  {
+    "code": "bo",
+    "name": "Bolivia",
+    "available": true,
+    "dataRoot": "data/"
+  },
+  {
+    "code": "ar",
+    "name": "Argentina",
+    "available": false
+  },
+  {
+    "code": "br",
+    "name": "Brasil",
+    "available": false
+  },
+  {
+    "code": "cl",
+    "name": "Chile",
+    "available": false
+  },
+  {
+    "code": "co",
+    "name": "Colombia",
+    "available": false
+  },
+  {
+    "code": "ec",
+    "name": "Ecuador",
+    "available": false
+  },
+  {
+    "code": "mx",
+    "name": "México",
+    "available": false
+  },
+  {
+    "code": "py",
+    "name": "Paraguay",
+    "available": false
+  },
+  {
+    "code": "pe",
+    "name": "Perú",
+    "available": false
+  },
+  {
+    "code": "uy",
+    "name": "Uruguay",
+    "available": false
+  }
+]

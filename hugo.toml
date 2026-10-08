@@ -53,8 +53,8 @@ weight = 200
 
 [[menu.main]]
 identifier = "graficos"
-name = "Gráficos"
-url = "/graficos/"
+name = "Economicus"
+url = "/economicus/"
 weight = 300
 
 [[menu.main]]
